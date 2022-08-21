@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.inputPrimary {
+		@apply bg-lightgray py-3 px-5 text-white placeholder:opacity-50 focus:outline-none cursor-none;
+	}
+	.buttonPrimary {
+		@apply bg-darkgray px-8 py-2.5 text-center text-base hover:bg-lightgray active:bg-darkgray;
+	}
+	.buttonSecondary {
+		@apply bg-lightgray px-8 py-2.5 text-center text-base hover:bg-darkgray active:bg-lightgray;
+	}
+}
+
+@font-face {
+	font-family: "Aeonik";
+	src: url("Aeonik-Regular.woff2") format("woff2"),
+		url("Aeonik-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Aeonik";
+	src: url("Aeonik-Medium.woff2") format("woff2"),
+		url("Aeonik-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Aeonik";
+	src: url("Aeonik-Regular.woff2") format("woff2"),
+		url("Aeonik-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Aeonik";
+	src: url("Aeonik-Medium.woff2") format("woff2"),
+		url("Aeonik-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+.noScroll::-webkit-scrollbar {
+	display: none;
+}
+
+.noScroll {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+a, button {
+	cursor: none;
+}
