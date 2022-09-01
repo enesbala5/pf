@@ -9,6 +9,7 @@
 	import { Motion, AnimateSharedLayout } from "svelte-motion";
 	import { browser } from "$app/env";
 	import { hoverOverLink, hoverOverText } from "$lib/state/hoverOver";
+	import { fade } from "svelte/transition";
 
 	function hoveredOverLink() {
 		hoverOverLink.set(true);
@@ -31,15 +32,17 @@
 	};
 
 	let frontendHover: boolean = false;
+
 	let uiuxHover: boolean = false;
+	import { sineInOut } from "svelte/easing";
 </script>
 
 <title>Name Surn - Work Portfolio</title>
 
 <!-- infobar -->
-<div class="bg-darkgray">
+<div class="bg-darkgray" id="wrapper">
 	<div
-		class=" mx-auto grid h-16 w-10/12 grid-cols-10 grid-rows-1 gap-2 text-xs"
+		class=" mx-auto grid h-16 grid-cols-10 grid-rows-1 gap-2 px-4 text-xs lg:w-10/12 lg:px-0"
 	>
 		<div class="col-span-2 flex items-center opacity-70">
 			Personal Portfolio Project
@@ -54,10 +57,11 @@
 </div>
 <!-- hero -->
 <div
-	class="relative mx-auto mb-12 grid h-[70vh] w-10/12 grid-cols-10 grid-rows-6 gap-2 text-xl"
+	class="relative mx-auto mb-12 grid h-[70vh] grid-cols-10 grid-rows-6 gap-2 text-xl lg:w-10/12"
 >
 	{#if frontendHover}
 		<div
+			transition:fade={{ duration: 250, easing: sineInOut }}
 			class="z-10 col-span-6 col-start-5 row-start-1 row-end-6 mb-12 mt-10 flex w-full items-center justify-center overflow-hidden bg-darkgray"
 		>
 			<img src="images/developer.jpg" alt="" />
@@ -65,13 +69,14 @@
 	{/if}
 	{#if uiuxHover}
 		<div
+			transition:fade={{ duration: 250, easing: sineInOut }}
 			class="z-10 col-span-3 col-start-6 row-start-1 row-end-7 mt-10 flex w-full items-center justify-center overflow-hidden bg-darkgray"
 		>
-			<img src="images/design.jpg" alt="" />
+			<img src="images/design.jpg" alt="UI& UX Design" />
 		</div>
 	{/if}
-	<div class="absolute bottom-0 col-span-8 flex w-full flex-col justify-end">
-		<h1 class="mb-4  text-8xl font-medium">Product Designer</h1>
+	<div class="absolute bottom-0 col-span-8 flex w-full px-4 lg:px-0 flex-col justify-end">
+		<h1 class="mb-4 headline">Product Designer</h1>
 		<div class="flex w-full items-end justify-between">
 			<div>
 				<h3
@@ -79,7 +84,7 @@
 					on:mouseleave={notHovering}
 					on:mouseenter={() => (frontendHover = true)}
 					on:mouseleave={() => (frontendHover = false)}
-					class=" text-4xl font-medium opacity-20 transition-all hover:opacity-100"
+					class=" text-4xl font-medium opacity-20 transition-all hover:opacity-100 delay-75"
 				>
 					Frontend Developer
 				</h3>
@@ -88,7 +93,7 @@
 					on:mouseleave={notHovering}
 					on:mouseenter={() => (uiuxHover = true)}
 					on:mouseleave={() => (uiuxHover = false)}
-					class=" text-4xl font-medium opacity-20  transition-all hover:opacity-100"
+					class=" text-4xl font-medium opacity-20  transition-all hover:opacity-100 delay-75"
 				>
 					UI& UX Designer
 				</h3>
@@ -152,11 +157,22 @@
 				on:mouseenter={() => hoverSkill(frontendSkill.icon)}
 			>
 				<div class="h-[1px] w-full bg-lightgray" />
-				<p
-					class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
-				>
-					{frontendSkill.name}
-				</p>
+				{#if frontendSkill.name !== "Supabase"}
+					<p
+						class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
+					>
+						{frontendSkill.name}
+					</p>
+				{/if}
+				{#if frontendSkill.name === "Supabase"}
+					<p
+						class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
+					>
+						Supabase<span class="hidden lg:inline-block">
+							/ Postgres Database</span
+						>
+					</p>
+				{/if}
 			</div>
 		{/each}
 	</div>
@@ -309,7 +325,8 @@
 			</svg>
 		</div>
 	</div>
-	<div class="col-span-6 col-start-5 flex justify-end"
+	<div
+		class="col-span-6 col-start-5 flex justify-end"
 		on:mouseenter={hoveredOverLink}
 		on:mouseleave={notHovering}
 	>
@@ -338,9 +355,10 @@
 	<div class="mx-auto flex w-10/12 justify-between py-8">
 		{#each logoPanel as logo}
 			<a
-			on:mouseenter={hoveredOverLink} on:mouseleave={notHovering}
+				on:mouseenter={hoveredOverLink}
+				on:mouseleave={notHovering}
 				href={logo.link}
-				class="h-12 opacity-70 transition-all delay-75 hover:opacity-100 cursor-none"
+				class="h-12 cursor-none opacity-70 transition-all delay-75 hover:opacity-100"
 				><img class="h-full" src={logo.logo} alt={logo.name} /></a
 			>
 		{/each}

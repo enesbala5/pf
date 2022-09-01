@@ -84,18 +84,18 @@
 	>
 		<div id="logo" class="mt-16 h-6 w-6  bg-white" />
 		<p class="mt-16 font-mono text-xs opacity-70">Loading</p>
-		<p class="mt-0 font-mono text-xs opacity-50">Tip: Hover to enter</p>
+		<p class="mt-0 font-mono text-xs opacity-50">Tip: Hover or click to enter</p>
 	</div>
 {/if}
 
 {#if ready}
 	<div
 		in:fade={{ duration: 500, easing: quadIn }}
-		class="relative min-h-screen cursor-none font-aeonik text-white"
+		class="relative min-h-screen lg:cursor-none font-aeonik text-white"
 		on:mousedown={() => (clicked = true)}
 		on:mouseup={() => (clicked = false)}
 	>
-		<svg class="pointer-events-none absolute z-[999] h-full w-full">
+		<svg class="pointer-events-none absolute z-[999] h-full w-full hidden lg:block">
 			<circle
 				class={pointerClasses}
 				cx={pageX}

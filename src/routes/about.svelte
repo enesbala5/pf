@@ -5,10 +5,13 @@
 	import { cityName } from "$lib/info/info";
 </script>
 
+<title>About Me - Name Surn</title>
+
+
 <!-- about me -->
-<div class="mx-auto mt-24 w-10/12 font-aeonik text-white">
-	<h1 class="text-8xl font-medium">About me</h1>
-	<div class="relative mx-auto mt-24 mb-8 grid grid-cols-10 gap-2 text-lg">
+<div class="mx-auto mt-24 lg:w-10/12 w-full p-4 font-aeonik text-white">
+	<h1 class='headline'>About me</h1>
+	<div class="relative mx-auto lg:mt-24 mt-12 mb-8 grid grid-cols-10 gap-2 text-lg">
 		<div class="col-span-3 col-start-2">
 			<p class="text-justify">
 				Name surn is a designer / developer based in City, Country.

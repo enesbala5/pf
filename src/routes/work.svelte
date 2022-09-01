@@ -4,12 +4,14 @@
 	import { projects } from "$lib/projects/projects";
 </script>
 
-<!-- contact -->
-<div class="mx-auto mt-24 w-10/12 font-aeonik text-white">
-	<h1 class="text-8xl font-medium">Projects</h1>
+<title>Work - Name Surn</title>
+
+<!-- work -->
+<div class="mx-auto mt-24 lg:w-10/12 w-full p-4 font-aeonik text-white">
+	<h1 class="headline">Projects</h1>
 	<div
 		id="skills"
-		class="relative mx-auto mt-24 mb-12 grid grid-cols-10 gap-2 gap-y-12 text-xl"
+		class="relative mx-auto lg:mt-24 mt-12 mb-12 grid grid-cols-10 gap-2 gap-y-12 text-xl"
 	>
 		<!-- titlebar -->
 		<div class="col-span-2 col-start-2">

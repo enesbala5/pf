@@ -28,6 +28,8 @@
 	}
 </script>
 
+<title>Thank You - Name Surn</title>
+
 <!-- contact -->
 <div class="mx-auto mt-24 w-10/12 font-aeonik text-white">
 	<div class="flex items-center justify-between">

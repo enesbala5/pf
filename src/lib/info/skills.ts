@@ -20,7 +20,7 @@ export const frontendSkills = [
 		icon: "js_ts.svg",
 	},
 	{
-		name: "Supabase / Postgres Database",
+		name: "Supabase",
 		icon: "supabase/supabase-logo-wordmark--dark.svg",
 	},
 ];

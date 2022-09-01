@@ -29,10 +29,12 @@
 	}
 </script>
 
-<!-- contact -->
-<div class="mx-auto mt-24 w-10/12 font-aeonik text-white">
-	<h1 class="text-8xl font-medium">Contact</h1>
-	<div class="relative mx-auto mt-24 mb-8 grid grid-cols-10 gap-2 text-lg">
+<title>Contact - Name Surn</title>
+
+<!-- contact --> 
+<div class="mx-auto lg:mt-24 mt-12 lg:w-10/12 w-full p-4 font-aeonik text-white">
+	<h1 class="headline">Contact</h1>
+	<div class="relative mx-auto mt-24 mb-8 lg:grid lg:grid-cols-10 lg:gap-2 text-lg">
 		<div class="col-span-8 col-start-2 flex items-center justify-between">
 			<p class="text-justify">
 				Love to hear from you,<br />
@@ -48,11 +50,11 @@
 		<!-- form - fix emailAddress -->
 		<form
 			action="https://formsubmit.co/emailAddress@emailAddress"
-			class="col-span-8 col-start-2 mt-8 space-y-4 bg-darkgray p-6 text-base"
+			class="col-span-8 col-start-2 mt-8 space-y-4 bg-darkgray lg:p-6 p-4 text-base"
 		>
 			<!-- row -->
-			<div class="flex items-center space-x-6">
-				<div class="flex w-1/2 flex-col space-y-3">
+			<div class="flex sm:flex-row flex-col items-center sm:space-x-6 space-y-3 lg:space-y-0">
+				<div class="flex sm:w-1/2 w-full flex-col space-y-3">
 					<p>Your Name</p>
 					<input
 						on:mouseenter={hoveredOverText}
@@ -63,7 +65,7 @@
 						required
 					/>
 				</div>
-				<div class="flex w-1/2 flex-col space-y-3">
+				<div class="flex sm:w-1/2 w-full flex-col space-y-3">
 					<p>Your Address</p>
 					<input
 						on:mouseenter={hoveredOverText}
@@ -108,11 +110,11 @@
 			<!-- end row -->
 			<div class="flex w-full space-x-6 ">
 				<button
-					class="buttonSecondary  mt-6 w-1/2"
+					class="buttonSecondary  mt-6 lg:w-1/2 w-full"
 					on:mouseenter={hoveredOverLink}
 					on:mouseleave={notHovering}>Just Send</button
 				>
-				<div class="invisible mt-6 w-1/2" />
+				<div class="invisible mt-6 hidden lg:block w-1/2" />
 			</div>
 		</form>
 		<!-- end form -->
