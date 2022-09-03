@@ -32,12 +32,12 @@
 			<a
 				href={`mailto:${emailAddress}`}
 				class="opacity-70"
-				on:mouseenter={hoveredOverLink}
+				on:mouseenter={hoveredOverText}
 				on:mouseleave={notHovering}>Send me an email</a
 			>
 		</div>
 	</div>
-	<div class="h-96 w-1/2 overflow-hidden bg-darkgray">
+	<div class="h-96 w-1/2 overflow-hidden dark:bg-darkgray bg-neutral-200">
 		<div class="h-full w-full mix-blend-multiply">
 			<img src="images/contact.png" alt="" class="w-full " />
 		</div>

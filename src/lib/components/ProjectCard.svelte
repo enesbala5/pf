@@ -28,11 +28,11 @@ import { goto } from "$app/navigation";
 			on:mouseenter={hoveredOverLink}
 			on:mouseleave={notHovering}
 		>
-			<h4 class="cursor-pointer font-medium opacity-70 group-hover:opacity-100">
+			<h4 class=" font-medium opacity-70 group-hover:opacity-100">
 				{projectName}
 			</h4>
 			<p
-				class="mt-1 w-2/3 cursor-pointer font-mono text-sm opacity-70 group-hover:opacity-100 peer-hover:opacity-100"
+				class="mt-1 w-2/3  font-mono text-sm opacity-70 group-hover:opacity-100 peer-hover:opacity-100"
 			>
 				{projectDescription}
 			</p>
@@ -50,6 +50,6 @@ import { goto } from "$app/navigation";
 		on:click="{() => goto(`/${projectId}`)}"
 		on:mouseenter={hoveredOverLink}
 		on:mouseleave={notHovering}
-		class="peer h-48 w-1/2 bg-darkgray group-hover:bg-lightgray peer-hover:bg-lightgray"
+		class="peer h-48 w-1/2 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray bg-neutral-200 group-hover:bg-opacity-80 peer-hover:bg-opacity-80"
 	/>
 </div>
