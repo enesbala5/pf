@@ -117,9 +117,10 @@
 	}
 
 	onMount(() => {
-		console.log($preloadImageUrls.length);
-		if ($preloadImageUrls.length < 2) {
-			getImagesToPreload();
+		if (browser) {
+			if ($preloadImageUrls.length < 2) {
+				getImagesToPreload();
+			}
 		}
 	});
 </script>
