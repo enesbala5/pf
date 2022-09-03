@@ -116,13 +116,11 @@
 		];
 	}
 
-	onMount(() => {
-		if (browser) {
-			if ($preloadImageUrls.length < 2) {
-				getImagesToPreload();
-			}
+	if (browser) {
+		if ($preloadImageUrls.length < 2) {
+			getImagesToPreload();
 		}
-	});
+	}
 </script>
 
 <div id="scrollbar">
