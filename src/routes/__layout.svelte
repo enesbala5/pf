@@ -18,7 +18,7 @@
 	import { browser } from '$app/env';
 	import { page } from '$app/stores';
 	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
-	// import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
 
 	let size = spring(7);
 	let clicked: boolean = false;
@@ -116,11 +116,11 @@
 		];
 	}
 
-	if (browser) {
+	onMount(() => {
 		if ($preloadImageUrls.length < 2) {
 			getImagesToPreload();
 		}
-	}
+	});
 </script>
 
 <div id="scrollbar">
