@@ -4,10 +4,10 @@
 	import { projects } from "$lib/projects/projects";
 </script>
 
-<title>Work - Name Surn</title>
+<title>Work - Enes Bala</title>
 
 <!-- work -->
-<div class="mx-auto mt-24 lg:w-10/12 w-full p-4 font-aeonik text-white">
+<div class="mx-auto mt-24 lg:w-10/12 w-full p-4 font-aeonik">
 	<h1 class="headline">Projects</h1>
 	<div
 		id="skills"
@@ -56,6 +56,6 @@
 <!-- end contact -->
 
 <!-- footer -->
-<div class="mx-auto mt-96 font-aeonik text-white">
+<div class="mx-auto mt-96 font-aeonik">
 	<Footer />
 </div>

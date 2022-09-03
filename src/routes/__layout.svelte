@@ -1,27 +1,33 @@
 <script lang="ts">
-	import "../app.css";
-	import { Svrollbar } from "svrollbar";
-	import Navbar from "$lib/components/Navbar.svelte";
-	import { spring } from "svelte/motion";
-	import { hoverOverLink, hoverOverText } from "$lib/state/hoverOver";
-	import { fade } from "svelte/transition";
-	import { quadIn } from "svelte/easing";
+	import '../app.css';
+	import { Svrollbar } from 'svrollbar';
+	import Navbar from '$lib/components/Navbar.svelte';
+	import { spring } from 'svelte/motion';
+	import {
+		hoverOverLink,
+		hoverOverText,
+	} from '$lib/state/hoverOver';
+	import { fade } from 'svelte/transition';
+	import { quadIn } from 'svelte/easing';
+	import { darkMode } from '$lib/info/darkMode';
+	import { afterNavigate } from '$app/navigation';
 
 	let size = spring(7);
 	let clicked: boolean = false;
 
-	$: ($hoverOverLink, clicked, $hoverOverText, scrollY), updateSize();
+	$: ($hoverOverLink, clicked, $hoverOverText, scrollY),
+		updateSize();
 
 	function updateSize() {
 		if (clicked) {
 			if ($hoverOverLink) {
 				size.set(15);
-				pointerClasses = "fill-white opacity-50";
+				pointerClasses = 'dark:fill-white fill-black dark:opacity-50 opacity-20';
 				return;
 			}
 			if ($hoverOverText) {
 				size.set(7);
-				pointerClasses = "fill-white opacity-50";
+				pointerClasses = 'dark:fill-white fill-black dark:opacity-50 opacity-20';
 				return;
 			} else {
 				size.set(15);
@@ -30,20 +36,22 @@
 		}
 		if ($hoverOverLink) {
 			size.set(25);
-			pointerClasses = "fill-white opacity-20";
+			pointerClasses =
+				'dark:fill-white fill-black dark:opacity-20 opacity-10';
 			return;
 		}
 		if ($hoverOverText) {
 			size.set(15);
-			pointerClasses = "fill-white opacity-20";
+			pointerClasses =
+				'dark:fill-white fill-black dark:opacity-20 opacity-10';
 			return;
 		} else {
 			size.set(7);
-			pointerClasses = "fill-red-500";
+			pointerClasses = 'fill-red-500';
 		}
 	}
 
-	let pointerClasses = "fill-red-500";
+	let pointerClasses = 'fill-red-500';
 
 	let scrollY: number = -1;
 	let pageX: number = -1;
@@ -64,6 +72,7 @@
 			return;
 		}
 	}, 500);
+
 </script>
 
 <div id="scrollbar">
@@ -83,19 +92,27 @@
 		class="fixed -z-10 flex h-screen w-screen flex-col items-center justify-center bg-black font-aeonik text-white"
 	>
 		<div id="logo" class="mt-16 h-6 w-6  bg-white" />
-		<p class="mt-16 font-mono text-xs opacity-70">Loading</p>
-		<p class="mt-0 font-mono text-xs opacity-50">Tip: Hover or click to enter</p>
+		<p class="mt-16 font-mono text-xs opacity-70">
+			Loading
+		</p>
+		<p class="mt-0 font-mono text-xs opacity-50">
+			Tip: Hover or click to enter
+		</p>
 	</div>
 {/if}
 
 {#if ready}
 	<div
 		in:fade={{ duration: 500, easing: quadIn }}
-		class="relative min-h-screen lg:cursor-none font-aeonik text-white"
+		class="relative min-h-screen font-aeonik  lg:cursor-none {$darkMode
+			? 'dark'
+			: ''}"
 		on:mousedown={() => (clicked = true)}
 		on:mouseup={() => (clicked = false)}
 	>
-		<svg class="pointer-events-none absolute z-[999] h-full w-full hidden lg:block">
+		<svg
+			class="pointer-events-none absolute z-[999] hidden h-full w-full lg:block"
+		>
 			<circle
 				class={pointerClasses}
 				cx={pageX}
@@ -103,8 +120,12 @@
 				r={$size}
 			/>
 		</svg>
-		<Navbar />
-		<slot />
+		<div
+			class="bg-neutral-50 text-black transition-colors delay-150 dark:bg-black dark:text-white"
+		>
+			<Navbar />
+			<slot />
+		</div>
 	</div>
 {/if}
 

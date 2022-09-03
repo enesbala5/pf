@@ -28,7 +28,7 @@
 	}
 </script>
 
-<title>Thank You - Name Surn</title>
+<title>Thank You - Enes Bala</title>
 
 <!-- contact -->
 <div class="mx-auto mt-24 w-10/12 font-aeonik text-white">
