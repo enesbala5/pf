@@ -46,13 +46,43 @@
 		hoveredDescription = description;
 	};
 
+	let preloadImageUrls: string[] = [];
+
+	function getImagesToPreload() {
+		for (let skill of designSkills) {
+			preloadImageUrls.push(`icons/skills/${skill.icon}`);
+		}
+		for (let skill of otherSkills) {
+			preloadImageUrls.push(`icons/skills/${skill.icon}`);
+		}
+		for (let skill of frontendSkills) {
+			preloadImageUrls.push(`icons/skills/${skill.icon}`);
+		}
+		preloadImageUrls.push(
+			'images/developer.jpg',
+			'images/design.jpg'
+		);
+		for (let img of preloadImageUrls) console.log(img);
+	}
+
+	onMount(() => {
+		getImagesToPreload();
+	});
+
 	let frontendHover: boolean = false;
 
 	let uiuxHover: boolean = false;
 	import { sineInOut } from 'svelte/easing';
+	import { onMount } from 'svelte';
 </script>
 
 <title>Enes Bala - Work Portfolio</title>
+
+<svelte:head>
+	{#each preloadImageUrls as image}
+		<link rel="preload" as="image" href={image} />
+	{/each}
+</svelte:head>
 
 <!-- infobar -->
 <div class="bg-neutral-200 dark:bg-darkgray" id="wrapper">
@@ -83,7 +113,11 @@
 			transition:fade={{ duration: 250, easing: sineInOut }}
 			class="z-10 col-span-6 col-start-5 row-start-1 row-end-6 mb-12 mt-10 flex w-full items-center justify-center overflow-hidden bg-darkgray"
 		>
-			<img src="images/developer.jpg" alt="Creating a unique web application, which is fast, beautiful, custom." class="w-full h-full object-cover"/>
+			<img
+				src="images/developer.jpg"
+				alt="Creating a unique web application, which is fast, beautiful, custom."
+				class="h-full w-full object-cover"
+			/>
 		</div>
 	{/if}
 	{#if uiuxHover}
@@ -91,7 +125,11 @@
 			transition:fade={{ duration: 250, easing: sineInOut }}
 			class="z-10 col-span-3 col-start-6 row-start-1 row-end-7 mt-10 flex w-full items-center justify-center overflow-hidden bg-darkgray"
 		>
-			<img src="images/design.jpg" alt="UI& UX Design" class="w-full h-full object-cover" />
+			<img
+				src="images/design.jpg"
+				alt="UI& UX Design"
+				class="h-full w-full object-cover"
+			/>
 		</div>
 	{/if}
 	<div
@@ -295,9 +333,7 @@
 				<img src={hoveredIcon} class="img" alt="" />
 			</div>
 		</div>
-		<p
-			class="font-mono text-xs leading-5 opacity-70"
-		>
+		<p class="font-mono text-xs leading-5 opacity-70">
 			{hoveredDescription}
 		</p>
 	</div>
@@ -327,7 +363,9 @@
 							? 'col-start-5'
 							: 'col-start-3'}"
 					>
-						<div class="h-full w-full dark:bg-darkgray bg-neutral-300" />
+						<div
+							class="h-full w-full bg-neutral-300 dark:bg-darkgray"
+						/>
 						<p class="mt-2 font-mono opacity-50">
 							Project FirstLast™
 						</p>
@@ -344,7 +382,9 @@
 							? 'col-start-1'
 							: 'col-start-7'}"
 					>
-						<div class="h-[40vh] w-full dark:bg-lightgray bg-neutral-200 " />
+						<div
+							class="h-[40vh] w-full bg-neutral-200 dark:bg-lightgray "
+						/>
 						<p class="mt-2 font-mono opacity-50">
 							2018 Enes Bala
 						</p>
@@ -370,7 +410,6 @@
 				on:mouseenter={hoveredOverLink}
 				on:mouseleave={notHovering}>View all</a
 			>
-			
 		</div>
 	</div>
 
