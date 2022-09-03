@@ -73,6 +73,8 @@
 	</div>
 </div>
 <!-- hero -->
+
+<!--  -->
 <div
 	class="relative mx-auto mb-12 grid h-[70vh] grid-cols-10 grid-rows-6 gap-2 text-xl lg:w-10/12"
 >
@@ -342,7 +344,7 @@
 							? 'col-start-1'
 							: 'col-start-7'}"
 					>
-						<div class="h-[40vh] w-full dark:bg-darkgray bg-neutral-200 " />
+						<div class="h-[40vh] w-full dark:bg-lightgray bg-neutral-200 " />
 						<p class="mt-2 font-mono opacity-50">
 							2018 Enes Bala
 						</p>
