@@ -11,6 +11,13 @@
 	import { quadIn } from 'svelte/easing';
 	import { darkMode } from '$lib/info/darkMode';
 	import { afterNavigate } from '$app/navigation';
+	import {
+		designSkills,
+		frontendSkills,
+		otherSkills,
+	} from '$lib/info/skills';
+	import { browser } from '$app/env';
+	import { page } from '$app/stores';
 
 	let size = spring(7);
 	let clicked: boolean = false;
@@ -22,12 +29,14 @@
 		if (clicked) {
 			if ($hoverOverLink) {
 				size.set(15);
-				pointerClasses = 'dark:fill-white fill-black dark:opacity-50 opacity-20';
+				pointerClasses =
+					'dark:fill-white fill-black dark:opacity-50 opacity-20';
 				return;
 			}
 			if ($hoverOverText) {
 				size.set(7);
-				pointerClasses = 'dark:fill-white fill-black dark:opacity-50 opacity-20';
+				pointerClasses =
+					'dark:fill-white fill-black dark:opacity-50 opacity-20';
 				return;
 			} else {
 				size.set(15);
@@ -73,6 +82,40 @@
 		}
 	}, 500);
 
+	let preloadImageUrls: string[] = [];
+
+	function getImagesToPreload() {
+		if (browser) {
+			if (
+				$page.url.pathname === '/' ||
+				$page.url.pathname === ''
+			) {
+				for (let skill of designSkills) {
+					preloadImageUrls.push(
+						`icons/skills/${skill.icon}`
+					);
+				}
+				for (let skill of otherSkills) {
+					preloadImageUrls.push(
+						`icons/skills/${skill.icon}`
+					);
+				}
+				for (let skill of frontendSkills) {
+					preloadImageUrls.push(
+						`icons/skills/${skill.icon}`
+					);
+					preloadImageUrls.push(
+						'images/developer.jpg',
+						'images/design.jpg'
+					);
+				}
+			}
+		}
+		preloadImageUrls.push(
+			'images/tirana.jpg'
+		);
+	}
+	$: getImagesToPreload();
 </script>
 
 <div id="scrollbar">
@@ -86,6 +129,12 @@
 	}}
 	bind:scrollY
 />
+
+<svelte:head>
+	{#each preloadImageUrls as image}
+		<link rel="preload" as="image" href={image} />
+	{/each}
+</svelte:head>
 
 {#if !ready}
 	<div

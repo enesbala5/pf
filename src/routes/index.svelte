@@ -46,41 +46,18 @@
 		hoveredDescription = description;
 	};
 
-	let preloadImageUrls: string[] = [];
 
-	function getImagesToPreload() {
-		for (let skill of designSkills) {
-			preloadImageUrls.push(`icons/skills/${skill.icon}`);
-		}
-		for (let skill of otherSkills) {
-			preloadImageUrls.push(`icons/skills/${skill.icon}`);
-		}
-		for (let skill of frontendSkills) {
-			preloadImageUrls.push(`icons/skills/${skill.icon}`);
-		}
-		preloadImageUrls.push(
-			'images/developer.jpg',
-			'images/design.jpg'
-		);
-		for (let img of preloadImageUrls) console.log(img);
-	}
 
-	$: getImagesToPreload();
 
 	let frontendHover: boolean = false;
 
 	let uiuxHover: boolean = false;
 	import { sineInOut } from 'svelte/easing';
-	import { onMount } from 'svelte';
 </script>
 
 <title>Enes Bala - Work Portfolio</title>
 
-<svelte:head>
-	{#each preloadImageUrls as image}
-		<link rel="preload" as="image" href={image} />
-	{/each}
-</svelte:head>
+
 
 <!-- infobar -->
 <div class="bg-neutral-200 dark:bg-darkgray" id="wrapper">
