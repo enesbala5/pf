@@ -10,7 +10,6 @@
 	import { fade } from 'svelte/transition';
 	import { quadIn } from 'svelte/easing';
 	import { darkMode } from '$lib/info/darkMode';
-	import { afterNavigate } from '$app/navigation';
 	import {
 		designSkills,
 		frontendSkills,
@@ -18,6 +17,8 @@
 	} from '$lib/info/skills';
 	import { browser } from '$app/env';
 	import { page } from '$app/stores';
+	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
+	import { onMount } from 'svelte';
 
 	let size = spring(7);
 	let clicked: boolean = false;
@@ -59,15 +60,11 @@
 			pointerClasses = 'fill-red-500';
 		}
 	}
-
 	let pointerClasses = 'fill-red-500';
-
 	let scrollY: number = -1;
 	let pageX: number = -1;
 	let pageY: number = 0;
-
 	let ready = false;
-
 	$: if (pageX !== -1 && pageY !== -1) {
 		ready = true;
 	}
@@ -82,8 +79,6 @@
 		}
 	}, 500);
 
-	let preloadImageUrls: string[] = [];
-
 	function getImagesToPreload() {
 		if (browser) {
 			if (
@@ -91,31 +86,42 @@
 				$page.url.pathname === ''
 			) {
 				for (let skill of designSkills) {
-					preloadImageUrls.push(
-						`icons/skills/${skill.icon}`
-					);
+					$preloadImageUrls = [
+						...$preloadImageUrls,
+						`icons/skills/${skill.icon}`,
+					];
 				}
 				for (let skill of otherSkills) {
-					preloadImageUrls.push(
-						`icons/skills/${skill.icon}`
-					);
+					$preloadImageUrls = [
+						...$preloadImageUrls,
+						`icons/skills/${skill.icon}`,
+					];
 				}
 				for (let skill of frontendSkills) {
-					preloadImageUrls.push(
-						`icons/skills/${skill.icon}`
-					);
-					preloadImageUrls.push(
-						'images/developer.jpg',
-						'images/design.jpg'
-					);
+					$preloadImageUrls = [
+						...$preloadImageUrls,
+						`icons/skills/${skill.icon}`,
+					];
 				}
+				$preloadImageUrls = [
+					...$preloadImageUrls,
+					'images/developer.jpg',
+					'images/design.jpg',
+				];
 			}
 		}
-		preloadImageUrls.push(
-			'images/tirana.jpg'
-		);
+		$preloadImageUrls = [
+			...$preloadImageUrls,
+			'images/tirana.jpg',
+		];
 	}
-	$: getImagesToPreload();
+
+	onMount(() => {
+		console.log($preloadImageUrls.length);
+		if ($preloadImageUrls.length < 2) {
+			getImagesToPreload();
+		}
+	});
 </script>
 
 <div id="scrollbar">
@@ -131,7 +137,7 @@
 />
 
 <svelte:head>
-	{#each preloadImageUrls as image}
+	{#each $preloadImageUrls as image}
 		<link rel="preload" as="image" href={image} />
 	{/each}
 </svelte:head>

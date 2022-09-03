@@ -46,18 +46,49 @@
 		hoveredDescription = description;
 	};
 
-
-
-
 	let frontendHover: boolean = false;
 
 	let uiuxHover: boolean = false;
 	import { sineInOut } from 'svelte/easing';
+	import {
+		create_in_transition,
+	} from 'svelte/internal';
+	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
+
+	let frontendImage: any;
+	let uiUxImage: any;
+	let intro: any;
+	let introUiUx: any;
+
+	function animateFrontend() {
+		if (!intro) {
+			intro = create_in_transition(frontendImage, fade, {
+				duration: 150,
+				easing: sineInOut,
+			});
+		}
+		intro.start();
+	}
+
+	function animateUIUX() {
+		if (!introUiUx) {
+			introUiUx = create_in_transition(uiUxImage, fade, {
+				duration: 150,
+				easing: sineInOut,
+			});
+		}
+		introUiUx.start();
+	}
+
+	$: if (frontendHover) {
+		animateFrontend();
+	}
+	$: if (uiuxHover) {
+		animateUIUX();
+	}
 </script>
 
 <title>Enes Bala - Work Portfolio</title>
-
-
 
 <!-- infobar -->
 <div class="bg-neutral-200 dark:bg-darkgray" id="wrapper">
@@ -80,33 +111,35 @@
 <!-- hero -->
 
 <!--  -->
+<!-- transition:fade={{ duration: 250, easing: sineInOut }} -->
 <div
 	class="relative mx-auto mb-12 grid h-[70vh] grid-cols-10 grid-rows-6 gap-2 text-xl lg:w-10/12"
 >
-	{#if frontendHover}
-		<div
-			transition:fade={{ duration: 250, easing: sineInOut }}
-			class="z-10 col-span-6 col-start-5 row-start-1 row-end-6 mb-12 mt-10 flex w-full items-center justify-center overflow-hidden bg-darkgray"
-		>
-			<img
-				src="images/developer.jpg"
-				alt="Creating a unique web application, which is fast, beautiful, custom."
-				class="h-full w-full object-cover"
-			/>
-		</div>
-	{/if}
-	{#if uiuxHover}
-		<div
-			transition:fade={{ duration: 250, easing: sineInOut }}
-			class="z-10 col-span-3 col-start-6 row-start-1 row-end-7 mt-10 flex w-full items-center justify-center overflow-hidden bg-darkgray"
-		>
-			<img
-				src="images/design.jpg"
-				alt="UI& UX Design"
-				class="h-full w-full object-cover"
-			/>
-		</div>
-	{/if}
+	<!-- {#key frontendHover} -->
+	<div
+		bind:this={frontendImage}
+		class="z-10 col-span-6 col-start-5 row-start-1 row-end-6 mb-12 mt-10 flex w-full items-center justify-center overflow-hidden bg-darkgray transition-opacity delay-75 ease-out {frontendHover
+			? 'opacity-100'
+			: 'opacity-0'}"
+	>
+		<img
+			src="images/developer.jpg"
+			alt="Creating a unique web application, which is fast, beautiful, custom."
+			class="h-full w-full object-cover"
+		/>
+	</div>
+	<div
+		bind:this={uiUxImage}
+		class="z-10 col-span-3 col-start-6 row-start-1 row-end-7 mt-10 w-full items-center justify-center overflow-hidden bg-darkgray transition-opacity delay-75 ease-out {uiuxHover
+			? 'opacity-100'
+			: 'opacity-0'}"
+	>
+		<img
+			src="images/design.jpg"
+			alt="UI& UX Design"
+			class="h-full w-full object-cover"
+		/>
+	</div>
 	<div
 		class="absolute bottom-0 col-span-8 flex w-full flex-col justify-end px-4 lg:px-0"
 	>
@@ -301,13 +334,21 @@
 	<div
 		class="peer absolute col-span-2 col-start-6 flex w-full flex-col space-y-4 opacity-0 transition-all delay-75 peer-hover:opacity-100"
 	>
-		<div
-			class="flex aspect-square w-full items-center justify-center bg-neutral-300 dark:bg-darkgray"
-		>
-			<div class="container h-14" style="max-width: 70%">
-				<img src={hoveredIcon} class="img" alt="" />
-			</div>
-		</div>
+		{#each $preloadImageUrls as image, i}
+				<div
+					class="aspect-square w-full items-center justify-center bg-neutral-300 dark:bg-darkgray {image ===
+					hoveredIcon
+						? 'flex'
+						: 'hidden'}"
+				>
+					<div
+						class="container h-14"
+						style="max-width: 70%"
+					>
+						<img src={image} class="img" alt="" />
+					</div>
+				</div>
+		{/each}
 		<p class="font-mono text-xs leading-5 opacity-70">
 			{hoveredDescription}
 		</p>
