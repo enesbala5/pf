@@ -17,7 +17,7 @@
 	} from '$lib/info/skills';
 	import { browser } from '$app/env';
 	import { page } from '$app/stores';
-	import { preloadImageUrls } from '$lib/state/preloadImageUrls.js';
+	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
 	// import { onMount } from 'svelte';
 
 	let size = spring(7);
