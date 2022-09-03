@@ -65,9 +65,7 @@
 		for (let img of preloadImageUrls) console.log(img);
 	}
 
-	onMount(() => {
-		getImagesToPreload();
-	});
+	$: getImagesToPreload();
 
 	let frontendHover: boolean = false;
 
