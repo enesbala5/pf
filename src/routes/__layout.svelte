@@ -17,8 +17,8 @@
 	} from '$lib/info/skills';
 	import { browser } from '$app/env';
 	import { page } from '$app/stores';
-	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
-	import { onMount } from 'svelte';
+	import { preloadImageUrls } from '$lib/state/preloadImageUrls.js';
+	// import { onMount } from 'svelte';
 
 	let size = spring(7);
 	let clicked: boolean = false;
