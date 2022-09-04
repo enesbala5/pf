@@ -199,7 +199,7 @@
 				<!-- phone -->
 				<a
 					href="tel:+355682415881"
-					class="group flex w-full items-center justify-between rounded-full bg-neutral-100 p-2 text-neutral-800 hover:bg-neutral-200 active:bg-opacity-80 dark:bg-darkgray dark:text-white dark:hover:bg-lightgray dark:active:bg-opacity-80"
+					class="group flex w-full items-center justify-between rounded-full bg-neutral-100 p-1 text-neutral-800 hover:bg-neutral-200 active:bg-opacity-80 dark:bg-darkgray dark:text-white dark:hover:bg-lightgray dark:active:bg-opacity-80"
 				>
 					<div
 						class="flex items-center justify-center rounded-full "
@@ -238,7 +238,7 @@
 					href="https://api.whatsapp.com/send?phone=355682415881"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="group flex w-full items-center justify-between rounded-full bg-neutral-100 p-2 text-neutral-800 hover:bg-neutral-200 active:bg-opacity-80 dark:bg-darkgray dark:text-white dark:hover:bg-lightgray dark:active:bg-opacity-80"
+					class="group flex w-full items-center justify-between rounded-full bg-neutral-100 p-1 text-neutral-800 hover:bg-neutral-200 active:bg-opacity-80 dark:bg-darkgray dark:text-white dark:hover:bg-lightgray dark:active:bg-opacity-80"
 				>
 					<div
 						class="flex items-center justify-center rounded-full "
@@ -277,7 +277,7 @@
 					href="https://www.linkedin.com/in/enesbala/"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="group flex w-full items-center justify-between rounded-full bg-neutral-100 p-2 text-neutral-800 hover:bg-neutral-200 active:bg-opacity-80 dark:bg-darkgray dark:text-white dark:hover:bg-lightgray dark:active:bg-opacity-80"
+					class="group flex w-full items-center justify-between rounded-full bg-neutral-100 p-1 text-neutral-800 hover:bg-neutral-200 active:bg-opacity-80 dark:bg-darkgray dark:text-white dark:hover:bg-lightgray dark:active:bg-opacity-80"
 				>
 					<div
 						class="flex items-center justify-center rounded-full"
