@@ -38,7 +38,7 @@
 			on:mouseenter={hoveredOverText}
 			on:mouseleave={notHovering}
 			xmlns="http://www.w3.org/2000/svg"
-			class="h-24 w-24 stroke-red-500"
+			class="h-24 w-24 stroke-brand"
 			fill="none"
 			viewBox="0 0 24 24"
 			stroke="currentColor"

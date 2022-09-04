@@ -9,7 +9,8 @@ module.exports = {
 			},
 			colors: {
 				darkgray: '#141414',
-				lightgray: '#1F1F1F'
+				lightgray: '#1F1F1F',
+				brand: '#D71F2B'
 			},
 		},
 	},

@@ -89,11 +89,11 @@
 <title>Enes Bala - Work Portfolio</title>
 
 <!-- infobar -->
-<div class="bg-neutral-200 dark:bg-darkgray" id="wrapper">
+<div class="bg-neutral-200 dark:bg-darkgray transition-colors delay-150 ease-in-out" id="wrapper">
 	<div
 		class=" mx-auto grid h-16 grid-cols-10 grid-rows-1 gap-2 px-4 text-xs lg:w-10/12 lg:px-0"
 	>
-		<div class="col-span-2 flex items-center opacity-70">
+		<div class="col-span-2 flex items-center opacity-70 ">
 			Personal Portfolio Project
 		</div>
 		<div class="col-span-2 flex items-center opacity-70">
@@ -108,8 +108,6 @@
 </div>
 <!-- hero -->
 
-<!--  -->
-<!-- transition:fade={{ duration: 250, easing: sineInOut }} -->
 <div
 	class="relative mx-auto mb-12 grid h-[75vh] grid-cols-10 grid-rows-6 gap-2 text-xl lg:w-10/12"
 >
@@ -148,7 +146,7 @@
 					on:mouseleave={notHovering}
 					on:mouseenter={() => (frontendHover = true)}
 					on:mouseleave={() => (frontendHover = false)}
-					class=" text-4xl font-medium opacity-20 transition-all delay-75 hover:opacity-100"
+					class=" text-4xl font-medium opacity-30 transition-all delay-75 hover:opacity-100"
 				>
 					Frontend Developer
 				</h3>
@@ -157,7 +155,7 @@
 					on:mouseleave={notHovering}
 					on:mouseenter={() => (uiuxHover = true)}
 					on:mouseleave={() => (uiuxHover = false)}
-					class=" text-4xl font-medium opacity-20  transition-all delay-75 hover:opacity-100"
+					class=" text-4xl font-medium opacity-30  transition-all delay-75 hover:opacity-100"
 				>
 					UI& UX Designer
 				</h3>

@@ -16,7 +16,7 @@
 
 <!-- contact -->
 <div class="mx-auto mt-24 w-10/12 font-aeonik">
-	<p class="mb-4 text-8xl font-medium dark:text-darkgray text-neutral-200 w-fit hover:text-red-500 dark:hover:text-red-500">Oops!</p>
+	<p class="mb-4 text-8xl font-medium dark:text-darkgray text-neutral-200 w-fit hover:text-brand dark:hover:text-brand">Oops!</p>
 	<h1 class="text-8xl font-medium">Page not found!</h1>
 
 	<div class="relative mx-auto mt-24 mb-8 grid grid-cols-10 gap-2 text-lg">

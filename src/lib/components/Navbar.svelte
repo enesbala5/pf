@@ -6,11 +6,13 @@
 	import { afterNavigate } from '$app/navigation';
 	import { darkMode } from '$lib/info/darkMode';
 	import DarkModeToggle from './DarkModeToggle.svelte';
+	import type { Theme } from 'src/types';
 	import { navigation } from '$lib/info/nav';
 	import {
 		hoverOverLink,
 		hoverOverText,
 	} from '$lib/state/hoverOver';
+	import { setTheme, theme } from '$lib/state/theme';
 
 	function hoveredOverNavItem() {
 		hoverOverLink.set(true);
@@ -66,11 +68,18 @@
 	afterNavigate(() => {
 		open = false;
 	});
+
+	$: nextTheme = (
+		$theme === 'dark' ? 'light' : 'dark'
+	) as Theme;
+	const handleThemeIconClick = () => {
+		setTheme(nextTheme);
+	};
 </script>
 
 <!-- mobile -->
 <nav
-	class="bg-mainbg flex w-full items-center justify-between p-4 lg:hidden"
+	class="bg-mainbg flex w-full items-center justify-between p-4 lg:hidden transition-colors  ease-in-out"
 >
 	<a
 		on:mouseenter={hoveredOverNavItem}
@@ -80,7 +89,7 @@
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			class="h-full fill-black dark:fill-white"
+			class="h-full fill-black dark:fill-white transition-colors delay-150 ease-in-out"
 			viewBox="0 0 396.79 238.118"
 		>
 			<g
@@ -103,18 +112,24 @@
 			</g>
 		</svg>
 	</a>
-	<div class="noSelect z-[999] flex h-10 space-x-3">
+	<div class="noSelect z-[999] flex space-x-3">
 		<div
 			on:mouseenter={hoveredOverText}
 			on:mouseleave={notHovering}
-			on:click={toggleDarkMode}
-			class="h-5 w-5 opacity-50 transition-opacity delay-75 active:opacity-100"
+			on:click={handleThemeIconClick}
+			label="toggle theme from {$theme} to {nextTheme}"
+			aria-live="polite"
+			class="h-5 w-5  transition-opacity delay-75 active:opacity-100"
 		>
 			<DarkModeToggle />
 		</div>
-		<div on:click={manageMenu} class="z-30">
-			<button class="z-60 relative w-6 focus:outline-none">
-				<span class="sr-only">Open main menu</span>
+		<div
+			on:click={manageMenu}
+			class="z-30 flex h-5 items-center justify-center"
+		>
+			<button
+				class="z-60 relative h-full w-5 focus:outline-none"
+			>
 				<div
 					class="absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/2 transform"
 				>
@@ -122,18 +137,18 @@
 						aria-hidden="true"
 						class="{!open
 							? '-translate-y-1.5'
-							: 'rotate-45'} absolute block h-0.5 w-5 transform bg-white transition duration-500 ease-in-out"
+							: 'rotate-45'} absolute block h-0.5 w-5 transform bg-black transition duration-500 ease-in-out dark:bg-white"
 					/>
 					<span
 						aria-hidden="true"
-						class="absolute block h-0.5 w-5 transform bg-white transition duration-500 ease-in-out"
+						class="absolute block h-0.5 w-5 transform bg-black transition duration-500 ease-in-out dark:bg-white"
 						class:opacity-0={open}
 					/>
 					<span
 						aria-hidden="true"
 						class="{!open
 							? 'translate-y-1.5'
-							: '-rotate-45'} absolute block h-0.5 w-5 transform bg-white transition  duration-500 ease-in-out"
+							: '-rotate-45'} absolute block h-0.5 w-5 transform bg-black transition duration-500  ease-in-out dark:bg-white"
 					/>
 				</div>
 			</button>
@@ -157,7 +172,7 @@
 					? 'text-black dark:text-white'
 					: $darkMode
 					? 'outlineDark'
-					: 'text-red-500 outline'}"
+					: 'text-brand outline'}"
 			>
 				Home
 			</a>
@@ -203,7 +218,7 @@
 
 <!-- desktop -->
 <nav
-	class="mx-auto hidden  w-10/12 items-center justify-between py-6 font-aeonik text-black dark:text-white lg:flex"
+	class="mx-auto hidden w-10/12 items-center justify-between py-6 font-aeonik text-black transition-colors delay-150 ease-in-out dark:text-white lg:flex"
 >
 	<a
 		on:mouseenter={hoveredOverNavItem}
@@ -213,7 +228,7 @@
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			class="h-full fill-black dark:fill-white"
+			class="h-full fill-black transition-colors delay-150 ease-in-out dark:fill-white"
 			viewBox="0 0 396.79 238.118"
 		>
 			<g
@@ -268,27 +283,12 @@
 				? 'opacity-100'
 				: 'hover:opacity-70'}">contact</a
 		>
-		<!-- <svg
-			on:mouseenter={hoveredOverNavItem}
-			on:mouseleave={notHovering}
-			on:click={toggleDarkMode}
-			xmlns="http://www.w3.org/2000/svg"
-			class="c h-5 w-5 opacity-50 transition-opacity delay-75  active:opacity-100"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke="currentColor"
-			stroke-width="2"
-		>
-			<path
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-			/>
-		</svg> -->
 		<div
 			on:mouseenter={hoveredOverText}
 			on:mouseleave={notHovering}
-			on:click={toggleDarkMode}
+			on:click={handleThemeIconClick}
+			label="toggle theme from {$theme} to {nextTheme}"
+			aria-live="polite"
 			class="h-5 w-5 opacity-50 transition-opacity delay-75 active:opacity-100"
 		>
 			<DarkModeToggle />

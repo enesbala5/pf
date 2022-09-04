@@ -1,4 +1,6 @@
 <script lang="ts">
+	import LoadingScreen from '$lib/components/LoadingScreen.svelte';
+
 	import '../app.css';
 	import { Svrollbar } from 'svrollbar';
 	import Navbar from '$lib/components/Navbar.svelte';
@@ -7,8 +9,8 @@
 		hoverOverLink,
 		hoverOverText,
 	} from '$lib/state/hoverOver';
-	import { fade } from 'svelte/transition';
-	import { quadIn } from 'svelte/easing';
+	import { fade, fly } from 'svelte/transition';
+	import { quadIn, quadOut } from 'svelte/easing';
 	import { darkMode } from '$lib/info/darkMode';
 	import {
 		designSkills,
@@ -19,6 +21,7 @@
 	import { page } from '$app/stores';
 	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
 	import { onMount } from 'svelte';
+	import { theme } from '$lib/state/theme';
 
 	let size = spring(7);
 	let clicked: boolean = false;
@@ -57,27 +60,14 @@
 			return;
 		} else {
 			size.set(7);
-			pointerClasses = 'fill-red-500';
+			pointerClasses = 'fill-brand';
 		}
 	}
-	let pointerClasses = 'fill-red-500';
+	let pointerClasses = 'fill-brand';
 	let scrollY: number = -1;
 	let pageX: number = -1;
 	let pageY: number = 0;
 	let ready = false;
-	$: if (pageX !== -1 && pageY !== -1) {
-		ready = true;
-	}
-
-	// ? open page automatically if no mouse movement .. fallback option
-	setTimeout(() => {
-		if (!ready && pageX === -1) {
-			ready = true;
-			pageX = 400;
-			pageY = 400;
-			return;
-		}
-	}, 500);
 
 	function getImagesToPreload() {
 		if (browser) {
@@ -121,6 +111,10 @@
 			getImagesToPreload();
 		}
 	});
+
+	console.log($theme);
+
+	let finishedAnimation = false;
 </script>
 
 <div id="scrollbar">
@@ -142,25 +136,25 @@
 </svelte:head>
 
 {#if !ready}
-	<div
-		class="fixed -z-10 flex h-screen w-screen flex-col items-center justify-center bg-black font-aeonik text-white"
-	>
-		<div id="logo" class="mt-16 h-6 w-6  bg-white" />
-		<p class="mt-16 font-mono text-xs opacity-70">
-			Loading
-		</p>
-		<p class="mt-0 font-mono text-xs opacity-50">
-			Tip: Hover or click to enter
-		</p>
+	<div class={$theme}>
+		<div
+			class="fixed -z-10 flex h-screen w-screen flex-col items-center justify-center bg-white font-aeonik dark:bg-black dark:text-white"
+			out:fade={{ duration: 500, easing: quadOut }}
+		>
+			<LoadingScreen
+				on:isOver={() => {
+					finishedAnimation = true;
+					ready = true;
+				}}
+			/>
+		</div>
 	</div>
 {/if}
 
 {#if ready}
 	<div
 		in:fade={{ duration: 500, easing: quadIn }}
-		class="relative min-h-screen font-aeonik  lg:cursor-none {$darkMode
-			? 'dark'
-			: ''}"
+		class="relative min-h-screen font-aeonik lg:cursor-none {$theme}"
 		on:mousedown={() => (clicked = true)}
 		on:mouseup={() => (clicked = false)}
 	>
@@ -175,7 +169,7 @@
 			/>
 		</svg>
 		<div
-			class="bg-neutral-50 text-black transition-colors delay-150 dark:bg-black dark:text-white"
+			class="bg-neutral-50 text-black transition-colors delay-150 ease-in-out dark:bg-black dark:text-white"
 		>
 			<Navbar />
 			<slot />
