@@ -9,9 +9,8 @@
 		hoverOverLink,
 		hoverOverText,
 	} from '$lib/state/hoverOver';
-	import { fade, fly } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import { quadIn, quadOut } from 'svelte/easing';
-	import { darkMode } from '$lib/info/darkMode';
 	import {
 		designSkills,
 		frontendSkills,
@@ -135,47 +134,48 @@
 	{/each}
 </svelte:head>
 
-{#if !ready}
-	<div class={$theme}>
-		<div
-			class="fixed -z-10 flex h-screen w-screen flex-col items-center justify-center bg-white font-aeonik dark:bg-black dark:text-white"
-			out:fade={{ duration: 500, easing: quadOut }}
-		>
-			<LoadingScreen
-				on:isOver={() => {
-					finishedAnimation = true;
-					ready = true;
-				}}
-			/>
-		</div>
-	</div>
-{/if}
+<div class={$theme}>
+	<div class="bg-white dark:bg-black">
+		{#if !ready}
+			<div
+				class="fixed -z-10 flex h-screen w-screen flex-col items-center justify-center bg-white font-aeonik dark:bg-black dark:text-white"
+			>
+				<LoadingScreen
+					on:isOver={() => {
+						finishedAnimation = true;
+						ready = true;
+					}}
+				/>
+			</div>
+		{/if}
 
-{#if ready}
-	<div
-		in:fade={{ duration: 500, easing: quadIn }}
-		class="relative min-h-screen font-aeonik lg:cursor-none {$theme}"
-		on:mousedown={() => (clicked = true)}
-		on:mouseup={() => (clicked = false)}
-	>
-		<svg
-			class="pointer-events-none absolute z-[999] hidden h-full w-full lg:block"
-		>
-			<circle
-				class={pointerClasses}
-				cx={pageX}
-				cy={pageY + scrollY}
-				r={$size}
-			/>
-		</svg>
-		<div
-			class="bg-neutral-50 text-black transition-colors delay-150 ease-in-out dark:bg-black dark:text-white"
-		>
-			<Navbar />
-			<slot />
-		</div>
+		{#if ready}
+			<div
+				transition:fade={{ duration: 500, easing: quadIn }}
+				class="relative min-h-screen font-aeonik lg:cursor-none {$theme}"
+				on:mousedown={() => (clicked = true)}
+				on:mouseup={() => (clicked = false)}
+			>
+				<svg
+					class="pointer-events-none absolute z-[999] hidden h-full w-full lg:block"
+				>
+					<circle
+						class={pointerClasses}
+						cx={pageX}
+						cy={pageY + scrollY}
+						r={$size}
+					/>
+				</svg>
+				<div
+					class="bg-neutral-50 text-black transition-colors delay-150 ease-in-out dark:bg-black dark:text-white"
+				>
+					<Navbar />
+					<slot />
+				</div>
+			</div>
+		{/if}
 	</div>
-{/if}
+</div>
 
 <style>
 	#scrollbar {

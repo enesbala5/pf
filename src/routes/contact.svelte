@@ -6,6 +6,7 @@
 		hoverOverText,
 	} from '$lib/state/hoverOver';
 	import { darkMode } from '$lib/info/darkMode';
+	import { theme } from '$lib/state/theme';
 
 	let items = [
 		{ value: 'designUIUX', label: 'Design - UI / UX' },
@@ -57,7 +58,7 @@
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="h-full fill-black object-cover dark:fill-white"
+					class="h-full fill-black object-cover transition-colors ease-in-out dark:fill-white"
 					viewBox="0 0 582.854 686.677"
 				>
 					<path
@@ -70,35 +71,6 @@
 						stroke-width="1"
 					/>
 				</svg>
-
-				<!-- <svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-full dark:fill-white fill-black"
-					viewBox="0 0 1133 680"
-				>
-					<g
-						id="Layer_2"
-						data-name="Layer 2"
-						transform="translate(0.421 0.453)"
-					>
-						<g id="Layer_1" data-name="Layer 1">
-							<g id="Layer_2-2" data-name="Layer 2">
-								<g id="Layer_1-2" data-name="Layer 1-2">
-									<g
-										id="Layer_1-2-2"
-										data-name="Layer 1-2-2"
-									>
-										<path
-											id="Path_1"
-											data-name="Path 1"
-											d="M-.421,332.547l562,347,571-332-561-348-111,62,433,268-121,62-294-183-105,52,317,200-152,78-428-268Z"
-										/>
-									</g>
-								</g>
-							</g>
-						</g>
-					</g>
-				</svg> -->
 			</div>
 		</div>
 
@@ -106,7 +78,7 @@
 		<form
 			action="https://formsubmit.co/1982af4d0e444a4a2359fc6ae59df2da"
 			method="POST"
-			class="col-span-8 col-start-2 mt-8 space-y-4 bg-neutral-100 p-4 text-base dark:bg-darkgray lg:p-6 "
+			class="col-span-8 col-start-2 mt-8 space-y-4 bg-neutral-100 p-4 text-base transition-colors ease-in-out dark:bg-darkgray lg:p-6"
 		>
 			<!-- formsubmit redirect etc -->
 			<input
@@ -153,9 +125,9 @@
 			<!-- row -->
 			<div class="flex items-center space-x-6">
 				<div
-					class="{$darkMode
-						? 'selectStyling'
-						: 'selectStylingDark'} flex w-full flex-col"
+					class="{$theme === 'dark'
+						? 'selectStylingDark'
+						: 'selectStyling'} flex w-full flex-col"
 				>
 					<p class="mb-3">What are you interested in</p>
 					<div
@@ -353,7 +325,7 @@
 
 <!-- end footer -->
 <style>
-	.selectStyling {
+	.selectStylingDark {
 		--background: #1f1f1f;
 		--border: none;
 		--inputFontSize: 1rem;
@@ -370,7 +342,7 @@
 		--clearSelectFocusColor: #5d6167;
 		--itemIsActiveBG: #141414;
 	}
-	.selectStylingDark {
+	.selectStyling {
 		--background: #e5e5e5;
 		--border: none;
 		--inputFontSize: 1rem;
