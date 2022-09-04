@@ -57,14 +57,6 @@
 		};
 	};
 
-	function clickLink() {
-		open = false;
-	}
-
-	function toggleDarkMode() {
-		darkMode.set(!$darkMode);
-	}
-
 	afterNavigate(() => {
 		open = false;
 	});
@@ -170,9 +162,9 @@
 				class=" mt-28 text-6xl font-medium md:text-7xl  lg:text-8xl  {$page
 					.url.pathname === '/'
 					? 'text-black dark:text-white'
-					: $darkMode
+					: $theme === 'dark'
 					? 'outlineDark'
-					: 'text-brand outline'}"
+					: 'outline'}"
 			>
 				Home
 			</a>
@@ -182,7 +174,7 @@
 					'work'
 				)
 					? 'text-black dark:text-white'
-					: $darkMode
+					: $theme === 'dark'
 					? 'outlineDark'
 					: 'outline'} "
 			>
@@ -194,7 +186,7 @@
 					'about'
 				)
 					? 'text-black dark:text-white'
-					: $darkMode
+					: $theme === 'dark'
 					? 'outlineDark'
 					: 'outline'} "
 			>
@@ -206,7 +198,7 @@
 					'contact'
 				)
 					? 'text-black dark:text-white'
-					: $darkMode
+					: $theme === 'dark'
 					? 'outlineDark'
 					: 'outline'} "
 			>
