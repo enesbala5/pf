@@ -89,7 +89,7 @@
 		<!-- form - fix emailAddress -->
 		<form
 			action="https://formsubmit.co/emailAddress@emailAddress"
-			class="col-span-8 col-start-2 mt-8 space-y-4 bg-neutral-200 p-4 text-base dark:bg-darkgray lg:p-6 "
+			class="col-span-8 col-start-2 mt-8 space-y-4 bg-neutral-100 p-4 text-base dark:bg-darkgray lg:p-6 "
 		>
 			<!-- row -->
 			<div
@@ -159,7 +159,7 @@
 			<!-- end row -->
 			<div class="flex w-full space-x-6 ">
 				<button
-					class="buttonSecondary  mt-6 w-full lg:w-1/2"
+					class="buttonSecondary mt-6 w-full lg:w-1/2"
 					on:mouseenter={hoveredOverLink}
 					on:mouseleave={notHovering}>Just Send</button
 				>
@@ -173,13 +173,16 @@
 		>
 			<p class="opacity-70">Where I'm Located</p>
 			<div
-				class="flex h-56 w-full items-center justify-center overflow-hidden bg-darkgray "
+				class="flex h-56 w-full items-center justify-center overflow-hidden dark:bg-darkgray bg-neutral-100"
 			>
 				<img
 					src="images/map.png"
-					alt=""
-					class="w-full mix-blend-difference "
+					alt="Map of Tirana, Albania"
+					class="w-full dark:mix-blend-difference hidden dark:block object-cover h-full"
 				/>
+				<img src="images/mapLight.png" alt="Map of Tirana, Albania"
+				class="dark:hidden w-full h-full object-cover mix-blend-multiply"
+				>
 			</div>
 		</div>
 		<!-- end map -->
@@ -203,17 +206,17 @@
 		--listBackground: #1f1f1f;
 		--itemHoverBG: #141414;
 		--placeholderColor: #fff;
-		--placeholderOpacity: 30%;
+		--placeholderOpacity: 50%;
 		--inputColor: #fff;
 		--inputPadding: 0.75rem 1.25rem;
 		--height: 3rem;
 		--clearSelectColor: #5d6167;
 		--clearSelectFocusColor: #5d6167;
-		--itemIsActiveBG: #ef4444
+		--itemIsActiveBG: #141414;
 
 	}
 	.selectStylingDark {
-		--background: #d4d4d4;
+		--background: #e5e5e5;
 		--border: none;
 		--inputFontSize: 1rem;
 		--borderRadius: none;
@@ -227,6 +230,7 @@
 		--height: 3rem;
 		--clearSelectColor: #5d6167;
 		--clearSelectFocusColor: #5d6167;
-		--itemIsActiveBG: #ef4444
+		--itemIsActiveBG: #f5f5f5;
+		--itemIsActiveColor: #000;
 	}
 </style>

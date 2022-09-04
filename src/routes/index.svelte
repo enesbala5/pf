@@ -50,9 +50,7 @@
 
 	let uiuxHover: boolean = false;
 	import { sineInOut } from 'svelte/easing';
-	import {
-		create_in_transition,
-	} from 'svelte/internal';
+	import { create_in_transition } from 'svelte/internal';
 	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
 
 	let frontendImage: any;
@@ -113,9 +111,8 @@
 <!--  -->
 <!-- transition:fade={{ duration: 250, easing: sineInOut }} -->
 <div
-	class="relative mx-auto mb-12 grid h-[70vh] grid-cols-10 grid-rows-6 gap-2 text-xl lg:w-10/12"
+	class="relative mx-auto mb-12 grid h-[75vh] grid-cols-10 grid-rows-6 gap-2 text-xl lg:w-10/12"
 >
-	<!-- {#key frontendHover} -->
 	<div
 		bind:this={frontendImage}
 		class="z-10 col-span-6 col-start-5 row-start-1 row-end-6 mb-12 mt-10 flex w-full items-center justify-center overflow-hidden bg-darkgray transition-opacity delay-75 ease-out {frontendHover
@@ -196,7 +193,11 @@
 >
 	<div class="col-span-2 w-1/2">
 		<p class="font-medium">Skills</p>
-		<p class="opacity-20">Hover on the skills for more.</p>
+		<p
+			class="mt-2 font-mono text-sm opacity-50 dark:opacity-20"
+		>
+			Tip: Hover / Tap the skills.
+		</p>
 	</div>
 	<div class="col-span-2 col-start-3">
 		<div
@@ -332,24 +333,21 @@
 	</div>
 
 	<div
-		class="peer absolute col-span-2 col-start-6 flex w-full flex-col space-y-4 opacity-0 transition-all delay-75 peer-hover:opacity-100"
+		class="peer absolute col-span-2 col-start-6 flex w-full flex-col opacity-0 transition-all delay-75 peer-hover:opacity-100"
 	>
 		{#each $preloadImageUrls as image, i}
-				<div
-					class="aspect-square w-full items-center justify-center bg-neutral-300 dark:bg-darkgray {image ===
-					hoveredIcon
-						? 'flex'
-						: 'hidden'}"
-				>
-					<div
-						class="container h-14"
-						style="max-width: 70%"
-					>
-						<img src={image} class="img" alt="" />
-					</div>
+			<div
+				class="aspect-square w-full items-center justify-center bg-neutral-800 dark:bg-darkgray {image ===
+				hoveredIcon
+					? 'flex'
+					: 'hidden'}"
+			>
+				<div class="container h-14" style="max-width: 70%">
+					<img src={image} class="img" alt="" />
 				</div>
+			</div>
 		{/each}
-		<p class="font-mono text-xs leading-5 opacity-70">
+		<p class="mt-4 font-mono text-xs leading-5 opacity-70">
 			{hoveredDescription}
 		</p>
 	</div>

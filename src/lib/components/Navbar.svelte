@@ -7,12 +7,15 @@
 	import { darkMode } from '$lib/info/darkMode';
 	import DarkModeToggle from './DarkModeToggle.svelte';
 	import { navigation } from '$lib/info/nav';
-	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
+	import {
+		hoverOverLink,
+		hoverOverText,
+	} from '$lib/state/hoverOver';
 
 	function hoveredOverNavItem() {
 		hoverOverLink.set(true);
 	}
-	
+
 	function hoveredOverText() {
 		hoverOverText.set(true);
 	}
@@ -67,7 +70,7 @@
 
 <!-- mobile -->
 <nav
-	class="bg-mainbg flex w-full items-center justify-between p-4 text-white lg:hidden"
+	class="bg-mainbg flex w-full items-center justify-between p-4 lg:hidden"
 >
 	<a
 		on:mouseenter={hoveredOverNavItem}
@@ -77,7 +80,7 @@
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			class="h-full fill-white"
+			class="h-full fill-black dark:fill-white"
 			viewBox="0 0 396.79 238.118"
 		>
 			<g
@@ -101,10 +104,16 @@
 		</svg>
 	</a>
 	<div class="noSelect z-[999] flex h-10 space-x-3">
+		<div
+			on:mouseenter={hoveredOverText}
+			on:mouseleave={notHovering}
+			on:click={toggleDarkMode}
+			class="h-5 w-5 opacity-50 transition-opacity delay-75 active:opacity-100"
+		>
+			<DarkModeToggle />
+		</div>
 		<div on:click={manageMenu} class="z-30">
-			<button
-				class="z-60 relative w-6 text-white focus:outline-none"
-			>
+			<button class="z-60 relative w-6 focus:outline-none">
 				<span class="sr-only">Open main menu</span>
 				<div
 					class="absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/2 transform"
@@ -139,14 +148,16 @@
 			out:fade={{ duration: 300, easing: quadOut }}
 			on:click={manageMenu}
 			style="touch-action: none;"
-			class="fixed top-0 bottom-0 right-0 left-0 z-[20] flex h-screen w-full flex-col overflow-x-hidden overflow-y-hidden bg-black p-4 text-black"
+			class="fixed top-0 bottom-0 right-0 left-0 z-[20] flex h-screen w-full flex-col overflow-x-hidden overflow-y-hidden bg-neutral-50 p-4 text-neutral-50 dark:bg-black dark:text-black"
 		>
 			<a
 				href={navigation.home}
 				class=" mt-28 text-6xl font-medium md:text-7xl  lg:text-8xl  {$page
 					.url.pathname === '/'
-					? 'text-white'
-					: 'outline'}"
+					? 'text-black dark:text-white'
+					: $darkMode
+					? 'outlineDark'
+					: 'text-red-500 outline'}"
 			>
 				Home
 			</a>
@@ -155,7 +166,9 @@
 				class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
 					'work'
 				)
-					? 'text-white'
+					? 'text-black dark:text-white'
+					: $darkMode
+					? 'outlineDark'
 					: 'outline'} "
 			>
 				Work
@@ -165,7 +178,9 @@
 				class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
 					'about'
 				)
-					? 'text-white'
+					? 'text-black dark:text-white'
+					: $darkMode
+					? 'outlineDark'
 					: 'outline'} "
 			>
 				About
@@ -175,7 +190,9 @@
 				class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
 					'contact'
 				)
-					? 'text-white'
+					? 'text-black dark:text-white'
+					: $darkMode
+					? 'outlineDark'
 					: 'outline'} "
 			>
 				Contact
@@ -186,7 +203,7 @@
 
 <!-- desktop -->
 <nav
-	class="mx-auto hidden  w-10/12 items-center justify-between py-6 font-aeonik dark:text-white text-black lg:flex"
+	class="mx-auto hidden  w-10/12 items-center justify-between py-6 font-aeonik text-black dark:text-white lg:flex"
 >
 	<a
 		on:mouseenter={hoveredOverNavItem}
@@ -196,7 +213,7 @@
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			class="h-full dark:fill-white fill-black"
+			class="h-full fill-black dark:fill-white"
 			viewBox="0 0 396.79 238.118"
 		>
 			<g
@@ -280,10 +297,16 @@
 </nav>
 
 <style>
-	@supports (-webkit-text-stroke: 1px black) {
-		.outline {
+	@supports (-webkit-text-stroke: 1px white) {
+		.outlineDark {
 			-webkit-text-stroke: 0.5px white;
 			-webkit-text-fill-color: black;
+		}
+	}
+	@supports (-webkit-text-stroke: 1px black) {
+		.outline {
+			-webkit-text-stroke: 1px black;
+			-webkit-text-fill-color: #f8fafc;
 		}
 	}
 </style>

@@ -40,7 +40,7 @@
 				disciplines, including:
 			</p>
 			<ul
-				class="mt-8 flex flex-col justify-between space-y-2 text-base opacity-70"
+				class="mt-12 flex flex-col justify-between space-y-2 text-base "
 			>
 				<li>
 					<div
@@ -49,7 +49,7 @@
 						Development <span
 							class="whitespace-nowrap opacity-50"
 						>
-							Frontend, DB & Auth</span
+							Websites and other mediums</span
 						>
 					</div>
 				</li>
@@ -59,7 +59,7 @@
 					>
 						Graphic Design <span
 							class="whitespace-nowrap opacity-50"
-							>Branding, Identity & Web</span
+							>Branding, Identity & Promo</span
 						>
 					</div>
 				</li>
@@ -70,7 +70,7 @@
 						Other <span
 							class="whitespace-nowrap opacity-50"
 						>
-							Social Media & 3D Design</span
+							Social Media & 3D Work</span
 						>
 					</div>
 				</li>
@@ -84,7 +84,7 @@
 	>
 		<!-- sidebar -->
 		<div
-			class="absolute right-0 h-full w-2 bg-neutral-200 dark:bg-darkgray"
+			class="absolute right-0 h-full w-2 bg-neutral-100 dark:bg-darkgray"
 		/>
 		<!-- sidebar end -->
 
