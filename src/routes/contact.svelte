@@ -17,7 +17,6 @@
 
 	function handleSelect(event: any) {
 		interest = event.detail;
-		console.log(interest.value);
 	}
 
 	function hoveredOverLink() {
@@ -192,9 +191,11 @@
 		<div
 			class="col-span-8 col-start-2 mt-8 space-y-4 text-base"
 		>
-			<p class="opacity-70">You can also contact me through:</p>
+			<p class="opacity-70">
+				You can also contact me through:
+			</p>
 			<div
-				class="flex w-full items-center justify-between lg:space-x-4 flex-col space-y-3 lg:space-y-0 lg:flex-row"
+				class="flex w-full flex-col items-center justify-between space-y-3 lg:flex-row lg:space-x-4 lg:space-y-0"
 			>
 				<!-- phone -->
 				<a

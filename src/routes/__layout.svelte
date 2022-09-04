@@ -111,8 +111,6 @@
 		}
 	});
 
-	console.log($theme);
-
 	let finishedAnimation = false;
 </script>
 
