@@ -91,12 +91,12 @@
 <!-- infobar -->
 <div class="bg-neutral-200 dark:bg-darkgray transition-colors delay-150 ease-in-out" id="wrapper">
 	<div
-		class=" mx-auto grid h-16 grid-cols-10 grid-rows-1 gap-2 px-4 text-xs lg:w-10/12 lg:px-0"
+		class=" mx-auto grid h-16 md:grid-cols-10 grid-rows-1 gap-2 px-4 text-xs lg:w-10/12 lg:px-0"
 	>
-		<div class="col-span-2 flex items-center opacity-70 ">
+		<div class="col-span-2 flex items-center opacity-70">
 			Personal Portfolio Project
 		</div>
-		<div class="col-span-2 flex items-center opacity-70">
+		<div class="col-span-2 items-center opacity-70 hidden md:flex">
 			Enes Bala
 		</div>
 		<div
@@ -187,7 +187,7 @@
 <!-- skills -->
 <div
 	id="skills"
-	class="relative mx-auto mt-44 mb-12 grid w-10/12 scroll-m-20 grid-cols-10 gap-2 gap-y-12 text-xl"
+	class="relative mx-auto mt-44 mb-12 grid w-10/12 scroll-m-20 lg:grid-cols-10 gap-2 gap-y-12 text-xl grid-cols-2"
 >
 	<div class="col-span-2 w-1/2">
 		<p class="font-medium">Skills</p>

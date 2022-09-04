@@ -13,9 +13,9 @@
 >
 	<h1 class="headline">About me</h1>
 	<div
-		class="relative mx-auto mt-12 mb-8 grid grid-cols-10 gap-2 text-lg lg:mt-24"
+		class="relative mx-auto mt-12 mb-8 grid md:grid-cols-10 grid-cols-1 md:gap-2 text-lg lg:mt-24"
 	>
-		<div class="col-span-3 col-start-2">
+		<div class="md:col-span-3 md:col-start-2">
 			<p class="text-justify">
 				Enes Bala is a designer & developer based in Tirana,
 				Albania.
@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<!-- main info -->
-		<div class="col-span-3 col-start-6">
+		<div class="md:col-span-3 md:col-start-6 col-span-4 col-start-1 ">
 			<p class="text-justify">
 				He specializes in helping brands build an identity
 				and being recognizable, through multiple
@@ -44,7 +44,7 @@
 			>
 				<li>
 					<div
-						class="flex w-full items-center justify-between"
+						class='flex w-full lg:items-center lg:justify-between flex-col lg:flex-row '
 					>
 						Development <span
 							class="whitespace-nowrap opacity-50"
@@ -55,7 +55,7 @@
 				</li>
 				<li>
 					<div
-						class="flex w-full items-center justify-between"
+						class="flex w-full lg:items-center lg:justify-between flex-col lg:flex-row "
 					>
 						Graphic Design <span
 							class="whitespace-nowrap opacity-50"
@@ -65,7 +65,7 @@
 				</li>
 				<li>
 					<div
-						class="flex w-full items-center justify-between"
+						class="flex w-full lg:items-center lg:justify-between flex-col lg:flex-row "
 					>
 						Other <span
 							class="whitespace-nowrap opacity-50"

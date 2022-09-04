@@ -192,9 +192,9 @@
 		<div
 			class="col-span-8 col-start-2 mt-8 space-y-4 text-base"
 		>
-			<p class="opacity-70">You can also find me on</p>
+			<p class="opacity-70">You can also contact me through:</p>
 			<div
-				class="flex w-full items-center justify-between space-x-4"
+				class="flex w-full items-center justify-between lg:space-x-4 flex-col space-y-3 lg:space-y-0 lg:flex-row"
 			>
 				<!-- phone -->
 				<a
