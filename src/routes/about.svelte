@@ -9,14 +9,14 @@
 
 <!-- about me -->
 <div
-	class="mx-auto mt-24 w-full p-4 font-aeonik lg:w-10/12"
+	class="mx-auto mt-24 w-full p-4 lg:p-0 font-aeonik lg:w-10/12"
 >
 	<h1 class="headline">About me</h1>
 	<div
-		class="relative mx-auto mt-12 mb-8 grid md:grid-cols-10 grid-cols-1 md:gap-2 text-lg lg:mt-24"
+		class="relative mx-auto mt-12 mb-8 grid grid-cols-1 text-lg md:grid-cols-10 md:gap-2 lg:mt-24"
 	>
 		<div class="md:col-span-3 md:col-start-2">
-			<p class="text-justify">
+			<p class="">
 				Enes Bala is a designer & developer based in Tirana,
 				Albania.
 			</p>
@@ -33,18 +33,20 @@
 			</div>
 		</div>
 		<!-- main info -->
-		<div class="md:col-span-3 md:col-start-6 col-span-4 col-start-1 ">
-			<p class="text-justify">
+		<div
+			class="col-span-4 col-start-1 mt-8 md:col-span-3 md:col-start-6 lg:mt-0"
+		>
+			<p class="">
 				He specializes in helping brands build an identity
-				and being recognizable, through multiple
-				disciplines, including:
+				and being recognizable, through disciplines,
+				including:
 			</p>
 			<ul
-				class="mt-12 flex flex-col justify-between space-y-2 text-base "
+				class="mt-12 flex flex-col justify-between space-y-4 text-base lg:space-y-2 "
 			>
 				<li>
 					<div
-						class='flex w-full lg:items-center lg:justify-between flex-col lg:flex-row '
+						class="flex w-full flex-col lg:flex-row lg:items-center lg:justify-between "
 					>
 						Development <span
 							class="whitespace-nowrap opacity-50"
@@ -55,7 +57,7 @@
 				</li>
 				<li>
 					<div
-						class="flex w-full lg:items-center lg:justify-between flex-col lg:flex-row "
+						class="flex w-full flex-col lg:flex-row lg:items-center lg:justify-between "
 					>
 						Graphic Design <span
 							class="whitespace-nowrap opacity-50"
@@ -65,7 +67,7 @@
 				</li>
 				<li>
 					<div
-						class="flex w-full lg:items-center lg:justify-between flex-col lg:flex-row "
+						class="flex w-full flex-col lg:flex-row lg:items-center lg:justify-between "
 					>
 						Other <span
 							class="whitespace-nowrap opacity-50"
@@ -80,49 +82,49 @@
 	</div>
 	<!-- info + image with gray sidebar -->
 	<div
-		class="relative mx-auto mt-24 mb-12 grid w-full grid-cols-10 gap-2 gap-y-12 py-12 text-lg"
+		class="relative mx-auto mt-12 mb-12 grid w-full grid-cols-4 gap-0 gap-y-8 py-12 text-lg lg:mt-24 lg:grid-cols-10 lg:gap-2 lg:gap-y-12 lg:px-0"
 	>
 		<!-- sidebar -->
 		<div
-			class="absolute right-0 h-full w-2 bg-neutral-100 dark:bg-darkgray"
+			class="absolute right-0 hidden h-full w-2 bg-neutral-100 dark:bg-darkgray lg:block"
 		/>
 		<!-- sidebar end -->
 
 		<!-- design experience -->
 		<div
-			class="col-span-2 row-start-2 flex h-44 items-center justify-center bg-neutral-200 dark:bg-darkgray"
+			class="col-span-1 row-start-2 flex h-32 items-center justify-center bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
 		>
-			<p class="text-7xl font-medium">6</p>
+			<p class="text-5xl font-medium lg:text-7xl">6</p>
 		</div>
 		<div
-			class="col-span-6 row-start-2 flex h-44 flex-col justify-center pl-8"
+			class="col-span-3 row-start-2 flex h-32 flex-col justify-center bg-neutral-100 pl-4 dark:bg-darkgray dark:bg-opacity-50 lg:col-span-6 lg:h-44 lg:bg-transparent lg:py-0 lg:pl-8 dark:lg:bg-transparent dark:lg:bg-opacity-100"
 		>
-			<p class="text-2xl font-medium">
+			<p class="text-lg font-medium lg:text-2xl">
 				Years of Experience
 			</p>
-			<p class="mt-2 text-base opacity-70">
-				Design, Branding and Identity
+			<p class="mt-2 text-sm opacity-70 lg:text-base">
+				Design, Branding and Identity & Promotional Work
 			</p>
 		</div>
 		<!-- programming experience -->
 		<div
-			class="col-span-6 row-start-3 flex h-44 flex-col items-end justify-center pr-8"
+			class="col-span-3 row-start-3  flex h-32 flex-col items-end justify-center bg-neutral-100 pr-4 text-right dark:bg-darkgray dark:bg-opacity-50 lg:col-span-6 lg:h-44 lg:bg-transparent lg:py-0 lg:pr-8 dark:lg:bg-transparent dark:lg:bg-opacity-100"
 		>
-			<p class="text-2xl font-medium">
+			<p class="text-lg font-medium lg:text-2xl">
 				Years of Experience
 			</p>
-			<p class="mt-2 text-base opacity-70">
+			<p class="mt-2 text-sm opacity-70 lg:text-base">
 				Website Development and General Purpose Programming
 			</p>
 		</div>
 		<div
-			class="col-span-2 row-start-3 flex h-44 items-center justify-center bg-neutral-200 dark:bg-darkgray"
+			class="col-span-1 row-start-3 flex h-32 items-center justify-center bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
 		>
-			<p class="text-7xl font-medium">4</p>
+			<p class="text-5xl font-medium lg:text-7xl">4</p>
 		</div>
 		<!-- image -->
 		<div
-			class="col-span-8 row-start-4 mt-32 flex h-[65vh] items-center justify-center overflow-hidden bg-neutral-200 dark:bg-darkgray"
+			class="col-span-4 row-start-4 mt-16 flex h-48 items-center justify-center overflow-hidden bg-neutral-200 dark:bg-darkgray lg:col-span-8 lg:mt-32 lg:h-[65vh]"
 		>
 			<img
 				src="images/me.jpg"
@@ -135,8 +137,8 @@
 </div>
 <!-- end about me -->
 <!-- contact + footer -->
-<div class="mx-auto font-aeonik ">
-	<ContactCta />
+<div class="mx-auto font-aeonik space-y-16">
+	<ContactCta margin={false} />
 	<Footer />
 </div>
 <!-- end contact + footer -->

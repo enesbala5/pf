@@ -89,14 +89,19 @@
 <title>Enes Bala - Work Portfolio</title>
 
 <!-- infobar -->
-<div class="bg-neutral-200 dark:bg-darkgray transition-colors delay-150 ease-in-out" id="wrapper">
+<div
+	class="bg-neutral-200 transition-colors delay-150 ease-in-out dark:bg-darkgray"
+	id="wrapper"
+>
 	<div
-		class=" mx-auto grid h-16 md:grid-cols-10 grid-rows-1 gap-2 px-4 text-xs lg:w-10/12 lg:px-0"
+		class=" mx-auto grid h-16 grid-rows-1 gap-2 px-4 text-xs md:grid-cols-10 lg:w-10/12 lg:px-0"
 	>
 		<div class="col-span-2 flex items-center opacity-70">
 			Personal Portfolio Project
 		</div>
-		<div class="col-span-2 items-center opacity-70 hidden md:flex">
+		<div
+			class="col-span-2 hidden items-center opacity-70 md:flex"
+		>
 			Enes Bala
 		</div>
 		<div
@@ -185,19 +190,31 @@
 	</div>
 </div>
 <!-- skills -->
+
+<!-- mobile only SKILLS -->
+<!-- end mobile only SKILLS -->
 <div
 	id="skills"
-	class="relative mx-auto mt-44 mb-12 grid w-10/12 scroll-m-20 lg:grid-cols-10 gap-2 gap-y-12 text-xl grid-cols-2"
+	class="relative mx-auto mt-44 mb-12 grid scroll-m-20 grid-cols-2 lg:gap-2 gap-y-12 px-4 text-xl lg:w-10/12 lg:grid-cols-10"
 >
-	<div class="col-span-2 w-1/2">
+	<div
+		class="col-start-1 col-end-11 row-start-1 row-end-2 w-full lg:col-start-auto lg:col-end-auto lg:block flex justify-between items-end border-b-[1px] border-lightgray pb-4 lg:pb-0 lg:border-none"
+	>
 		<p class="font-medium">Skills</p>
 		<p
-			class="mt-2 font-mono text-sm opacity-50 dark:opacity-20"
+			class="mt-2 font-mono text-sm opacity-50 text-black dark:text-white dark:opacity-30 hidden lg:block"
 		>
 			Tip: Hover / Tap the skills.
 		</p>
+		<p
+			class="font-mono text-xs opacity-50 text-black dark:text-white dark:opacity-30 lg:hidden"
+		>
+			Tip: View on desktop
+		</p>
 	</div>
-	<div class="col-span-2 col-start-3">
+
+	<!-- Development -->
+	<div class="col-start-1 lg:col-span-2 lg:col-start-3">
 		<div
 			class="w-fit"
 			on:mouseenter={hoveredOverText}
@@ -215,7 +232,7 @@
 	</div>
 
 	<div
-		class="peer col-start-9 col-end-11 row-start-1 row-end-2 space-y-2 "
+		class="peer col-start-9 col-end-11 row-start-2 row-end-3 space-y-2 lg:row-start-1 lg:row-end-2"
 		on:mouseenter={hoveredOverText}
 		on:mouseleave={notHovering}
 	>
@@ -231,14 +248,14 @@
 				<div class="h-[1px] w-full bg-lightgray" />
 				{#if frontendSkill.name !== 'Supabase'}
 					<p
-						class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
+						class="ml-5 whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
 					>
 						{frontendSkill.name}
 					</p>
 				{/if}
 				{#if frontendSkill.name === 'Supabase'}
 					<p
-						class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
+						class="ml-5 whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
 					>
 						Supabase<span class="hidden lg:inline-block">
 							/ Postgres Database</span
@@ -248,9 +265,12 @@
 			</div>
 		{/each}
 	</div>
-	<div class="col-span-2 col-start-3">
+	<!-- end -->
+
+	<!-- Design -->
+	<div class="col-start-1 lg:col-span-2 lg:col-start-3">
 		<div
-			class="w-fit"
+			class="w-fit whitespace-nowrap"
 			on:mouseenter={hoveredOverText}
 			on:mouseleave={notHovering}
 		>
@@ -266,7 +286,7 @@
 	</div>
 
 	<div
-		class="peer col-start-9 col-end-11 row-start-2 row-end-3 space-y-2 "
+		class="peer col-start-9 col-end-11 row-start-3 row-end-4 space-y-2 lg:row-start-2 lg:row-end-3 "
 		on:mouseenter={hoveredOverText}
 		on:mouseleave={notHovering}
 	>
@@ -288,8 +308,10 @@
 			</div>
 		{/each}
 	</div>
+	<!-- end -->
 
-	<div class="col-span-2 col-start-3">
+	<!-- 3D Design & Sound -->
+	<div class="col-span-2 col-start-1 lg:col-start-3">
 		<div
 			class="w-fit"
 			on:mouseenter={hoveredOverText}
@@ -298,7 +320,7 @@
 			<p
 				class="peer opacity-70 transition-all delay-75 hover:opacity-100"
 			>
-				3D Design & Sound Design
+				3D Design & <br class="block lg:hidden">Sound Design
 			</p>
 			<div
 				class="peer mt-0.5 h-0.5 w-1 bg-black opacity-0 transition-all delay-75 peer-hover:w-full peer-hover:opacity-100 dark:bg-white"
@@ -307,7 +329,7 @@
 	</div>
 
 	<div
-		class="peer col-start-9 col-end-11 row-start-3 row-end-4 space-y-2 "
+		class="peer col-start-9 col-end-11 row-start-4 row-end-5 space-y-2 lg:row-start-3 lg:row-end-4 "
 		on:mouseenter={hoveredOverText}
 		on:mouseleave={notHovering}
 	>
@@ -329,9 +351,9 @@
 			</div>
 		{/each}
 	</div>
-
+	<!-- end -->
 	<div
-		class="peer absolute col-span-2 col-start-6 flex w-full flex-col opacity-0 transition-all delay-75 peer-hover:opacity-100"
+		class="peer absolute col-span-2 col-start-6 hidden w-full flex-col opacity-0 transition-all delay-75 peer-hover:opacity-100 lg:flex"
 	>
 		{#each $preloadImageUrls as image, i}
 			<div
