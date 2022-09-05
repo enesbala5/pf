@@ -195,7 +195,7 @@
 <!-- end mobile only SKILLS -->
 <div
 	id="skills"
-	class="relative mx-auto mt-44 mb-12 grid scroll-m-20 grid-cols-2 lg:gap-2 gap-y-12 px-4 text-xl lg:w-10/12 lg:grid-cols-10"
+	class="relative mx-auto mt-44 mb-12 grid scroll-m-20 grid-cols-2 lg:gap-2 lg:gap-y-12 gap-y-8 px-4 text-xl lg:w-10/12 lg:grid-cols-10"
 >
 	<div
 		class="col-start-1 col-end-11 row-start-1 row-end-2 w-full lg:col-start-auto lg:col-end-auto lg:block flex justify-between items-end border-b-[1px] border-lightgray pb-4 lg:pb-0 lg:border-none"
