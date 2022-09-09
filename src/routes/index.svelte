@@ -380,7 +380,7 @@
 			transition={{ duration: 0.5 }}
 			layout
 			onHoverStart={() => (hovering = true)}
-			onHoverEnd={() => (hovering = false)}
+			onHoverEnd={() => (setTimeout(() => hovering = false, 500))}
 		>
 			<div
 				use:motion
@@ -473,7 +473,7 @@
 				on:mouseenter={hoveredOverLink}
 				on:mouseleave={notHovering}
 				href={logo.link}
-				class="h-12 cursor-none opacity-70 transition-all delay-75 hover:opacity-100"
+				class="h-12 cursor-none opacity-70 transition-opacity hover:opacity-100 ease-in-out"
 				><img
 					class="h-full"
 					src={logo.logo}

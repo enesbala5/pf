@@ -129,7 +129,7 @@
 			<img
 				src="images/me.jpg"
 				alt=""
-				class="opacity-70 mix-blend-luminosity transition-all delay-75 hover:opacity-100 dark:opacity-50 dark:hover:opacity-70"
+				class="opacity-70 mix-blend-luminosity transition-all hover:opacity-100 dark:opacity-50 dark:hover:opacity-70"
 			/>
 		</div>
 	</div>
