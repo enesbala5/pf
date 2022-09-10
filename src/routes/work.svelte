@@ -69,7 +69,6 @@
 		<!-- project -->
 
 		{#each projects as project, i}
-			{#if i < 3}
 				<div
 					class="col-span-8 flex items-center space-x-2 odd:col-start-2 even:col-start-3"
 				>
@@ -80,13 +79,12 @@
 						projectId={project.id}
 					/>
 				</div>
-			{/if}
 		{/each}
 	</div>
 </div>
 <!-- end contact -->
 
 <!-- footer -->
-<div class="mx-auto mt-96 font-aeonik">
+<div class="mx-auto lg:mt-96 mt-24 font-aeonik">
 	<Footer />
 </div>

@@ -50,6 +50,6 @@ import { goto } from "$app/navigation";
 		on:click="{() => goto(`/${projectId}`)}"
 		on:mouseenter={hoveredOverLink}
 		on:mouseleave={notHovering}
-		class="peer h-40 lg:h-48 lg:w-1/2 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray bg-neutral-200 group-hover:bg-opacity-80 peer-hover:bg-opacity-80"
+		class="peer h-40 lg:h-48 lg:w-1/2 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray bg-neutral-200 group-hover:bg-opacity-80 peer-hover:bg-opacity-80 transition-colors"
 	/>
 </div>

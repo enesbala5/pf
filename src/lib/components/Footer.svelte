@@ -24,7 +24,7 @@
 	<div class="mx-auto flex lg:w-10/12 px-4 lg:px-0 justify-between flex-row lg:flex-row items-center">
 		<a
 			href={navigation.home}
-			class="h-4 font-medium"
+			class="lg:h-4 h-3 font-medium"
 			on:mouseenter={hoveredOverLink}
 			on:mouseleave={notHovering}
 		>
@@ -127,6 +127,7 @@
 		class="lg:mx-auto flex lg:w-10/12 mx-4 flex-col lg:flex-row justify-between text-xs opacity-50 font-mono"
 	>
 		<p
+			class="hidden lg:block"
 			on:mouseenter={hoveredOverText}
 			on:mouseleave={notHovering}
 		>

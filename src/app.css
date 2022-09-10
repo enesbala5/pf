@@ -13,7 +13,7 @@
 		@apply dark:bg-lightgray px-8 py-2.5 text-center text-base dark:hover:bg-lightgray dark:hover:bg-opacity-80 dark:active:bg-lightgray bg-neutral-300 hover:bg-opacity-80 active:bg-opacity-100 transition-colors ease-in-out;
 	}
 	.headline {
-		@apply text-6xl font-medium md:text-7xl lg:text-8xl transition-colors ease-in-out;
+		@apply text-6xl font-medium md:text-7xl lg:text-8xl ease-in-out;
 	}
 }
 
