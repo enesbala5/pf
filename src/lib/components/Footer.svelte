@@ -21,7 +21,7 @@
 </script>
 
 <footer class="dark:bg-darkgray bg-neutral-200 py-8">
-	<div class="mx-auto flex w-10/12 justify-between">
+	<div class="mx-auto flex lg:w-10/12 px-4 lg:px-0 justify-between flex-row lg:flex-row items-center">
 		<a
 			href={navigation.home}
 			class="h-4 font-medium"
@@ -101,7 +101,7 @@
 				</g>
 			</svg>
 		</a>
-		<div class="space-x-20 text-sm opacity-70">
+		<div class="lg:space-x-20 space-x-4 text-sm opacity-70">
 			<a
 				class="font-normal"
 				href={navigation.work}
@@ -122,9 +122,9 @@
 			>
 		</div>
 	</div>
-	<hr class="my-6 mx-auto w-10/12 dark:opacity-70 dark:border-white border-black opacity-20" />
+	<hr class="my-6 lg:mx-auto lg:w-10/12 mx-4 dark:opacity-70 dark:border-white border-black opacity-20" />
 	<div
-		class="mx-auto flex w-10/12 justify-between text-xs opacity-50 font-mono"
+		class="lg:mx-auto flex lg:w-10/12 mx-4 flex-col lg:flex-row justify-between text-xs opacity-50 font-mono"
 	>
 		<p
 			on:mouseenter={hoveredOverText}

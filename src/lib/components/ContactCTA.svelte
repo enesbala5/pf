@@ -24,14 +24,14 @@
 
 <div
 	class="{margin
-		? 'my-12 lg:my-44'
-		: ''} mx-auto flex w-10/12 items-center pb-10"
+		? 'mt-24 mb-20 lg:my-44'
+		: ''} mx-auto flex lg:w-10/12 w-full px-4 lg:px-0 items-center pb-10 lg:flex-row flex-col-reverse"
 >
-	<div class="w-1/2">
-		<h2 class="text-3xl font-medium">
+	<div class="lg:w-1/2 w-full mt-8 lg:mt-0">
+		<h2 class="lg:text-3xl text-2xl font-medium ">
 			Interested in working together?
 		</h2>
-		<p class="mt-2">
+		<p class="lg:mt-2 mt-4">
 			Get in touch and let's make something great
 		</p>
 
@@ -51,7 +51,7 @@
 		</div>
 	</div>
 	<div
-		class="h-96 w-1/2 overflow-hidden bg-neutral-200 dark:bg-darkgray"
+		class="h-96 lg:w-1/2 overflow-hidden bg-neutral-200 dark:bg-darkgray max-h-48 lg:max-h-80 w-full"
 	>
 		<div class="h-full w-full mix-blend-multiply">
 			<img

@@ -21,24 +21,24 @@ import { goto } from "$app/navigation";
 	}
 </script>
 
-<div class=" group relative flex h-full w-full ">
-	<div class="flex h-full w-1/2 flex-col justify-center">
+<div class="group relative flex h-full w-full flex-col-reverse lg:flex-row mb-10 lg:mb-0">
+	<div class="flex h-full lg:w-1/2 w-full flex-col lg:justify-center mt-4 lg:mt-0">
 		<a
 			href={projectId}
 			on:mouseenter={hoveredOverLink}
 			on:mouseleave={notHovering}
 		>
-			<h4 class=" font-medium opacity-70 group-hover:opacity-100">
+			<h4 class="font-medium opacity-70 group-hover:opacity-100 text-lg lg:text-xl">
 				{projectName}
 			</h4>
 			<p
-				class="mt-1 w-2/3  font-mono text-sm opacity-70 group-hover:opacity-100 peer-hover:opacity-100"
+				class="mt-1 lg:w-2/3 w-full font-mono text-sm opacity-70 group-hover:opacity-100 peer-hover:opacity-100"
 			>
 				{projectDescription}
 			</p>
 		</a>
 		<p
-			class="absolute bottom-0 left-0 mt-1 font-mono text-xs opacity-70"
+			class="lg:absolute lg:bottom-0 lg:left-0 lg:mt-1 mt-4 pt-4 border-t dark:border-lightgray border-neutral-200 font-mono text-xs opacity-70 w-full lg:w-fit lg:pt-0 lg:border-none"
 			on:mouseenter={hoveredOverText}
 			on:mouseleave={notHovering}
 		>
@@ -50,6 +50,6 @@ import { goto } from "$app/navigation";
 		on:click="{() => goto(`/${projectId}`)}"
 		on:mouseenter={hoveredOverLink}
 		on:mouseleave={notHovering}
-		class="peer h-48 w-1/2 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray bg-neutral-200 group-hover:bg-opacity-80 peer-hover:bg-opacity-80"
+		class="peer h-40 lg:h-48 lg:w-1/2 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray bg-neutral-200 group-hover:bg-opacity-80 peer-hover:bg-opacity-80"
 	/>
 </div>

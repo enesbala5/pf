@@ -111,8 +111,8 @@
 		</div>
 	</div>
 </div>
-<!-- hero -->
 
+<!-- hero -->
 <div
 	class="relative mx-auto mb-12 grid h-[75vh] grid-cols-10 grid-rows-6 gap-2 text-xl lg:w-10/12"
 >
@@ -189,25 +189,23 @@
 		</div>
 	</div>
 </div>
-<!-- skills -->
 
-<!-- mobile only SKILLS -->
-<!-- end mobile only SKILLS -->
+<!-- skills -->
 <div
 	id="skills"
-	class="relative mx-auto mt-44 mb-12 grid scroll-m-20 grid-cols-2 lg:gap-2 lg:gap-y-12 gap-y-8 px-4 text-xl lg:w-10/12 lg:grid-cols-10"
+	class="relative mx-auto mt-44 mb-12 grid scroll-m-20 grid-cols-2 gap-y-8 px-4 text-xl lg:w-10/12 lg:grid-cols-10 lg:gap-2 lg:gap-y-12"
 >
 	<div
-		class="col-start-1 col-end-11 row-start-1 row-end-2 w-full lg:col-start-auto lg:col-end-auto lg:block flex justify-between items-end border-b-[1px] border-lightgray pb-4 lg:pb-0 lg:border-none"
+		class="col-start-1 col-end-11 row-start-1 row-end-2 flex w-full items-end justify-between border-b-[1px] border-lightgray pb-4 lg:col-start-auto lg:col-end-auto lg:block lg:border-none lg:pb-0"
 	>
 		<p class="font-medium">Skills</p>
 		<p
-			class="mt-2 font-mono text-sm opacity-50 text-black dark:text-white dark:opacity-30 hidden lg:block"
+			class="mt-2 hidden font-mono text-sm text-black opacity-50 dark:text-white dark:opacity-30 lg:block"
 		>
 			Tip: Hover / Tap the skills.
 		</p>
 		<p
-			class="font-mono text-xs opacity-50 text-black dark:text-white dark:opacity-30 lg:hidden"
+			class="font-mono text-xs text-black opacity-50 dark:text-white dark:opacity-30 lg:hidden"
 		>
 			Tip: View on desktop
 		</p>
@@ -220,11 +218,11 @@
 			on:mouseenter={hoveredOverText}
 			on:mouseleave={notHovering}
 		>
-			<p
-				class="peer opacity-70 transition-all delay-75 hover:opacity-100"
+			<h3
+				class="peer text-lg opacity-70 transition-all delay-75 hover:opacity-100 lg:text-xl"
 			>
 				Development
-			</p>
+			</h3>
 			<div
 				class="peer mt-0.5 h-0.5 w-1 bg-black opacity-0 transition-all delay-75 peer-hover:w-full peer-hover:opacity-100 dark:bg-white"
 			/>
@@ -245,17 +243,19 @@
 						frontendSkill.description
 					)}
 			>
-				<div class="h-[1px] w-full bg-lightgray" />
+				<div
+					class="invisible h-[1px] w-full bg-lightgray lg:visible"
+				/>
 				{#if frontendSkill.name !== 'Supabase'}
 					<p
-						class="ml-5 whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
+						class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
 					>
 						{frontendSkill.name}
 					</p>
 				{/if}
 				{#if frontendSkill.name === 'Supabase'}
 					<p
-						class="ml-5 whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
+						class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
 					>
 						Supabase<span class="hidden lg:inline-block">
 							/ Postgres Database</span
@@ -274,11 +274,11 @@
 			on:mouseenter={hoveredOverText}
 			on:mouseleave={notHovering}
 		>
-			<p
-				class="peer opacity-70 transition-all delay-75 hover:opacity-100"
+			<h3
+				class="peer text-lg opacity-70 transition-all delay-75 hover:opacity-100 lg:text-xl"
 			>
 				UI/UX Design
-			</p>
+			</h3>
 			<div
 				class="peer mt-0.5 h-0.5 w-1 bg-black opacity-0 transition-all delay-75 peer-hover:w-full peer-hover:opacity-100 dark:bg-white"
 			/>
@@ -299,7 +299,9 @@
 						designSkill.description
 					)}
 			>
-				<div class="h-[1px] w-full bg-lightgray" />
+				<div
+					class="invisible h-[1px] w-full bg-lightgray lg:visible"
+				/>
 				<p
 					class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
 				>
@@ -317,11 +319,12 @@
 			on:mouseenter={hoveredOverText}
 			on:mouseleave={notHovering}
 		>
-			<p
-				class="peer opacity-70 transition-all delay-75 hover:opacity-100"
+			<h3
+				class="peer text-lg opacity-70 transition-all delay-75 hover:opacity-100 lg:text-xl"
 			>
-				3D Design & <br class="block lg:hidden">Sound Design
-			</p>
+				3D Design & <br class="block lg:hidden" />Sound
+				Design
+			</h3>
 			<div
 				class="peer mt-0.5 h-0.5 w-1 bg-black opacity-0 transition-all delay-75 peer-hover:w-full peer-hover:opacity-100 dark:bg-white"
 			/>
@@ -342,7 +345,9 @@
 						otherSkill.description
 					)}
 			>
-				<div class="h-[1px] w-full bg-lightgray" />
+				<div
+					class="invisible h-[1px] w-full bg-lightgray lg:visible"
+				/>
 				<p
 					class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
 				>
@@ -356,87 +361,137 @@
 		class="peer absolute col-span-2 col-start-6 hidden w-full flex-col opacity-0 transition-all delay-75 peer-hover:opacity-100 lg:flex"
 	>
 		{#each $preloadImageUrls as image, i}
-			<div
-				class="aspect-square w-full items-center justify-center bg-neutral-800 dark:bg-darkgray {image ===
-				hoveredIcon
-					? 'flex'
-					: 'hidden'}"
-			>
-				<div class="container h-14" style="max-width: 70%">
-					<img src={image} class="img" alt="" />
+				<div
+					class="aspect-square w-full items-center justify-center bg-neutral-800 dark:bg-darkgray {image ===
+					hoveredIcon
+						? 'flex'
+						: 'hidden'}"
+				>
+					<div
+						class="container h-14"
+						style="max-width: 70%"
+					>
+						<img src={image} class="img" alt="{hoveredIcon}" />
+					</div>
 				</div>
-			</div>
 		{/each}
 		<p class="mt-4 font-mono text-xs leading-5 opacity-70">
 			{hoveredDescription}
 		</p>
 	</div>
 </div>
+
 <!-- project images -->
-{#if browser}
-	<AnimateSharedLayout children>
-		<Motion
-			let:motion
-			transition={{ duration: 0.5 }}
-			layout
-			onHoverStart={() => (hovering = true)}
-			onHoverEnd={() => (setTimeout(() => hovering = false, 500))}
+<!-- mobile only project images -->
+<div class="relative mt-44 px-4 lg:hidden ">
+	<div
+		class="h-48 w-full bg-neutral-100 dark:bg-darkgray"
+	/>
+	<div
+		class="absolute right-1/2 bottom-1/2 h-36 w-4/6 translate-x-1/2 translate-y-40 bg-neutral-200 dark:bg-lightgray"
+	>
+		<p
+			class="absolute -bottom-8 mt-2 font-mono text-xs opacity-50"
 		>
-			<div
-				use:motion
-				class="relative mx-auto mt-44 mb-12 grid w-10/12 grid-cols-10 grid-rows-1 gap-2 text-xs"
+			Project FirstLast™
+		</p>
+		<p
+			class="absolute -bottom-8 right-0 mt-2 font-mono text-xs opacity-50"
+		>
+			2018
+		</p>
+	</div>
+</div>
+<!-- end mobile only project images -->
+<div class="hidden lg:block">
+	{#if browser}
+		<AnimateSharedLayout children>
+			<Motion
+				let:motion
+				transition={{ duration: 0.5 }}
+				layout
+				onHoverStart={() => (hovering = true)}
+				onHoverEnd={() =>
+					setTimeout(() => (hovering = false), 500)}
 			>
-				<Motion
-					let:motion={m1}
-					transition={{ duration: 0.5 }}
-					layout
+				<div
+					use:motion
+					class="relative mx-auto mt-44 mb-12 grid w-10/12 grid-cols-10 grid-rows-1 gap-2 text-xs"
 				>
-					<div
-						use:m1
-						class="col-span-6  row-start-1 row-end-2 h-[70vh] {hovering
-							? 'col-start-5'
-							: 'col-start-3'}"
+					<Motion
+						let:motion={m1}
+						transition={{ duration: 0.5 }}
+						layout
 					>
 						<div
-							class="h-full w-full bg-neutral-300 dark:bg-darkgray"
-						/>
-						<p class="mt-2 font-mono opacity-50">
-							Project FirstLast™
-						</p>
-					</div>
-				</Motion>
-				<Motion
-					let:motion={m2}
-					transition={{ duration: 0.5 }}
-					layout
-				>
-					<div
-						use:m2
-						class="z-20  col-span-4 row-start-1 row-end-2 flex h-[70vh] flex-col justify-center {hovering
-							? 'col-start-1'
-							: 'col-start-7'}"
+							use:m1
+							class="col-span-6  row-start-1 row-end-2 h-[70vh] {hovering
+								? 'col-start-5'
+								: 'col-start-3'}"
+						>
+							<div
+								class="h-full w-full bg-neutral-300 dark:bg-darkgray"
+							/>
+							<p class="mt-2 font-mono opacity-50">
+								Project FirstLast™
+							</p>
+						</div>
+					</Motion>
+					<Motion
+						let:motion={m2}
+						transition={{ duration: 0.5 }}
+						layout
 					>
 						<div
-							class="h-[40vh] w-full bg-neutral-200 dark:bg-lightgray "
-						/>
-						<p class="mt-2 font-mono opacity-50">
-							2018 Enes Bala
-						</p>
-					</div>
-				</Motion>
-			</div>
-		</Motion>
-	</AnimateSharedLayout>
-{/if}
+							use:m2
+							class="z-20  col-span-4 row-start-1 row-end-2 flex h-[70vh] flex-col justify-center {hovering
+								? 'col-start-1'
+								: 'col-start-7'}"
+						>
+							<div
+								class="h-[40vh] w-full bg-neutral-200 dark:bg-lightgray "
+							/>
+							<p class="mt-2 font-mono opacity-50">
+								2018 Enes Bala
+							</p>
+						</div>
+					</Motion>
+				</div>
+			</Motion>
+		</AnimateSharedLayout>
+	{/if}
+</div>
+
 <!-- projects -->
 <div
-	class="relative mx-auto mt-44 mb-12 grid w-10/12 grid-cols-10 gap-2 gap-y-12 text-xl"
+	class="relative mx-auto mt-64 mb-12 flex flex-col px-4 text-lg lg:mt-44 lg:grid lg:w-10/12 lg:grid-cols-10 lg:gap-2 lg:gap-y-12 lg:px-0 lg:text-xl"
 >
 	<!-- titlebar -->
-	<div class="col-span-2">
+	<!-- end mobile only -->
+	<div
+		class="mb-4 flex items-center justify-between border-b-[1px] border-lightgray pb-4 lg:hidden"
+	>
+		<div class="">
+			<p class="font-medium">Projects</p>
+		</div>
+		<div class="">
+			<div class="flex items-center space-x-4 opacity-70">
+				<a
+					href={navigation.work}
+					class="text-base opacity-70"
+					on:mouseenter={hoveredOverLink}
+					on:mouseleave={notHovering}>View all</a
+				>
+			</div>
+		</div>
+	</div>
+	<!-- end mobile only -->
+	<div class="hidden lg:col-span-2 lg:block">
 		<p class="font-medium">Projects</p>
 	</div>
-	<div class=" col-span-3 col-start-3">
+	<div
+		class=" hidden lg:col-span-3 lg:col-start-3 lg:block"
+	>
 		<div class="flex items-center space-x-4 opacity-70">
 			<a
 				href={navigation.work}
@@ -453,7 +508,7 @@
 	{#each projects as project, i}
 		{#if i < 3}
 			<div
-				class="col-span-8 flex items-center space-x-2  odd:col-start-3 even:col-start-2"
+				class="col-span-8 flex items-center space-x-2 odd:col-start-2 even:col-start-3"
 			>
 				<ProjectCard
 					projectName={project.projectName}
@@ -473,7 +528,7 @@
 				on:mouseenter={hoveredOverLink}
 				on:mouseleave={notHovering}
 				href={logo.link}
-				class="h-12 cursor-none opacity-70 transition-opacity hover:opacity-100 ease-in-out"
+				class="h-12 cursor-none opacity-70 transition-opacity ease-in-out hover:opacity-100"
 				><img
 					class="h-full"
 					src={logo.logo}

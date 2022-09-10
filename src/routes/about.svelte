@@ -137,7 +137,7 @@
 </div>
 <!-- end about me -->
 <!-- contact + footer -->
-<div class="mx-auto font-aeonik space-y-16">
+<div class="mx-auto lg:mt-24 font-aeonik space-y-16">
 	<ContactCta margin={false} />
 	<Footer />
 </div>

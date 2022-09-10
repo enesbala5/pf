@@ -106,7 +106,9 @@
 	}
 
 	onMount(() => {
-		getImagesToPreload();
+		if ($preloadImageUrls.length < 2) {
+			getImagesToPreload();
+		}
 	});
 
 	let finishedAnimation = false;
