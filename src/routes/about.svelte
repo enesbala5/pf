@@ -9,11 +9,11 @@
 
 <!-- about me -->
 <div
-	class="mx-auto mt-24 w-full p-4 lg:p-0 font-aeonik lg:w-10/12"
+	class="mx-auto mt-24 w-full px-4 lg:px-0 font-aeonik lg:w-10/12"
 >
 	<h1 class="headline">About me</h1>
 	<div
-		class="relative mx-auto mt-12 mb-8 grid grid-cols-1 text-lg md:grid-cols-10 md:gap-2 lg:mt-24"
+		class="relative mx-auto mb-8 grid grid-cols-1 text-lg md:grid-cols-10 md:gap-2 mt-24"
 	>
 		<div class="md:col-span-3 md:col-start-2">
 			<p class="">

@@ -1,48 +1,48 @@
 export const projects = [
 	{
-		projectName: "Project FirstLast",
+		projectName: "List4Free",
 		projectDescription: "Brand redefinition and identity design",
 		category: "Branding& Identity - October 2021",
 		thumbnail: "thumbnail1",
-		id: 1,
+		id: 'list4free',
 	},
 	{
-		projectName: "Project SecondLast",
+		projectName: "Shargan Consulting",
 		projectDescription: "Website development and database management",
 		category: "Development - July 2022",
 		thumbnail: "thumbnail2",
-		id: 2,
+		id: 'sharganconsulting',
 	},
 	{
-		projectName: "Project ThirdLast",
+		projectName: "Click Properties",
 		projectDescription:
 			"Brand creation and Identity design. Coupled with a new website.",
 		category: "Branding, Identity & Development - January 2022",
 		thumbnail: "thumbnail3",
-		id: 3,
+		id: 'clickproperties',
 	},
 	{
-		projectName: "Project FourthLast",
+		projectName: "Universi Language Center",
 		projectDescription:
 			"Brand creation and Identity design. Coupled with a new website.",
 		category: "Branding, Identity & Development - January 2022",
 		thumbnail: "thumbnail3",
-		id: 4,
+		id: 'universi',
 	},
 	{
-		projectName: "Project FifthLast",
+		projectName: "Venustre Clothing",
 		projectDescription:
 			"Brand creation and Identity design. Coupled with a new website.",
 		category: "Branding, Identity & Development - January 2022",
 		thumbnail: "thumbnail3",
-		id: 5,
+		id: 'venustre',
 	},
 	{
-		projectName: "Project SixthLast",
+		projectName: "Softoptech",
 		projectDescription:
 			"Brand creation and Identity design. Coupled with a new website.",
 		category: "Branding, Identity & Development - January 2022",
 		thumbnail: "thumbnail3",
-		id: 6,
+		id: 'softoptech',
 	},
 ];

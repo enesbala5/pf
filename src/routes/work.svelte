@@ -26,12 +26,12 @@
 
 <!-- work -->
 <div
-	class="mx-auto mt-24 w-full p-4 font-aeonik lg:w-10/12"
+	class="mx-auto mt-24 w-full px-4 lg:px-0 font-aeonik lg:w-10/12"
 >
 	<h1 class="headline">Projects</h1>
 	<div
 		id="skills"
-		class="relative mx-auto mt-12 mb-12 text-xl lg:mt-24 lg:grid lg:grid-cols-10 lg:gap-2 lg:gap-y-12"
+		class="relative mx-auto mb-12 text-xl mt-24 lg:grid lg:grid-cols-10 lg:gap-2 lg:gap-y-12"
 	>
 		<div class="col-span-9 col-start-2 flex justify-between mb-12 lg:mb-0 items-center">
 			<!-- titlebar -->

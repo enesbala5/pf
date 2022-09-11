@@ -15,6 +15,13 @@
 	.headline {
 		@apply text-6xl font-medium md:text-7xl lg:text-8xl ease-in-out;
 	}
+	.projectHeadline {
+		@apply text-6xl font-medium md:text-7xl lg:text-8xl ease-in-out;
+	}
+
+	.projectSubheading {
+		@apply lg:text-2xl text-lg 
+	}
 }
 
 @font-face {

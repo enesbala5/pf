@@ -37,11 +37,11 @@
 
 <!-- contact -->
 <div
-	class="mx-auto mt-12 w-full p-4 font-aeonik lg:mt-24 lg:w-10/12"
+	class="mx-auto mt-24 w-full px-4 lg:px-0 font-aeonik lg:mt-24 lg:w-10/12"
 >
 	<h1 class="headline">Contact</h1>
 	<div
-		class="relative mx-auto mt-24 mb-8 text-lg lg:grid lg:grid-cols-10 lg:gap-2"
+		class="relative mx-auto mt-20 mb-8 text-lg lg:grid lg:grid-cols-10 lg:gap-2"
 	>
 		<div
 			class="col-span-8 col-start-2 flex items-center justify-between"

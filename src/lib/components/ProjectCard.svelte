@@ -24,7 +24,7 @@ import { goto } from "$app/navigation";
 <div class="group relative flex h-full w-full flex-col-reverse lg:flex-row mb-10 lg:mb-0">
 	<div class="flex h-full lg:w-1/2 w-full flex-col lg:justify-center mt-4 lg:mt-0">
 		<a
-			href={projectId}
+			href={`/projects/${projectId}`}
 			on:mouseenter={hoveredOverLink}
 			on:mouseleave={notHovering}
 		>
@@ -47,7 +47,7 @@ import { goto } from "$app/navigation";
 	</div>
 	<!-- svelte-ignore a11y-missing-content -->
 	<div
-		on:click="{() => goto(`/${projectId}`)}"
+		on:click="{() => goto(`/projects/${projectId}`)}"
 		on:mouseenter={hoveredOverLink}
 		on:mouseleave={notHovering}
 		class="peer h-40 lg:h-48 lg:w-1/2 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray bg-neutral-200 group-hover:bg-opacity-80 peer-hover:bg-opacity-80 transition-colors"
