@@ -107,16 +107,12 @@
 
 	onMount(() => {
 		// if ($preloadImageUrls.length < 2) {
-			getImagesToPreload();
+		getImagesToPreload();
 		// }
 	});
 
 	let finishedAnimation = false;
 </script>
-
-<div id="scrollbar">
-	<Svrollbar />
-</div>
 
 <svelte:window
 	on:mousemove={(e) => {
@@ -174,9 +170,20 @@
 		{/if}
 	</div>
 </div>
+<div
+	id={$theme === 'dark' ? 'scrollbarDark' : 'scrollbar'}
+	class="z-50"
+>
+	<Svrollbar />
+</div>
 
 <style>
 	#scrollbar {
+		--svrollbar-thumb-background: #a3a3a3;
+		--svrollbar-thumb-opacity: 100%;
+	}
+
+	#scrollbarDark {
 		--svrollbar-thumb-background: #1f1f1f;
 		--svrollbar-thumb-opacity: 100%;
 	}

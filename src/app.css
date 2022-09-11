@@ -4,23 +4,31 @@
 
 @layer components {
 	.inputPrimary {
-		@apply cursor-none dark:bg-lightgray bg-neutral-200 py-3 px-5 dark:text-white text-black dark:placeholder:opacity-50 dark:placeholder:text-white focus:outline-none  placeholder:text-neutral-600 placeholder:opacity-100 transition-colors ease-in-out;
+		@apply cursor-none bg-neutral-200 py-3 px-5 text-black transition-colors ease-in-out placeholder:text-neutral-600 placeholder:opacity-100 focus:outline-none  dark:bg-lightgray dark:text-white dark:placeholder:text-white dark:placeholder:opacity-50;
 	}
 	.buttonPrimary {
-		@apply dark:bg-darkgray px-8 py-2.5 text-center text-base dark:hover:bg-lightgray dark:active:bg-darkgray bg-neutral-200 hover:bg-neutral-300 active:bg-neutral-200 transition-colors ease-in-out;
+		@apply bg-neutral-200 px-8 py-2.5 text-center text-base transition-colors ease-in-out hover:bg-neutral-300 active:bg-neutral-200 dark:bg-darkgray dark:hover:bg-lightgray dark:active:bg-darkgray;
 	}
 	.buttonSecondary {
-		@apply dark:bg-lightgray px-8 py-2.5 text-center text-base dark:hover:bg-lightgray dark:hover:bg-opacity-80 dark:active:bg-lightgray bg-neutral-300 hover:bg-opacity-80 active:bg-opacity-100 transition-colors ease-in-out;
+		@apply bg-neutral-300 px-8 py-2.5 text-center text-base transition-colors ease-in-out hover:bg-opacity-80 active:bg-opacity-100 dark:bg-lightgray dark:hover:bg-lightgray dark:hover:bg-opacity-80 dark:active:bg-lightgray;
 	}
 	.headline {
-		@apply text-6xl font-medium md:text-7xl lg:text-8xl ease-in-out;
+		@apply text-6xl font-medium ease-in-out md:text-7xl lg:text-8xl;
 	}
+
 	.projectHeadline {
-		@apply text-6xl font-medium md:text-7xl lg:text-8xl ease-in-out;
+		@apply text-6xl font-medium ease-in-out md:text-7xl lg:text-7xl;
 	}
 
 	.projectSubheading {
-		@apply lg:text-2xl text-lg 
+		@apply text-lg lg:text-2xl;
+	}
+
+	.projectText {
+		@apply text-xl lg:text-2xl lg:leading-relaxed leading-relaxed;
+	}
+	.projectH2 {
+		@apply text-xl tracking-wide;
 	}
 }
 
@@ -74,4 +82,15 @@
 	button {
 		cursor: none;
 	}
+}
+
+::-moz-selection {
+	/* Code for Firefox */
+	color: white;
+	background: #000;
+}
+
+::selection {
+	color: white;
+	background: #000;
 }
