@@ -69,7 +69,7 @@
 	</SmallProjectContainer>
 
 	<ProjectContainer>
-		<ProjectContainer customMargin={false}>
+		<ProjectContainer noMargin>
 			<Headline
 				>Site of the day according to Awwwards and CSSDA</Headline
 			>

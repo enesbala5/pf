@@ -20,7 +20,7 @@
 	}
 </script>
 
-<footer class="dark:bg-darkgray bg-neutral-200 py-8">
+<footer class="dark:bg-darkgray bg-black py-8 text-white">
 	<div class="mx-auto flex lg:w-10/12 px-4 lg:px-0 justify-between flex-row lg:flex-row items-center">
 		<a
 			href={navigation.home}
@@ -30,7 +30,7 @@
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				class="h-full dark:fill-white fill-black"
+				class="h-full fill-white"
 				viewBox="0 0 396.79 61.413"
 			>
 				<g
@@ -122,7 +122,7 @@
 			>
 		</div>
 	</div>
-	<hr class="my-6 lg:mx-auto lg:w-10/12 mx-4 dark:opacity-70 dark:border-white border-black opacity-20" />
+	<hr class="my-6 lg:mx-auto lg:w-10/12 mx-4 dark:opacity-70 border-white opacity-20" />
 	<div
 		class="lg:mx-auto flex lg:w-10/12 mx-4 flex-col lg:flex-row justify-between text-xs opacity-50 font-mono"
 	>

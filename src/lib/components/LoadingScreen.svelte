@@ -5,6 +5,7 @@
 	import { createEventDispatcher } from 'svelte';
 
 	let drawing: boolean = false;
+	export let quickAnimation: boolean = false;
 
 	setTimeout(() => {
 		drawing = true;
@@ -22,6 +23,8 @@
 	};
 </script>
 	
+<title>Enes Bala</title>
+
 <div class="mb-20 sm:mb-0">
 	<div id="logo" class="sm:mt-16 h-24 w-24">
 		<svg
@@ -42,7 +45,7 @@
 					{#if drawing}
 						<path
 							in:draw={{
-								duration: 1500,
+								duration: !quickAnimation? 1500 : 900,
 								easing: quartInOut,
 							}}
 							id="Path_55"

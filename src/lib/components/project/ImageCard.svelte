@@ -32,6 +32,7 @@
 	onMount(() => {
 		updateDistanceTop();
 	});
+	
 	$: (elDistanceToTop, scrollY),
 		updateParallax(elDistanceToTop, scrollY);
 	let actualScrollValue: number = 0;

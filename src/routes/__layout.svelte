@@ -20,6 +20,7 @@
 	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
 	import { onMount } from 'svelte';
 	import { theme } from '$lib/state/theme';
+	import { afterNavigate } from '$app/navigation';
 
 	let size = spring(7);
 	let clicked: boolean = false;
@@ -105,19 +106,28 @@
 	}
 
 	function goTop() {
-		document.body.scrollIntoView();
+		document.body.scrollIntoView({ behavior: 'auto' });
 	}
 	onMount(() => {
-		if ($page.url.pathname.includes('projects')) {
-			goTop();
-		}
-
 		// if ($preloadImageUrls.length < 2) {
+
+	
 		getImagesToPreload();
 		// }
 	});
 
+	afterNavigate(() => {
+		if ($page.url.pathname.includes('projects')) {
+			goTop();
+			ready = false;
+			quickAnimation = true;
+			setTimeout(() => (ready = true), 1000);
+			console.log($page.url.pathname);
+		}
+	});
 	let finishedAnimation = false;
+
+	let quickAnimation = false;
 </script>
 
 <svelte:window
@@ -134,48 +144,54 @@
 	{/each}
 </svelte:head>
 
-<div class={$theme}>
-	<div class="bg-white dark:bg-black">
-		{#if !ready}
-			<div
-				class="fixed -z-10 flex h-screen w-screen flex-col items-center justify-center bg-white font-aeonik dark:bg-black dark:text-white"
-			>
-				<LoadingScreen
-					on:isOver={() => {
-						finishedAnimation = true;
-						ready = true;
-					}}
-				/>
-			</div>
-		{/if}
-
-		{#if ready}
-			<div
-				transition:fade={{ duration: 500, easing: quadIn }}
-				class="relative min-h-screen font-aeonik lg:cursor-none {$theme}"
-				on:mousedown={() => (clicked = true)}
-				on:mouseup={() => (clicked = false)}
-			>
-				<svg
-					class="pointer-events-none absolute z-[999] hidden h-full w-full lg:block"
-				>
-					<circle
-						class={pointerClasses}
-						cx={pageX}
-						cy={pageY + scrollY}
-						r={$size}
-					/>
-				</svg>
+{#key ready}
+	<div class={$theme}>
+		<div class="bg-white dark:bg-black">
+			{#if !ready}
 				<div
-					class="bg-neutral-50 text-black transition-colors delay-150 ease-in-out dark:bg-black dark:text-white"
+					class="fixed -z-10 flex h-screen w-screen flex-col items-center justify-center bg-white font-aeonik dark:bg-black dark:text-white"
 				>
-					<Navbar />
-					<slot />
+					<LoadingScreen
+						{quickAnimation}
+						on:isOver={() => {
+							finishedAnimation = true;
+							ready = true;
+						}}
+					/>
 				</div>
-			</div>
-		{/if}
+			{/if}
+
+			{#if ready}
+				<div
+					in:fade={{
+						duration: 500,
+						easing: quadIn,
+					}}
+					class="relative min-h-screen font-aeonik lg:cursor-none {$theme}"
+					on:mousedown={() => (clicked = true)}
+					on:mouseup={() => (clicked = false)}
+				>
+					<svg
+						class="pointer-events-none absolute z-[999] hidden h-full w-full lg:block"
+					>
+						<circle
+							class={pointerClasses}
+							cx={pageX}
+							cy={pageY + scrollY}
+							r={$size}
+						/>
+					</svg>
+					<div
+						class="bg-neutral-50 text-black transition-colors delay-150 ease-in-out dark:bg-black dark:text-white"
+					>
+						<Navbar />
+						<slot />
+					</div>
+				</div>
+			{/if}
+		</div>
 	</div>
-</div>
+{/key}
 <div
 	id={$theme === 'dark' ? 'scrollbarDark' : 'scrollbar'}
 	class="z-50"
