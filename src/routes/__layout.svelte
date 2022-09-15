@@ -1,6 +1,5 @@
 <script lang="ts">
 	import LoadingScreen from '$lib/components/LoadingScreen.svelte';
-
 	import '../app.css';
 	import { Svrollbar } from 'svrollbar';
 	import Navbar from '$lib/components/Navbar.svelte';
@@ -105,7 +104,14 @@
 		];
 	}
 
+	function goTop() {
+		document.body.scrollIntoView();
+	}
 	onMount(() => {
+		if ($page.url.pathname.includes('projects')) {
+			goTop();
+		}
+
 		// if ($preloadImageUrls.length < 2) {
 		getImagesToPreload();
 		// }

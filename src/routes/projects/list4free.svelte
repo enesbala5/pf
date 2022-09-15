@@ -1,22 +1,23 @@
-<div class="mt-24 min-h-screen w-full font-aeonik lg:mt-24">
-	<!-- * First Way - not good -->
-	<!-- <div class="flex w-full lg:justify-between lg:items-end flex-col lg:flex-row">
-		<h1 class="projectHeadline">List4Free</h1>
-		<p class="mt-2 lg:mt-0 font-mono text-xs opacity-50 lg:text-sm ">
-			Branding & Identity Design - Website Design
-		</p>
-	</div>
-	<p class="projectSubheading mt-4 pt-4 border-t border-neutral-200 dark:border-darkgray">
-		Creating a brand and solid identity for "The UK's Real Estate Marketplace".
-	</p> -->
-	<!-- * end -->
+<script lang="ts">
+	import Introduction from '$lib/components/project/Introduction.svelte';
+	import ProjectContainer from '$lib/components/project/containers/ProjectContainer.svelte';
+	import SmallProjectContainer from '$lib/components/project/containers/SmallProjectContainer.svelte';
+	import ImageCard from '$lib/components/project/ImageCard.svelte';
+	import Quote from '$lib/components/project/Quote.svelte';
+	import Callout from '$lib/components/project/Callout.svelte';
+	import Headline from '$lib/components/project/Headline.svelte';
+	import Text from '$lib/components/project/Text.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+</script>
 
-	<!-- ? Second Way - focus on description -->
-	<div class="mx-auto w-full px-4 lg:w-10/12 lg:px-0">
+<title>List4Free - Enes Bala</title>
+
+<div class="mt-24 min-h-screen w-full font-aeonik lg:mt-24">
+	<ProjectContainer noMargin>
 		<div class="mx-auto w-full lg:w-10/12">
 			<p class="projectSubheading">List4Free</p>
 
-			<p class="projectHeadline mt-4 lg:w-2/3">
+			<p class="projectHeadline mt-4">
 				The UK's <br class="lg:hidden" /> Real Estate Marketplace
 			</p>
 			<p
@@ -25,129 +26,109 @@
 				Branding & Identity Design - Website Design
 			</p>
 		</div>
-	</div>
+	</ProjectContainer>
 
-	<div
-		class="mt-56 h-[40vh] w-full bg-neutral-200 dark:bg-darkgray lg:h-[105vh]"
+	<ImageCard
+		fullscreen
+		image="list4free/test.jpg"
+		description="View of all List4Free screens"
 	/>
-	<div class="mx-auto w-full px-4 lg:w-10/12 lg:px-0">
-		<div
-			class="my-24 mx-auto flex w-full flex-col lg:my-60 lg:w-10/12 lg:flex-row lg:justify-between"
-		>
-			<p
-				class="projectH2 mb-6 font-medium lg:mb-0 lg:w-1/3"
-			>
-				The challenge
-			</p>
-			<p class="projectText lg:w-2/3">
-				uLesson is a one of a kind product. It brings
-				together multimedia and technological solutions to
-				create an exceptional learning experience for
-				African students. The startup collected 3.1 million
-				dollars in the seed funding round. Boasting
-				extremely progressive goals, the platform aims to
-				raise the level of education in African countries.
-				uLesson provides students the tools to unlock their
-				fullest potential with the help of personalized
-				learning on mobile devices.
-			</p>
-		</div>
-	</div>
-	<div
-		class="mt-56 h-[40vh] w-full bg-neutral-200 dark:bg-darkgray lg:h-[105vh]"
-	/>
-	<div class="mx-auto w-full px-4 lg:w-10/12 lg:px-0">
-		<div
-			class="my-24 mx-auto flex w-full flex-col lg:my-60 lg:w-10/12 lg:flex-row lg:justify-between"
-		>
-			<p
-				class="projectH2 mb-6 font-medium lg:mb-0 lg:w-1/3"
-			>
-				Unique experience
-			</p>
-			<p class="projectText lg:w-2/3">
-				It was truly a novel experience for us to
-				participate in an ambitious, large-scale project
-				like uLesson. Our team partly took on the job of
-				market research, strategy elaboration, development,
-				and of course, getting creative with visuals.
-				Cuberto worked through dozens of design concepts
-				throughout the lengthy collaborative process and
-				successfully created an unforgettable design for the
-				mobile and desktop application. Oh, and did we
-				mention that we built the website from scratch?
-			</p>
-		</div>
-	</div>
 
-	<div class="mx-auto w-full px-4 lg:w-10/12 lg:px-0">
-		<div
-			class="my-36 mx-auto grid w-full grid-cols-1 gap-8 lg:my-60 lg:w-10/12 lg:grid-cols-2 grid-flow-col grid-rows-2"
-		>
-			<!-- 1 -->
-			<div class="flex flex-col items-center">
-				<div
-					class="flex h-fit w-full items-center justify-center overflow-hidden"
-				>
-					<img
-						src="/images/design.jpg"
-						alt=""
-						class="h-full w-full object-cover "
-					/>
-				</div>
-				<p class="projectH2 my-6">
-					uLesson features practical tests in multiple
-					subjects.
-				</p>
+	<ProjectContainer>
+		<Introduction
+			text="It was truly a novel experience for us to participate in
+				an ambitious, large-scale project like uLesson. Our team
+				partly took on the job of market research, strategy
+				elaboration, development, and of course, getting
+				creative with visuals. Cuberto worked through dozens of
+				design concepts throughout the lengthy collaborative
+				process and successfully created an unforgettable design
+				for the mobile and desktop application. Oh, and did we
+				mention that we built the website from scratch?"
+		/>
+	</ProjectContainer>
+	<ImageCard
+		fullscreen
+		image="list4free/screens.jpg"
+		description="View of all List4Free screens"
+	/>
+
+	<SmallProjectContainer>
+		<Callout
+			title="Creation of a design system"
+			text="Our final flourish was transferring models to engineers. Side by side, Cisco’s and Cuberto’s teams collected specs and outlined all possible scenarios for adding elements and blocks for new pages."
+		/>
+		<ImageCard
+			image="list4free/logo.png"
+			description="Lorem ipsum delor del ipsum."
+		/>
+		<ImageCard
+			image="list4free/logo.png"
+			description="Lorem ipsum delor del ipsum."
+		/>
+	</SmallProjectContainer>
+
+	<ProjectContainer>
+		<ProjectContainer customMargin={false}>
+			<Headline
+				>Site of the day according to Awwwards and CSSDA</Headline
+			>
+			<Text
+				>List4Free provides with an easy solution to
+				uploading your property to the biggest marketplace
+				available</Text
+			>
+		</ProjectContainer>
+		<ImageCard
+			fullscreen
+			image="list4free/screens.jpg"
+			description="View of all List4Free screens"
+		/>
+	</ProjectContainer>
+	<!-- 
+				<ImageCard
+					image="list4free/screens.jpg"
+					description="The best way to try life."
+				/>
 			</div>
-			<!-- 2 -->
-			<div class="flex flex-col items-center">
-				<div
-					class="flex h-fit w-full items-center justify-center overflow-hidden"
-				>
-					<img
-						src="/images/developer.jpg"
-						alt=""
-						class="h-full w-full object-cover "
-					/>
-				</div>
-				<p class="projectH2 my-6">
-					uLesson features practical tests in multiple
-					subjects.
-				</p>
-			</div>
-			<!-- 3 -->
-			<div class="flex flex-col items-center">
-				<div
-					class="flex h-fit w-full items-center justify-center overflow-hidden"
-				>
-					<img
-						src="/images/map.png"
-						alt=""
-						class="h-full w-full object-cover "
-					/>
-				</div>
-				<p class="projectH2 my-6">
-					uLesson features practical tests in multiple
-					subjects.
-				</p>
-			</div>
-			<!-- 4 -->
-			<div class="flex flex-col items-center">
-				<div
-					class="flex h-fit w-full items-center justify-center overflow-hidden"
-				>
-					<img
-						src="/images/tirana.jpg"
-						alt=""
-						class="h-full w-full object-cover "
-					/>
-				</div>
-				<p class="projectH2 my-6">
-					uLesson features practical tests in multiple
-					subjects.
-				</p>
-			</div>
-		</div>
-	</div>
+			<div class="flex flex-col space-y-8  w-full h-fit">
+				<ImageCard
+					image="list4free/logo.png"
+					description="The best way to try life."
+				/>
+				<ImageCard
+					image="list4free/screens.jpg"
+					description="The best way to try life."
+				/>
+			</div> -->
+	<!-- <div class="flex flex-col space-y-8 bg-blue-500 w-full h-fit"> -->
+	<!-- 3 -->
+	<!-- <ImageCard
+					image="list4free/screens.jpg"
+					description="The best way to try life."
+				/> -->
+
+	<!-- 4 -->
+	<!-- <ImageCard
+					image="list4free/screens.jpg"
+					description="The best way to try life."
+				/> -->
+	<!-- </div> -->
+	<!-- </div> -->
+	<SmallProjectContainer>
+		<Quote person="Alban Bala">
+			We’d like to express our sincere gratitude to Cuberto
+			for their contribution to the development of our
+			product.
+			<br /><br />
+			After over 2 years of tight cooperation, the team proved
+			to be highly qualified specialists and took on a big chunk
+			of work, starting with logo & brand identity for two DSX
+			products, and moving forward with a complete website development,
+			two native mobile applications development for iOS / Android
+			and the design of our internal platform.
+		</Quote>
+	</SmallProjectContainer>
 </div>
+
+<Footer />

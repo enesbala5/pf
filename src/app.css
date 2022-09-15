@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+	.headline {
+		@apply text-6xl font-medium ease-in-out md:text-7xl lg:text-8xl;
+	}
 	.inputPrimary {
 		@apply cursor-none bg-neutral-200 py-3 px-5 text-black transition-colors ease-in-out placeholder:text-neutral-600 placeholder:opacity-100 focus:outline-none  dark:bg-lightgray dark:text-white dark:placeholder:text-white dark:placeholder:opacity-50;
 	}
@@ -12,23 +15,32 @@
 	.buttonSecondary {
 		@apply bg-neutral-300 px-8 py-2.5 text-center text-base transition-colors ease-in-out hover:bg-opacity-80 active:bg-opacity-100 dark:bg-lightgray dark:hover:bg-lightgray dark:hover:bg-opacity-80 dark:active:bg-lightgray;
 	}
-	.headline {
-		@apply text-6xl font-medium ease-in-out md:text-7xl lg:text-8xl;
-	}
 
 	.projectHeadline {
-		@apply text-6xl font-medium ease-in-out md:text-7xl lg:text-7xl;
+		@apply text-6xl font-medium ease-in-out md:text-7xl lg:text-8xl;
 	}
-
 	.projectSubheading {
 		@apply text-lg lg:text-2xl;
 	}
 
-	.projectText {
-		@apply text-xl lg:text-2xl lg:leading-relaxed leading-relaxed;
+	.projectH1 {
+		@apply text-2xl lg:text-7xl leading-normal;
 	}
+
 	.projectH2 {
+		@apply text-xl lg:text-3xl;
+	}
+
+	.projectH3 {
 		@apply text-xl tracking-wide;
+	}
+	
+	.projectText {
+		@apply text-xl leading-relaxed lg:text-2xl lg:leading-relaxed;
+	}
+
+	.projectSmallerText {
+		@apply text-lg leading-relaxed lg:text-xl lg:leading-relaxed;
 	}
 }
 
