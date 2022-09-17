@@ -125,21 +125,6 @@
 		}
 	});
 	let quickAnimation = false;
-
-	// change text selection color :root
-	let rootElement: any;
-	$: $theme,
-		rootElement &&
-			rootElement.style.setProperty(
-				'--textColor',
-				`${$theme === 'dark' ? 'black' : 'white'}`
-			);
-	$: $theme,
-		rootElement &&
-			rootElement.style.setProperty(
-				'--backgroundColor',
-				`${$theme === 'dark' ? 'white' : 'black'}`
-			);
 </script>
 
 <svelte:window
@@ -157,12 +142,12 @@
 </svelte:head>
 
 {#key ready}
-	<div class={$theme} bind:this={rootElement}>
+	<div class={$theme} style="--textColor:{$theme === 'dark' ? 'black' : 'white'};--backgroundColor:{$theme === 'dark' ? 'black' : 'white'}">
 		<div class="bg-white dark:bg-black">
 			{#if !ready}
 				<div
 					class="fixed -z-10 flex h-screen w-screen flex-col items-center justify-center bg-white font-aeonik dark:bg-black dark:text-white"
-					out:fade={{duration: 500, easing: quadOut}}
+					out:fade={{ duration: 500, easing: quadOut }}
 				>
 					<LoadingScreen
 						{quickAnimation}
@@ -173,32 +158,34 @@
 				</div>
 			{/if}
 
-				<div
-					in:fade={{
-						duration: 500,
-						easing: quadIn,
-					}}
-					class="relative min-h-screen font-aeonik lg:cursor-none {$theme} {ready? '' : 'hidden'}"
-					on:mousedown={() => (clicked = true)}
-					on:mouseup={() => (clicked = false)}
+			<div
+				in:fade={{
+					duration: 500,
+					easing: quadIn,
+				}}
+				class="relative min-h-screen font-aeonik lg:cursor-none {$theme} {ready
+					? ''
+					: 'hidden'}"
+				on:mousedown={() => (clicked = true)}
+				on:mouseup={() => (clicked = false)}
+			>
+				<svg
+					class="pointer-events-none absolute z-[999] hidden h-full w-full lg:block"
 				>
-					<svg
-						class="pointer-events-none absolute z-[999] hidden h-full w-full lg:block"
-					>
-						<circle
-							class={pointerClasses}
-							cx={pageX}
-							cy={pageY + scrollY}
-							r={$size}
-						/>
-					</svg>
-					<div
-						class="bg-neutral-50 text-black transition-colors delay-150 ease-in-out dark:bg-black dark:text-white"
-					>
-						<Navbar />
-						<slot />
-					</div>
+					<circle
+						class={pointerClasses}
+						cx={pageX}
+						cy={pageY + scrollY}
+						r={$size}
+					/>
+				</svg>
+				<div
+					class="bg-neutral-50 text-black transition-colors delay-150 ease-in-out dark:bg-black dark:text-white"
+				>
+					<Navbar />
+					<slot />
 				</div>
+			</div>
 		</div>
 	</div>
 {/key}
