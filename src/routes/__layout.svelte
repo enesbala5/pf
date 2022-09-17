@@ -162,6 +162,7 @@
 			{#if !ready}
 				<div
 					class="fixed -z-10 flex h-screen w-screen flex-col items-center justify-center bg-white font-aeonik dark:bg-black dark:text-white"
+					out:fade={{duration: 500, easing: quadOut}}
 				>
 					<LoadingScreen
 						{quickAnimation}
@@ -172,13 +173,12 @@
 				</div>
 			{/if}
 
-			{#if ready}
 				<div
 					in:fade={{
 						duration: 500,
 						easing: quadIn,
 					}}
-					class="relative min-h-screen font-aeonik lg:cursor-none {$theme}"
+					class="relative min-h-screen font-aeonik lg:cursor-none {$theme} {ready? '' : 'hidden'}"
 					on:mousedown={() => (clicked = true)}
 					on:mouseup={() => (clicked = false)}
 				>
@@ -199,7 +199,6 @@
 						<slot />
 					</div>
 				</div>
-			{/if}
 		</div>
 	</div>
 {/key}

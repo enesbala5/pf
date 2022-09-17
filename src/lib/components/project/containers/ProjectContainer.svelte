@@ -20,14 +20,3 @@
 >
 	<slot />
 </div>
-
-<!-- {customMargin !== '' ? customMargin : ''}
-{topOnly && customMargin === '' && !bottomOnly && !noMargin
-? 'mt-24 lg:mt-96'
-: ''}
-{bottomOnly && customMargin === '' && !topOnly
-? 'mb-24 lg:mb-96'
-: ''}
-{customMargin === '' && !topOnly && !bottomOnly
-? 'my-24 lg:my-96'
-: ''} -->
