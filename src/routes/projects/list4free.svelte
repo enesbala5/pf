@@ -30,10 +30,10 @@
 
 	<ImageCard
 		fullscreen
+		topMargin
 		image="list4free/test.jpg"
 		description="View of all List4Free screens"
 	/>
-
 	<ProjectContainer>
 		<Introduction
 			text="It was truly a novel experience for us to participate in
@@ -58,16 +58,18 @@
 			title="Creation of a design system"
 			text="Our final flourish was transferring models to engineers. Side by side, Cisco’s and Cuberto’s teams collected specs and outlined all possible scenarios for adding elements and blocks for new pages."
 		/>
-		<ImageCard
-			image="list4free/logo.png"
-			description="Lorem ipsum delor del ipsum."
-		/>
-		<ImageCard
-			image="list4free/logo.png"
-			description="Lorem ipsum delor del ipsum."
-		/>
-	</SmallProjectContainer>
 
+		<div class="grid grid-cols-2 grid-rows-1 gap-8">
+			<ImageCard
+				image="list4free/logo.png"
+				description="Lorem ipsum delor del ipsum."
+			/>
+			<ImageCard
+				image="list4free/screens.jpg"
+				description="Lorem ipsum delor del ipsum."
+			/>
+		</div>
+	</SmallProjectContainer>
 	<ProjectContainer>
 		<ProjectContainer noMargin>
 			<Headline
@@ -79,42 +81,7 @@
 				available</Text
 			>
 		</ProjectContainer>
-		<ImageCard
-			fullscreen
-			image="list4free/screens.jpg"
-			description="View of all List4Free screens"
-		/>
 	</ProjectContainer>
-	<!-- 
-				<ImageCard
-					image="list4free/screens.jpg"
-					description="The best way to try life."
-				/>
-			</div>
-			<div class="flex flex-col space-y-8  w-full h-fit">
-				<ImageCard
-					image="list4free/logo.png"
-					description="The best way to try life."
-				/>
-				<ImageCard
-					image="list4free/screens.jpg"
-					description="The best way to try life."
-				/>
-			</div> -->
-	<!-- <div class="flex flex-col space-y-8 bg-blue-500 w-full h-fit"> -->
-	<!-- 3 -->
-	<!-- <ImageCard
-					image="list4free/screens.jpg"
-					description="The best way to try life."
-				/> -->
-
-	<!-- 4 -->
-	<!-- <ImageCard
-					image="list4free/screens.jpg"
-					description="The best way to try life."
-				/> -->
-	<!-- </div> -->
-	<!-- </div> -->
 	<SmallProjectContainer>
 		<Quote person="Alban Bala">
 			We’d like to express our sincere gratitude to Cuberto

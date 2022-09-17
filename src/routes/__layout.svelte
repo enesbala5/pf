@@ -111,7 +111,6 @@
 	onMount(() => {
 		// if ($preloadImageUrls.length < 2) {
 
-	
 		getImagesToPreload();
 		// }
 	});
@@ -125,9 +124,22 @@
 			console.log($page.url.pathname);
 		}
 	});
-	let finishedAnimation = false;
-
 	let quickAnimation = false;
+
+	// change text selection color :root
+	let rootElement: any;
+	$: $theme,
+		rootElement &&
+			rootElement.style.setProperty(
+				'--textColor',
+				`${$theme === 'dark' ? 'black' : 'white'}`
+			);
+	$: $theme,
+		rootElement &&
+			rootElement.style.setProperty(
+				'--backgroundColor',
+				`${$theme === 'dark' ? 'white' : 'black'}`
+			);
 </script>
 
 <svelte:window
@@ -145,7 +157,7 @@
 </svelte:head>
 
 {#key ready}
-	<div class={$theme}>
+	<div class={$theme} bind:this={rootElement}>
 		<div class="bg-white dark:bg-black">
 			{#if !ready}
 				<div
@@ -154,7 +166,6 @@
 					<LoadingScreen
 						{quickAnimation}
 						on:isOver={() => {
-							finishedAnimation = true;
 							ready = true;
 						}}
 					/>
@@ -210,25 +221,18 @@
 		--svrollbar-thumb-opacity: 100%;
 	}
 
-	#logo {
-		-webkit-animation: spin 4s linear infinite;
-		-moz-animation: spin 4s linear infinite;
-		animation: spin 4s linear infinite;
+	:global(:root) {
+		--textColor: inherit;
+		--backgroundColor: inherit;
 	}
-	@-moz-keyframes spin {
-		100% {
-			-moz-transform: rotate(360deg);
-		}
+
+	:global(::-moz-selection) {
+		color: var(--textColor);
+		background: var(--backgroundColor);
 	}
-	@-webkit-keyframes spin {
-		100% {
-			-webkit-transform: rotate(360deg);
-		}
-	}
-	@keyframes spin {
-		100% {
-			-webkit-transform: rotate(360deg);
-			transform: rotate(360deg);
-		}
+
+	:global(::selection) {
+		color: var(--textColor);
+		background: var(--backgroundColor);
 	}
 </style>

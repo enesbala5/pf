@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="mx-auto w-full px-4 lg:w-10/12 lg:px-0  
+	class="mx-auto w-full px-4 lg:w-10/12 lg:px-0
 		{noMargin
 		? ''
 		: customMargin !== ''

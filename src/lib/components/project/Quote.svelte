@@ -6,7 +6,7 @@
 <div class="text-left font-aeonik">
 	<!-- person -> position -->
 	<div class="mb-6 flex items-center">
-		<div class="mr-4 h-px w-6 bg-black dark:bg-lightgray" />
+		<div class="mr-4 h-px w-6 bg-black dark:bg-white" />
 		<p class="font-medium">
 			{person}<span class="font-normal opacity-70"
 				>, {position}</span

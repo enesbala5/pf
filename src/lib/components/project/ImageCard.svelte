@@ -4,123 +4,104 @@
 
 	let id = String(Math.random());
 	let scrollY: number;
-	let speed = -0.1;
-	let offset = 0;
+	let speed = 0.25;
 
+	$: if (
+		!fullscreen &&
+		divHeight !== undefined &&
+		vh !== undefined
+	) {
+		speed = 0.25 * (divHeight / vh);
+	}
+
+	export let topMargin: boolean = false;
 	export let image: string | undefined = undefined;
+	export let fullscreen: boolean = false;
 	export let description: string | undefined = undefined;
+	let divHeight: number;
 
-	// parallax logic
-	let elDistanceToTop: number | undefined = 0;
+	// start logic
+	let actualScrollValue: number = 0; // how far into scrolling the user is
+	let distanceTop: number | undefined = 0; // distance of element from the top of the screen
+	let distanceBottom: number | undefined = 0; // distance of element from the top of the screen
+
 	const updateParallax = (
 		distTop: number | undefined,
-		scrollVert: number
+		scrollVert: number,
+		divH: number,
+		viewportHeight: number
 	) => {
-		if (distTop !== undefined) {
-			actualScrollValue = scrollVert - distTop - offset;
+		if (
+			distTop !== undefined &&
+			divH !== undefined &&
+			vh !== undefined
+		) {
+			actualScrollValue =
+				scrollVert + vh / 2 - distTop - divH / 2;
+			if (image === 'list4free/test.jpg')
+				console.log(actualScrollValue);
 		}
 	};
+
 	const updateDistanceTop = () => {
 		if (browser) {
 			let el = document.getElementById(id);
 			const buffer = el?.getBoundingClientRect().top;
 			if (buffer !== undefined) {
-				elDistanceToTop = buffer;
+				distanceTop = buffer;
 			}
 		}
 	};
+
 	onMount(() => {
 		updateDistanceTop();
 	});
-	
-	$: (elDistanceToTop, scrollY),
-		updateParallax(elDistanceToTop, scrollY);
-	let actualScrollValue: number = 0;
-	export let fullscreen: boolean = false;
-	// parallax logic end
 
-	let imgHeight = 0;
+	$: updateParallax(distanceTop, scrollY, divHeight, vh);
+	// end logic
 
-	if (fullscreen) {
-		speed = -0.7;
-	}
+	let vh: number;
 </script>
 
-<svelte:window bind:scrollY />
+<svelte:window bind:scrollY bind:innerHeight={vh} />
 
-<div
-	class="relative {fullscreen
-		? 'mt-48'
-		: 'inline-block'} w-full"
-	{id}
->
-	{#if fullscreen}
+<div class="flex flex-col items-center">
+	<div
+		class="relative w-full overflow-hidden bg-red-600
+		{fullscreen ? 'h-[40vh] lg:h-[105vh]' : 'inheritAll'}
+		{topMargin ? 'mt-48' : ''}
+		"
+		{id}
+	>
 		<div
-			class="mask1 h-[40vh] w-full overflow-hidden bg-red-200 dark:bg-darkgray lg:h-[105vh]"
+			class="h-full w-full"
+			bind:clientHeight={divHeight}
 		>
 			<img
-				style:transform="translateY({actualScrollValue *
-					speed}px)"
+				style:transform={`translateY(calc(${
+					actualScrollValue * speed
+				}px - ${fullscreen ? '1.5%' : '5%'}))`}
 				src={`/images/projects/${image}`}
-				alt={description !== undefined
-					? description
-					: "Project Image from Enes Bala's Portfolio"}
-				class="fixed top-0 h-[105%] w-full object-cover"
+				alt={description}
+				class="inheritWidth -z-20 {fullscreen
+					? 'h-[101%]'
+					: 'h-[110%]'} object-cover"
 			/>
 		</div>
-	{/if}
-	<!-- {#if !fullscreen}
-		<div class="h-full w-full relative">
-			<div class="mask1 h-full ">
-
-			<img
-				style:transform="translateY({actualScrollValue *
-					speed}px)"
-				src={`/images/projects/${image}`}
-				alt={description !== undefined
-					? description
-					: "Project Image from Enes Bala's Portfolio"}
-				class="absolute top-0 block object-contain"
-			/>
-			</div>
-		</div>
-		{#if description !== undefined}
-			<p class="projectH2 mx-auto pb-8">
-				{description}
-			</p>
-		{/if}
-	{/if} -->
-
+	</div>
 	{#if !fullscreen}
-		<div class="relative flex w-full flex-col" {id}>
-			<div class="flex w-full flex-col overflow-hidden">
-				<div class="aspect-video h-full w-full grow">
-					<img
-						style:transform="translateY({actualScrollValue *
-							speed}px)"
-						src={`/images/projects/${image}`}
-						alt={description !== undefined
-							? description
-							: "Project Image from Enes Bala's Portfolio"}
-						class="aspect-video h-full w-full object-cover"
-					/>
-				</div>
-				{#if description !== undefined}
-					<p class="projectH3 mx-auto pb-8">
-						{description}
-					</p>
-				{/if}
-			</div>
-		</div>
+		<p class="projectH3 mx-auto w-full py-8 text-center">
+			{description}
+		</p>
 	{/if}
 </div>
 
 <style>
-	.mask1 {
-		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+	.inheritAll {
+		width: inherit;
+		height: inherit;
 	}
-
-	.notFullscreen {
-		clip-path: inset(0% 0 8% 0);
+	.inheritWidth {
+		width: inherit;
 	}
 </style>

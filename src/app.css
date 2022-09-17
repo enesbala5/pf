@@ -24,7 +24,7 @@
 	}
 
 	.projectH1 {
-		@apply text-2xl lg:text-7xl leading-normal;
+		@apply text-2xl leading-normal lg:text-7xl;
 	}
 
 	.projectH2 {
@@ -34,7 +34,7 @@
 	.projectH3 {
 		@apply text-xl tracking-wide;
 	}
-	
+
 	.projectText {
 		@apply text-xl leading-relaxed lg:text-2xl lg:leading-relaxed;
 	}
@@ -94,15 +94,4 @@
 	button {
 		cursor: none;
 	}
-}
-
-::-moz-selection {
-	/* Code for Firefox */
-	color: white;
-	background: #000;
-}
-
-::selection {
-	color: white;
-	background: #000;
 }
