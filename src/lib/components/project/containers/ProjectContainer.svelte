@@ -3,10 +3,14 @@
 	export let topOnly: boolean = false;
 	export let bottomOnly: boolean = false;
 	export let noMargin: boolean = false;
+
+	export let widthNotDefined: boolean = false;
 </script>
 
 <div
-	class="mx-auto w-full px-4 lg:w-10/12 lg:px-0
+	class="
+		mx-auto
+		{widthNotDefined ? '' : 'w-full px-4 lg:w-10/12 lg:px-0'}
 		{noMargin
 		? ''
 		: customMargin !== ''

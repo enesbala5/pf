@@ -53,7 +53,7 @@
 		description="View of all List4Free screens"
 	/>
 
-	<SmallProjectContainer>
+	<SmallProjectContainer topOnly>
 		<Callout
 			title="Creation of a design system"
 			text="Our final flourish was transferring models to engineers. Side by side, Cisco’s and Cuberto’s teams collected specs and outlined all possible scenarios for adding elements and blocks for new pages."
@@ -70,6 +70,12 @@
 			/>
 		</div>
 	</SmallProjectContainer>
+	<ProjectContainer bottomOnly>
+		<ImageCard
+			image="list4free/screens.jpg"
+			description="View of all List4Free screens"
+		/>
+	</ProjectContainer>
 	<ProjectContainer>
 		<ProjectContainer noMargin>
 			<Headline

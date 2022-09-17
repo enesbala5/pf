@@ -98,7 +98,7 @@
 
 <style lang="postcss">
 	.app {
-		--transition-duration: 400ms;
+		--transition-duration: 50ms;
 		--text: #333;
 	}
 

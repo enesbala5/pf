@@ -17,13 +17,13 @@
 	>
 		<div class="md:col-span-3 md:col-start-2">
 			<p class="">
-				Enes Bala is a designer & developer based in Tirana,
+				Enes Bala is a designer & developer based in {cityName},
 				Albania.
 			</p>
 			<div
 				class="mt-8 w-full overflow-hidden bg-neutral-200 dark:bg-darkgray"
 			>
-				<div class="h-full w-full mix-blend-multiply">
+				<div class="h-full w-full dark:invert dark:mix-blend-lighten dark:opacity-40 mix-blend-multiply">
 					<img
 						src="images/tirana.jpg"
 						alt={cityName}

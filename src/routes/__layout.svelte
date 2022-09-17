@@ -142,7 +142,14 @@
 </svelte:head>
 
 {#key ready}
-	<div class={$theme} style="--textColor:{$theme === 'dark' ? 'black' : 'white'};--backgroundColor:{$theme === 'dark' ? 'black' : 'white'}">
+	<div
+		class={$theme}
+		style="--textColor:{$theme === 'dark'
+			? 'black'
+			: 'white'};--backgroundColor:{$theme === 'dark'
+			? 'black'
+			: 'white'}"
+	>
 		<div class="bg-white dark:bg-black">
 			{#if !ready}
 				<div
@@ -163,9 +170,10 @@
 					duration: 500,
 					easing: quadIn,
 				}}
-				class="relative min-h-screen font-aeonik lg:cursor-none {$theme} {ready
-					? ''
-					: 'hidden'}"
+				class="relative min-h-screen font-aeonik {pageX !==
+					-1 && scrollY !== -1
+					? 'lg:cursor-none'
+					: ''} {$theme} {ready ? '' : 'hidden'}"
 				on:mousedown={() => (clicked = true)}
 				on:mouseup={() => (clicked = false)}
 			>

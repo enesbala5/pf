@@ -1,3 +1,3 @@
-export const emailAddress = 'email@email.com'
-export const cityName = 'City'
+export const emailAddress = 'contact@enesbala.com'
+export const cityName = 'Tirana'
 

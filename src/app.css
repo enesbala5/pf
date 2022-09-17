@@ -15,7 +15,6 @@
 	.buttonSecondary {
 		@apply bg-neutral-300 px-8 py-2.5 text-center text-base transition-colors ease-in-out hover:bg-opacity-80 active:bg-opacity-100 dark:bg-lightgray dark:hover:bg-lightgray dark:hover:bg-opacity-80 dark:active:bg-lightgray;
 	}
-
 	.projectHeadline {
 		@apply text-6xl font-medium ease-in-out md:text-7xl lg:text-8xl;
 	}
@@ -77,6 +76,24 @@
 		url('/fonts/Aeonik-Medium.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Aeonik';
+	src: url('/fonts/Aeonik-Light.woff2') format('woff2'),
+		url('/fonts/Aeonik-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: light;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Aeonik';
+	src: url('/fonts/Aeonik-Light.woff2') format('woff2'),
+		url('/fonts/Aeonik-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: light;
 	font-display: swap;
 }
 

@@ -24,7 +24,7 @@
 
 <div
 	class="{margin
-		? 'mt-24 mb-20 lg:my-44'
+		? 'mt-24 mb-20 lg:my-64'
 		: ''} mx-auto flex lg:w-10/12 w-full px-4 lg:px-0 items-center pb-10 lg:flex-row flex-col-reverse"
 >
 	<div class="lg:w-1/2 w-full mt-8 lg:mt-0">
@@ -53,7 +53,7 @@
 	<div
 		class="h-96 lg:w-1/2 overflow-hidden bg-neutral-200 dark:bg-darkgray max-h-48 lg:max-h-80 w-full"
 	>
-		<div class="h-full w-full mix-blend-multiply">
+		<div class="h-full w-full dark:invert dark:mix-blend-lighten dark:opacity-40 mix-blend-multiply">
 			<img
 				src="images/contact.png"
 				alt=""
