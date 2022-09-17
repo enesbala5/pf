@@ -101,7 +101,7 @@
 		}
 		$preloadImageUrls = [
 			...$preloadImageUrls,
-			'images/tirana.jpg',
+			'/images/tirana.jpg',
 		];
 	}
 
@@ -109,13 +109,11 @@
 		document.body.scrollIntoView({ behavior: 'auto' });
 	}
 	onMount(() => {
-		// if ($preloadImageUrls.length < 2) {
-
 		getImagesToPreload();
-		// }
 	});
 
 	afterNavigate(() => {
+		updateSize();
 		if ($page.url.pathname.includes('projects')) {
 			goTop();
 			ready = false;
@@ -177,16 +175,18 @@
 				on:mousedown={() => (clicked = true)}
 				on:mouseup={() => (clicked = false)}
 			>
-				<svg
-					class="pointer-events-none absolute z-[999] hidden h-full w-full lg:block"
-				>
-					<circle
-						class={pointerClasses}
-						cx={pageX}
-						cy={pageY + scrollY}
-						r={$size}
-					/>
-				</svg>
+				{#key $size}
+					<svg
+						class="pointer-events-none absolute z-[999] hidden h-full w-full lg:block"
+					>
+						<circle
+							class={pointerClasses}
+							cx={pageX}
+							cy={pageY + scrollY}
+							r={$size}
+						/>
+					</svg>
+				{/key}
 				<div
 					class="bg-neutral-50 text-black transition-colors delay-150 ease-in-out dark:bg-black dark:text-white"
 				>

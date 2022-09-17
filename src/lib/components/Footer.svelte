@@ -31,9 +31,9 @@
 		customMargin="bg-neutral-100 text-black dark:bg-darkgray h-full"
 	>
 		<footer
-			class="mx-auto h-full w-full px-4 lg:w-10/12 lg:py-24 lg:px-0"
+			class="mx-auto h-full w-full px-4 lg:w-10/12 lg:py-24 lg:px-0 flex flex-col"
 		>
-			<div class="lg:w-2/3">
+			<div class="lg:w-2/3 w-full grow h-full">
 				<h2 class="projectH1">
 					Have an idea?
 				</h2>
@@ -51,7 +51,7 @@
 			<div
 				class="mx-auto flex flex-row items-center justify-between  lg:flex-row"
 			>
-				<FooterLogo />
+	
 				<div
 					class="space-x-4 text-sm opacity-70 lg:space-x-20"
 				>

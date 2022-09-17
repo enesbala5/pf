@@ -1,11 +1,17 @@
 <script lang="ts">
-import { goto } from "$app/navigation";
+	import { goto } from '$app/navigation';
 
 	export let projectName: string;
 	export let projectDescription: string;
 	export let projectId: any;
-	export let category: string;
-	import { hoverOverLink, hoverOverText } from "$lib/state/hoverOver";
+	export let thumbnail: string;
+	export let tags: Tag[];
+	export let date: string;
+	import {
+		hoverOverLink,
+		hoverOverText,
+	} from '$lib/state/hoverOver';
+	import type { Tag } from 'src/types';
 
 	function hoveredOverLink() {
 		hoverOverLink.set(true);
@@ -21,35 +27,76 @@ import { goto } from "$app/navigation";
 	}
 </script>
 
-<div class="group relative flex h-full w-full flex-col-reverse lg:flex-row mb-10 lg:mb-0">
-	<div class="flex h-full lg:w-1/2 w-full flex-col lg:justify-center mt-4 lg:mt-0">
+<div
+	class="group relative mb-10 flex h-full w-full flex-col-reverse lg:mb-0 lg:flex-row"
+>
+	<div
+		class="mt-4 flex h-full w-full flex-col lg:mt-0 lg:w-1/2 lg:justify-center"
+	>
 		<a
 			href={`/projects/${projectId}`}
 			on:mouseenter={hoveredOverLink}
 			on:mouseleave={notHovering}
 		>
-			<h4 class="font-medium opacity-70 group-hover:opacity-100 text-lg lg:text-xl">
+			<h4
+				class="text-lg font-medium opacity-70 group-hover:opacity-100 lg:text-xl"
+			>
 				{projectName}
 			</h4>
 			<p
-				class="mt-1 lg:w-2/3 w-full font-mono text-sm opacity-70 group-hover:opacity-100 peer-hover:opacity-100"
+				class="mt-1 w-full font-mono text-sm opacity-70 group-hover:opacity-100 peer-hover:opacity-100 lg:w-2/3"
 			>
 				{projectDescription}
 			</p>
 		</a>
-		<p
-			class="lg:absolute lg:bottom-0 lg:left-0 lg:mt-1 mt-4 pt-4 border-t dark:border-lightgray border-neutral-200 font-mono text-xs opacity-70 w-full lg:w-fit lg:pt-0 lg:border-none"
-			on:mouseenter={hoveredOverText}
-			on:mouseleave={notHovering}
+		<div
+			class="flex items-center lg:absolute lg:bottom-0 lg:left-0 lg:w-fit space-x-2 lg:mt-2 mt-4"
 		>
-			{category}
-		</p>
+			{#each tags as tag}
+				<button class="whitespace-nowrap text-xs py-2 px-3 bg-neutral-200  dark:bg-lightgray font-mono">
+					{#if tag === 'branding'}
+					Branding
+					{/if}
+					{#if tag === 'smmm'}
+					Social Media Management
+					{/if}
+					{#if tag === 'ui-ux'}
+					UI & UX
+					{/if}
+					{#if tag === 'tshirt'}
+					Clothing
+					{/if}
+					{#if tag === 'website'}
+					Website Design
+					{/if}
+					{#if tag === 'development'}
+					Development
+					{/if}
+				</button>
+			{/each}
+			<p
+				class="pl-4 w-full font-mono text-xs opacity-70 lg:border-none"
+				on:mouseenter={hoveredOverText}
+				on:mouseleave={notHovering}
+			>
+				{date}
+			</p>
+		</div>
 	</div>
 	<!-- svelte-ignore a11y-missing-content -->
 	<div
-		on:click="{() => goto(`/projects/${projectId}`)}"
+		on:click={() => goto(`/projects/${projectId}`)}
 		on:mouseenter={hoveredOverLink}
 		on:mouseleave={notHovering}
-		class="peer h-40 lg:h-48 lg:w-1/2 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray bg-neutral-200 group-hover:bg-opacity-80 peer-hover:bg-opacity-80 transition-colors"
-	/>
+		class="peer relative h-40  bg-neutral-200 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray lg:h-48 lg:w-1/2"
+	>
+		<img
+			src={`/images/thumbnails/${thumbnail}`}
+			alt=""
+			class="h-full w-full object-cover"
+		/>
+		<div
+			class="absolute top-0 left-0 h-full w-full bg-black opacity-0 transition-opacity group-hover:opacity-5"
+		/>
+	</div>
 </div>

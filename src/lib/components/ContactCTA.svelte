@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { emailAddress } from '$lib/info/info';
 	import { navigation } from '$lib/info/nav';
 	import {
@@ -25,22 +26,22 @@
 <div
 	class="{margin
 		? 'mt-24 mb-20 lg:my-64'
-		: ''} mx-auto flex lg:w-10/12 w-full px-4 lg:px-0 items-center pb-10 lg:flex-row flex-col-reverse"
+		: ''} mx-auto flex w-full flex-col-reverse items-center px-4 pb-10 lg:w-10/12 lg:flex-row lg:px-0"
 >
-	<div class="lg:w-1/2 w-full mt-8 lg:mt-0">
-		<h2 class="lg:text-3xl text-2xl font-medium ">
+	<div class="mt-8 w-full lg:mt-0 lg:w-1/2">
+		<h2 class="text-2xl font-medium lg:text-3xl ">
 			Interested in working together?
 		</h2>
-		<p class="lg:mt-2 mt-4">
+		<p class="mt-4 lg:mt-2">
 			Get in touch and let's make something great
 		</p>
 
 		<div class="mt-14 flex items-center space-x-6">
-			<a
-				href={navigation.contact}
+			<button
+				on:click={() => goto(navigation.contact)}
 				class="buttonPrimary"
 				on:mouseenter={hoveredOverLink}
-				on:mouseleave={notHovering}>Get in touch</a
+				on:mouseleave={notHovering}>Get in touch</button
 			>
 			<a
 				href={`mailto:${emailAddress}`}
@@ -51,12 +52,14 @@
 		</div>
 	</div>
 	<div
-		class="h-96 lg:w-1/2 overflow-hidden bg-neutral-200 dark:bg-darkgray max-h-48 lg:max-h-80 w-full"
+		class="h-96 max-h-48 w-full overflow-hidden bg-neutral-200 dark:bg-darkgray lg:max-h-80 lg:w-1/2"
 	>
-		<div class="h-full w-full dark:invert dark:mix-blend-lighten dark:opacity-40 mix-blend-multiply">
+		<div
+			class="h-full w-full mix-blend-multiply dark:opacity-40 dark:mix-blend-lighten dark:invert"
+		>
 			<img
 				src="images/contact.png"
-				alt=""
+				alt="Hand writing note"
 				class="h-full w-full object-cover"
 			/>
 		</div>

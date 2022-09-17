@@ -26,14 +26,16 @@
 
 <!-- work -->
 <div
-	class="mx-auto mt-24 w-full px-4 lg:px-0 font-aeonik lg:w-10/12"
+	class="mx-auto mt-24 w-full px-4 font-aeonik lg:w-10/12 lg:px-0"
 >
 	<h1 class="headline">Projects</h1>
 	<div
 		id="skills"
-		class="relative mx-auto mb-12 text-xl mt-24 lg:grid lg:grid-cols-10 lg:gap-2 lg:gap-y-12"
+		class="relative mx-auto mb-12 mt-24 text-xl lg:grid lg:grid-cols-10 lg:gap-2 lg:gap-y-12"
 	>
-		<div class="col-span-9 col-start-2 flex justify-between mb-12 lg:mb-0 items-center">
+		<div
+			class="col-span-9 col-start-2 mb-12 flex items-center justify-between lg:mb-0"
+		>
 			<!-- titlebar -->
 			<div class="col-span-2 col-start-2">
 				<p class="font-medium">All categories</p>
@@ -69,22 +71,24 @@
 		<!-- project -->
 
 		{#each projects as project, i}
-				<div
-					class="col-span-8 flex items-center space-x-2 odd:col-start-2 even:col-start-3"
-				>
-					<ProjectCard
-						projectName={project.projectName}
-						projectDescription={project.projectDescription}
-						category={project.category}
-						projectId={project.id}
-					/>
-				</div>
+			<div
+				class="col-span-8 flex items-center space-x-2 odd:col-start-2 even:col-start-3"
+			>
+				<ProjectCard
+					projectName={project.projectName}
+					projectDescription={project.projectDescription}
+					date={project.date}
+					tags={project.tags}
+					projectId={project.id}
+					thumbnail={project.thumbnail}
+				/>
+			</div>
 		{/each}
 	</div>
 </div>
 <!-- end contact -->
 
 <!-- footer -->
-<div class="mx-auto lg:mt-96 mt-24 font-aeonik">
+<div class="mx-auto mt-24 font-aeonik lg:mt-96">
 	<Footer />
 </div>

@@ -38,6 +38,7 @@
 <!-- contact -->
 <div
 	class="mx-auto mt-24 w-full px-4 lg:px-0 font-aeonik lg:mt-24 lg:w-10/12"
+	on:mouseenter="{notHovering}"
 >
 	<h1 class="headline">Contact</h1>
 	<div

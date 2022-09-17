@@ -35,7 +35,6 @@
 
 	let frontendHover: boolean = false;
 
-
 	let frontendImage: any;
 	let uiUxImage: any;
 	let intro: any;
@@ -71,9 +70,7 @@
 	let element: any;
 	let intersecting: any;
 
-	$:intersecting, hovering = intersecting;
-	
-
+	$: intersecting, (hovering = intersecting);
 </script>
 
 <title>Enes Bala - Work Portfolio</title>
@@ -205,17 +202,18 @@
 	</div>
 </div>
 <!-- end mobile only project images -->
-<IntersectionObserver {element} bind:intersecting threshold={0.5}>
+<IntersectionObserver
+	{element}
+	bind:intersecting
+	threshold={0.7}
+>
 	<div class="my-64 hidden lg:block" bind:this={element}>
 		{#if browser}
 			<AnimateSharedLayout children>
 				<Motion
 					let:motion
-					transition={{ duration: 0.5 }}
+					transition={{ duration: 1 }}
 					layout
-					onPan={() => (hovering = true)}
-					onHoverEnd={() =>
-						setTimeout(() => (hovering = false), 500)}
 				>
 					<div
 						use:motion
@@ -317,8 +315,10 @@
 				<ProjectCard
 					projectName={project.projectName}
 					projectDescription={project.projectDescription}
-					category={project.category}
+					date={project.date}
+					tags={project.tags}
 					projectId={project.id}
+					thumbnail={project.thumbnail}
 				/>
 			</div>
 		{/if}
@@ -346,15 +346,3 @@
 <ContactCta />
 <!-- footer -->
 <Footer />
-
-<style>
-	.container {
-		overflow: hidden;
-		width: 300px;
-	}
-	.img {
-		object-fit: contain;
-		height: 100%;
-		width: 100%;
-	}
-</style>
