@@ -11,9 +11,6 @@
 		hoverOverLink.set(true);
 	}
 
-	function hoveredOverText() {
-		hoverOverText.set(true);
-	}
 
 	function notHovering() {
 		hoverOverLink.set(false);
@@ -46,7 +43,7 @@
 			<a
 				href={`mailto:${emailAddress}`}
 				class="opacity-70"
-				on:mouseenter={hoveredOverText}
+				on:mouseenter={hoveredOverLink}
 				on:mouseleave={notHovering}>Send me an email</a
 			>
 		</div>

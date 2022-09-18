@@ -139,7 +139,7 @@ $: if (!showingSkill) {
 						<p
 							class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
 						>
-							Supabase<span class="hidden lg:inline-block">
+							Supabase<span class="hidden 2xl:inline-block">
 								/ Postgres Database</span
 							>
 						</p>
@@ -264,7 +264,7 @@ $: if (!showingSkill) {
 		>
 		{#each $preloadImageUrls as image, i}
 				<div
-					class="aspect-square rounded-md overflow-hidden w-full items-center justify-center bg-neutral-800 dark:bg-darkgray {image ===
+					class="aspect-square rounded-md overflow-hidden w-full items-center justify-center bg-black dark:bg-darkgray {image ===
 					hoveredIcon
 						? 'flex'
 						: 'hidden'}"

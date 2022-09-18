@@ -127,7 +127,7 @@
 		</div>
 		<!-- image -->
 		<div
-			class="col-span-4 row-start-4 mt-16 overflow-hidden bg-neutral-200 dark:bg-darkgray lg:col-span-8 lg:mt-32 lg:h-[65vh]"
+			class="col-span-4 row-start-4 mt-16 overflow-hidden bg-neutral-200 dark:bg-darkgray lg:col-span-8 lg:mt-32 lg:h-[65vh] rounded-md"
 		>
 			<ImageCard image="images/me.jpg" alternativeImage />
 			<!-- <img
