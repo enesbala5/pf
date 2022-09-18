@@ -234,7 +234,7 @@
 						text={emailAddress}
 						textColor="inverted"
 						lineColor="default"
-						centralOpacity="opacity-10 dark:opacity-30"
+						centralOpacity="opacity-10 dark:opacity-[15%]"
 					/>
 				</div>
 			</div>

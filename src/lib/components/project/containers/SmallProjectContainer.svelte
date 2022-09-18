@@ -6,8 +6,13 @@
 	export let noMargin: boolean = false;
 </script>
 
-<ProjectContainer {customMargin} {topOnly} {bottomOnly} {noMargin}>
-	<ProjectContainer {noMargin}>
+<ProjectContainer
+	{customMargin}
+	{topOnly}
+	{bottomOnly}
+	{noMargin}
+>
+	<ProjectContainer noMargin={true}>
 		<slot />
 	</ProjectContainer>
 </ProjectContainer>

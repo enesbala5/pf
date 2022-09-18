@@ -23,7 +23,11 @@
 	export let centralOpacity: string =
 		'opacity-10 dark:opacity-30';
 
-	type LineColor = 'default' | 'inverted';
+	type LineColor =
+		| 'default'
+		| 'inverted'
+		| 'white'
+		| 'black';
 	export let lineColor: LineColor = 'default';
 	type TextColor = 'default' | 'inverted';
 	export let textColor: TextColor = 'default';
@@ -40,26 +44,36 @@
 		<slot />
 		{#if central}
 			<div
-				class="mt-0.5 h-0.5 w-1 opacity-0 {lineColor ===
-				'default'
-					? 'bg-black dark:bg-white'
-					: lineColor === 'inverted'
+				class="absolute bottom-0 left-1/2 mt-0.5 h-0.5 w-1 -translate-x-1/2 opacity-0 transition-all delay-100 group-hover:w-full group-hover:opacity-100
+				{lineColor === 'inverted'
+					? 'bg-white dark:bg-black'
+					: lineColor === 'white'
+					? 'bg-white'
+					: lineColor === 'black'
 					? 'bg-black'
-					: ''} absolute bottom-0 left-1/2 -translate-x-1/2 transition-all delay-100 group-hover:w-full group-hover:opacity-100"
+					: 'bg-black dark:bg-white'}"
 			/>
 			<div
 				class="mt-0.5 h-0.5 w-full {centralOpacity} 
-				{lineColor === 'default'
-					? 'bg-black dark:bg-white'
-					: 'bg-white dark:bg-black'}"
+				{lineColor === 'inverted'
+					? 'bg-white dark:bg-black'
+					: lineColor === 'white'
+					? 'bg-white'
+					: lineColor === 'black'
+					? 'bg-black'
+					: 'bg-black dark:bg-white'}"
 			/>
 		{/if}
 		{#if !central}
 			<div
-				class="mt-0.5 h-0.5 w-1 opacity-0 {lineColor ===
-				'default'
-					? 'bg-black dark:bg-white'
-					: 'bg-white dark:bg-black'}  transition-all delay-75 group-hover:w-full group-hover:opacity-100"
+				class="mt-0.5 h-0.5 w-1 opacity-0 transition-all delay-75 group-hover:w-full group-hover:opacity-100
+					{lineColor === 'inverted'
+					? 'bg-white dark:bg-black'
+					: lineColor === 'white'
+					? 'bg-white'
+					: lineColor === 'black'
+					? 'bg-black'
+					: 'bg-black dark:bg-white'}"
 			/>
 		{/if}
 	{/if}
@@ -69,24 +83,36 @@
 		</p>
 		{#if central}
 			<div
-				class="absolute bottom-0 left-1/2 mt-0.5{lineColor ===
-				'default'
-					? 'bg-black dark:bg-white'
-					: 'bg-white dark:bg-black'}  h-0.5 w-1 -translate-x-1/2 opacity-0 transition-all delay-100 group-hover:w-full group-hover:opacity-100"
+				class="absolute bottom-0 left-1/2 mt-0.5 h-0.5 w-1 -translate-x-1/2 opacity-0 transition-all delay-100 group-hover:w-full group-hover:opacity-100
+					{lineColor === 'inverted'
+					? 'bg-white dark:bg-black'
+					: lineColor === 'white'
+					? 'bg-white'
+					: lineColor === 'black'
+					? 'bg-black'
+					: 'bg-black dark:bg-white'}"
 			/>
 			<div
-				class="mt-0.5 h-0.5 w-full {centralOpacity} {lineColor ===
-				'default'
-					? 'bg-black dark:bg-white'
-					: 'bg-white dark:bg-black'} "
+				class="mt-0.5 h-0.5 w-full {centralOpacity} 
+				{lineColor === 'inverted'
+					? 'bg-white dark:bg-black'
+					: lineColor === 'white'
+					? 'bg-white'
+					: lineColor === 'black'
+					? 'bg-black'
+					: 'bg-black dark:bg-white'} "
 			/>
 		{/if}
 		{#if !central}
 			<div
-				class="mt-0.5 h-0.5 w-1 opacity-0 {lineColor ===
-				'default'
-					? 'bg-black dark:bg-white'
-					: 'bg-white dark:bg-black'} transition-all delay-75 group-hover:w-full group-hover:opacity-100"
+				class="mt-0.5 h-0.5 w-1 opacity-0 transition-all delay-75 group-hover:w-full group-hover:opacity-100
+				{lineColor === 'inverted'
+					? 'bg-white dark:bg-black'
+					: lineColor === 'white'
+					? 'bg-white'
+					: lineColor === 'black'
+					? 'bg-black'
+					: 'bg-black dark:bg-white'} "
 			/>
 		{/if}
 	{/if}
@@ -99,24 +125,36 @@
 		</a>
 		{#if central}
 			<div
-				class="absolute bottom-0 left-1/2 mt-0.5{lineColor ===
-				'default'
-					? 'bg-black dark:bg-white'
-					: 'bg-white dark:bg-black'}  h-0.5 w-1 -translate-x-1/2 opacity-0 transition-all delay-100 group-hover:w-full group-hover:opacity-100"
+				class="absolute bottom-0 left-1/2 mt-0.5 
+				{lineColor === 'inverted'
+					? 'bg-white dark:bg-black'
+					: lineColor === 'white'
+					? 'bg-white'
+					: lineColor === 'black'
+					? 'bg-black'
+					: 'bg-black dark:bg-white'}  h-0.5 w-1 -translate-x-1/2 opacity-0 transition-all delay-100 group-hover:w-full group-hover:opacity-100"
 			/>
 			<div
-				class="mt-0.5 h-0.5 w-full {centralOpacity} {lineColor ===
-				'default'
-					? 'bg-black dark:bg-white'
-					: 'bg-white dark:bg-black'} "
+				class="mt-0.5 h-0.5 w-full {centralOpacity}
+					{lineColor === 'inverted'
+					? 'bg-white dark:bg-black'
+					: lineColor === 'white'
+					? 'bg-white'
+					: lineColor === 'black'
+					? 'bg-black'
+					: 'bg-black dark:bg-white'} "
 			/>
 		{/if}
 		{#if !central}
 			<div
-				class="mt-0.5 h-0.5 w-1 opacity-0  {lineColor ===
-				'default'
-					? 'bg-black dark:bg-white'
-					: 'bg-white dark:bg-black'} transition-all delay-75 group-hover:w-full group-hover:opacity-100"
+				class="mt-0.5 h-0.5 w-1 opacity-0 
+				{lineColor === 'inverted'
+					? 'bg-white dark:bg-black'
+					: lineColor === 'white'
+					? 'bg-white'
+					: lineColor === 'black'
+					? 'bg-black'
+					: 'bg-black dark:bg-white'} transition-all delay-75 group-hover:w-full group-hover:opacity-100"
 			/>
 		{/if}
 	{/if}

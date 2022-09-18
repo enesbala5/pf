@@ -16,13 +16,13 @@
 	nextIndex = ++currentIndex % projects.length;
 </script>
 
-<ProjectContainer customMargin="flex items-center justify-center lg:h-screen my-24 lg:my-0">
+<ProjectContainer customMargin="flex items-center justify-center lg:h-[90vh] lg:my-0">
 	<LineUnderText link custom central>
 		<button
 			on:click={() => {
 				goto(`/projects/${projects[nextIndex].id}`);
 			}}
-			class="text-4xl font-light leading-normal lg:text-8xl"
+			class="text-4xl leading-normal lg:text-8xl"
 		>
 			Next Case
 		</button>

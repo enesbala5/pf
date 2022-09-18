@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { navigation } from '$lib/info/nav';
 	import { hoverOverLink } from '$lib/state/hoverOver';
 
@@ -8,6 +8,7 @@
 	function notHovering() {
 		hoverOverLink.set(false);
 	}
+	export let classNames: string;
 </script>
 
 <a
@@ -18,7 +19,7 @@
 >
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
-		class="h-full fill-white"
+		class="{classNames}"
 		viewBox="0 0 396.79 61.413"
 	>
 		<g

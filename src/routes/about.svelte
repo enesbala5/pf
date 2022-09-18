@@ -22,7 +22,7 @@
 				Albania.
 			</p>
 			<div
-				class="mt-8 w-full overflow-hidden bg-neutral-200 dark:bg-darkgray"
+				class="mt-8 w-full overflow-hidden bg-neutral-200 dark:bg-darkgray rounded-md"
 			>
 				<div
 					class="h-full w-full mix-blend-multiply dark:opacity-40 dark:mix-blend-lighten dark:invert"
@@ -95,7 +95,7 @@
 
 		<!-- design experience -->
 		<div
-			class="col-span-1 row-start-2 flex h-32 items-center justify-center bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
+			class="col-span-1 row-start-2 flex h-32 items-center justify-center bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0 overflow-hidden rounded-md"
 		>
 			<p class="text-5xl font-medium lg:text-7xl">6</p>
 		</div>
@@ -121,7 +121,7 @@
 			</p>
 		</div>
 		<div
-			class="col-span-1 row-start-3 flex h-32 items-center justify-center bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
+			class="col-span-1 row-start-3 flex h-32 items-center justify-center bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0 overflow-hidden rounded-md"
 		>
 			<p class="text-5xl font-medium lg:text-7xl">4</p>
 		</div>

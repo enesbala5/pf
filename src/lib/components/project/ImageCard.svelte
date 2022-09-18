@@ -19,6 +19,7 @@
 	export let fullscreen: boolean = false;
 	export let description: string | undefined = undefined;
 	let divHeight: number;
+	export let customAttribute: string = '';
 	export let alternativeImage: boolean = false;
 
 	// start logic
@@ -70,7 +71,12 @@
 <div class="flex flex-col items-center">
 	<div
 		class="relative w-full overflow-hidden
-		{fullscreen ? 'h-[40vh] lg:h-[105vh]' : 'inheritAll'}
+		{customAttribute !== '' ? customAttribute : ''}
+		{fullscreen
+			? 'h-[40vh] lg:h-[105vh]'
+			: customAttribute
+			? 'inheritWidth rounded-md'
+			: 'inheritAll rounded-md'}
 		{topMargin ? 'mt-48' : ''}
 		"
 		{id}
@@ -83,15 +89,16 @@
 				style:transform={`translateY(calc(${
 					actualScrollValue * speed
 				}px - ${fullscreen ? '1.5%' : '5%'}))`}
-				src={alternativeImage? image : `/images/projects/${image}`}
+				src={alternativeImage
+					? image
+					: `/images/projects/${image}`}
 				alt={description}
-				class="inheritWidth -z-20 {fullscreen
-					? 'h-[101%]'
-					: 'h-[110%]'} object-cover"
+				class="inheritWidth -z-20 object-cover
+				{fullscreen ? 'h-[101%]' : 'h-[110%] rounded-md'}"
 			/>
 		</div>
 	</div>
-	{#if !fullscreen}
+	{#if !fullscreen && description !== undefined}
 		<p class="projectH3 mx-auto w-full py-8 text-center">
 			{description}
 		</p>

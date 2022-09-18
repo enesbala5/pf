@@ -13,7 +13,7 @@
 
 <title>List4Free - Enes Bala</title>
 
-<div class="mt-24 min-h-screen w-full font-aeonik lg:mt-24">
+<div class="mt-24  w-full font-aeonik lg:mt-24">
 	<!-- make template -->
 	<ProjectContainer noMargin>
 		<div class="mx-auto w-full lg:w-10/12">
@@ -72,12 +72,6 @@
 			/>
 		</div>
 	</SmallProjectContainer>
-	<ProjectContainer bottomOnly>
-		<ImageCard
-			image="list4free/screens.jpg"
-			description="View of all List4Free screens"
-		/>
-	</ProjectContainer>
 	<ProjectContainer>
 		<ProjectContainer noMargin>
 			<Headline
@@ -89,8 +83,13 @@
 				available</Text
 			>
 		</ProjectContainer>
+		<ImageCard
+			topMargin
+			image="list4free/screens.jpg"
+			description="View of all List4Free screens"
+		/>
 	</ProjectContainer>
-	<SmallProjectContainer>
+	<SmallProjectContainer topOnly>
 		<Quote person="Alban Bala">
 			We’d like to express our sincere gratitude to Cuberto
 			for their contribution to the development of our

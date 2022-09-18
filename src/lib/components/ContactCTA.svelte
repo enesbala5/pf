@@ -52,7 +52,7 @@
 		</div>
 	</div>
 	<div
-		class="h-96 max-h-48 w-full overflow-hidden bg-neutral-200 dark:bg-darkgray lg:max-h-80 lg:w-1/2"
+		class="h-96 max-h-48 w-full overflow-hidden bg-neutral-200 dark:bg-darkgray lg:max-h-80 lg:w-1/2 rounded-md"
 	>
 		<div
 			class="h-full w-full mix-blend-multiply dark:opacity-40 dark:mix-blend-lighten dark:invert"

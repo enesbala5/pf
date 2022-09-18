@@ -21,6 +21,7 @@
 		hoverOverText,
 	} from '$lib/state/hoverOver';
 	import { fade } from 'svelte/transition';
+	import ImageCard from '$lib/components/project/ImageCard.svelte';
 
 	function hoveredOverLink() {
 		hoverOverLink.set(true);
@@ -226,16 +227,15 @@
 						>
 							<div
 								use:m1
-								class="col-span-6  row-start-1 row-end-2 h-[70vh] {hovering
+								class="col-span-6  row-start-1 row-end-2 h-[70vh] overflow-hidden rounded-md {hovering
 									? 'col-start-5'
 									: 'col-start-3'}"
 							>
-								<div
-									class="h-full w-full bg-neutral-300 dark:bg-darkgray"
+								<ImageCard
+									customAttribute="w-full"
+									image="/images/showcase/mountain.jpg"
+									alternativeImage
 								/>
-								<p class="mt-2 font-mono opacity-50">
-									Project FirstLast™
-								</p>
 							</div>
 						</Motion>
 						<Motion
@@ -245,18 +245,17 @@
 						>
 							<div
 								use:m2
-								class="z-20  col-span-4 row-start-1 row-end-2 flex h-[70vh] flex-col justify-center {hovering
+								class="z-20  col-span-4 row-start-1 row-end-2 flex h-[70vh] flex-col justify-center overflow-hidden {hovering
 									? 'col-start-1'
 									: 'col-start-7'}"
 							>
-								<div
-									class="h-[40vh] w-full bg-neutral-200 dark:bg-lightgray "
+								<ImageCard
+									customAttribute="w-full"
+									image="/images/showcase/design.jpg"
+									alternativeImage
 								/>
-								<p class="mt-2 font-mono opacity-50">
-									2018 Enes Bala
-								</p>
-							</div>
-						</Motion>
+							</div></Motion
+						>
 					</div>
 				</Motion>
 			</AnimateSharedLayout>

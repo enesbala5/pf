@@ -55,7 +55,9 @@
 							hoveredIcon = 'icons/skills/sveltekit.svg';
 							hoveredDescription =
 								'A framework for building web applications with Svelte, that scale and make no compromises.';
-							showingSkill = true;
+							setTimeout(() => {
+								showingSkill = true;
+							}, 100)
 							document
 								.getElementById('skillDisplay')
 								?.focus();
@@ -257,12 +259,12 @@ $: if (!showingSkill) {
 		<div
 			id="skillDisplay"
 			tabindex="-1"
-			class="peer absolute col-span-2 col-start-6 hidden w-full flex-col opacity-0 transition-all delay-75 focus:opacity-100 focus:outline-none focus:delay-200 
+			class="peer absolute overflow-hidden rounded-md col-span-2 col-start-6 hidden w-full flex-col opacity-0 transition-all delay-75 focus:opacity-100 focus:outline-none focus:delay-200 
 							peer-hover:opacity-100 lg:flex"
 		>
-			{#each $preloadImageUrls as image, i}
+		{#each $preloadImageUrls as image, i}
 				<div
-					class="aspect-square w-full items-center justify-center bg-neutral-800 dark:bg-darkgray {image ===
+					class="aspect-square rounded-md overflow-hidden w-full items-center justify-center bg-neutral-800 dark:bg-darkgray {image ===
 					hoveredIcon
 						? 'flex'
 						: 'hidden'}"
