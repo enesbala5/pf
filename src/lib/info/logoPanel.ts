@@ -1,27 +1,33 @@
+import ClickProperties from '$lib/svgs/logoPanel/ClickProperties.svelte';
+import FutureHome from '$lib/svgs/logoPanel/FutureHome.svelte';
+import Hotelier from '$lib/svgs/logoPanel/Hotelier.svelte';
+import List4Free from '$lib/svgs/logoPanel/List4Free.svelte';
+import Universi from '$lib/svgs/logoPanel/Universi.svelte';
+
 export const logoPanel = [
 	{
-		name: 'Logo 1',
-		logo: 'favicon.png',
-		link: 'https://kit.svelte.dev',
+		name: 'Future Home Albania',
+		logo: FutureHome,
+		link: 'https://futurehome.al/',
 	},
 	{
-		name: 'Logo 2',
-		logo: 'favicon.png',
-		link: 'https://kit.svelte.dev',
+		name: 'Hotelier',
+		logo: Hotelier,
+		link: 'https://www.hoteliermagazine.com/',
 	},
 	{
-		name: 'Logo 3',
-		logo: 'favicon.png',
-		link: 'https://kit.svelte.dev',
+		name: 'Universi Language Center',
+		logo: Universi,
+		link: 'http://www.qendrauniversi.com/',
 	},
 	{
-		name: 'Logo 4',
-		logo: 'favicon.png',
-		link: 'https://kit.svelte.dev',
+		name: 'Click Properties',
+		logo: ClickProperties,
+		link: 'https://www.instagram.com/clickproperties.al',
 	},
 	{
-		name: 'Logo 5',
-		logo: 'favicon.png',
-		link: 'https://kit.svelte.dev',
+		name: 'List4Free',
+		logo: List4Free,
+		link: '',
 	},
-]
+];

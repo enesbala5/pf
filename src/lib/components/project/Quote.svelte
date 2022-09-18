@@ -13,7 +13,7 @@
 			>
 		</p>
 	</div>
-	<p class="projectText w-2/3">
+	<p class="projectText lg:w-2/3">
 		<slot />
 	</p>
 </div>

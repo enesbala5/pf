@@ -57,7 +57,7 @@
 								'A framework for building web applications with Svelte, that scale and make no compromises.';
 							setTimeout(() => {
 								showingSkill = true;
-							}, 100)
+							}, 100);
 							document
 								.getElementById('skillDisplay')
 								?.focus();
@@ -68,10 +68,10 @@
 		}
 	};
 
-
-$: if (!showingSkill) {
-	if (browser) document.getElementById('skillDisplay')?.blur();
-}
+	$: if (!showingSkill) {
+		if (browser)
+			document.getElementById('skillDisplay')?.blur();
+	}
 </script>
 
 <IntersectionObserver
@@ -259,28 +259,45 @@ $: if (!showingSkill) {
 		<div
 			id="skillDisplay"
 			tabindex="-1"
-			class="peer absolute overflow-hidden rounded-md col-span-2 col-start-6 hidden w-full flex-col opacity-0 transition-all delay-75 focus:opacity-100 focus:outline-none focus:delay-200 
+			class="peer absolute col-span-2 col-start-6 hidden w-full flex-col overflow-hidden rounded-md opacity-0 transition-all delay-75 focus:opacity-100 focus:outline-none focus:delay-200 
 							peer-hover:opacity-100 lg:flex"
 		>
-		{#each $preloadImageUrls as image, i}
+			{#if $preloadImageUrls.includes(hoveredIcon)}
+				{#each $preloadImageUrls as image, i}
+					<div
+						class="aspect-square w-full items-center justify-center overflow-hidden rounded-md bg-black dark:bg-darkgray {image ===
+						hoveredIcon
+							? 'flex'
+							: 'hidden'}"
+					>
+						<div
+							class="container h-14"
+							style="max-width: 70%"
+						>
+							<img
+								src={image}
+								class="img"
+								alt={hoveredIcon}
+							/>
+						</div>
+					</div>
+				{/each}
+			{:else}
 				<div
-					class="aspect-square rounded-md overflow-hidden w-full items-center justify-center bg-black dark:bg-darkgray {image ===
-					hoveredIcon
-						? 'flex'
-						: 'hidden'}"
+					class="flex opacity-20 aspect-square w-full items-center justify-center overflow-hidden rounded-md bg-black dark:bg-darkgray"
 				>
 					<div
 						class="container h-14"
 						style="max-width: 70%"
 					>
 						<img
-							src={image}
+							src={hoveredIcon}
 							class="img"
 							alt={hoveredIcon}
 						/>
 					</div>
 				</div>
-			{/each}
+			{/if}
 			<p
 				class="mt-4 font-mono text-xs leading-5 opacity-70"
 			>

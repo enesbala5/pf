@@ -20,6 +20,7 @@
 	export let linkUrl: string = '';
 	export let custom: boolean = false;
 	export let central: boolean = false;
+	export let noHover: boolean = false;
 	export let centralOpacity: string =
 		'opacity-10 dark:opacity-30';
 
@@ -37,7 +38,11 @@
 	class="group relative w-fit {textColor === 'default'
 		? ''
 		: 'text-black dark:text-white'}"
-	on:mouseenter={!link ? hoveredOverText : hoveredOverLink}
+	on:mouseenter={noHover
+		? notHovering
+		: !link
+		? hoveredOverText
+		: hoveredOverLink}
 	on:mouseleave={notHovering}
 >
 	{#if custom}

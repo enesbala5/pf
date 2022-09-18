@@ -181,9 +181,9 @@
 <!-- skills -->
 <SkillSection />
 
-<!-- project images -->
+<!-- ? project images -->
 <!-- mobile only project images -->
-<div class="relative mt-44 px-4 lg:hidden ">
+<!-- <div class="relative mt-44 px-4 lg:hidden ">
 	<div
 		class="h-48 w-full bg-neutral-100 dark:bg-darkgray"
 	/>
@@ -201,7 +201,7 @@
 			2018
 		</p>
 	</div>
-</div>
+</div> -->
 <!-- end mobile only project images -->
 <IntersectionObserver
 	{element}
@@ -263,7 +263,7 @@
 	</div>
 </IntersectionObserver>
 
-<!-- projects -->
+<!-- ? projects -->
 <div
 	class="relative mx-auto mt-64 mb-12 flex flex-col px-4 text-lg lg:mt-44 lg:grid lg:w-10/12 lg:grid-cols-10 lg:gap-2 lg:gap-y-12 lg:px-0 lg:text-xl"
 >
@@ -323,21 +323,31 @@
 		{/if}
 	{/each}
 </div>
-<!-- logo panel -->
-<div class="my-12 mt-44 bg-neutral-300 dark:bg-darkgray">
-	<div class="mx-auto flex w-10/12 justify-between py-8">
+<!-- ? logo panel -->
+<div class="my-12 mt-44 bg-neutral-100 dark:bg-darkgray">
+	<div
+		class="mx-auto flex w-10/12 items-center justify-between py-8"
+	>
 		{#each logoPanel as logo}
 			<a
 				on:mouseenter={hoveredOverLink}
 				on:mouseleave={notHovering}
+				target="_blank"
+				rel="noopener noreferrer"
 				href={logo.link}
-				class="h-12 cursor-none opacity-70 transition-opacity ease-in-out hover:opacity-100"
-				><img
-					class="h-full"
-					src={logo.logo}
-					alt={logo.name}
-				/></a
+				class="cursor-none opacity-70 transition-opacity ease-in-out hover:opacity-100"
 			>
+				<svelte:component
+					this={logo.logo}
+					classNames={`fill-black dark:fill-white opacity-80 hover:opacity-90 w-full ${
+						logo.name === 'Universi Language Center'
+							? 'h-16'
+							: logo.name === 'List4Free'
+							? 'h-6'
+							: 'max-h-8'
+					}`}
+				/>
+			</a>
 		{/each}
 	</div>
 </div>
