@@ -1,5 +1,7 @@
 <script>
+  import { page } from '$app/stores';
 	import Footer from '$lib/components/Footer.svelte';
+	import NextCase from '$lib/sections/NextCase.svelte';
 </script>
 
 <div
@@ -8,4 +10,6 @@
 	<h1 class="projectHeadline">Shargan Consulting</h1>
 </div>
 
+
+<NextCase/>
 <Footer />

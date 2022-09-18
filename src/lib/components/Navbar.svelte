@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { fade } from 'svelte/transition';
-	import { quadIn } from 'svelte/easing';
+	import {
+		expoInOut,
+		quadIn,
+		quadInOut,
+		sineOut,
+	} from 'svelte/easing';
 	import { quadOut } from 'svelte/easing';
 	import { afterNavigate } from '$app/navigation';
 	import { darkMode } from '$lib/info/darkMode';
@@ -13,6 +18,8 @@
 		hoverOverText,
 	} from '$lib/state/hoverOver';
 	import { setTheme, theme } from '$lib/state/theme';
+	import LineUnderText from './LineUnderText.svelte';
+	import { emailAddress } from '$lib/info/info';
 
 	function hoveredOverNavItem() {
 		hoverOverLink.set(true);
@@ -58,7 +65,9 @@
 	};
 
 	afterNavigate(() => {
-		open = false;
+		setTimeout(() => {
+			open = false;
+		}, 100);
 	});
 
 	$: nextTheme = (
@@ -71,7 +80,7 @@
 
 <!-- mobile -->
 <nav
-	class="bg-mainbg flex w-full items-center justify-between p-4 lg:hidden transition-colors  ease-in-out"
+	class="bg-mainbg flex w-full items-center justify-between p-4 transition-colors ease-in-out lg:hidden"
 >
 	<a
 		on:mouseenter={hoveredOverNavItem}
@@ -81,7 +90,7 @@
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			class="h-full fill-black dark:fill-white transition-colors delay-150 ease-in-out"
+			class="h-full fill-black transition-colors delay-150 ease-in-out dark:fill-white"
 			viewBox="0 0 396.79 238.118"
 		>
 			<g
@@ -151,59 +160,84 @@
 
 	{#if open}
 		<div
-			in:fade={{ duration: 300, easing: quadIn }}
-			out:fade={{ duration: 300, easing: quadOut }}
-			on:click={manageMenu}
+			in:fade={{ duration: 100, easing: quadInOut }}
+			out:fade={{ duration: 100, easing: quadInOut }}
 			style="touch-action: none;"
-			class="fixed top-0 bottom-0 right-0 left-0 z-[20] flex h-screen w-full flex-col overflow-x-hidden overflow-y-hidden bg-neutral-50 p-4 text-neutral-50 dark:bg-black dark:text-black"
+			class="fixed top-0 bottom-0 right-0 left-0 z-[20] flex h-screen w-full items-center 
+			overflow-x-hidden overflow-y-hidden bg-neutral-50 p-4 text-neutral-50 dark:bg-black dark:text-black"
 		>
-			<a
-				href={navigation.home}
-				class=" mt-28 text-6xl font-medium md:text-7xl  lg:text-8xl  {$page
-					.url.pathname === '/'
-					? 'text-black dark:text-white'
-					: $theme === 'dark'
-					? 'outlineDark'
-					: 'outline'}"
+			<div
+				class="flex h-full flex-col justify-center pb-[25%]"
 			>
-				Home
-			</a>
-			<a
-				href={navigation.work}
-				class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
-					'work'
-				)
-					? 'text-black dark:text-white'
-					: $theme === 'dark'
-					? 'outlineDark'
-					: 'outline'} "
-			>
-				Work
-			</a>
-			<a
-				href={navigation.about}
-				class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
-					'about'
-				)
-					? 'text-black dark:text-white'
-					: $theme === 'dark'
-					? 'outlineDark'
-					: 'outline'} "
-			>
-				About
-			</a>
-			<a
-				href={navigation.contact}
-				class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
-					'contact'
-				)
-					? 'text-black dark:text-white'
-					: $theme === 'dark'
-					? 'outlineDark'
-					: 'outline'} "
-			>
-				Contact
-			</a>
+				<div class="flex flex-col space-y-2">
+					<p
+						class="text-mono pb-4 text-black opacity-50 dark:text-white"
+					>
+						Menu
+					</p>
+					<a
+						href={navigation.home}
+						class="text-6xl font-medium md:text-7xl  lg:text-8xl  {$page
+							.url.pathname === '/'
+							? 'text-black dark:text-white'
+							: $theme === 'dark'
+							? 'outlineDark'
+							: 'outline'}"
+					>
+						Home
+					</a>
+					<a
+						href={navigation.work}
+						class=" text-6xl font-medium md:text-7xl lg:text-8xl
+						{$page.url.pathname.includes('work') ||
+						$page.url.pathname.includes('projects')
+							? 'text-black dark:text-white'
+							: $theme === 'dark'
+							? 'outlineDark'
+							: 'outline'} "
+					>
+						Work
+					</a>
+					<a
+						href={navigation.about}
+						class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
+							'about'
+						)
+							? 'text-black dark:text-white'
+							: $theme === 'dark'
+							? 'outlineDark'
+							: 'outline'} "
+					>
+						About
+					</a>
+					<a
+						href={navigation.contact}
+						class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
+							'contact'
+						)
+							? 'text-black dark:text-white'
+							: $theme === 'dark'
+							? 'outlineDark'
+							: 'outline'} "
+					>
+						Contact
+					</a>
+					<p
+						class="text-mono pt-16 text-black opacity-50 dark:text-white"
+					>
+						Get in touch
+					</p>
+					<LineUnderText
+						central
+						link
+						linkUrl={`mailto:${emailAddress}`}
+						text={emailAddress}
+						textColor="inverted"
+						lineColor="default"
+						centralOpacity="opacity-10 dark:opacity-30"
+					/>
+				</div>
+			</div>
 		</div>
 	{/if}
 </nav>

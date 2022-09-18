@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+	import { navigation } from '$lib/info/nav';
+	import { selectedTags } from '$lib/projects/projects';
 
 	export let projectName: string;
 	export let projectDescription: string;
@@ -50,32 +53,36 @@
 			</p>
 		</a>
 		<div
-			class="flex items-center lg:absolute lg:bottom-0 lg:left-0 lg:w-fit space-x-2 lg:mt-2 mt-4"
+			class="noScroll mt-4 flex items-center space-x-2 overflow-scroll py-2 lg:absolute lg:bottom-0 lg:left-0 lg:mt-2 lg:w-fit"
 		>
 			{#each tags as tag}
-				<button class="whitespace-nowrap text-xs py-2 px-3 bg-neutral-200  dark:bg-lightgray font-mono">
+				<button
+					class="w-fit whitespace-nowrap rounded-full bg-white py-2 px-4 text-center font-mono  text-xs shadow-sm dark:bg-lightgray dark:shadow-none"
+					on:mouseenter={hoveredOverText}
+					on:mouseleave={notHovering}
+				>
 					{#if tag === 'branding'}
-					Branding
+						Branding
 					{/if}
 					{#if tag === 'smmm'}
-					Social Media Management
+						Social Media Management
 					{/if}
 					{#if tag === 'ui-ux'}
-					UI & UX
+						UI & UX
 					{/if}
 					{#if tag === 'tshirt'}
-					Clothing
+						Clothing
 					{/if}
 					{#if tag === 'website'}
-					Website Design
+						Website Design
 					{/if}
 					{#if tag === 'development'}
-					Development
+						Development
 					{/if}
 				</button>
 			{/each}
 			<p
-				class="pl-4 w-full font-mono text-xs opacity-70 lg:border-none"
+				class="w-full pl-4 font-mono text-xs opacity-70 lg:border-none"
 				on:mouseenter={hoveredOverText}
 				on:mouseleave={notHovering}
 			>
@@ -88,7 +95,7 @@
 		on:click={() => goto(`/projects/${projectId}`)}
 		on:mouseenter={hoveredOverLink}
 		on:mouseleave={notHovering}
-		class="peer relative h-40  bg-neutral-200 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray lg:h-48 lg:w-1/2"
+		class="peer relative h-40  overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray lg:h-48 lg:w-1/2"
 	>
 		<img
 			src={`/images/thumbnails/${thumbnail}`}

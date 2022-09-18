@@ -271,7 +271,7 @@
 	<!-- titlebar -->
 	<!-- end mobile only -->
 	<div
-		class="mb-4 flex items-center justify-between border-b-[1px] border-lightgray pb-4 lg:hidden"
+		class="mb-4 flex items-center justify-between pb-4 lg:hidden"
 	>
 		<div class="">
 			<p class="font-medium">Projects</p>

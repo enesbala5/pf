@@ -2,6 +2,7 @@
 	import ContactCta from '$lib/components/ContactCTA.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
+	import ImageCard from '$lib/components/project/ImageCard.svelte';
 	import { cityName } from '$lib/info/info';
 </script>
 
@@ -9,11 +10,11 @@
 
 <!-- about me -->
 <div
-	class="mx-auto mt-24 w-full px-4 lg:px-0 font-aeonik lg:w-10/12"
+	class="mx-auto mt-24 w-full px-4 font-aeonik lg:w-10/12 lg:px-0"
 >
 	<h1 class="headline">About me</h1>
 	<div
-		class="relative mx-auto mb-8 grid grid-cols-1 text-lg md:grid-cols-10 md:gap-2 mt-24"
+		class="relative mx-auto mb-8 mt-24 grid grid-cols-1 text-lg md:grid-cols-10 md:gap-2"
 	>
 		<div class="md:col-span-3 md:col-start-2">
 			<p class="">
@@ -23,7 +24,9 @@
 			<div
 				class="mt-8 w-full overflow-hidden bg-neutral-200 dark:bg-darkgray"
 			>
-				<div class="h-full w-full dark:invert dark:mix-blend-lighten dark:opacity-40 mix-blend-multiply">
+				<div
+					class="h-full w-full mix-blend-multiply dark:opacity-40 dark:mix-blend-lighten dark:invert"
+				>
 					<img
 						src="images/tirana.jpg"
 						alt={cityName}
@@ -124,21 +127,22 @@
 		</div>
 		<!-- image -->
 		<div
-			class="col-span-4 row-start-4 mt-16 flex h-48 items-center justify-center overflow-hidden bg-neutral-200 dark:bg-darkgray lg:col-span-8 lg:mt-32 lg:h-[65vh]"
+			class="col-span-4 row-start-4 mt-16 overflow-hidden bg-neutral-200 dark:bg-darkgray lg:col-span-8 lg:mt-32 lg:h-[65vh]"
 		>
-			<img
+			<ImageCard image="images/me.jpg" alternativeImage />
+			<!-- <img
 				src="images/me.jpg"
 				alt=""
 				class="opacity-70 mix-blend-luminosity transition-all hover:opacity-100 dark:opacity-50 dark:hover:opacity-70"
-			/>
+			/> -->
 		</div>
 	</div>
 	<!-- end info + image with sidebar -->
 </div>
 <!-- end about me -->
 <!-- contact + footer -->
-<div class="mx-auto lg:mt-24 font-aeonik space-y-16">
-	<ContactCta margin={false} />
+<div class="mx-auto space-y-16 font-aeonik lg:mt-24">
+	<ContactCta  />
 	<Footer />
 </div>
 <!-- end contact + footer -->

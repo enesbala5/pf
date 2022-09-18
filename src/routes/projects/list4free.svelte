@@ -8,11 +8,13 @@
 	import Headline from '$lib/components/project/Headline.svelte';
 	import Text from '$lib/components/project/Text.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import NextCase from '$lib/sections/NextCase.svelte';
 </script>
 
 <title>List4Free - Enes Bala</title>
 
 <div class="mt-24 min-h-screen w-full font-aeonik lg:mt-24">
+	<!-- make template -->
 	<ProjectContainer noMargin>
 		<div class="mx-auto w-full lg:w-10/12">
 			<p class="projectSubheading">List4Free</p>
@@ -103,5 +105,6 @@
 		</Quote>
 	</SmallProjectContainer>
 </div>
+<NextCase />
 
 <Footer />

@@ -19,6 +19,7 @@
 	export let fullscreen: boolean = false;
 	export let description: string | undefined = undefined;
 	let divHeight: number;
+	export let alternativeImage: boolean = false;
 
 	// start logic
 	let actualScrollValue: number = 0; // how far into scrolling the user is
@@ -82,7 +83,7 @@
 				style:transform={`translateY(calc(${
 					actualScrollValue * speed
 				}px - ${fullscreen ? '1.5%' : '5%'}))`}
-				src={`/images/projects/${image}`}
+				src={alternativeImage? image : `/images/projects/${image}`}
 				alt={description}
 				class="inheritWidth -z-20 {fullscreen
 					? 'h-[101%]'

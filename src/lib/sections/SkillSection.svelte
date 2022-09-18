@@ -83,7 +83,7 @@ $: if (!showingSkill) {
 		class="relative mx-auto mt-64 mb-12 grid scroll-m-48 grid-cols-2 gap-y-8 px-4 text-xl lg:w-10/12 lg:grid-cols-10 lg:gap-2 lg:gap-y-12"
 	>
 		<div
-			class="col-start-1 col-end-11 row-start-1 row-end-2 flex w-full items-end justify-between border-b-[1px] border-lightgray pb-4 lg:col-start-auto lg:col-end-auto lg:block lg:border-none lg:pb-0"
+			class="col-start-1 col-end-11 row-start-1 row-end-2 flex w-full items-end justify-between  pb-4 lg:col-start-auto lg:col-end-auto lg:block lg:border-none lg:pb-0"
 		>
 			<p class="font-medium">Skills</p>
 			<p
