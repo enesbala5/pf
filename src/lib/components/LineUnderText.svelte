@@ -21,6 +21,7 @@
 	export let custom: boolean = false;
 	export let central: boolean = false;
 	export let noHover: boolean = false;
+	export let textSm: boolean = false;
 	export let centralOpacity: string =
 		'opacity-10 dark:opacity-30';
 
@@ -83,7 +84,7 @@
 		{/if}
 	{/if}
 	{#if !custom && !link}
-		<p class="text-lg transition-all delay-75 lg:text-xl">
+		<p class=" transition-all delay-75 {textSm? 'text-sm lg:text-lg' : 'lg:text-xl text-lg '}">
 			{text}
 		</p>
 		{#if central}
@@ -124,7 +125,7 @@
 	{#if !custom && link && linkUrl !== ''}
 		<a
 			href={linkUrl}
-			class="text-lg  transition-all delay-75  lg:text-xl"
+			class="  transition-all delay-75  {textSm? 'text-sm lg:text-lg' : 'lg:text-xl text-lg '}"
 		>
 			{text}
 		</a>

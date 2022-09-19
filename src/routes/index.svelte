@@ -22,6 +22,7 @@
 	} from '$lib/state/hoverOver';
 	import { fade } from 'svelte/transition';
 	import ImageCard from '$lib/components/project/ImageCard.svelte';
+	import LogoSlider from '$lib/components/LogoSlider.svelte';
 
 	function hoveredOverLink() {
 		hoverOverLink.set(true);
@@ -68,9 +69,18 @@
 		animateUIUX();
 	}
 
-	let element: any;
-	let intersecting: any;
+	$: if (intersectingHero) {
+		setTimeout(() => {
+			frontendHover = true;
+		}, 1000);
+	}
 
+	let element: any;
+	let hero: any;
+	let intersecting: any;
+	let intersectingHero: any;
+
+	$: intersectingHero, console.log(intersectingHero);
 	$: intersecting, (hovering = intersecting);
 </script>
 
@@ -101,82 +111,91 @@
 </div>
 
 <!-- hero -->
-<div
-	class="relative mx-auto mb-12 grid h-[75vh] grid-cols-10 grid-rows-6 gap-2 text-xl lg:w-10/12"
+<IntersectionObserver
+	element={hero}
+	bind:intersecting={intersectingHero}
+	threshold={0.7}
 >
 	<div
-		bind:this={frontendImage}
-		class="z-10 col-span-6 col-start-5 row-start-1 row-end-6 mb-12 mt-10 flex w-full items-center justify-center overflow-hidden bg-darkgray transition-opacity delay-75 ease-out {frontendHover
-			? 'opacity-100'
-			: 'opacity-0'}"
+		bind:this={hero}
+		class="relative mx-auto mb-12 grid h-[75vh] grid-cols-10 grid-rows-6 gap-2 text-xl lg:w-10/12"
 	>
-		<img
-			src="images/developer.jpg"
-			alt="Creating a unique web application, which is fast, beautiful, custom."
-			class="h-full w-full object-cover"
-		/>
-	</div>
-	<div
-		bind:this={uiUxImage}
-		class="z-10 col-span-3 col-start-6 row-start-1 row-end-7 mt-10 w-full items-center justify-center overflow-hidden bg-darkgray transition-opacity delay-75 ease-out {uiuxHover
-			? 'opacity-100'
-			: 'opacity-0'}"
-	>
-		<img
-			src="images/design.jpg"
-			alt="UI& UX Design"
-			class="h-full w-full object-cover"
-		/>
-	</div>
-	<div
-		class="absolute bottom-0 col-span-8 flex w-full flex-col justify-end px-4 lg:px-0"
-	>
-		<h1 class="headline mb-4">Product Designer</h1>
-		<div class="flex w-full items-end justify-between">
-			<div>
-				<h3
-					on:mouseenter={hoveredOverLink}
-					on:mouseleave={notHovering}
-					on:mouseenter={() => (frontendHover = true)}
-					on:mouseleave={() => (frontendHover = false)}
-					class=" text-4xl font-medium opacity-30 transition-all delay-75 hover:opacity-100"
-				>
-					Frontend Developer
-				</h3>
-				<h3
-					on:mouseenter={hoveredOverLink}
-					on:mouseleave={notHovering}
-					on:mouseenter={() => (uiuxHover = true)}
-					on:mouseleave={() => (uiuxHover = false)}
-					class=" text-4xl font-medium opacity-30  transition-all delay-75 hover:opacity-100"
-				>
-					UI& UX Designer
-				</h3>
-			</div>
+		<div
+			bind:this={frontendImage}
+			class="z-10 col-span-6 col-start-5 row-start-1 row-end-6 mb-12 mt-10 flex w-full items-center justify-center overflow-hidden bg-darkgray transition-opacity delay-75 ease-out {frontendHover
+				? 'opacity-100'
+				: 'opacity-0'}"
+		>
+			<img
+				src="images/developer.jpg"
+				alt="Creating a unique web application, which is fast, beautiful, custom."
+				class="h-full w-full object-cover"
+			/>
+		</div>
+		<div
+			bind:this={uiUxImage}
+			class="z-10 col-span-3 col-start-6 row-start-1 row-end-7 mt-10 w-full items-center justify-center overflow-hidden bg-darkgray transition-opacity delay-75 ease-out {uiuxHover
+				? 'opacity-100'
+				: 'opacity-0'}"
+		>
+			<img
+				src="images/design.jpg"
+				alt="UI& UX Design"
+				class="h-full w-full object-cover"
+			/>
+		</div>
+		<div
+			class="absolute bottom-0 col-span-8 flex w-full flex-col justify-end px-4 lg:px-0"
+		>
+			<h1 class="headline mb-4">Product Designer</h1>
+			<div class="flex w-full items-end justify-between">
+				<div>
+					<h3
+						on:mouseenter={hoveredOverLink}
+						on:mouseleave={notHovering}
+						on:mouseenter={() => (frontendHover = true)}
+						on:mouseleave={() => (frontendHover = false)}
+						class=" text-4xl font-medium  transition-all delay-75 hover:opacity-100
+							{frontendHover ? 'opacity-100' : 'opacity-30'}"
+					>
+						Frontend Developer
+					</h3>
+					<h3
+						on:mouseenter={hoveredOverLink}
+						on:mouseleave={notHovering}
+						on:mouseenter={() => (uiuxHover = true)}
+						on:mouseleave={() => (uiuxHover = false)}
+						class=" text-4xl font-medium transition-all delay-75 hover:opacity-100
+						{uiuxHover ? 'opacity-100' : 'opacity-30'}"
+					>
+						UI& UX Designer
+					</h3>
+				</div>
 
-			<a
-				href="#skills"
-				on:mouseenter={hoveredOverLink}
-				on:mouseleave={notHovering}
-			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-6 w-6"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					stroke-width="2"
+				<a
+					href="#skills"
+					on:mouseenter={hoveredOverLink}
+					on:mouseleave={notHovering}
 				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
-					/>
-				</svg>
-			</a>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-6 w-6"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
+						/>
+					</svg>
+				</a>
+			</div>
 		</div>
 	</div>
-</div>
+</IntersectionObserver>
 
 <!-- skills -->
 <SkillSection />
@@ -324,7 +343,7 @@
 	{/each}
 </div>
 <!-- ? logo panel -->
-<div class="my-12 mt-44 bg-neutral-100 dark:bg-darkgray">
+<!-- <div class="my-12 mt-44 bg-neutral-100 dark:bg-darkgray">
 	<div
 		class="mx-auto flex w-10/12 items-center justify-between py-8"
 	>
@@ -350,7 +369,8 @@
 			</a>
 		{/each}
 	</div>
-</div>
+</div> -->
+<LogoSlider />
 <!-- contact CTA -->
 <ContactCta />
 <!-- footer -->

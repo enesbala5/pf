@@ -23,7 +23,7 @@
 <div
 	class="{margin
 		? 'mt-24 mb-20 lg:my-64'
-		: ''} mx-auto flex w-full flex-col-reverse items-center px-4 pb-10 lg:w-10/12 lg:flex-row lg:px-0"
+		: ''} mx-auto flex w-full flex-col-reverse items-center px-4 pb-10 lg:w-10/12 md:flex-row lg:px-0"
 >
 	<div class="mt-8 w-full lg:mt-0 lg:w-1/2">
 		<h2 class="text-2xl font-medium lg:text-3xl ">

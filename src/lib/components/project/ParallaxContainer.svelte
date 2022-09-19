@@ -45,7 +45,7 @@
 	};
 
 	onMount(() => {
-		updateDistanceTop();
+		if (scrollY === 0) updateDistanceTop();
 	});
 
 	$: updateParallax(distanceTop, scrollY, divHeight, vh);
@@ -65,9 +65,9 @@
 			bind:clientHeight={divHeight}
 		>
 			<div
-				style:transform={
-				`translateY(${actualScrollValue * speed}px)`
-				}
+				style:transform={`translateY(${
+					actualScrollValue * speed
+				}px)`}
 				class="inheritWidth -z-20 h-screen object-cover"
 			>
 				<slot />

@@ -88,7 +88,7 @@
 					easing: quadInOut,
 					y: -24,
 				}}
-				class="noScroll col-span-9 col-start-2 mt-4 grid grid-flow-col-dense grid-rows-1 gap-2 overflow-scroll py-2 text-black dark:text-white lg:mb-0 lg:space-x-4"
+				class="noScroll col-span-9 col-start-2 mt-4 grid grid-flow-col-dense grid-rows-1 gap-2 overflow-scroll lg:overflow-hidden py-2 text-black dark:text-white lg:mb-0 "
 			>
 				{#each tags as tag}
 					{#if $selectedTags.includes(tag) && tag !== 'tshirt'}
@@ -129,7 +129,7 @@
 							}}
 							on:mouseenter={hoveredOverText}
 							on:mouseleave={notHovering}
-							class="w-fit whitespace-nowrap rounded-full bg-white py-2 px-4 text-center font-mono text-xs  shadow-sm dark:bg-lightgray dark:shadow-none lg:w-full"
+							class="w-fit whitespace-nowrap rounded-full bg-white py-2 px-4 text-center font-mono text-xs shadow-sm dark:bg-lightgray dark:shadow-none lg:w-full"
 						>
 							{#if tag === 'branding'}
 								Branding

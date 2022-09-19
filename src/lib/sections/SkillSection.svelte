@@ -284,7 +284,7 @@
 				{/each}
 			{:else}
 				<div
-					class="flex opacity-20 aspect-square w-full items-center justify-center overflow-hidden rounded-md bg-black dark:bg-darkgray"
+					class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-md bg-black dark:bg-darkgray"
 				>
 					<div
 						class="container h-14"

@@ -57,7 +57,7 @@
 	};
 
 	onMount(() => {
-		updateDistanceTop();
+		if (scrollY === 0) updateDistanceTop();
 	});
 
 	$: updateParallax(distanceTop, scrollY, divHeight, vh);

@@ -1,6 +1,7 @@
 <script>
 	import ContactCta from '$lib/components/ContactCTA.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import LogoSlider from '$lib/components/LogoSlider.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import ImageCard from '$lib/components/project/ImageCard.svelte';
 	import { cityName } from '$lib/info/info';
@@ -22,7 +23,7 @@
 				Albania.
 			</p>
 			<div
-				class="mt-8 w-full overflow-hidden bg-neutral-200 dark:bg-darkgray rounded-md"
+				class="mt-8 w-full overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray"
 			>
 				<div
 					class="h-full w-full mix-blend-multiply dark:opacity-40 dark:mix-blend-lighten dark:invert"
@@ -95,7 +96,7 @@
 
 		<!-- design experience -->
 		<div
-			class="col-span-1 row-start-2 flex h-32 items-center justify-center bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0 overflow-hidden rounded-md"
+			class="col-span-1 row-start-2 flex h-32 items-center justify-center overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
 		>
 			<p class="text-5xl font-medium lg:text-7xl">6</p>
 		</div>
@@ -121,13 +122,13 @@
 			</p>
 		</div>
 		<div
-			class="col-span-1 row-start-3 flex h-32 items-center justify-center bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0 overflow-hidden rounded-md"
+			class="col-span-1 row-start-3 flex h-32 items-center justify-center overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
 		>
 			<p class="text-5xl font-medium lg:text-7xl">4</p>
 		</div>
 		<!-- image -->
 		<div
-			class="col-span-4 row-start-4 mt-16 overflow-hidden bg-neutral-200 dark:bg-darkgray lg:col-span-8 lg:mt-32 lg:h-[65vh] rounded-md"
+			class="col-span-4 row-start-4 mt-16 overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray lg:col-span-8 lg:mt-32 lg:h-[65vh]"
 		>
 			<ImageCard image="images/me.jpg" alternativeImage />
 			<!-- <img
@@ -142,7 +143,8 @@
 <!-- end about me -->
 <!-- contact + footer -->
 <div class="mx-auto space-y-16 font-aeonik lg:mt-24">
-	<ContactCta  />
+	<ContactCta />
+	<LogoSlider />
 	<Footer />
 </div>
 <!-- end contact + footer -->
