@@ -1,7 +1,9 @@
 <script>
-  import { page } from '$app/stores';
+	import { page } from '$app/stores';
 	import Footer from '$lib/components/Footer.svelte';
 	import NextCase from '$lib/sections/NextCase.svelte';
+	import Keyboard from '$lib/svgs/hero/Keyboard.svelte';
+  import Palette from '$lib/svgs/hero/Palette.svelte';
 </script>
 
 <!-- <div
@@ -10,6 +12,8 @@
 	<h1 class="projectHeadline">Shargan Consulting</h1>
 </div> -->
 
-
+<!-- <Keyboard /> -->
+<Keyboard classNames="w-48 h-48"></Keyboard>
+<Palette classNames="w-48 h-48"></Palette>
 <!-- <NextCase/> -->
 <Footer />

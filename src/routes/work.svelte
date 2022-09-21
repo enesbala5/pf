@@ -46,7 +46,7 @@
 		class="relative mx-auto mt-24 text-xl lg:grid lg:grid-cols-10"
 	>
 		<div
-			class="col-span-9 col-start-2 flex items-center justify-between lg:mb-0"
+			class="2xl:col-span-9 lg:col-span-10 2xl:col-start-2 flex items-center justify-between lg:mb-0"
 		>
 			<!-- titlebar -->
 			<div class="col-span-2 col-start-2">
@@ -167,7 +167,7 @@
 					return project.tags.includes(element);
 				})}
 					<div
-						class="col-span-8 flex items-center space-x-2 odd:col-start-3 even:col-start-2"
+						class="2xl:col-span-8 lg:col-span-10 flex items-center space-x-2 2xl:odd:col-start-3 2xl:even:col-start-2"
 					>
 						<ProjectCard
 							projectName={project.projectName}
@@ -182,7 +182,7 @@
 			{/if}
 			{#if $selectedTags.length < 1}
 				<div
-					class="col-span-8 flex items-center space-x-2 odd:col-start-3 even:col-start-2"
+					class="2xl:col-span-8 lg:col-span-10 flex items-center space-x-2 2xl:odd:col-start-3 2xl:even:col-start-2"
 				>
 					<ProjectCard
 						projectName={project.projectName}

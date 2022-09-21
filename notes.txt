@@ -1,0 +1,17 @@
+TO FIX:
+- Logo Slider
+- Rregullo madhesine e imazheve ne Hero Section - merr referenc XD-n
+- Footer H1 te ket media queries per ekrane me te vegjel
+
+UPDATES:
+- Menyre per te bere display fotot e Hero Section ne momentin qe hapet faqja
+
+-----------------------------------------------------------------------------------
+
+READY:
+- Footer: Have an idea -> Outline Version
+- Work - 2 Columns te rrijne bosh vetem me 2xl Scr Size
+- Background i Footer te ndryshoj dark/light mode
+- Upload Imazhin e ri tek frontend dhe ui ux
+- Category not uploading FormSpree - Contact
+- Scroll fillon nga Y = 0 - jo me scroll smooth (ajo vetem per raste specifike)

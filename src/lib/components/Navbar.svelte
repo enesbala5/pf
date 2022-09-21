@@ -283,7 +283,7 @@
 			on:mouseenter={hoveredOverNavItem}
 			on:mouseleave={notHovering}
 			href={navigation.work}
-			class="c text-sm opacity-50 active:opacity-100 {$page.url.pathname.includes(
+			class=" text-sm opacity-50 active:opacity-100 {$page.url.pathname.includes(
 				'work'
 			)
 				? 'opacity-100'
@@ -293,7 +293,7 @@
 			on:mouseenter={hoveredOverNavItem}
 			on:mouseleave={notHovering}
 			href={navigation.about}
-			class="c text-sm opacity-50  active:opacity-100 {$page.url.pathname.includes(
+			class=" text-sm opacity-50  active:opacity-100 {$page.url.pathname.includes(
 				'about'
 			)
 				? 'opacity-100'
@@ -303,7 +303,7 @@
 			on:mouseenter={hoveredOverNavItem}
 			on:mouseleave={notHovering}
 			href={navigation.contact}
-			class="c text-sm opacity-50  active:opacity-100 {$page.url.pathname.includes(
+			class=" text-sm opacity-50  active:opacity-100 {$page.url.pathname.includes(
 				'contact'
 			)
 				? 'opacity-100'

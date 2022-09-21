@@ -49,7 +49,13 @@
 					<div class="mx-auto flex h-full w-10/12 flex-col">
 						<div class="flex h-5/6 w-full items-center">
 							<div class="w-1/2">
-								<h2 class="text-8xl ">Have an idea?</h2>
+								<h2
+									class="text-8xl {$theme !== 'dark'
+										? 'outlineLight text-black'
+										: 'outlineDark text-black'} "
+								>
+									Have an idea?
+								</h2>
 								<LineUnderText
 									noHover
 									custom
@@ -334,5 +340,18 @@
 	:global(::selection) {
 		color: var(--textColor);
 		background: var(--backgroundColor);
+	}
+
+	@supports (-webkit-text-stroke: 1px white) {
+		.outlineLight {
+			-webkit-text-stroke: 0.5px white;
+			-webkit-text-fill-color: black;
+		}
+	}
+	@supports (-webkit-text-stroke: 1px white) {
+		.outlineDark {
+			-webkit-text-stroke: 0.5px white;
+			-webkit-text-fill-color: #141414;
+		}
 	}
 </style>

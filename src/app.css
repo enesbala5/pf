@@ -7,13 +7,13 @@
 		@apply text-6xl font-medium ease-in-out md:text-7xl lg:text-8xl;
 	}
 	.inputPrimary {
-		@apply cursor-none bg-neutral-200 py-3 px-5 text-black transition-colors ease-in-out placeholder:text-neutral-600 placeholder:opacity-100 focus:outline-none  dark:bg-lightgray dark:text-white dark:placeholder:text-white dark:placeholder:opacity-50;
+		@apply cursor-none rounded-md bg-neutral-200 py-3 px-5 text-black transition-colors ease-in-out placeholder:text-neutral-600 placeholder:opacity-100  focus:outline-none dark:bg-lightgray dark:text-white dark:placeholder:text-white dark:placeholder:opacity-50;
 	}
 	.buttonPrimary {
 		@apply rounded-md bg-black px-8 py-2.5 text-center text-white transition-colors ease-in-out hover:bg-lightgray active:bg-lightgray dark:bg-darkgray dark:hover:bg-lightgray  dark:active:bg-darkgray;
 	}
 	.buttonSecondary {
-		@apply bg-neutral-300 px-8 py-2.5 text-center text-base transition-colors ease-in-out hover:bg-opacity-80 active:bg-opacity-100 dark:bg-lightgray dark:hover:bg-lightgray dark:hover:bg-opacity-80 dark:active:bg-lightgray;
+		@apply rounded-md bg-neutral-300 px-8 py-2.5 text-center text-base transition-colors ease-in-out hover:bg-opacity-80 active:bg-opacity-100 dark:bg-lightgray dark:hover:bg-lightgray dark:hover:bg-opacity-80 dark:active:bg-lightgray;
 	}
 	.projectHeadline {
 		@apply text-6xl font-medium ease-in-out md:text-7xl lg:text-8xl;

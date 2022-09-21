@@ -23,6 +23,8 @@
 	import { fade } from 'svelte/transition';
 	import ImageCard from '$lib/components/project/ImageCard.svelte';
 	import LogoSlider from '$lib/components/LogoSlider.svelte';
+  import Keyboard from '$lib/svgs/hero/Keyboard.svelte';
+  import Palette from '$lib/svgs/hero/Palette.svelte';
 
 	function hoveredOverLink() {
 		hoverOverLink.set(true);
@@ -122,27 +124,29 @@
 	>
 		<div
 			bind:this={frontendImage}
-			class="z-10 col-span-6 col-start-5 row-start-1 row-end-6 mb-12 mt-10 flex w-full items-center justify-center overflow-hidden bg-darkgray transition-opacity delay-75 ease-out {frontendHover
+			class="z-10 col-span-6 col-start-5 row-start-1 row-end-6 mb-12 mt-10 flex w-full items-center justify-center overflow-hidden  transition-opacity delay-75 ease-out {frontendHover
 				? 'opacity-100'
 				: 'opacity-0'}"
 		>
-			<img
+			<!-- <img
 				src="images/developer.jpg"
 				alt="Creating a unique web application, which is fast, beautiful, custom."
 				class="h-full w-full object-cover"
-			/>
+			/> -->
+			<Keyboard red></Keyboard>
 		</div>
 		<div
 			bind:this={uiUxImage}
-			class="z-10 col-span-3 col-start-6 row-start-1 row-end-7 mt-10 w-full items-center justify-center overflow-hidden bg-darkgray transition-opacity delay-75 ease-out {uiuxHover
+			class="z-10 col-span-3 col-start-6 row-start-1 row-end-7 mt-10 w-full items-center justify-center overflow-hidden  transition-opacity delay-75 ease-out {uiuxHover
 				? 'opacity-100'
 				: 'opacity-0'}"
 		>
-			<img
+			<!-- <img
 				src="images/design.jpg"
 				alt="UI& UX Design"
 				class="h-full w-full object-cover"
-			/>
+			/> -->
+			<Palette red></Palette>
 		</div>
 		<div
 			class="absolute bottom-0 col-span-8 flex w-full flex-col justify-end px-4 lg:px-0"
@@ -171,9 +175,17 @@
 						UI& UX Designer
 					</h3>
 				</div>
-
-				<a
-					href="#skills"
+				<!-- chevron bottom - navigate down -->
+				<div
+					on:click={() => {
+						if (browser) {
+							document
+								.querySelector('#skills')
+								?.scrollIntoView({
+									behavior: 'smooth',
+								});
+						}
+					}}
 					on:mouseenter={hoveredOverLink}
 					on:mouseleave={notHovering}
 				>
@@ -191,7 +203,7 @@
 							d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
 						/>
 					</svg>
-				</a>
+				</div>
 			</div>
 		</div>
 	</div>

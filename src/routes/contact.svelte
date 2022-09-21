@@ -78,7 +78,7 @@
 		<form
 			action="https://formsubmit.co/1982af4d0e444a4a2359fc6ae59df2da"
 			method="POST"
-			class="col-span-8 col-start-2 mt-8 space-y-4 bg-neutral-100 p-4 text-base transition-colors ease-in-out dark:bg-darkgray lg:p-6"
+			class="col-span-8 col-start-2 mt-8 space-y-4 rounded-md bg-neutral-100 p-4 text-base transition-colors ease-in-out dark:bg-darkgray lg:p-6"
 		>
 			<!-- formsubmit redirect etc -->
 			<input
@@ -88,6 +88,11 @@
 			/>
 			<input type="hidden" name="_captcha" value="false" />
 			<input type="hidden" name="_template" value="table" />
+			<input
+				type="hidden"
+				name="Interest"
+				value={interest?.label}
+			/>
 
 			<!-- row -->
 			<div
@@ -173,7 +178,7 @@
 		>
 			<p class="opacity-70">Where I'm Located</p>
 			<div
-				class="flex h-36 w-full items-center justify-center overflow-hidden bg-neutral-100 dark:bg-darkgray lg:h-56"
+				class="flex h-36 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-100 dark:bg-darkgray lg:h-56"
 			>
 				<img
 					src="images/map.png"
