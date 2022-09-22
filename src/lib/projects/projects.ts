@@ -20,7 +20,7 @@ export const projects: Project[] = [
 		date: 'October 2021',
 		thumbnail: 'list4free.jpg',
 		id: 'list4free',
-		tags: ['branding', 'ui-ux'],
+		tags: ['branding', 'ui-ux', 'website'],
 	},
 	{
 		projectName: 'Shargan Consulting',

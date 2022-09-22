@@ -50,31 +50,60 @@
 
 	$: updateParallax(distanceTop, scrollY, divHeight, vh);
 	// end logic
+
+	let innerWidth: number = 1600;
 </script>
 
-<svelte:window bind:scrollY bind:innerHeight={vh} />
+<svelte:window
+	bind:scrollY
+	bind:innerHeight={vh}
+	bind:innerWidth
+/>
 
-<div class="flex flex-col items-center">
-	<div
-		class="relative h-[40vh] w-full overflow-hidden lg:h-[100vh]
-		{topMargin ? 'mt-48' : ''}"
-		{id}
-	>
+{#if innerWidth >= 1024}
+	<div class="flex flex-col items-center">
 		<div
-			class="h-full w-full"
-			bind:clientHeight={divHeight}
+			class="relative h-[40vh] w-full overflow-hidden lg:h-[100vh]
+		{topMargin ? 'mt-48' : ''}"
+			{id}
 		>
 			<div
-				style:transform={`translateY(${
-					actualScrollValue * speed
-				}px)`}
-				class="inheritWidth -z-20 h-screen object-cover"
+				class="h-full w-full"
+				bind:clientHeight={divHeight}
 			>
-				<slot />
+				<div
+					style:transform={`translateY(${
+						actualScrollValue * speed
+					}px)`}
+					class="inheritWidth -z-20 h-screen object-cover"
+				>
+					<slot />
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+{/if}
+
+{#if innerWidth < 1024}
+	<div class="flex flex-col items-center">
+		<div
+			class="relative h-[40vh] w-full overflow-hidden lg:h-[100vh]
+		{topMargin ? 'mt-48' : ''}"
+			{id}
+		>
+			<div
+				class="h-full w-full"
+				bind:clientHeight={divHeight}
+			>
+				<div
+					class="w-full h-full -z-20 object-cover"
+				>
+					<slot />
+				</div>
+			</div>
+		</div>
+	</div>
+{/if}
 
 <style>
 	.inheritWidth {

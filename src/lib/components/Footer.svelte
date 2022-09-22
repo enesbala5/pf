@@ -33,7 +33,7 @@
 
 {#if innerWidth > 1024}
 	<div
-		class="bg-black dark:bg-white"
+		class="bg-black dark:bg-darkgray"
 		style="--textColor:{$theme === 'dark'
 			? 'white'
 			: 'black'};--backgroundColor:{$theme === 'dark'
@@ -50,9 +50,7 @@
 						<div class="flex h-5/6 w-full items-center">
 							<div class="w-1/2">
 								<h2
-									class="text-8xl {$theme !== 'dark'
-										? 'outlineLight text-black'
-										: 'outlineDark text-black'} "
+									class="text-8xl"
 								>
 									Have an idea?
 								</h2>
@@ -340,18 +338,5 @@
 	:global(::selection) {
 		color: var(--textColor);
 		background: var(--backgroundColor);
-	}
-
-	@supports (-webkit-text-stroke: 1px white) {
-		.outlineLight {
-			-webkit-text-stroke: 0.5px white;
-			-webkit-text-fill-color: black;
-		}
-	}
-	@supports (-webkit-text-stroke: 1px white) {
-		.outlineDark {
-			-webkit-text-stroke: 0.5px white;
-			-webkit-text-fill-color: #141414;
-		}
 	}
 </style>

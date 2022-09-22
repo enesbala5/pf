@@ -264,7 +264,8 @@
 							>
 								<ImageCard
 									customAttribute="w-full"
-									image="/images/showcase/mountain.jpg"
+									imageCustomAttribute=" mt-8"
+									image="/images/showcase/rubik_bigImage.jpg"
 									alternativeImage
 								/>
 							</div>
@@ -282,7 +283,7 @@
 							>
 								<ImageCard
 									customAttribute="w-full"
-									image="/images/showcase/design.jpg"
+									image="/images/showcase/laptop_smallImage.jpg"
 									alternativeImage
 								/>
 							</div></Motion

@@ -55,32 +55,70 @@
 		<div
 			class="noScroll mt-4 flex items-center space-x-2 overflow-scroll py-2 lg:absolute lg:bottom-0 lg:left-0 lg:mt-2 lg:w-fit"
 		>
-			{#each tags as tag}
+			{#if tags.length > 2}
+				{#each tags as tag, i}
+					{#if i < 2}
+						<button
+							class="w-fit whitespace-nowrap rounded-full bg-white py-2 px-4 text-center font-mono  text-xs shadow-sm dark:bg-lightgray dark:shadow-none"
+							on:mouseenter={hoveredOverText}
+							on:mouseleave={notHovering}
+						>
+							{#if tag === 'branding'}
+								Branding
+							{/if}
+							{#if tag === 'smmm'}
+								Social Media Management
+							{/if}
+							{#if tag === 'ui-ux'}
+								UI & UX
+							{/if}
+							{#if tag === 'tshirt'}
+								Clothing
+							{/if}
+							{#if tag === 'website'}
+								Website Design
+							{/if}
+							{#if tag === 'development'}
+								Development
+							{/if}
+						</button>
+					{/if}
+				{/each}
 				<button
 					class="w-fit whitespace-nowrap rounded-full bg-white py-2 px-4 text-center font-mono  text-xs shadow-sm dark:bg-lightgray dark:shadow-none"
 					on:mouseenter={hoveredOverText}
 					on:mouseleave={notHovering}
 				>
-					{#if tag === 'branding'}
-						Branding
-					{/if}
-					{#if tag === 'smmm'}
-						Social Media Management
-					{/if}
-					{#if tag === 'ui-ux'}
-						UI & UX
-					{/if}
-					{#if tag === 'tshirt'}
-						Clothing
-					{/if}
-					{#if tag === 'website'}
-						Website Design
-					{/if}
-					{#if tag === 'development'}
-						Development
-					{/if}
+					+{tags.length - 2}
 				</button>
-			{/each}
+			{:else}
+				{#each tags as tag, i}
+					<button
+						class="w-fit whitespace-nowrap rounded-full bg-white py-2 px-4 text-center font-mono  text-xs shadow-sm dark:bg-lightgray dark:shadow-none"
+						on:mouseenter={hoveredOverText}
+						on:mouseleave={notHovering}
+					>
+						{#if tag === 'branding'}
+							Branding
+						{/if}
+						{#if tag === 'smmm'}
+							Social Media Management
+						{/if}
+						{#if tag === 'ui-ux'}
+							UI & UX
+						{/if}
+						{#if tag === 'tshirt'}
+							Clothing
+						{/if}
+						{#if tag === 'website'}
+							Website Design
+						{/if}
+						{#if tag === 'development'}
+							Development
+						{/if}
+					</button>
+				{/each}
+			{/if}
 			<p
 				class="w-full pl-4 font-mono text-xs opacity-70 lg:border-none"
 				on:mouseenter={hoveredOverText}

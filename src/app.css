@@ -114,5 +114,6 @@
 }
 
 * {
+	-webkit-appearance: none;
 	-webkit-tap-highlight-color: transparent;
 }

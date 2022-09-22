@@ -1,17 +1,66 @@
 TO FIX:
-- Logo Slider
-- Rregullo madhesine e imazheve ne Hero Section - merr referenc XD-n
-- Footer H1 te ket media queries per ekrane me te vegjel
 
-UPDATES:
-- Menyre per te bere display fotot e Hero Section ne momentin qe hapet faqja
+Index:
+	-> Rregullo madhesine e imazheve ne Hero Section - merr referenc XD-n
+	-> Mobile
+		-> Main Text centered - no longer absolute layout
+
+Footer:
+	-> Snow vector arrange for smaller sizes
+	-> H1 te ket media queries per ekrane me te vegjel
+	-> Give more height to Contact info section - when smaller screen
+
+About:
+	-> Image of myself not tall enough (Parallax Error)
+
+Logo Slider:
+	-> Make auto scrolling
+
+Skill Section:
+	-> Change for Mobile
+
+NextCase:
+	-> Min Height Mobile
+
+ImageCard:
+	-> Possible 16:9 Aspect Ratio Option
+
+Work 
+	-> Ne rast se filtering del NULL:
+		-> Trego ndonje Lajmerim, psh "Sorry, there are no projects that match that description" me ndonje ilustrim
+
+After-thought:
+-> Menyre per te bere display fotot e Hero Section ne momentin qe hapet faqja
+-> Component for Grid Sections - Project Parallax Grid Container
 
 -----------------------------------------------------------------------------------
 
 READY:
-- Footer: Have an idea -> Outline Version
-- Work - 2 Columns te rrijne bosh vetem me 2xl Scr Size
-- Background i Footer te ndryshoj dark/light mode
-- Upload Imazhin e ri tek frontend dhe ui ux
-- Category not uploading FormSpree - Contact
-- Scroll fillon nga Y = 0 - jo me scroll smooth (ajo vetem per raste specifike)
+
+Index:
+	-> New image for HERO section
+
+About:
+	-> Mobile Only -> Years of Experience container no Rounded Corners
+	-> Footer not working
+
+Work:
+	->	2 Columns te rrijne bosh vetem me 2xl Scr Size
+	->	Collapse Project Tags when more than 3 tags - (+x Tags) icon
+
+Footer: 
+	-> Have an idea --> Outline Version
+	-> Background color fix - change for light / dark mode
+	-> Remove outline version CTA
+
+Contact:
+	->	Upload Category - FormSpree
+
+Skill Section:
+	-> Change Hover Tip
+
+Layout:
+	-> Scroll begins from Y = 0 - discarded "scroll smooth" - (anchor smooth scrolling possible)
+
+Components:
+	-> Parallax ne telefon - duhet te hiqet

@@ -101,7 +101,7 @@
 			<p class="text-5xl font-medium lg:text-7xl">6</p>
 		</div>
 		<div
-			class="col-span-3 row-start-2 flex h-32 flex-col justify-center bg-neutral-100 pl-4 dark:bg-darkgray dark:bg-opacity-50 lg:col-span-6 lg:h-44 lg:bg-transparent lg:py-0 lg:pl-8 dark:lg:bg-transparent dark:lg:bg-opacity-100"
+			class="col-span-3 row-start-2 flex h-32 flex-col justify-center bg-neutral-100 pl-4 dark:bg-darkgray dark:bg-opacity-50 lg:col-span-6 lg:h-44 rounded-md lg:bg-transparent lg:py-0 lg:pl-8 dark:lg:bg-transparent dark:lg:bg-opacity-100"
 		>
 			<p class="text-lg font-medium lg:text-2xl">
 				Years of Experience
@@ -112,7 +112,7 @@
 		</div>
 		<!-- programming experience -->
 		<div
-			class="col-span-3 row-start-3  flex h-32 flex-col items-end justify-center bg-neutral-100 pr-4 text-right dark:bg-darkgray dark:bg-opacity-50 lg:col-span-6 lg:h-44 lg:bg-transparent lg:py-0 lg:pr-8 dark:lg:bg-transparent dark:lg:bg-opacity-100"
+			class="col-span-3 row-start-3  flex h-32 flex-col items-end justify-center bg-neutral-100 pr-4 text-right dark:bg-darkgray dark:bg-opacity-50 lg:col-span-6 lg:h-44 lg:bg-transparent rounded-md lg:py-0 lg:pr-8 dark:lg:bg-transparent dark:lg:bg-opacity-100"
 		>
 			<p class="text-lg font-medium lg:text-2xl">
 				Years of Experience

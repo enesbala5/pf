@@ -199,7 +199,7 @@
 {/key}
 <div
 	id={$theme === 'dark' ? 'scrollbarDark' : 'scrollbar'}
-	class="z-50"
+	class="z-50 hidden lg:block"
 >
 	<Svrollbar />
 </div>

@@ -91,7 +91,7 @@
 			<p
 				class="mt-2 hidden font-mono text-sm text-black opacity-50 dark:text-white dark:opacity-30 lg:block"
 			>
-				Tip: Hover / Tap the skills.
+				Tip: Hover displayed skills
 			</p>
 			<p
 				class="font-mono text-xs text-black opacity-50 dark:text-white dark:opacity-30 lg:hidden"

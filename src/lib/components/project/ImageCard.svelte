@@ -20,6 +20,7 @@
 	export let description: string | undefined = undefined;
 	let divHeight: number;
 	export let customAttribute: string = '';
+	export let imageCustomAttribute: string = '';
 	export let alternativeImage: boolean = false;
 
 	// start logic
@@ -64,46 +65,89 @@
 	// end logic
 
 	let vh: number;
+	let innerWidth: number = 1600;
 </script>
 
-<svelte:window bind:scrollY bind:innerHeight={vh} />
+<svelte:window
+	bind:scrollY
+	bind:innerHeight={vh}
+	bind:innerWidth
+/>
 
-<div class="flex flex-col items-center">
-	<div
-		class="relative w-full overflow-hidden
+{#if innerWidth >= 1024}
+	<div class="flex flex-col items-center">
+		<div
+			class="relative w-full overflow-hidden
 		{customAttribute !== '' ? customAttribute : ''}
 		{fullscreen
-			? 'h-[40vh] lg:h-[105vh]'
-			: customAttribute
-			? 'inheritWidth rounded-md'
-			: 'inheritAll rounded-md'}
+				? 'h-[40vh] lg:h-[105vh]'
+				: customAttribute
+				? 'inheritWidth rounded-md'
+				: 'inheritAll rounded-md'}
 		{topMargin ? 'mt-48' : ''}
 		"
-		{id}
-	>
-		<div
-			class="h-full w-full"
-			bind:clientHeight={divHeight}
+			{id}
 		>
-			<img
-				style:transform={`translateY(calc(${
-					actualScrollValue * speed
-				}px - ${fullscreen ? '1.5%' : '5%'}))`}
-				src={alternativeImage
-					? image
-					: `/images/projects/${image}`}
-				alt={description}
-				class="inheritWidth -z-20 object-cover
+			<div
+				class="h-full w-full"
+				bind:clientHeight={divHeight}
+			>
+				<img
+					style:transform={`translateY(calc(${
+						actualScrollValue * speed
+					}px - ${fullscreen ? '1.5%' : '5%'}))`}
+					src={alternativeImage
+						? image
+						: `/images/projects/${image}`}
+					alt={description}
+					class="inheritWidth -z-20 object-cover {imageCustomAttribute}
 				{fullscreen ? 'h-[101%]' : 'h-[110%] rounded-md'}"
-			/>
+				/>
+			</div>
 		</div>
+		{#if !fullscreen && description !== undefined}
+			<p class="projectH3 mx-auto w-full py-8 text-center">
+				{description}
+			</p>
+		{/if}
 	</div>
-	{#if !fullscreen && description !== undefined}
-		<p class="projectH3 mx-auto w-full py-8 text-center">
-			{description}
-		</p>
-	{/if}
-</div>
+{/if}
+
+{#if innerWidth < 1024}
+	<div class="flex flex-col items-center">
+		<div
+			class="relative w-full overflow-hidden
+		{customAttribute !== '' ? customAttribute : ''}
+		{fullscreen
+				? 'h-[40vh] lg:h-[105vh]'
+				: customAttribute
+				? 'inheritWidth rounded-md'
+				: 'inheritAll rounded-md'}
+		{topMargin ? 'mt-48' : ''}
+		"
+			{id}
+		>
+			<div
+				class="h-full w-full"
+				bind:clientHeight={divHeight}
+			>
+				<img
+					src={alternativeImage
+						? image
+						: `/images/projects/${image}`}
+					alt={description}
+					class="-z-20 object-cover 
+				{fullscreen ? 'w-full h-full' : 'w-full h-full object-cover rounded-md'}"
+				/>
+			</div>
+		</div>
+		{#if !fullscreen && description !== undefined}
+			<p class="projectH3 mx-auto w-full py-8 text-center">
+				{description}
+			</p>
+		{/if}
+	</div>
+{/if}
 
 <style>
 	.inheritAll {
