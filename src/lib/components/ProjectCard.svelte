@@ -1,8 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
-	import { navigation } from '$lib/info/nav';
-	import { selectedTags } from '$lib/projects/projects';
 
 	export let projectName: string;
 	export let projectDescription: string;
@@ -73,7 +70,7 @@
 								UI & UX
 							{/if}
 							{#if tag === 'tshirt'}
-								Clothing
+								Apparel Design
 							{/if}
 							{#if tag === 'website'}
 								Website Design
@@ -108,7 +105,7 @@
 							UI & UX
 						{/if}
 						{#if tag === 'tshirt'}
-							Clothing
+							Apparel Design
 						{/if}
 						{#if tag === 'website'}
 							Website Design

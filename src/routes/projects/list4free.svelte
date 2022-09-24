@@ -9,26 +9,19 @@
 	import Text from '$lib/components/project/Text.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import NextCase from '$lib/sections/NextCase.svelte';
+	import FourImagesContainer from '$lib/components/project/containers/Images/FourImagesContainer.svelte';
+	import ProjectTitle from '$lib/components/project/ProjectTitle.svelte';
 </script>
 
 <title>List4Free - Enes Bala</title>
 
 <div class="mt-24  w-full font-aeonik lg:mt-24">
 	<!-- make template -->
-	<ProjectContainer noMargin>
-		<div class="mx-auto w-full lg:w-10/12">
-			<p class="projectSubheading">List4Free</p>
-
-			<p class="projectHeadline mt-4">
-				The UK's <br class="lg:hidden" /> Real Estate Marketplace
-			</p>
-			<p
-				class="mt-16 font-mono text-xs opacity-50 lg:text-sm"
-			>
-				Branding & Identity Design - Website Design
-			</p>
-		</div>
-	</ProjectContainer>
+	<ProjectTitle projectName="List4Free">
+		<span slot="description">
+			The UK's <br class="lg:hidden" /> Real Estate Marketplace
+		</span>
+	</ProjectTitle>
 
 	<ImageCard
 		fullscreen
@@ -60,20 +53,31 @@
 			title="Creation of a design system"
 			text="Our final flourish was transferring models to engineers. Side by side, Cisco’s and Cuberto’s teams collected specs and outlined all possible scenarios for adding elements and blocks for new pages."
 		/>
-
-		<div class="grid grid-cols-2 grid-rows-1 gap-8">
-			<ImageCard
-				image="list4free/logo.png"
-				description="Lorem ipsum delor del ipsum."
-			/>
-			<ImageCard
-				image="list4free/screens.jpg"
-				description="Lorem ipsum delor del ipsum."
-			/>
-		</div>
+		<FourImagesContainer>
+			<div slot="firstCol">
+				<ImageCard
+					image="list4free/logo.png"
+					description="Lorem ipsum delor del ipsum."
+				/>
+				<ImageCard
+					image="list4free/screens.jpg"
+					description="Lorem ipsum delor del ipsum."
+				/>
+			</div>
+			<div slot="secondCol">
+				<ImageCard
+					image="list4free/screens.jpg"
+					description="Lorem ipsum delor del ipsum."
+				/>
+				<ImageCard
+					image="list4free/logo.png"
+					description="Lorem ipsum delor del ipsum."
+				/>
+			</div>
+		</FourImagesContainer>
 	</SmallProjectContainer>
-	<ProjectContainer>
-		<ProjectContainer noMargin>
+	<ProjectContainer topOnly>
+		<ProjectContainer noMargin noPadding>
 			<Headline
 				>Site of the day according to Awwwards and CSSDA</Headline
 			>
@@ -89,7 +93,7 @@
 			description="View of all List4Free screens"
 		/>
 	</ProjectContainer>
-	<SmallProjectContainer topOnly>
+	<SmallProjectContainer topOnly={true}>
 		<Quote person="Alban Bala">
 			We’d like to express our sincere gratitude to Cuberto
 			for their contribution to the development of our

@@ -3,6 +3,7 @@
 	export let topOnly: boolean = false;
 	export let bottomOnly: boolean = false;
 	export let noMargin: boolean = false;
+	export let noPadding: boolean = false;
 
 	export let widthNotDefined: boolean = false;
 </script>
@@ -10,7 +11,7 @@
 <div
 	class="
 		mx-auto
-		{widthNotDefined ? '' : 'w-full px-4 lg:w-10/12 lg:px-0'}
+		{widthNotDefined ? '' : noPadding? 'w-full px-0 lg:w-10/12' : 'w-full px-4 lg:w-10/12 lg:px-0'}
 		{noMargin
 		? ''
 		: customMargin !== ''

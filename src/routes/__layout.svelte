@@ -21,6 +21,7 @@
 	import { onMount } from 'svelte';
 	import { theme } from '$lib/state/theme';
 	import { afterNavigate } from '$app/navigation';
+  import { selectedTags } from '$lib/projects/projects';
 
 	let size = spring(7);
 	let clicked: boolean = false;
@@ -113,6 +114,8 @@
 	});
 
 	afterNavigate(() => {
+		hoverOverLink.set(false);
+		hoverOverText.set(false);
 		updateSize();
 		if ($page.url.pathname.includes('projects')) {
 			goTop();
@@ -121,6 +124,7 @@
 			setTimeout(() => (ready = true), 1000);
 			console.log($page.url.pathname);
 		}
+		$selectedTags = [];
 	});
 	let quickAnimation = false;
 </script>

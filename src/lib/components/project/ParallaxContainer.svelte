@@ -8,6 +8,7 @@
 
 	export let topMargin: boolean = false;
 	export let fullscreen: boolean = true;
+	export let parallax: boolean = true;
 	let divHeight: number;
 
 	// start logic
@@ -60,7 +61,7 @@
 	bind:innerWidth
 />
 
-{#if innerWidth >= 1024}
+{#if innerWidth >= 1024 && parallax}
 	<div class="flex flex-col items-center">
 		<div
 			class="relative h-[40vh] w-full overflow-hidden lg:h-[100vh]
@@ -84,7 +85,7 @@
 	</div>
 {/if}
 
-{#if innerWidth < 1024}
+{#if innerWidth < 1024 || !parallax}
 	<div class="flex flex-col items-center">
 		<div
 			class="relative h-[40vh] w-full overflow-hidden lg:h-[100vh]

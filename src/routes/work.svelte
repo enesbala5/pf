@@ -22,6 +22,8 @@
 	} from '$lib/state/hoverOver';
 	import { fly } from 'svelte/transition';
 	import { quadInOut } from 'svelte/easing';
+	import Surprise from '$lib/svgs/error/Surprise.svelte';
+	import { element } from 'svelte/internal';
 
 	function hoveredOverText() {
 		hoverOverText.set(true);
@@ -33,6 +35,42 @@
 	}
 
 	let filtering: boolean = false;
+
+	/**
+	 * Checks if array contains all items of another array
+	 * @param a searchArguments[]
+	 * @param b checked [] if contains searchArguments[]
+	 * @returns if B contains all items of A
+	 */
+	function checkArray(arr: any, arr2: any) {
+		return arr.every((i: any) => arr2.includes(i));
+	}
+
+	const includesAll = (arr: any[], values: any[]) =>
+		values.every((v) => arr.includes(v));
+
+	let errorMessage: boolean = false;
+	const checkIfNoMatch = () => {
+		let count: number = 0;
+		count = 0;
+		if ($selectedTags.length > 0) {
+			for (let pr of projects) {
+				if (includesAll(pr.tags, $selectedTags)) {
+					count = count + 1;
+				}
+			}
+			if (count == 0) {
+				console.log(count);
+				errorMessage = true;
+				return;
+			}
+			console.log(count);
+		}
+		errorMessage = false;
+	};
+
+	$: $selectedTags, checkIfNoMatch();
+	$: errorMessage, console.log(errorMessage);
 </script>
 
 <title>Work - Enes Bala</title>
@@ -46,7 +84,7 @@
 		class="relative mx-auto mt-24 text-xl lg:grid lg:grid-cols-10"
 	>
 		<div
-			class="2xl:col-span-9 lg:col-span-10 2xl:col-start-2 flex items-center justify-between lg:mb-0"
+			class="flex items-center justify-between lg:col-span-10 lg:mb-0 2xl:col-span-9 2xl:col-start-2"
 		>
 			<!-- titlebar -->
 			<div class="col-span-2 col-start-2">
@@ -88,7 +126,7 @@
 					easing: quadInOut,
 					y: -24,
 				}}
-				class="noScroll col-span-9 col-start-2 mt-4 grid grid-flow-col-dense grid-rows-1 gap-2 overflow-scroll lg:overflow-hidden py-2 text-black dark:text-white lg:mb-0 "
+				class="noScroll col-span-9 col-start-2 mt-4 grid grid-flow-col-dense grid-rows-1 gap-2 overflow-scroll py-2 text-black dark:text-white lg:mb-0 lg:overflow-hidden "
 			>
 				{#each tags as tag}
 					{#if $selectedTags.includes(tag) && tag !== 'tshirt'}
@@ -112,7 +150,7 @@
 								UI & UX
 							{/if}
 							<!-- {#if tag === 'tshirt'}
-								Clothing
+								Apparel Design
 							{/if} -->
 							{#if tag === 'website'}
 								Website Design
@@ -141,7 +179,7 @@
 								UI & UX
 							{/if}
 							<!-- {#if tag === 'tshirt'}
-								Clothing
+								Apparel Design
 							{/if} -->
 							{#if tag === 'website'}
 								Website Design
@@ -162,12 +200,13 @@
 		class="relative mx-auto mb-12 mt-12 first-letter:text-xl lg:mt-12 lg:grid lg:grid-cols-10 lg:gap-2 lg:gap-y-12"
 	>
 		{#each projects as project, i}
+			<!-- * FILTERS -->
 			{#if $selectedTags.length > 0}
 				{#if $selectedTags.every((element) => {
 					return project.tags.includes(element);
 				})}
 					<div
-						class="2xl:col-span-8 lg:col-span-10 flex items-center space-x-2 2xl:odd:col-start-3 2xl:even:col-start-2"
+						class="flex items-center space-x-2 lg:col-span-10 2xl:col-span-8 2xl:odd:col-start-3 2xl:even:col-start-2"
 					>
 						<ProjectCard
 							projectName={project.projectName}
@@ -180,9 +219,11 @@
 					</div>
 				{/if}
 			{/if}
+			<!-- * END -->
+			<!-- * NO FILTERS -->
 			{#if $selectedTags.length < 1}
 				<div
-					class="2xl:col-span-8 lg:col-span-10 flex items-center space-x-2 2xl:odd:col-start-3 2xl:even:col-start-2"
+					class="flex items-center space-x-2 lg:col-span-10 2xl:col-span-8 2xl:odd:col-start-3 2xl:even:col-start-2"
 				>
 					<ProjectCard
 						projectName={project.projectName}
@@ -194,12 +235,45 @@
 					/>
 				</div>
 			{/if}
+			<!-- * END -->
 		{/each}
+
+		{#key errorMessage}
+			{#if errorMessage}
+				<div
+					class="flex min-h-[20vh] flex-col justify-between space-x-2 rounded-md bg-neutral-100 p-4 dark:bg-darkgray sm:flex-row sm:items-center sm:p-6 lg:col-span-10 2xl:col-span-8 2xl:odd:col-start-3 2xl:even:col-start-2"
+				>
+					<div
+						class="h-full items-center justify-center sm:flex sm:justify-start"
+					>
+						<Surprise
+							classNames="sm:h-full h-36 max-h-36 sm:pr-12 p-2 sm:p-0"
+						/>
+						<p class="hidden sm:inline-block">
+							Sorry, there are no projects matching your
+							filters.
+						</p>
+					</div>
+					<div class="my-2 mt-8 sm:my-0 sm:mt-0">
+						<p class="sm:hidden ">
+							Sorry, there are no projects matching your
+							filters.
+						</p>
+						<button
+							class="buttonSecondary mt-6 sm:mt-0"
+							on:click={() => {
+								selectedTags.set([]);
+							}}>Clear Filters</button
+						>
+					</div>
+				</div>
+			{/if}
+		{/key}
 	</div>
 </div>
 <!-- end contact -->
 
 <!-- footer -->
 <div class="mx-auto mt-24 font-aeonik lg:mt-96">
-	<Footer />
+	<Footer parallax={false} />
 </div>

@@ -10,32 +10,50 @@ Footer:
 	-> H1 te ket media queries per ekrane me te vegjel
 	-> Give more height to Contact info section - when smaller screen
 
-About:
-	-> Image of myself not tall enough (Parallax Error)
-
 Logo Slider:
 	-> Make auto scrolling
 
 Skill Section:
 	-> Change for Mobile
 
-NextCase:
-	-> Min Height Mobile
-
 ImageCard:
 	-> Possible 16:9 Aspect Ratio Option
 
-Work 
-	-> Ne rast se filtering del NULL:
-		-> Trego ndonje Lajmerim, psh "Sorry, there are no projects that match that description" me ndonje ilustrim
 
 After-thought:
--> Menyre per te bere display fotot e Hero Section ne momentin qe hapet faqja
--> Component for Grid Sections - Project Parallax Grid Container
+	-> Menyre per te bere display fotot e Hero Section ne momentin qe hapet faqja
 
 -----------------------------------------------------------------------------------
 
 READY:
+
+- 24/09 -
+
+
+
+- 23/09 - 
+
+Work 
+	-> Ne rast se filtering del NULL:
+		-> Trego ndonje Lajmerim, psh "Sorry, there are no projects that match that description" me ndonje ilustrim
+		
+Projects:
+	-> Container:
+		-> Padding stack on mobile
+	-> ProjectTitle:
+		-> Get tags and company info from projects.ts
+
+NextCase:
+	-> Min Height Mobile
+		
+After-thought:
+	-> Adjust cursor classes afterNavigate to default
+	-> Component for Grid Sections - Project Parallax Grid Container
+
+git commit -a	-m "If projects matching filters === null -> Error message || Project Container no longer has padding stack mobile || ProjectTitle Component (NEW) || Next Case -> Min Height Mobile FIXED || GridContainer Componenent (NEW)"
+
+
+- 22/09 -
 
 Index:
 	-> New image for HERO section

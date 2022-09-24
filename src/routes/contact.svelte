@@ -326,7 +326,7 @@
 <!-- end contact -->
 
 <!-- footer -->
-<div class="mx-auto mt-96 font-aeonik">
+<div class="mx-auto mt-96 font-aeonik ">
 	<Footer />
 </div>
 
@@ -336,8 +336,8 @@
 		--background: #1f1f1f;
 		--border: none;
 		--inputFontSize: 1rem;
-		--borderRadius: none;
-		--listBorderRadius: none;
+		--borderRadius: 0.375rem;
+		--listBorderRadius: 0.375rem;
 		--listBackground: #1f1f1f;
 		--itemHoverBG: #141414;
 		--placeholderColor: #fff;
@@ -353,8 +353,8 @@
 		--background: #e5e5e5;
 		--border: none;
 		--inputFontSize: 1rem;
-		--borderRadius: none;
-		--listBorderRadius: none;
+		--borderRadius: 0.375rem;
+		--listBorderRadius: 0.375rem;
 		--listBackground: #e5e5e5;
 		--itemHoverBG: #f5f5f5;
 		--placeholderColor: #475569;

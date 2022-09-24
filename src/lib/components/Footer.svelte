@@ -25,6 +25,8 @@
 		hoverOverLink.set(false);
 		hoverOverText.set(false);
 	}
+
+	export let parallax: boolean = true;
 </script>
 
 <svelte:window bind:innerWidth />
@@ -40,7 +42,7 @@
 			? 'white'
 			: 'black'}"
 	>
-		<ParallaxContainer topMargin={false}>
+		<ParallaxContainer topMargin={false} {parallax}>
 			<ProjectContainer
 				widthNotDefined
 				customMargin="bg-black dark:bg-darkgray h-full text-white dark:text-white"
@@ -49,11 +51,7 @@
 					<div class="mx-auto flex h-full w-10/12 flex-col">
 						<div class="flex h-5/6 w-full items-center">
 							<div class="w-1/2">
-								<h2
-									class="text-8xl"
-								>
-									Have an idea?
-								</h2>
+								<h2 class="text-8xl">Have an idea?</h2>
 								<LineUnderText
 									noHover
 									custom

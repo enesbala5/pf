@@ -12,7 +12,7 @@
 	{bottomOnly}
 	{noMargin}
 >
-	<ProjectContainer noMargin={true}>
+	<ProjectContainer noMargin={true} noPadding={true}>
 		<slot />
 	</ProjectContainer>
 </ProjectContainer>

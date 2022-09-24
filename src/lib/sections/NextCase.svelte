@@ -16,7 +16,7 @@
 	nextIndex = ++currentIndex % projects.length;
 </script>
 
-<ProjectContainer customMargin="flex items-center justify-center lg:h-[90vh] lg:my-0">
+<ProjectContainer customMargin="flex items-center justify-center h-[40vh] lg:h-[90vh] lg:my-0">
 	<LineUnderText link custom central>
 		<button
 			on:click={() => {

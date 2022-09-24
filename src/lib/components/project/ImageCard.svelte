@@ -77,7 +77,7 @@
 {#if innerWidth >= 1024}
 	<div class="flex flex-col items-center">
 		<div
-			class="relative w-full overflow-hidden
+			class="relative mask1 w-full overflow-hidden
 		{customAttribute !== '' ? customAttribute : ''}
 		{fullscreen
 				? 'h-[40vh] lg:h-[105vh]'
@@ -123,7 +123,7 @@
 				: customAttribute
 				? 'inheritWidth rounded-md'
 				: 'inheritAll rounded-md'}
-		{topMargin ? 'mt-48' : ''}
+		{topMargin ? 'mt-12' : ''}
 		"
 			{id}
 		>
@@ -142,7 +142,7 @@
 			</div>
 		</div>
 		{#if !fullscreen && description !== undefined}
-			<p class="projectH3 mx-auto w-full py-8 text-center">
+			<p class="projectSmallerText mx-auto w-full py-8 text-center">
 				{description}
 			</p>
 		{/if}
@@ -156,5 +156,9 @@
 	}
 	.inheritWidth {
 		width: inherit;
+	}
+
+	.mask1 {
+		clip-path: 0% 8% 8% 0%;
 	}
 </style>
