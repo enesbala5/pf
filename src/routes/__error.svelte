@@ -15,7 +15,7 @@
 </script>
 
 <!-- contact -->
-<div class="mx-auto mt-24 w-10/12 font-aeonik min-h-[45vh]">
+<div class="mx-auto mt-24 w-10/12 font-aeonik min-h-[45vh] lg:min-h-[55vh]">
 	<p class="lg:mb-2 headline dark:text-darkgray text-neutral-200 w-fit hover:text-brand dark:hover:text-brand">Oops!</p>
 	<h1 class="headline">Page not found!</h1>
 

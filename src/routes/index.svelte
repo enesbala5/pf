@@ -6,7 +6,7 @@
 	import ContactCta from '$lib/components/ContactCTA.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	let uiuxHover: boolean = false;
-	import { sineInOut } from 'svelte/easing';
+	import { sineInOut, sineIn } from 'svelte/easing';
 	import { create_in_transition } from 'svelte/internal';
 	import SkillSection from '$lib/sections/SkillSection.svelte';
 	import IntersectionObserver from 'svelte-intersection-observer';
@@ -23,8 +23,8 @@
 	import { fade } from 'svelte/transition';
 	import ImageCard from '$lib/components/project/ImageCard.svelte';
 	import LogoSlider from '$lib/components/LogoSlider.svelte';
-  import Keyboard from '$lib/svgs/hero/Keyboard.svelte';
-  import Palette from '$lib/svgs/hero/Palette.svelte';
+	import Keyboard from '$lib/svgs/hero/Keyboard.svelte';
+	import Palette from '$lib/svgs/hero/Palette.svelte';
 
 	function hoveredOverLink() {
 		hoverOverLink.set(true);
@@ -45,16 +45,21 @@
 	let introUiUx: any;
 
 	function animateFrontend() {
+		heroItemsHovered = true;
+		uiuxHover = false;
 		if (!intro) {
 			intro = create_in_transition(frontendImage, fade, {
 				duration: 150,
-				easing: sineInOut,
+				easing: sineIn,
+				delay: 0,
 			});
 		}
 		intro.start();
 	}
 
 	function animateUIUX() {
+		heroItemsHovered = true;
+		frontendHover = false;
 		if (!introUiUx) {
 			introUiUx = create_in_transition(uiUxImage, fade, {
 				duration: 150,
@@ -71,12 +76,13 @@
 		animateUIUX();
 	}
 
-	$: if (intersectingHero) {
+	$: if (intersectingHero && !heroItemsHovered) {
 		setTimeout(() => {
 			frontendHover = true;
 		}, 1000);
 	}
 
+	let heroItemsHovered: boolean = false;
 	let element: any;
 	let hero: any;
 	let intersecting: any;
@@ -124,29 +130,19 @@
 	>
 		<div
 			bind:this={frontendImage}
-			class="z-10 col-span-6 col-start-5 row-start-1 row-end-6 mb-12 mt-10 flex w-full items-center justify-center overflow-hidden  transition-opacity delay-75 ease-out {frontendHover
+			class="z-10 col-span-7 col-start-4 row-start-2 row-end-6 mb-10 mt-10 flex w-full items-center justify-center overflow-hidden  transition-opacity delay-75 ease-out {frontendHover
 				? 'opacity-100'
 				: 'opacity-0'}"
 		>
-			<!-- <img
-				src="images/developer.jpg"
-				alt="Creating a unique web application, which is fast, beautiful, custom."
-				class="h-full w-full object-cover"
-			/> -->
-			<Keyboard red></Keyboard>
+			<Keyboard red />
 		</div>
 		<div
 			bind:this={uiUxImage}
-			class="z-10 col-span-3 col-start-6 row-start-1 row-end-7 mt-10 w-full items-center justify-center overflow-hidden  transition-opacity delay-75 ease-out {uiuxHover
+			class="z-10 col-span-3 col-start-7 row-start-1 row-end-6 mt-24 w-full items-center justify-center overflow-hidden  transition-opacity delay-75 ease-out {uiuxHover
 				? 'opacity-100'
 				: 'opacity-0'}"
 		>
-			<!-- <img
-				src="images/design.jpg"
-				alt="UI& UX Design"
-				class="h-full w-full object-cover"
-			/> -->
-			<Palette red></Palette>
+			<Palette red />
 		</div>
 		<div
 			class="absolute bottom-0 col-span-8 flex w-full flex-col justify-end px-4 lg:px-0"
@@ -155,28 +151,47 @@
 			<div class="flex w-full items-end justify-between">
 				<div>
 					<h3
-						on:mouseenter={hoveredOverLink}
-						on:mouseleave={notHovering}
-						on:mouseenter={() => (frontendHover = true)}
-						on:mouseleave={() => (frontendHover = false)}
-						class=" text-4xl font-medium  transition-all delay-75 hover:opacity-100
-							{frontendHover ? 'opacity-100' : 'opacity-30'}"
+						on:mouseenter={() => {
+							heroItemsHovered = true;
+							frontendHover = true;
+							hoveredOverLink();
+						}}
+						on:mouseleave={() => {
+							frontendHover = false;
+							notHovering();
+						}}
+						class=" text-4xl font-medium  transition-all delay-75 hover:opacity-90
+							{frontendHover ? 'opacity-90' : 'opacity-30'}"
 					>
 						Frontend Developer
 					</h3>
 					<h3
-						on:mouseenter={hoveredOverLink}
-						on:mouseleave={notHovering}
-						on:mouseenter={() => (uiuxHover = true)}
-						on:mouseleave={() => (uiuxHover = false)}
-						class=" text-4xl font-medium transition-all delay-75 hover:opacity-100
-						{uiuxHover ? 'opacity-100' : 'opacity-30'}"
+						on:mouseenter={() => {
+							heroItemsHovered = true;
+							uiuxHover = true;
+							hoveredOverLink();
+						}}
+						on:mouseleave={() => {
+							uiuxHover = false;
+							notHovering();
+						}}
+						class=" text-4xl font-medium transition-all delay-75 hover:opacity-90
+						{uiuxHover ? 'opacity-90' : 'opacity-30'}"
 					>
 						UI& UX Designer
 					</h3>
 				</div>
 				<!-- chevron bottom - navigate down -->
 				<div
+					on:keydown={() => {
+						if (browser) {
+							document
+								.querySelector('#skills')
+								?.scrollIntoView({
+									behavior: 'smooth',
+								});
+						}
+					}}
 					on:click={() => {
 						if (browser) {
 							document
@@ -186,6 +201,7 @@
 								});
 						}
 					}}
+					tabindex="0"
 					on:mouseenter={hoveredOverLink}
 					on:mouseleave={notHovering}
 				>
@@ -213,27 +229,6 @@
 <SkillSection />
 
 <!-- ? project images -->
-<!-- mobile only project images -->
-<!-- <div class="relative mt-44 px-4 lg:hidden ">
-	<div
-		class="h-48 w-full bg-neutral-100 dark:bg-darkgray"
-	/>
-	<div
-		class="absolute right-1/2 bottom-1/2 h-36 w-4/6 translate-x-1/2 translate-y-40 bg-neutral-200 dark:bg-lightgray"
-	>
-		<p
-			class="absolute -bottom-8 mt-2 font-mono text-xs opacity-50"
-		>
-			Project FirstLast™
-		</p>
-		<p
-			class="absolute -bottom-8 right-0 mt-2 font-mono text-xs opacity-50"
-		>
-			2018
-		</p>
-	</div>
-</div> -->
-<!-- end mobile only project images -->
 <IntersectionObserver
 	{element}
 	bind:intersecting
@@ -355,36 +350,7 @@
 		{/if}
 	{/each}
 </div>
-<!-- ? logo panel -->
-<!-- <div class="my-12 mt-44 bg-neutral-100 dark:bg-darkgray">
-	<div
-		class="mx-auto flex w-10/12 items-center justify-between py-8"
-	>
-		{#each logoPanel as logo}
-			<a
-				on:mouseenter={hoveredOverLink}
-				on:mouseleave={notHovering}
-				target="_blank"
-				rel="noopener noreferrer"
-				href={logo.link}
-				class="cursor-none opacity-70 transition-opacity ease-in-out hover:opacity-100"
-			>
-				<svelte:component
-					this={logo.logo}
-					classNames={`fill-black dark:fill-white opacity-80 hover:opacity-90 w-full ${
-						logo.name === 'Universi Language Center'
-							? 'h-16'
-							: logo.name === 'List4Free'
-							? 'h-6'
-							: 'max-h-8'
-					}`}
-				/>
-			</a>
-		{/each}
-	</div>
-</div> -->
+
 <LogoSlider />
-<!-- contact CTA -->
-<ContactCta />
-<!-- footer -->
+<!-- <ContactCta /> -->
 <Footer />

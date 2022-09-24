@@ -41,6 +41,10 @@
 	.projectSmallerText {
 		@apply text-lg leading-relaxed lg:text-xl lg:leading-relaxed;
 	}
+
+	.footerH1 {
+		@apply xl:text-8xl text-7xl
+	}
 }
 
 @font-face {

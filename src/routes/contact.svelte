@@ -13,7 +13,9 @@
 		{ value: 'designOther', label: 'Design - other' },
 		{ value: 'website', label: 'Website' },
 	];
-	let interest = '';
+	let interest: {
+		label?: string;
+	} = {};
 
 	function handleSelect(event: any) {
 		interest = event.detail;
@@ -78,7 +80,7 @@
 		<form
 			action="https://formsubmit.co/1982af4d0e444a4a2359fc6ae59df2da"
 			method="POST"
-			class="col-span-8 col-start-2 mt-8 space-y-4 rounded-md bg-neutral-100 p-4 text-base transition-colors ease-in-out dark:bg-darkgray lg:p-6"
+			class="col-span-8 col-start-2 mt-8 rounded-md bg-neutral-100 p-4 text-base transition-colors ease-in-out dark:bg-darkgray lg:p-6"
 		>
 			<!-- formsubmit redirect etc -->
 			<input
@@ -96,10 +98,10 @@
 
 			<!-- row -->
 			<div
-				class="flex flex-col items-center space-y-3 sm:flex-row sm:space-x-6 lg:space-y-0"
+				class="mb-6 mt-3 flex flex-col items-center space-y-6 sm:flex-row sm:space-x-6 lg:mt-0 lg:space-y-0 "
 			>
 				<div
-					class="flex w-full flex-col space-y-3 sm:w-1/2"
+					class="flex w-full flex-col space-y-4 sm:w-1/2"
 				>
 					<p>Your Name</p>
 					<input
@@ -113,7 +115,7 @@
 					/>
 				</div>
 				<div
-					class="flex w-full flex-col space-y-3 sm:w-1/2"
+					class="flex w-full flex-col space-y-4 sm:w-1/2"
 				>
 					<p>Your Address</p>
 					<input
@@ -128,7 +130,9 @@
 				</div>
 			</div>
 			<!-- row -->
-			<div class="flex items-center space-x-6">
+			<div
+				class="my-6 flex items-center space-x-6 space-y-4"
+			>
 				<div
 					class="{$theme === 'dark'
 						? 'selectStylingDark'
@@ -145,7 +149,9 @@
 				</div>
 			</div>
 			<!-- row -->
-			<div class="flex items-center space-x-6">
+			<div
+				class="my-6 flex items-center space-x-6 space-y-4"
+			>
 				<div class="flex w-full flex-col space-y-3">
 					<p>Message</p>
 					<textarea
@@ -162,7 +168,7 @@
 				</div>
 			</div>
 			<!-- end row -->
-			<div class="flex w-full space-x-6 ">
+			<div class="mt-6  flex w-full space-x-6 ">
 				<button
 					class="buttonSecondary mt-6 w-full lg:w-1/2"
 					on:mouseenter={hoveredOverLink}
@@ -207,6 +213,8 @@
 				<a
 					href="tel:+355682415881"
 					class="group flex w-full items-center justify-between rounded-full bg-neutral-100 p-1 text-neutral-800 hover:bg-neutral-200 active:bg-opacity-80 dark:bg-darkgray dark:text-white dark:hover:bg-lightgray dark:active:bg-opacity-80"
+					on:mouseenter={hoveredOverLink}
+					on:mouseleave={notHovering}
 				>
 					<div
 						class="flex items-center justify-center rounded-full "
@@ -242,6 +250,8 @@
 				</a>
 				<!-- wp -->
 				<a
+					on:mouseenter={hoveredOverLink}
+					on:mouseleave={notHovering}
 					href="https://api.whatsapp.com/send?phone=355682415881"
 					target="_blank"
 					rel="noopener noreferrer"
@@ -281,6 +291,8 @@
 				</a>
 				<!-- linkedin -->
 				<a
+					on:mouseenter={hoveredOverLink}
+					on:mouseleave={notHovering}
 					href="https://www.linkedin.com/in/enesbala/"
 					target="_blank"
 					rel="noopener noreferrer"

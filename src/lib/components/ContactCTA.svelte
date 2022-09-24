@@ -18,10 +18,11 @@
 	}
 
 	export let margin: boolean = true;
+	export let marginTopMore: boolean = false;
 </script>
 
 <div
-	class="{margin
+	class="{marginTopMore? 'mt-32 mb-20 lg:mb-64 lg:my-72' : margin
 		? 'mt-24 mb-20 lg:my-64'
 		: ''} mx-auto flex w-full flex-col-reverse items-center px-4 pb-10 lg:w-10/12 md:flex-row lg:px-0"
 >

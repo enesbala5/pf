@@ -16,18 +16,18 @@ export const projects: Project[] = [
 	{
 		projectName: 'List4Free',
 		projectDescription:
-			'Brand redefinition and identity design',
+			'Brand creation and identity design for an up-and-coming Real Estate company.',
 		date: 'October 2021',
-		thumbnail: 'list4free.jpg',
+		thumbnail: 'list4free.svg',
 		id: 'list4free',
 		tags: ['branding', 'ui-ux', 'website'],
 	},
 	{
 		projectName: 'Shargan Consulting',
 		projectDescription:
-			'Website development and database management',
+			'Branding for a Consultancy Firm, that while forward-looking, has a solid foundation built over years.',
 		date: 'July 2022',
-		thumbnail: 'list4free.jpg',
+		thumbnail: 'shargan.svg',
 
 		id: 'sharganconsulting',
 		tags: ['branding'],
@@ -35,9 +35,9 @@ export const projects: Project[] = [
 	{
 		projectName: 'Click Properties',
 		projectDescription:
-			'Brand creation and Identity design. Coupled with a new website.',
+			'Branding for an emerging, novel Real Estate company.',
 		date: 'January 2022',
-		thumbnail: 'list4free.jpg',
+		thumbnail: 'click.svg',
 
 		id: 'clickproperties',
 		tags: ['branding'],
@@ -45,9 +45,9 @@ export const projects: Project[] = [
 	{
 		projectName: 'Universi Language Center',
 		projectDescription:
-			'Brand creation and Identity design. Coupled with a new website.',
+			'Social Media Management with a focus on improving Brand Recognition.',
 		date: 'January 2022',
-		thumbnail: 'list4free.jpg',
+		thumbnail: 'universi.svg',
 
 		id: 'universi',
 		tags: ['smmm'],
@@ -55,9 +55,9 @@ export const projects: Project[] = [
 	{
 		projectName: 'Venustre Clothing',
 		projectDescription:
-			'Brand creation and Identity design. Coupled with a new website.',
+			'Apparel Design and Branding, for an eco-friendly clothing company.',
 		date: 'January 2022',
-		thumbnail: 'list4free.jpg',
+		thumbnail: 'venustre.svg',
 
 		id: 'venustre',
 		tags: ['branding', 'smmm', 'tshirt'],
@@ -65,9 +65,9 @@ export const projects: Project[] = [
 	{
 		projectName: 'Softoptech',
 		projectDescription:
-			'Brand creation and Identity design. Coupled with a new website.',
+			'Branding for an established Albanian Tech company.',
 		date: 'January 2022',
-		thumbnail: 'list4free.jpg',
+		thumbnail: 'softoptech.svg',
 
 		id: 'softoptech',
 		tags: ['branding'],

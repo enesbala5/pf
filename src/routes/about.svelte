@@ -2,7 +2,6 @@
 	import ContactCta from '$lib/components/ContactCTA.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import LogoSlider from '$lib/components/LogoSlider.svelte';
-	import Navbar from '$lib/components/Navbar.svelte';
 	import ImageCard from '$lib/components/project/ImageCard.svelte';
 	import { cityName } from '$lib/info/info';
 </script>
@@ -23,7 +22,7 @@
 				Albania.
 			</p>
 			<div
-				class="mt-8 w-full overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray"
+				class="mt-8 w-full overflow-hidden rounded-md bg-neutral-100 dark:bg-darkgray"
 			>
 				<div
 					class="h-full w-full mix-blend-multiply dark:opacity-40 dark:mix-blend-lighten dark:invert"
@@ -96,12 +95,12 @@
 
 		<!-- design experience -->
 		<div
-			class="col-span-1 row-start-2 flex h-32 items-center justify-center overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
+			class="col-span-1 row-start-2 flex h-32 items-center justify-center overflow-hidden rounded-md bg-neutral-200 lg:bg-neutral-100 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
 		>
 			<p class="text-5xl font-medium lg:text-7xl">6</p>
 		</div>
 		<div
-			class="col-span-3 row-start-2 flex h-32 flex-col justify-center bg-neutral-100 pl-4 dark:bg-darkgray dark:bg-opacity-50 lg:col-span-6 lg:h-44 rounded-md lg:bg-transparent lg:py-0 lg:pl-8 dark:lg:bg-transparent dark:lg:bg-opacity-100"
+			class="col-span-3 row-start-2 flex h-32 flex-col justify-center rounded-md bg-neutral-100 pl-4 dark:bg-darkgray dark:bg-opacity-50 lg:col-span-6 lg:h-44 lg:bg-transparent lg:py-0 lg:pl-8 dark:lg:bg-transparent dark:lg:bg-opacity-100"
 		>
 			<p class="text-lg font-medium lg:text-2xl">
 				Years of Experience
@@ -112,7 +111,7 @@
 		</div>
 		<!-- programming experience -->
 		<div
-			class="col-span-3 row-start-3  flex h-32 flex-col items-end justify-center bg-neutral-100 pr-4 text-right dark:bg-darkgray dark:bg-opacity-50 lg:col-span-6 lg:h-44 lg:bg-transparent rounded-md lg:py-0 lg:pr-8 dark:lg:bg-transparent dark:lg:bg-opacity-100"
+			class="col-span-3 row-start-3  flex h-32 flex-col items-end justify-center rounded-md bg-neutral-100 pr-4 text-right dark:bg-darkgray dark:bg-opacity-50 lg:col-span-6 lg:h-44 lg:bg-transparent lg:py-0 lg:pr-8 dark:lg:bg-transparent dark:lg:bg-opacity-100"
 		>
 			<p class="text-lg font-medium lg:text-2xl">
 				Years of Experience
@@ -122,7 +121,7 @@
 			</p>
 		</div>
 		<div
-			class="col-span-1 row-start-3 flex h-32 items-center justify-center overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
+			class="col-span-1 row-start-3 flex h-32 items-center justify-center overflow-hidden rounded-md bg-neutral-200 lg:bg-neutral-100 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
 		>
 			<p class="text-5xl font-medium lg:text-7xl">4</p>
 		</div>
@@ -143,8 +142,8 @@
 <!-- end about me -->
 <!-- contact + footer -->
 <div class="mx-auto space-y-16 font-aeonik lg:mt-24">
-	<ContactCta />
 	<LogoSlider />
+	<!-- <ContactCta /> -->
 	<Footer />
 </div>
 <!-- end contact + footer -->

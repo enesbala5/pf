@@ -1,17 +1,8 @@
 TO FIX:
 
 Index:
-	-> Rregullo madhesine e imazheve ne Hero Section - merr referenc XD-n
 	-> Mobile
 		-> Main Text centered - no longer absolute layout
-
-Footer:
-	-> Snow vector arrange for smaller sizes
-	-> H1 te ket media queries per ekrane me te vegjel
-	-> Give more height to Contact info section - when smaller screen
-
-Logo Slider:
-	-> Make auto scrolling
 
 Skill Section:
 	-> Change for Mobile
@@ -19,9 +10,8 @@ Skill Section:
 ImageCard:
 	-> Possible 16:9 Aspect Ratio Option
 
-
 After-thought:
-	-> Menyre per te bere display fotot e Hero Section ne momentin qe hapet faqja
+	-> XD TEMPLATE PER KOMPONENTET E PROJEKTEVE
 
 -----------------------------------------------------------------------------------
 
@@ -29,7 +19,30 @@ READY:
 
 - 24/09 -
 
+Index:
+	-> Rregullo madhesine e imazheve ne Hero Section - merr referenc XD-n
+	-> Menyre per te bere display fotot e Hero Section ne momentin qe hapet faqja
+	-> Removed ContactCTA as Footer was doing same thing
 
+Footer:
+	-> Snow vector arrange for smaller sizes
+	-> H1 te ket media queries per ekrane me te vegjel
+	-> Give more height to Contact info section - when smaller screen
+
+Logo Slider:
+	-> Ready
+
+Thank You Page: 
+	-> Mobile Ready
+	-> Small changes to make it work better with the Footer (same for __error)
+
+Project Thumbnails and Descriptions:
+	-> Almost ready - maybe minor changes
+
+Contact:
+	-> Fixes in padding etc.
+
+git commit -a -m "Contact: Fixed Padding || Project Thumbnails and Descriptions READY || Footer: Fixes for smaller screen sizes & improved layout || Index: Hero Section Images ready with automatic loading -> removed ContactCTA as Footer was doing same thing || Thank You page FIXED || Logo Slider READY"
 
 - 23/09 - 
 
@@ -49,8 +62,6 @@ NextCase:
 After-thought:
 	-> Adjust cursor classes afterNavigate to default
 	-> Component for Grid Sections - Project Parallax Grid Container
-
-git commit -a	-m "If projects matching filters === null -> Error message || Project Container no longer has padding stack mobile || ProjectTitle Component (NEW) || Next Case -> Min Height Mobile FIXED || GridContainer Componenent (NEW)"
 
 
 - 22/09 -

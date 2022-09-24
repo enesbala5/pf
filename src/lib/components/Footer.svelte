@@ -47,11 +47,11 @@
 				widthNotDefined
 				customMargin="bg-black dark:bg-darkgray h-full text-white dark:text-white"
 			>
-				<footer class="mx-auto h-[90%]">
+				<footer class="mx-auto h-[92%]">
 					<div class="mx-auto flex h-full w-10/12 flex-col">
-						<div class="flex h-5/6 w-full items-center">
-							<div class="w-1/2">
-								<h2 class="text-8xl">Have an idea?</h2>
+						<div class="flex grow w-full items-center">
+							<div class="2xl:w-1/2 w-full">
+								<h2 class="footerH1">Have an idea?</h2>
 								<LineUnderText
 									noHover
 									custom
@@ -61,7 +61,7 @@
 								>
 									<a
 										href={navigation.contact}
-										class="text-8xl font-light"
+										class="footerH1 font-light"
 										on:mouseenter={() => (hovering = true)}
 										on:mouseleave={() => (hovering = false)}
 									>
@@ -70,20 +70,23 @@
 								</LineUnderText>
 							</div>
 							<div
-								class="flex h-full w-1/2 items-center justify-end "
+								class=" h-full 2xl:flex hidden w-1/2 items-center justify-end "
 							>
 								<Stars
-									classNames={`mt-12 h-2/3 fill-transparent stroke-white ${
+									classNames={`mt-12 w-2/3 h-full fill-transparent stroke-lightgray stroke-2 ${
 										hovering ? '' : ''
 									}`}
 								/>
 							</div>
 						</div>
 
+						<!-- <div>
+							<p>{cityName}, Albania</p>
+						</div> -->
 						<div
-							class="grid h-1/6 w-full grid-cols-10 grid-rows-1 gap-2 py-8"
+							class="grid 2xl:h-[16%] w-full grid-cols-10 grid-rows-1 gap-2 py-8"
 						>
-							<div class="col-span-2 ">
+							<div class="2xl:col-span-2 col-span-3 ">
 								<p class="mb-2 text-sm opacity-50">
 									Contact through Email:
 								</p>
@@ -100,7 +103,7 @@
 								<p class="mb-2 text-sm opacity-50">
 									Where you can find me:
 								</p>
-								<div class="flex items-center space-x-8 ">
+								<div class="flex items-center space-x-12">
 									<LineUnderText
 										noHover
 										textSm
@@ -128,28 +131,25 @@
 								</div>
 							</div>
 						</div>
-						<!-- <div>
-							<p>{cityName}, Albania</p>
-						</div> -->
 					</div>
 				</footer>
 
 				<div
-					class="h-[10%] bg-white text-black dark:bg-black dark:text-white"
+					class="h-[8%] bg-darkgray text-white dark:bg-lightgray dark:text-white rounded-t-full"
 					id="wrapper"
 				>
 					<div
 						class=" mx-auto grid h-full w-10/12 grid-cols-10 grid-rows-1 gap-2 px-0 text-sm"
 					>
 						<div
-							class="col-span-2 flex items-center opacity-70"
+							class="2xl:col-span-2 col-span-3 flex items-center opacity-70"
 						>
 							<FooterLogo
-								classNames="h-4 fill-black dark:fill-white"
+								classNames="h-4 fill-white dark:fill-white"
 							/>
 						</div>
 						<div
-							class="col-span-6 flex items-center opacity-70"
+							class="col-span-5 flex items-center opacity-70"
 						>
 							<p class="opacity-70">Iconography by</p>
 							<a
