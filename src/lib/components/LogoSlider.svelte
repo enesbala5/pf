@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { logoPanel } from '$lib/info/logoPanel';
 	import { hoverOverLink } from '$lib/state/hoverOver';
 
@@ -9,10 +9,23 @@
 	function notHovering() {
 		hoverOverLink.set(false);
 	}
+
+	export let noMargin: boolean = false;
+	export let marginTopOnly: boolean = false;
+	export let marginBottomOnly: boolean = false;
 </script>
 
 <div
-	class="flex-container my-24 bg-neutral-100 py-4 dark:bg-darkgray lg:my-32"
+	class="flex-container bg-neutral-100 py-4 dark:bg-darkgray
+	{noMargin
+		? ''
+		: marginTopOnly
+		? 'mt-24 lg:mt-32'
+		: marginBottomOnly
+		? 'mb-24 lg:mb-32'
+		: 'my-24 lg:my-32'}
+	
+	"
 >
 	<div class="slider-container">
 		<ul class="slider">

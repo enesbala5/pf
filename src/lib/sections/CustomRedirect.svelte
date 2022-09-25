@@ -1,19 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
 	import LineUnderText from '$lib/components/LineUnderText.svelte';
 	import ProjectContainer from '$lib/components/project/containers/ProjectContainer.svelte';
-	import { projects } from '$lib/projects/projects';
 
-	const url = $page.url.pathname;
-	let projectId: string = url.split('/')[2];
-
-	let currentIndex: number = 0;
-	let nextIndex: number = 0;
-	currentIndex = projects
-		.map((project) => project.id)
-		.indexOf(projectId);
-	nextIndex = ++currentIndex % projects.length;
+	export let link: string;
 </script>
 
 <ProjectContainer
@@ -22,11 +12,11 @@
 	<LineUnderText link custom central>
 		<button
 			on:click={() => {
-				goto(`/projects/${projects[nextIndex].id}`);
+				goto(link);
 			}}
 			class="text-4xl leading-normal lg:text-8xl"
 		>
-			Next Case
+			<slot />
 		</button>
 	</LineUnderText>
 </ProjectContainer>

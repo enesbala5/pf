@@ -25,6 +25,8 @@
 	import LogoSlider from '$lib/components/LogoSlider.svelte';
 	import Keyboard from '$lib/svgs/hero/Keyboard.svelte';
 	import Palette from '$lib/svgs/hero/Palette.svelte';
+	import ScrollDown from '$lib/components/scroll/ScrollDown.svelte';
+	import CustomRedirect from '$lib/sections/CustomRedirect.svelte';
 
 	function hoveredOverLink() {
 		hoverOverLink.set(true);
@@ -77,9 +79,7 @@
 	}
 
 	$: if (intersectingHero && !heroItemsHovered) {
-		setTimeout(() => {
-			frontendHover = true;
-		}, 1000);
+		frontendHover = true;
 	}
 
 	let heroItemsHovered: boolean = false;
@@ -90,10 +90,13 @@
 
 	$: intersectingHero, console.log(intersectingHero);
 	$: intersecting, (hovering = intersecting);
+
+	let innerWidth: number;
 </script>
 
 <title>Enes Bala - Work Portfolio</title>
 
+<svelte:window bind:innerWidth />
 <!-- infobar -->
 <div
 	class="bg-neutral-200 transition-colors delay-150 ease-in-out dark:bg-darkgray"
@@ -126,11 +129,11 @@
 >
 	<div
 		bind:this={hero}
-		class="relative mx-auto mb-12 grid h-[75vh] grid-cols-10 grid-rows-6 gap-2 text-xl lg:w-10/12"
+		class="relative mx-auto mb-12 grid h-[58vh] grid-cols-10 grid-rows-6 gap-2 text-xl lg:h-[75vh] lg:w-10/12"
 	>
 		<div
 			bind:this={frontendImage}
-			class="z-10 col-span-7 col-start-4 row-start-2 row-end-6 mb-10 mt-10 flex w-full items-center justify-center overflow-hidden  transition-opacity delay-75 ease-out {frontendHover
+			class="z-10 col-span-10 col-start-1 row-start-2 row-end-6 mb-12 flex w-full items-center justify-center overflow-hidden px-4 transition-opacity delay-75 ease-out lg:col-span-7 lg:col-start-4  lg:mb-10 lg:mt-10 lg:px-0 {frontendHover
 				? 'opacity-100'
 				: 'opacity-0'}"
 		>
@@ -145,38 +148,52 @@
 			<Palette red />
 		</div>
 		<div
-			class="absolute bottom-0 col-span-8 flex w-full flex-col justify-end px-4 lg:px-0"
+			class="col-span-10 flex w-full flex-col justify-end px-4 lg:absolute lg:bottom-0 lg:col-span-8 lg:px-0"
 		>
-			<h1 class="headline mb-4">Product Designer</h1>
-			<div class="flex w-full items-end justify-between">
+			<h1
+				class="mb-4 text-7xl font-medium leading-[3.5rem] ease-in-out lg:text-8xl "
+			>
+				Product Designer
+			</h1>
+			<div
+				class="mt-4 flex w-full items-end justify-between"
+			>
 				<div>
 					<h3
 						on:mouseenter={() => {
-							heroItemsHovered = true;
-							frontendHover = true;
-							hoveredOverLink();
+							if (innerWidth > 1024) {
+								heroItemsHovered = true;
+								frontendHover = true;
+								hoveredOverLink();
+							}
 						}}
 						on:mouseleave={() => {
-							frontendHover = false;
-							notHovering();
+							if (innerWidth > 1024) {
+								frontendHover = false;
+								notHovering();
+							}
 						}}
-						class=" text-4xl font-medium  transition-all delay-75 hover:opacity-90
-							{frontendHover ? 'opacity-90' : 'opacity-30'}"
+						class="text-2xl font-medium transition-all  delay-75 hover:opacity-90 xl:text-4xl
+							{frontendHover && innerWidth > 1024 ? 'opacity-90' : 'opacity-30'}"
 					>
 						Frontend Developer
 					</h3>
 					<h3
 						on:mouseenter={() => {
-							heroItemsHovered = true;
-							uiuxHover = true;
-							hoveredOverLink();
+							if (innerWidth > 1024) {
+								heroItemsHovered = true;
+								uiuxHover = true;
+								hoveredOverLink();
+							}
 						}}
 						on:mouseleave={() => {
-							uiuxHover = false;
-							notHovering();
+							if (innerWidth > 1024) {
+								uiuxHover = false;
+								notHovering();
+							}
 						}}
-						class=" text-4xl font-medium transition-all delay-75 hover:opacity-90
-						{uiuxHover ? 'opacity-90' : 'opacity-30'}"
+						class=" text-2xl font-medium transition-all delay-75 hover:opacity-90 xl:text-4xl
+						{uiuxHover && innerWidth > 1024 ? 'opacity-90' : 'opacity-30'}"
 					>
 						UI& UX Designer
 					</h3>
@@ -202,6 +219,7 @@
 						}
 					}}
 					tabindex="0"
+					class="hidden lg:block"
 					on:mouseenter={hoveredOverLink}
 					on:mouseleave={notHovering}
 				>
@@ -221,6 +239,29 @@
 					</svg>
 				</div>
 			</div>
+		</div>
+		<div
+			class="absolute -bottom-24 left-1/2 h-8 w-8 -translate-x-1/2 lg:hidden "
+			on:keydown={() => {
+				if (browser) {
+					document
+						.querySelector('#skills')
+						?.scrollIntoView({
+							behavior: 'smooth',
+						});
+				}
+			}}
+			on:click={() => {
+				if (browser) {
+					document
+						.querySelector('#skills')
+						?.scrollIntoView({
+							behavior: 'smooth',
+						});
+				}
+			}}
+		>
+			<ScrollDown />
 		</div>
 	</div>
 </IntersectionObserver>
@@ -351,6 +392,9 @@
 	{/each}
 </div>
 
-<LogoSlider />
+<LogoSlider marginTopOnly />
+<CustomRedirect link={navigation.about}>
+	About me
+</CustomRedirect>
 <!-- <ContactCta /> -->
 <Footer />

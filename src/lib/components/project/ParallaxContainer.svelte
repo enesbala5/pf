@@ -49,6 +49,7 @@
 		if (scrollY === 0) updateDistanceTop();
 	});
 
+	$: if (scrollY === 0) updateDistanceTop();
 	$: updateParallax(distanceTop, scrollY, divHeight, vh);
 	// end logic
 
@@ -96,9 +97,7 @@
 				class="h-full w-full"
 				bind:clientHeight={divHeight}
 			>
-				<div
-					class="w-full h-full -z-20 object-cover"
-				>
+				<div class="-z-20 h-full w-full object-cover">
 					<slot />
 				</div>
 			</div>

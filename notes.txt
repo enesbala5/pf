@@ -1,8 +1,5 @@
 TO FIX:
 
-Index:
-	-> Mobile
-		-> Main Text centered - no longer absolute layout
 
 Skill Section:
 	-> Change for Mobile
@@ -10,12 +7,22 @@ Skill Section:
 ImageCard:
 	-> Possible 16:9 Aspect Ratio Option
 
-After-thought:
-	-> XD TEMPLATE PER KOMPONENTET E PROJEKTEVE
+
 
 -----------------------------------------------------------------------------------
 
 READY:
+
+- 25/09 -
+
+Index:
+	-> Hoqa setTimeout() per hapjen e imazhit te FrontEnd-it
+	-> Mobile
+		-> Main Text centered - no longer absolute layout
+
+After-thought:
+	-> XD TEMPLATE PER KOMPONENTET E PROJEKTEVE
+	-> Image Card / ParallaxContainer - Update topHeight when scrollY === 0
 
 - 24/09 -
 
@@ -41,8 +48,6 @@ Project Thumbnails and Descriptions:
 
 Contact:
 	-> Fixes in padding etc.
-
-git commit -a -m "Contact: Fixed Padding || Project Thumbnails and Descriptions READY || Footer: Fixes for smaller screen sizes & improved layout || Index: Hero Section Images ready with automatic loading -> removed ContactCTA as Footer was doing same thing || Thank You page FIXED || Logo Slider READY"
 
 - 23/09 - 
 

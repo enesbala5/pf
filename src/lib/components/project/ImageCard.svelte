@@ -61,6 +61,8 @@
 		if (scrollY === 0) updateDistanceTop();
 	});
 
+	$: if (scrollY === 0) updateDistanceTop();
+
 	$: updateParallax(distanceTop, scrollY, divHeight, vh);
 	// end logic
 
@@ -77,7 +79,7 @@
 {#if innerWidth >= 1024}
 	<div class="flex flex-col items-center">
 		<div
-			class="relative mask1 w-full overflow-hidden
+			class="mask1 relative w-full overflow-hidden
 		{customAttribute !== '' ? customAttribute : ''}
 		{fullscreen
 				? 'h-[40vh] lg:h-[105vh]'
@@ -137,12 +139,16 @@
 						: `/images/projects/${image}`}
 					alt={description}
 					class="-z-20 object-cover 
-				{fullscreen ? 'w-full h-full' : 'w-full h-full object-cover rounded-md'}"
+				{fullscreen
+						? 'h-full w-full'
+						: 'h-full w-full rounded-md object-cover'}"
 				/>
 			</div>
 		</div>
 		{#if !fullscreen && description !== undefined}
-			<p class="projectSmallerText mx-auto w-full py-8 text-center">
+			<p
+				class="projectSmallerText mx-auto w-full py-8 text-center"
+			>
 				{description}
 			</p>
 		{/if}

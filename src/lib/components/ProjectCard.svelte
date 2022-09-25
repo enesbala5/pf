@@ -130,7 +130,7 @@
 		on:click={() => goto(`/projects/${projectId}`)}
 		on:mouseenter={hoveredOverLink}
 		on:mouseleave={notHovering}
-		class="peer relative h-40  overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray lg:h-48 lg:w-1/2"
+		class="peer relative h-40 overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray lg:h-48 lg:w-1/2"
 	>
 		<img
 			src={`/images/thumbnails/${thumbnail}`}
@@ -138,7 +138,7 @@
 			class="h-full w-full object-cover"
 		/>
 		<div
-			class="absolute top-0 left-0 h-full w-full bg-black opacity-0 transition-opacity group-hover:opacity-5"
+			class="absolute top-0 left-0 h-full w-full bg-black opacity-0 transition-opacity group-hover:opacity-10 group-active:opacity-20"
 		/>
 	</div>
 </div>
