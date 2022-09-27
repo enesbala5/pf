@@ -34,7 +34,7 @@
 			{thisProject?.projectDescription}
 		{/if}
 	</p>
-	<div class="mt-16 space-x-2 lg:space-x-4 grid grid-flow-col overflow-x-scroll noScroll place-content-start">
+	<div class="mt-16 space-x-2 lg:space-x-4 grid grid-flow-col py-2 overflow-x-scroll noScroll place-content-start">
 		{#if thisProject && thisProject.tags.length > 0}
 			{#each thisProject.tags as tag, i}
 				<button

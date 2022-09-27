@@ -1,6 +1,5 @@
 TO FIX:
 
-
 Skill Section:
 	-> Change for Mobile
 
@@ -8,10 +7,19 @@ ImageCard:
 	-> Possible 16:9 Aspect Ratio Option
 
 
-
 -----------------------------------------------------------------------------------
 
 READY:
+
+- 27/09 -
+
+WIP Skill Section:
+	-> Change for Mobile
+
+ProjectTitle:
+	-> Add py to tags
+
+git commit -a -m "WIP: Skill Section (Mobile) - almost ready || ProjectTitle Component fixed padding Y"
 
 - 25/09 -
 

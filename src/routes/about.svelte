@@ -18,8 +18,10 @@
 	>
 		<div class="md:col-span-3 md:col-start-2">
 			<p class="">
-				Enes Bala is a designer & developer based in {cityName},
-				Albania.
+				Enes Bala is a designer & developer based in <span class="font-medium">
+					{cityName},
+					Albania.
+				</span>
 			</p>
 			<div
 				class="mt-8 w-full overflow-hidden rounded-md bg-neutral-100 dark:bg-darkgray"
@@ -49,10 +51,10 @@
 			>
 				<li>
 					<div
-						class="flex w-full flex-col lg:flex-row lg:items-center lg:justify-between "
+						class="flex w-full flex-col xl:flex-row xl:items-center xl:justify-between font-medium"
 					>
 						Development <span
-							class="whitespace-nowrap opacity-50"
+							class="whitespace-nowrap opacity-50 font-normal"
 						>
 							Websites and other mediums</span
 						>
@@ -60,20 +62,20 @@
 				</li>
 				<li>
 					<div
-						class="flex w-full flex-col lg:flex-row lg:items-center lg:justify-between "
+						class="flex w-full flex-col lg:flex-row lg:items-center lg:justify-between font-medium"
 					>
 						Graphic Design <span
-							class="whitespace-nowrap opacity-50"
+							class="whitespace-nowrap opacity-50 font-normal"
 							>Branding, Identity & Promo</span
 						>
 					</div>
 				</li>
 				<li>
 					<div
-						class="flex w-full flex-col lg:flex-row lg:items-center lg:justify-between "
+						class="flex w-full flex-col lg:flex-row lg:items-center lg:justify-between font-medium"
 					>
 						Other <span
-							class="whitespace-nowrap opacity-50"
+							class="whitespace-nowrap opacity-50 font-normal"
 						>
 							Social Media & 3D Work</span
 						>
@@ -95,7 +97,7 @@
 
 		<!-- design experience -->
 		<div
-			class="col-span-1 row-start-2 flex h-32 items-center justify-center overflow-hidden rounded-md bg-neutral-200 lg:bg-neutral-100 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
+			class="col-span-1 row-start-2 flex h-32 items-center justify-center overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:bg-neutral-100 lg:py-0"
 		>
 			<p class="text-5xl font-medium lg:text-7xl">6</p>
 		</div>
@@ -121,7 +123,7 @@
 			</p>
 		</div>
 		<div
-			class="col-span-1 row-start-3 flex h-32 items-center justify-center overflow-hidden rounded-md bg-neutral-200 lg:bg-neutral-100 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:py-0"
+			class="col-span-1 row-start-3 flex h-32 items-center justify-center overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray lg:col-span-2 lg:h-44 lg:bg-neutral-100 lg:py-0"
 		>
 			<p class="text-5xl font-medium lg:text-7xl">4</p>
 		</div>

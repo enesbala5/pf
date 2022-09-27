@@ -61,7 +61,7 @@
 		if (scrollY === 0) updateDistanceTop();
 	});
 
-	$: if (scrollY === 0) updateDistanceTop();
+	$: if (scrollY === 0) updateDistanceTop(); 
 
 	$: updateParallax(distanceTop, scrollY, divHeight, vh);
 	// end logic

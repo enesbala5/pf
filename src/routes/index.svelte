@@ -1,9 +1,7 @@
 <script lang="ts">
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
-	import { logoPanel } from '$lib/info/logoPanel';
 	import { projects } from '$lib/projects/projects';
 	import { navigation } from '$lib/info/nav';
-	import ContactCta from '$lib/components/ContactCTA.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	let uiuxHover: boolean = false;
 	import { sineInOut, sineIn } from 'svelte/easing';
