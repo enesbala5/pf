@@ -1,8 +1,15 @@
 <script lang="ts">
 	import { logoPanel } from '$lib/info/logoPanel';
-	import { frontendSkills } from '$lib/info/skills';
+	import {
+		designSkills,
+		frontendSkills,
+		otherSkills,
+	} from '$lib/info/skills';
 	import { hoverOverLink } from '$lib/state/hoverOver';
-	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
+	import {
+		preloadImageUrls,
+		selectedCategoryMobile,
+	} from '$lib/state/preloadImageUrls';
 
 	function hoveredOverLink() {
 		hoverOverLink.set(true);
@@ -13,35 +20,81 @@
 	}
 </script>
 
-<div
-	class="flex-container bg-neutral-100 py-1 dark:bg-lightgray
-	"
->
-	<div class="slider-container">
-		<ul class="slider">
-			{#each Array(2) as _}
-				{#each $preloadImageUrls as logo}
-					{#if frontendSkills.some((el) => `icons/skills/${el.icon}` == logo)}
-						<li class="slider__slide">
-							<div class="slide__content">
-								<div
-									on:mouseenter={hoveredOverLink}
-									on:mouseleave={notHovering}
-									class="opacity-70 transition-opacity ease-in-out hover:opacity-100"
-								>
-									<img
-										src={logo}
-										alt=""
-										class={`w-full fill-black opacity-80 hover:opacity-90 dark:fill-white`}
-									/>
+<div class="flex-container py-1">
+	{#if $selectedCategoryMobile === 'uiux'}
+		<div class="slider-container">
+			<ul class="slider">
+				{#each Array(2) as _}
+					{#each $preloadImageUrls as logo}
+						{#if designSkills.some((el) => `icons/skills/${el.icon}` == logo)}
+							<li class="slider__slide">
+								<div class="slide__content">
+									<div class="">
+										<img
+											src={logo}
+											alt={logo}
+											class={`w-full fill-black dark:fill-white ${
+												logo !==
+												'icons/skills/tailwind/white.svg'
+													? 'max-h-8'
+													: 'max-h-6'
+											}`}
+										/>
+									</div>
 								</div>
-							</div>
-						</li>
-					{/if}
+							</li>
+						{/if}
+					{/each}
 				{/each}
+			</ul>
+		</div>
+	{/if}
+	{#if $selectedCategoryMobile === 'dev'}
+		<div class="slider-container">
+			<ul class="slider">
+				{#each Array(2) as _}
+					{#each $preloadImageUrls as logo}
+						{#if frontendSkills.some((el) => `icons/skills/${el.icon}` == logo)}
+							<li class="slider__slide">
+								<div class="slide__content">
+									<div class="">
+										<img
+											src={logo}
+											alt={logo}
+											class={`w-full fill-black dark:fill-white ${
+												logo !==
+												'icons/skills/tailwind/white.svg'
+													? 'max-h-8'
+													: 'max-h-6'
+											}`}
+										/>
+									</div>
+								</div>
+							</li>
+						{/if}
+					{/each}
+				{/each}
+			</ul>
+		</div>
+	{/if}
+	{#if $selectedCategoryMobile === '3d'}
+		<div
+			class="flex h-[50px] w-full items-center justify-between p-4"
+		>
+			{#each $preloadImageUrls as logo}
+				{#if otherSkills.some((el) => `icons/skills/${el.icon}` == logo)}
+				<div class="max-h-6 h-full">
+
+					<img
+						src={logo}
+						alt={logo}
+						class={`w-full fill-black dark:fill-white h-full object-fit`}
+					/>
+				</div>
+				{/if}
 			{/each}
-		</ul>
-	</div>
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -98,16 +151,12 @@
 		}
 
 		.slider__slide {
-			height: 100px;
+			height: 50px;
 			flex-grow: 1;
 			// flex-basis: 0;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			.slide__content {
-				color: white;
-				font-size: 80px;
-			}
 		}
 	}
 </style>

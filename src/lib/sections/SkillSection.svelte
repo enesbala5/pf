@@ -30,7 +30,7 @@
 		showingSkill = false;
 	};
 
-	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
+	import { preloadImageUrls, selectedCategoryMobile } from '$lib/state/preloadImageUrls';
 	import { browser } from '$app/env';
   import SkillLogoSlider from '$lib/components/SkillLogoSlider.svelte';
 
@@ -71,8 +71,6 @@
 
 	// ? mobile Logic
 	let innerWidth: number;
-	type categoryType = 'development' | 'design' | '3d'
-	let active: categoryType = 'design'
 </script>
 
 <svelte:window bind:innerWidth />
@@ -323,25 +321,25 @@
 			<p class="font-medium">Skills</p>
 		</div>
 		<div class="bg-neutral-100 py-8 dark:bg-darkgray px-4 flex space-y-4 flex-col" >
-			<div class="text-5xl font-medium {active === 'development' ? 'opacity-100' : 'opacity-10'}"
+			<div class="text-5xl font-medium {$selectedCategoryMobile === 'dev' ? 'opacity-100' : 'opacity-10'}"
 				on:click="{() => {
-					active = 'development'
+					$selectedCategoryMobile = 'dev'
 				}}"
 			>
 				<p>Development</p>	
 			</div>
 
-			<div class="text-5xl font-medium {active === 'design' ? 'opacity-100' : 'opacity-10'}"
+			<div class="text-5xl font-medium {$selectedCategoryMobile === 'uiux' ? 'opacity-100' : 'opacity-10'}"
 			on:click="{() => {
-					active = 'design'
+					$selectedCategoryMobile = 'uiux'
 				}}"
 			>
 				<p>UI& UX Design</p>
 			</div>
 			
-			<div class="text-5xl font-medium {active === '3d' ? 'opacity-100' : 'opacity-10'}"
+			<div class="text-5xl font-medium {$selectedCategoryMobile === '3d' ? 'opacity-100' : 'opacity-10'}"
 			on:click="{() => {
-					active = '3d'
+					$selectedCategoryMobile = '3d'
 				}}"
 			>
 				<p>3D Design</p>
@@ -349,9 +347,8 @@
 
 		</div>
 
-			<div class="bg-neutral-200 dark:bg-lightgray rounded-md overflow-hidden mx-4 my-4">
+			<div class="bg-black dark:bg-darkgray rounded-md overflow-hidden mx-4 my-4">
 				<SkillLogoSlider></SkillLogoSlider>
-
 			</div>
 	</div>
 {/if}

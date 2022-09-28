@@ -11,6 +11,11 @@ ImageCard:
 
 READY:
 
+- 28/09 -
+
+Skill Section:
+	-> READY -> To add animation
+
 - 27/09 -
 
 WIP Skill Section:
@@ -18,8 +23,6 @@ WIP Skill Section:
 
 ProjectTitle:
 	-> Add py to tags
-
-git commit -a -m "WIP: Skill Section (Mobile) - almost ready || ProjectTitle Component fixed padding Y"
 
 - 25/09 -
 
