@@ -30,9 +30,12 @@
 		showingSkill = false;
 	};
 
-	import { preloadImageUrls, selectedCategoryMobile } from '$lib/state/preloadImageUrls';
+	import {
+		preloadImageUrls,
+		selectedCategoryMobile,
+	} from '$lib/state/preloadImageUrls';
 	import { browser } from '$app/env';
-  import SkillLogoSlider from '$lib/components/SkillLogoSlider.svelte';
+	import SkillLogoSlider from '$lib/components/SkillLogoSlider.svelte';
 
 	let element: any;
 	let intersecting: boolean | undefined;
@@ -315,41 +318,80 @@
 {#if innerWidth < 1024}
 	<div class="mt-48 mb-12">
 		<div
-			class="relative mx-auto scroll-m-24 px-4 text-xl mb-4 "
+			class="relative mx-auto mb-4 scroll-m-24 px-4 text-xl "
 			id="skills"
 		>
 			<p class="font-medium">Skills</p>
 		</div>
-		<div class="bg-neutral-100 py-8 dark:bg-darkgray px-4 flex space-y-4 flex-col" >
-			<div class="text-5xl font-medium {$selectedCategoryMobile === 'dev' ? 'opacity-100' : 'opacity-10'}"
-				on:click="{() => {
-					$selectedCategoryMobile = 'dev'
-				}}"
+		<div
+			class="flex flex-col space-y-4 bg-neutral-100 py-8 px-4 dark:bg-darkgray"
+		>
+			<div
+				class="text-5xl font-medium {$selectedCategoryMobile ===
+				'dev'
+					? 'opacity-100'
+					: 'opacity-10'}"
+				on:click={() => {
+					$selectedCategoryMobile = 'dev';
+				}}
 			>
-				<p>Development</p>	
+				<p>Development</p>
 			</div>
 
-			<div class="text-5xl font-medium {$selectedCategoryMobile === 'uiux' ? 'opacity-100' : 'opacity-10'}"
-			on:click="{() => {
-					$selectedCategoryMobile = 'uiux'
-				}}"
+			<div
+				class="text-5xl font-medium {$selectedCategoryMobile ===
+				'uiux'
+					? 'opacity-100'
+					: 'opacity-10'}"
+				on:click={() => {
+					$selectedCategoryMobile = 'uiux';
+				}}
 			>
-				<p>UI& UX Design</p>
-			</div>
-			
-			<div class="text-5xl font-medium {$selectedCategoryMobile === '3d' ? 'opacity-100' : 'opacity-10'}"
-			on:click="{() => {
-					$selectedCategoryMobile = '3d'
-				}}"
-			>
-				<p>3D Design</p>
+				<p>Graphic Design</p>
 			</div>
 
+			<div
+				class="text-5xl font-medium {$selectedCategoryMobile ===
+				'other'
+					? 'opacity-100'
+					: 'opacity-10'}"
+				on:click={() => {
+					$selectedCategoryMobile = 'other';
+				}}
+			>
+				<p>Other</p>
+			</div>
 		</div>
 
-			<div class="bg-black dark:bg-darkgray rounded-md overflow-hidden mx-4 my-4">
-				<SkillLogoSlider></SkillLogoSlider>
-			</div>
+		<div
+			class="mx-4 my-4 overflow-hidden rounded-md bg-black dark:bg-darkgray"
+			style="height: calc(50px + 0.5rem)"
+		>
+			<SkillLogoSlider />
+		</div>
+		<div
+			class="mx-4 mt-6 flex space-x-2 items-center text-xs opacity-50"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="currentColor"
+				class="h-6 w-6"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+				/>
+			</svg>
+
+			<p>
+				For a more detailed view, please review desktop
+				website.
+			</p>
+		</div>
 	</div>
 {/if}
 

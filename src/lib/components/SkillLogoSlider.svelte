@@ -10,6 +10,7 @@
 		preloadImageUrls,
 		selectedCategoryMobile,
 	} from '$lib/state/preloadImageUrls';
+	import { fade, fly } from 'svelte/transition';
 
 	function hoveredOverLink() {
 		hoverOverLink.set(true);
@@ -20,37 +21,13 @@
 	}
 </script>
 
-<div class="flex-container py-1">
-	{#if $selectedCategoryMobile === 'uiux'}
-		<div class="slider-container">
-			<ul class="slider">
-				{#each Array(2) as _}
-					{#each $preloadImageUrls as logo}
-						{#if designSkills.some((el) => `icons/skills/${el.icon}` == logo)}
-							<li class="slider__slide">
-								<div class="slide__content">
-									<div class="">
-										<img
-											src={logo}
-											alt={logo}
-											class={`w-full fill-black dark:fill-white ${
-												logo !==
-												'icons/skills/tailwind/white.svg'
-													? 'max-h-8'
-													: 'max-h-6'
-											}`}
-										/>
-									</div>
-								</div>
-							</li>
-						{/if}
-					{/each}
-				{/each}
-			</ul>
-		</div>
-	{/if}
+<div class="flex-container overflow-hidden py-1">
 	{#if $selectedCategoryMobile === 'dev'}
-		<div class="slider-container">
+		<div
+			class="slider-container"
+			in:fly={{ y: 25, duration: 500 }}
+			out:fade={{ duration: 250 }}
+		>
 			<ul class="slider">
 				{#each Array(2) as _}
 					{#each $preloadImageUrls as logo}
@@ -77,20 +54,51 @@
 			</ul>
 		</div>
 	{/if}
-	{#if $selectedCategoryMobile === '3d'}
+	{#if $selectedCategoryMobile === 'uiux'}
 		<div
-			class="flex h-[50px] w-full items-center justify-between p-4"
+			class="slider-container z-20"
+			in:fly={{ y: 25, duration: 500 }}
+			out:fade={{ duration: 250 }}
+		>
+			<ul
+				class="slider"
+				style="--slider-inner-width: 750px ; --slider-speed: 5s"
+			>
+				{#each Array(2) as _}
+					{#each $preloadImageUrls as logo}
+						{#if designSkills.some((el) => `icons/skills/${el.icon}` == logo)}
+							<li class="slider__slide">
+								<div class="slide__content">
+									<div class="">
+										<img
+											src={logo}
+											alt={logo}
+											class={`max-h-8 w-full fill-black dark:fill-white`}
+										/>
+									</div>
+								</div>
+							</li>
+						{/if}
+					{/each}
+				{/each}
+			</ul>
+		</div>
+	{/if}
+	{#if $selectedCategoryMobile === 'other'}
+		<div
+			class="flex h-[50px] w-full items-center justify-between px-4 py-1"
+			in:fly={{ y: 25, duration: 1000, x: 100 }}
+			out:fade={{ duration: 250 }}
 		>
 			{#each $preloadImageUrls as logo}
 				{#if otherSkills.some((el) => `icons/skills/${el.icon}` == logo)}
-				<div class="max-h-6 h-full">
-
-					<img
-						src={logo}
-						alt={logo}
-						class={`w-full fill-black dark:fill-white h-full object-fit`}
-					/>
-				</div>
+					<div class="h-full max-h-6">
+						<img
+							src={logo}
+							alt={logo}
+							class={`h-full w-full fill-black dark:fill-white`}
+						/>
+					</div>
 				{/if}
 			{/each}
 		</div>

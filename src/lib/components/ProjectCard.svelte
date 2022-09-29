@@ -29,6 +29,7 @@
 
 <div
 	class="group relative mb-10 flex h-full w-full flex-col-reverse lg:mb-0 lg:flex-row"
+	style="hyphens: none;"
 >
 	<div
 		class="mt-4 flex h-full w-full flex-col lg:mt-0 lg:w-1/2 lg:justify-center"
@@ -44,13 +45,13 @@
 				{projectName}
 			</h4>
 			<p
-				class="mt-1 w-full font-mono text-sm opacity-70 group-hover:opacity-100 peer-hover:opacity-100 lg:w-2/3"
+				class="mt-1 w-full text-base leading-relaxed lg:leading-snug opacity-70 group-hover:opacity-100 peer-hover:opacity-100 lg:w-2/3"
 			>
 				{projectDescription}
 			</p>
 		</a>
 		<div
-			class="noScroll mt-4 flex items-center space-x-2 overflow-scroll py-2 lg:absolute lg:bottom-0 lg:left-0 lg:mt-2 lg:w-fit"
+			class="noScroll mt-4 flex items-center space-x-2 overflow-scroll py-2 lg:absolute lg:-bottom-2 lg:left-0 lg:mt-2 lg:w-fit"
 		>
 			{#if tags.length > 2}
 				{#each tags as tag, i}
@@ -138,7 +139,7 @@
 			class="h-full w-full object-cover"
 		/>
 		<div
-			class="absolute top-0 left-0 h-full w-full bg-black opacity-0 transition-opacity group-hover:opacity-10 group-active:opacity-20"
+			class="absolute top-0 left-0 h-full w-full bg-black opacity-0 transition-opacity group-hover:opacity-5 group-active:opacity-20"
 		/>
 	</div>
 </div>

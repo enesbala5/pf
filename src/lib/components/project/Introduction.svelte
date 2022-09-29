@@ -1,6 +1,5 @@
 <script lang="ts">
 	export let title: string = 'The challenge';
-	export let text: string;
 </script>
 
 <div
@@ -10,6 +9,6 @@
 		{title}
 	</p>
 	<p class="projectText lg:w-2/3">
-		{text}
+		<slot></slot>
 	</p>
 </div>

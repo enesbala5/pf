@@ -4,7 +4,6 @@
 	export let bottomOnly: boolean = false;
 	export let noMargin: boolean = false;
 	export let noPadding: boolean = false;
-
 	export let widthNotDefined: boolean = false;
 </script>
 

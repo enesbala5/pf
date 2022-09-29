@@ -267,6 +267,7 @@
 <!-- skills -->
 <SkillSection />
 
+
 <!-- ? project images -->
 <IntersectionObserver
 	{element}
@@ -299,7 +300,7 @@
 								<ImageCard
 									customAttribute="w-full"
 									imageCustomAttribute=" mt-8"
-									image="/images/showcase/rubik_bigImage.jpg"
+									image="/images/showcase/rubik_bigImage.webp"
 									alternativeImage
 								/>
 							</div>
@@ -317,7 +318,7 @@
 							>
 								<ImageCard
 									customAttribute="w-full"
-									image="/images/showcase/laptop_smallImage.jpg"
+									image="/images/showcase/laptop_smallImage.webp"
 									alternativeImage
 								/>
 							</div></Motion
@@ -331,7 +332,7 @@
 
 <!-- ? projects -->
 <div
-	class="relative mx-auto mt-64 mb-12 flex flex-col px-4 text-lg lg:mt-44 lg:grid lg:w-10/12 lg:grid-cols-10 lg:gap-2 lg:gap-y-12 lg:px-0 lg:text-xl"
+	class="relative mx-auto mt-24 mb-12 flex flex-col px-4 text-lg lg:mt-44 lg:grid lg:w-10/12 lg:grid-cols-10 lg:gap-2 lg:gap-y-12 lg:px-0 lg:text-xl"
 >
 	<!-- titlebar -->
 	<!-- end mobile only -->
@@ -390,7 +391,8 @@
 	{/each}
 </div>
 
-<LogoSlider marginTopOnly />
+<LogoSlider marginTopOnly/>
+
 <CustomRedirect link={navigation.about}>
 	About me
 </CustomRedirect>

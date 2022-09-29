@@ -26,52 +26,52 @@
 	<ImageCard
 		fullscreen
 		topMargin
-		image="list4free/test.jpg"
+		image="list4free/heroImage.jpg"
 		description="View of all List4Free screens"
 	/>
 	<ProjectContainer>
-		<Introduction
-			text="It was truly a novel experience for us to participate in
-				an ambitious, large-scale project like uLesson. Our team
-				partly took on the job of market research, strategy
-				elaboration, development, and of course, getting
-				creative with visuals. Cuberto worked through dozens of
-				design concepts throughout the lengthy collaborative
-				process and successfully created an unforgettable design
-				for the mobile and desktop application. Oh, and did we
-				mention that we built the website from scratch?"
-		/>
+		<Introduction>
+			Building an identity for a company seeking to enter an
+			industry as consolidated and static as Real Estate, is
+			known to be challenging. <br />
+			However, List4Free takes a different approach from typical
+			Real Estate market players, as it seeks to connect buyers
+			to sellers, in a modern, innovative way. <br /><br /> The
+			brand has to convey the image of trust-worthiness and solidity,
+			but not fail to acknowledge the modern, innovative approach
+			the company is brining to the market.
+		</Introduction>
 	</ProjectContainer>
 	<ImageCard
 		fullscreen
-		image="list4free/screens.jpg"
+		image="list4free/guideline.jpg"
 		description="View of all List4Free screens"
 	/>
 
 	<SmallProjectContainer topOnly>
 		<Callout
-			title="Creation of a design system"
-			text="Our final flourish was transferring models to engineers. Side by side, Cisco’s and Cuberto’s teams collected specs and outlined all possible scenarios for adding elements and blocks for new pages."
+			title="The wordmark"
+			text={`Through the use of Negative Space, the number 4 in "List4Free", was incorporated in the wordmark, while preserving legibility.`}
 		/>
 		<FourImagesContainer>
 			<div slot="firstCol">
 				<ImageCard
-					image="list4free/logo.png"
-					description="Lorem ipsum delor del ipsum."
+					image="list4free/grid1/1.jpg"
+					description="List4Free Wordmark"
 				/>
 				<ImageCard
-					image="list4free/screens.jpg"
-					description="Lorem ipsum delor del ipsum."
+					image="list4free/grid1/3.jpg"
+					description="Compact version of wordmark"
 				/>
 			</div>
 			<div slot="secondCol">
 				<ImageCard
-					image="list4free/screens.jpg"
-					description="Lorem ipsum delor del ipsum."
+					image="list4free/grid1/2.jpg"
+					description="Business Card"
 				/>
 				<ImageCard
-					image="list4free/logo.png"
-					description="Lorem ipsum delor del ipsum."
+					image="list4free/grid1/4.jpg"
+					description="Stylised representative icon"
 				/>
 			</div>
 		</FourImagesContainer>
@@ -79,21 +79,44 @@
 	<ProjectContainer topOnly>
 		<ProjectContainer noMargin noPadding>
 			<Headline
-				>Site of the day according to Awwwards and CSSDA</Headline
+				>Creating a intuitive website experience</Headline
 			>
 			<Text
-				>List4Free provides with an easy solution to
-				uploading your property to the biggest marketplace
-				available</Text
-			>
+				>List4Free provides users the opportunity of direct and safe trade till they reach
+				to a deal. The User Experience was designed around this deeply-rooted idea.
+			</Text>
 		</ProjectContainer>
 		<ImageCard
 			topMargin
-			image="list4free/screens.jpg"
-			description="View of all List4Free screens"
+			aspectVideo
+			image="list4free/wireframe2.jpg"
 		/>
+		<ProjectContainer topOnly>
+			<FourImagesContainer>
+				<div slot="firstCol">
+					<ImageCard
+						image="list4free/grid2/1.jpg"
+						description="Homepage Interface"
+					/>
+					<ImageCard
+						image="list4free/grid2/3.jpg"
+						description="Explore Screen - View properties near area"
+					/>
+				</div>
+				<div slot="secondCol">
+					<ImageCard
+						image="list4free/grid2/2.jpg"
+						description="List Your Property Screen"
+					/>
+					<ImageCard
+						image="list4free/grid2/4.jpg"
+						description="Property Page - View property details"
+					/>
+				</div>
+			</FourImagesContainer>
+		</ProjectContainer>
 	</ProjectContainer>
-	<SmallProjectContainer topOnly={true}>
+	<!-- <SmallProjectContainer topOnly={true}>
 		<Quote person="Alban Bala">
 			We’d like to express our sincere gratitude to Cuberto
 			for their contribution to the development of our
@@ -106,7 +129,7 @@
 			two native mobile applications development for iOS / Android
 			and the design of our internal platform.
 		</Quote>
-	</SmallProjectContainer>
+	</SmallProjectContainer> -->
 </div>
 <NextCase />
 

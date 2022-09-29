@@ -21,7 +21,7 @@
 	import { onMount } from 'svelte';
 	import { theme } from '$lib/state/theme';
 	import { afterNavigate } from '$app/navigation';
-  import { selectedTags } from '$lib/projects/projects';
+	import { selectedTags } from '$lib/projects/projects';
 
 	let size = spring(7);
 	let clicked: boolean = false;
@@ -93,16 +93,11 @@
 						`icons/skills/${skill.icon}`,
 					];
 				}
-				$preloadImageUrls = [
-					...$preloadImageUrls,
-					'images/developer.jpg',
-					'images/design.jpg',
-				];
 			}
 		}
 		$preloadImageUrls = [
 			...$preloadImageUrls,
-			'/images/tirana.jpg',
+			'/images/tirana.webp',
 		];
 	}
 

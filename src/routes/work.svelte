@@ -77,14 +77,14 @@
 
 <!-- work -->
 <div
-	class="mx-auto mt-24 w-full px-4 font-aeonik lg:w-10/12 lg:px-0"
+	class="mx-auto mt-24 w-full font-aeonik lg:w-10/12"
 >
-	<h1 class="headline">Work</h1>
+	<h1 class="headline mx-4 lg:mx-0">Work</h1>
 	<div
 		class="relative mx-auto mt-24 text-xl lg:grid lg:grid-cols-10"
 	>
 		<div
-			class="flex items-center justify-between lg:col-span-10 lg:mb-0 2xl:col-span-9 2xl:col-start-2"
+			class="flex mx-4 lg:mx-0 items-center justify-between lg:col-span-10 lg:mb-0 2xl:col-span-9 2xl:col-start-2"
 		>
 			<!-- titlebar -->
 			<div class="col-span-2 col-start-2">
@@ -122,11 +122,11 @@
 		{#if filtering}
 			<div
 				transition:fly={{
-					duration: 150,
+					duration: 250,
 					easing: quadInOut,
 					y: -24,
 				}}
-				class="noScroll col-span-9 col-start-2 mt-4 grid grid-flow-col-dense grid-rows-1 gap-2 overflow-scroll py-2 text-black dark:text-white lg:mb-0 lg:overflow-hidden "
+				class=" px-4 lg:px-0 noScroll col-span-9 col-start-2 mt-4 grid grid-flow-col-dense grid-rows-1 gap-2 overflow-scroll py-2 text-black dark:text-white lg:mb-0 lg:overflow-hidden "
 			>
 				{#each tags as tag}
 					{#if $selectedTags.includes(tag) && tag !== 'tshirt'}
@@ -197,7 +197,7 @@
 
 	<!-- project -->
 	<div
-		class="relative mx-auto mb-12 mt-12 first-letter:text-xl lg:mt-12 lg:grid lg:grid-cols-10 lg:gap-2 lg:gap-y-12"
+		class="relative px-4 lg:px-0 mx-auto mb-12 mt-12 first-letter:text-xl lg:mt-12 lg:grid lg:grid-cols-10 lg:gap-2 lg:gap-y-12"
 	>
 		{#each projects as project, i}
 			<!-- * FILTERS -->
@@ -207,6 +207,8 @@
 				})}
 					<div
 						class="flex items-center space-x-2 lg:col-span-10 2xl:col-span-8 2xl:odd:col-start-3 2xl:even:col-start-2"
+					in:fly={{x: -100, duration: 250}}
+
 					>
 						<ProjectCard
 							projectName={project.projectName}
@@ -224,6 +226,7 @@
 			{#if $selectedTags.length < 1}
 				<div
 					class="flex items-center space-x-2 lg:col-span-10 2xl:col-span-8 2xl:odd:col-start-3 2xl:even:col-start-2"
+					in:fly={{x: -100, duration: 250}}
 				>
 					<ProjectCard
 						projectName={project.projectName}
@@ -241,6 +244,7 @@
 		{#key errorMessage}
 			{#if errorMessage}
 				<div
+					in:fly={{x: -100, duration: 250}}
 					class="flex min-h-[20vh] flex-col justify-between space-x-2 rounded-md bg-neutral-100 p-4 dark:bg-darkgray sm:flex-row sm:items-center sm:p-6 lg:col-span-10 2xl:col-span-8 2xl:odd:col-start-3 2xl:even:col-start-2"
 				>
 					<div

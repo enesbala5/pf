@@ -1,20 +1,45 @@
 TO FIX:
 
-Skill Section:
-	-> Change for Mobile
 
-ImageCard:
-	-> Possible 16:9 Aspect Ratio Option
 
 
 -----------------------------------------------------------------------------------
 
 READY:
 
-- 28/09 -
+
+- 29/09 -
 
 Skill Section:
-	-> READY -> To add animation
+	-> ADDED animation
+	-> Small Changes all around
+	-> Added info item
+
+Projects:
+	-> List4Free READY
+	-> SharganConsulting: Almost Ready (missing text update)
+	-> TO ADD OTHER PROJECTS
+	
+ImageCard:
+	-> 16:9 Aspect Ratio Option
+
+Not Found (Project Category):
+	-> Updated image (anxious.webp)
+
+*:
+	-> Converted images (except PROJECT images) to webp
+
+Footer:
+	-> Added navigateToTop function
+
+Layout:
+	-> Removed unnecesary preloadFunctions
+
+Project Components:
+	-> Changed some variables to <slot>
+
+git commit -a -m "Fixed Skill Section (Added animation - Info item - etc) || Projects: List4Free Ready | SharganConsulting Almost Ready (except Text) || Image Card: 16/9 option || Not Found (work.svelte): New image || Converted images to WEBP || Layout fixes for preloadingImages || Footer Button: NavigateToTop"
+
 
 - 27/09 -
 
@@ -23,6 +48,7 @@ WIP Skill Section:
 
 ProjectTitle:
 	-> Add py to tags
+
 
 - 25/09 -
 
@@ -34,6 +60,7 @@ Index:
 After-thought:
 	-> XD TEMPLATE PER KOMPONENTET E PROJEKTEVE
 	-> Image Card / ParallaxContainer - Update topHeight when scrollY === 0
+
 
 - 24/09 -
 
@@ -60,6 +87,7 @@ Project Thumbnails and Descriptions:
 Contact:
 	-> Fixes in padding etc.
 
+
 - 23/09 - 
 
 Work 
@@ -78,6 +106,7 @@ NextCase:
 After-thought:
 	-> Adjust cursor classes afterNavigate to default
 	-> Component for Grid Sections - Project Parallax Grid Container
+
 
 
 - 22/09 -

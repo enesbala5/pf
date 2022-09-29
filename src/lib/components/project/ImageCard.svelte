@@ -17,6 +17,7 @@
 	export let topMargin: boolean = false;
 	export let image: string | undefined = undefined;
 	export let fullscreen: boolean = false;
+	export let aspectVideo: boolean = false;
 	export let description: string | undefined = undefined;
 	let divHeight: number;
 	export let customAttribute: string = '';
@@ -80,6 +81,7 @@
 	<div class="flex flex-col items-center">
 		<div
 			class="mask1 relative w-full overflow-hidden
+			{aspectVideo ? 'aspect-video' : ''}
 		{customAttribute !== '' ? customAttribute : ''}
 		{fullscreen
 				? 'h-[40vh] lg:h-[105vh]'
@@ -102,7 +104,7 @@
 						? image
 						: `/images/projects/${image}`}
 					alt={description}
-					class="inheritWidth -z-20 object-cover {imageCustomAttribute}
+					class="{aspectVideo? 'w-full' : 'inheritWidth'} -z-20 object-cover {imageCustomAttribute}
 				{fullscreen ? 'h-[101%]' : 'h-[110%] rounded-md'}"
 				/>
 			</div>

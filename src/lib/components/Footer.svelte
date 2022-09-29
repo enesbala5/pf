@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { browser } from '$app/env';
 	import { cityName } from '$lib/info/info';
 	import { navigation } from '$lib/info/nav';
 
@@ -49,8 +50,8 @@
 			>
 				<footer class="mx-auto h-[92%]">
 					<div class="mx-auto flex h-full w-10/12 flex-col">
-						<div class="flex grow w-full items-center">
-							<div class="2xl:w-1/2 w-full">
+						<div class="flex w-full grow items-center">
+							<div class="w-full 2xl:w-1/2">
 								<h2 class="footerH1">Have an idea?</h2>
 								<LineUnderText
 									noHover
@@ -70,7 +71,7 @@
 								</LineUnderText>
 							</div>
 							<div
-								class=" h-full 2xl:flex hidden w-1/2 items-center justify-end "
+								class=" hidden h-full w-1/2 items-center justify-end 2xl:flex "
 							>
 								<Stars
 									classNames={`mt-12 w-2/3 h-full fill-transparent stroke-lightgray stroke-2 ${
@@ -84,9 +85,9 @@
 							<p>{cityName}, Albania</p>
 						</div> -->
 						<div
-							class="grid 2xl:h-[16%] w-full grid-cols-10 grid-rows-1 gap-2 py-8"
+							class="grid w-full grid-cols-10 grid-rows-1 gap-2 py-8 2xl:h-[16%]"
 						>
-							<div class="2xl:col-span-2 col-span-3 ">
+							<div class="col-span-3  2xl:col-span-2">
 								<p class="mb-2 text-sm opacity-50">
 									Contact through Email:
 								</p>
@@ -99,7 +100,7 @@
 									linkUrl={'mailto:contact@enesbala.com'}
 								/>
 							</div>
-							<div class="col-span-6">
+							<div class="col-span-6 ">
 								<p class="mb-2 text-sm opacity-50">
 									Where you can find me:
 								</p>
@@ -130,19 +131,59 @@
 									/>
 								</div>
 							</div>
+							<div
+								class="col-span-1 col-start-10 col-end-11 flex h-14 items-center justify-end "
+							>
+								<div
+									class="rounded-full bg-brand group hover:-translate-y-0.5 transition-colors ease-in-out p-4"
+									on:mouseenter={hoveredOverLink}
+									on:mouseleave={notHovering}
+									on:keydown={() => {
+										if (browser) {
+											document
+												.querySelector('#skills')
+												?.scrollIntoView({
+													behavior: 'smooth',
+												});
+										}
+									}}
+									on:click={() => {
+										if (browser) {
+												document.querySelector('body')?.scrollIntoView({
+													behavior: 'smooth',
+												})
+										}
+									}}
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="h-6 w-6"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75"
+										/>
+									</svg>
+								</div>
+							</div>
 						</div>
 					</div>
 				</footer>
 
 				<div
-					class="h-[8%] bg-darkgray text-white dark:bg-lightgray dark:text-white rounded-t-full"
+					class="h-[8%] rounded-t-full bg-darkgray text-white dark:bg-lightgray dark:text-white"
 					id="wrapper"
 				>
 					<div
 						class=" mx-auto grid h-full w-10/12 grid-cols-10 grid-rows-1 gap-2 px-0 text-sm"
 					>
 						<div
-							class="2xl:col-span-2 col-span-3 flex items-center opacity-70"
+							class="col-span-3 flex items-center opacity-70 2xl:col-span-2"
 						>
 							<FooterLogo
 								classNames="h-4 fill-white dark:fill-white"

@@ -30,7 +30,7 @@
 					class="h-full w-full mix-blend-multiply dark:opacity-40 dark:mix-blend-lighten dark:invert"
 				>
 					<img
-						src="images/tirana.jpg"
+						src="images/tirana.webp"
 						alt={cityName}
 						class="w-full"
 					/>
