@@ -14,19 +14,12 @@
 <a
 	href={navigation.home}
 	class="h-3 font-medium lg:h-4"
+	aria-label="Go to Home Page"
 	on:mouseenter={hoveredOverLink}
 	on:mouseleave={notHovering}
 >
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		class={classNames}
-		viewBox="0 0 574.444 88.237"
-	>
-		<g
-			id="Group_65"
-			data-name="Group 65"
-			transform="translate(-412.764 -30.746)"
-		>
+	<svg xmlns="http://www.w3.org/2000/svg" class={classNames} viewBox="0 0 574.444 88.237">
+		<g id="Group_65" data-name="Group 65" transform="translate(-412.764 -30.746)">
 			<path
 				id="Path_177"
 				data-name="Path 177"

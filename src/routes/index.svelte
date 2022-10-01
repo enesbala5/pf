@@ -157,7 +157,7 @@
 				class="mt-4 flex w-full items-end justify-between"
 			>
 				<div>
-					<h3
+					<h2
 						on:mouseenter={() => {
 							if (innerWidth > 1024) {
 								heroItemsHovered = true;
@@ -175,8 +175,8 @@
 							{frontendHover && innerWidth > 1024 ? 'opacity-90' : 'opacity-30'}"
 					>
 						Frontend Developer
-					</h3>
-					<h3
+					</h2>
+					<h2
 						on:mouseenter={() => {
 							if (innerWidth > 1024) {
 								heroItemsHovered = true;
@@ -194,7 +194,7 @@
 						{uiuxHover && innerWidth > 1024 ? 'opacity-90' : 'opacity-30'}"
 					>
 						UI& UX Designer
-					</h3>
+					</h2>
 				</div>
 				<!-- chevron bottom - navigate down -->
 				<div
@@ -298,10 +298,9 @@
 									: 'col-start-3'}"
 							>
 								<ImageCard
-									customAttribute="w-full"
-									imageCustomAttribute=" mt-8"
 									image="/images/showcase/rubik_bigImage.webp"
 									alternativeImage
+									altText="Rubik's cube"
 								/>
 							</div>
 						</Motion>
@@ -317,9 +316,9 @@
 									: 'col-start-7'}"
 							>
 								<ImageCard
-									customAttribute="w-full"
 									image="/images/showcase/laptop_smallImage.webp"
 									alternativeImage
+									altText="Image of a developer's Work Setup"
 								/>
 							</div></Motion
 						>

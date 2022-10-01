@@ -5,8 +5,7 @@
 		<slot name="firstCol" />
 	</div>
 	<div
-		class="flex flex-row space-y-4 lg:flex-col  lg:space-y-8"
-		style="margin-top: 25%"
+		class="flex flex-row space-y-4 lg:flex-col  lg:space-y-8 lg:mt-[25%]"
 	>
 		<slot name="secondCol" />
 	</div>

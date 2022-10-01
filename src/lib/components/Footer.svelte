@@ -135,7 +135,7 @@
 								class="col-span-1 col-start-10 col-end-11 flex h-14 items-center justify-end "
 							>
 								<div
-									class="rounded-full bg-brand group hover:-translate-y-0.5 transition-colors ease-in-out p-4"
+									class="rounded-full bg-brand group hover:-translate-y-0.5 transition-colors ease-linear p-4"
 									on:mouseenter={hoveredOverLink}
 									on:mouseleave={notHovering}
 									on:keydown={() => {

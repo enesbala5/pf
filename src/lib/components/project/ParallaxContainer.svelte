@@ -7,7 +7,6 @@
 	let speed = 0.25;
 
 	export let topMargin: boolean = false;
-	export let fullscreen: boolean = true;
 	export let parallax: boolean = true;
 	let divHeight: number;
 
@@ -47,7 +46,12 @@
 
 	onMount(() => {
 		if (scrollY === 0) updateDistanceTop();
+		for (let i = 0; i < 3; i++)
+			setTimeout(() => {
+				if (scrollY === 0) updateDistanceTop();
+			}, 10);
 	});
+
 
 	$: if (scrollY === 0) updateDistanceTop();
 	$: updateParallax(distanceTop, scrollY, divHeight, vh);

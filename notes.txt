@@ -1,12 +1,27 @@
 TO FIX:
 
-
-
+-> Footer Mobile - Revamp
+-> Shto projektet
 
 -----------------------------------------------------------------------------------
 
 READY:
 
+- 01/10 -
+
+ImageCard + ParallaxContainer:
+	-> Changed logic so it works better
+		-> Image fits better and doesnt show too much whitespace.
+
+FourImageContainer:
+	-> FIX: 25% margin only on desktop
+
+Lighthouse:
+	-> Changes for accessibility
+	-> Changes for SEO
+		-> 100 on ALL except Performance
+
+git commit -a -m "Lighthouse: 100 on ALL except Performance || FourImageContainer -> FIX: 25% margin only on desktop || ImageCard + ParallaxContainer ->> Changed logic so it works better -> Image fits better and doesnt show too much whitespace."
 
 - 29/09 -
 
@@ -37,8 +52,6 @@ Layout:
 
 Project Components:
 	-> Changed some variables to <slot>
-
-git commit -a -m "Fixed Skill Section (Added animation - Info item - etc) || Projects: List4Free Ready | SharganConsulting Almost Ready (except Text) || Image Card: 16/9 option || Not Found (work.svelte): New image || Converted images to WEBP || Layout fixes for preloadingImages || Footer Button: NavigateToTop"
 
 
 - 27/09 -

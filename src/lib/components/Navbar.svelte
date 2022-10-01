@@ -1,22 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { fade } from 'svelte/transition';
-	import {
-		expoInOut,
-		quadIn,
-		quadInOut,
-		sineOut,
-	} from 'svelte/easing';
+	import { expoInOut, quadIn, quadInOut, sineOut } from 'svelte/easing';
 	import { quadOut } from 'svelte/easing';
 	import { afterNavigate } from '$app/navigation';
 	import { darkMode } from '$lib/info/darkMode';
 	import DarkModeToggle from './DarkModeToggle.svelte';
 	import type { Theme } from 'src/types';
 	import { navigation } from '$lib/info/nav';
-	import {
-		hoverOverLink,
-		hoverOverText,
-	} from '$lib/state/hoverOver';
+	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
 	import { setTheme, theme } from '$lib/state/theme';
 	import LineUnderText from './LineUnderText.svelte';
 	import { emailAddress } from '$lib/info/info';
@@ -70,39 +62,29 @@
 		}, 100);
 	});
 
-	$: nextTheme = (
-		$theme === 'dark' ? 'light' : 'dark'
-	) as Theme;
+	$: nextTheme = ($theme === 'dark' ? 'light' : 'dark') as Theme;
 	const handleThemeIconClick = () => {
 		setTheme(nextTheme);
 	};
 </script>
 
 <!-- mobile -->
-<nav
-	class="bg-mainbg flex w-full items-center justify-between p-4 transition-colors ease-in-out lg:hidden"
->
+<nav class="bg-mainbg flex w-full items-center justify-between p-4 transition-colors ease-in-out lg:hidden">
 	<a
+		aria-label="Go to Home Page"
 		on:mouseenter={hoveredOverNavItem}
 		on:mouseleave={notHovering}
 		href={navigation.home}
-		class="z-[999] h-4 font-medium"
+		class="group z-[999] h-4 font-medium"
+		data-name="Return Home"
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			class="h-full fill-black transition-colors delay-150 ease-in-out dark:fill-white"
 			viewBox="0 0 396.79 238.118"
 		>
-			<g
-				id="Layer_1-2-2"
-				data-name="Layer 1-2-2"
-				transform="translate(-282.241 -2074.823)"
-			>
-				<g
-					id="Layer_1-2-2-2"
-					data-name="Layer 1-2-2-2"
-					transform="translate(282.241 2074.823)"
-				>
+			<g id="Layer_1-2-2" data-name="Layer 1-2-2" transform="translate(-282.241 -2074.823)">
+				<g id="Layer_1-2-2-2" data-name="Layer 1-2-2-2" transform="translate(282.241 2074.823)">
 					<path
 						id="Path_29"
 						data-name="Path 29"
@@ -112,6 +94,7 @@
 				</g>
 			</g>
 		</svg>
+		<p class="hidden group-focus-within:block group-focus:block">Go to Home Page</p>
 	</a>
 	<div class="noSelect z-[999] flex space-x-3">
 		<div
@@ -124,16 +107,9 @@
 		>
 			<DarkModeToggle />
 		</div>
-		<div
-			on:click={manageMenu}
-			class="z-30 flex h-5 items-center justify-center"
-		>
-			<button
-				class="z-60 relative h-full w-5 focus:outline-none"
-			>
-				<div
-					class="absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/2 transform"
-				>
+		<div on:click={manageMenu} class="z-30 flex h-5 items-center justify-center">
+			<button class="z-60 relative h-full w-5 focus:outline-none">
+				<div class="absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/2 transform">
 					<span
 						aria-hidden="true"
 						class="{!open
@@ -166,19 +142,12 @@
 			class="fixed top-0 bottom-0 right-0 left-0 z-[20] flex h-screen w-full items-center 
 			overflow-x-hidden overflow-y-hidden bg-neutral-50 p-4 text-neutral-50 dark:bg-black dark:text-black"
 		>
-			<div
-				class="flex h-full flex-col justify-center pb-[25%]"
-			>
+			<div class="flex h-full flex-col justify-center pb-[25%]">
 				<div class="flex flex-col space-y-2">
-					<p
-						class="text-mono pb-4 text-black opacity-50 dark:text-white"
-					>
-						Menu
-					</p>
+					<p class="text-mono pb-4 text-black opacity-50 dark:text-white">Menu</p>
 					<a
 						href={navigation.home}
-						class="text-6xl font-medium md:text-7xl  lg:text-8xl  {$page
-							.url.pathname === '/'
+						class="text-6xl font-medium md:text-7xl  lg:text-8xl  {$page.url.pathname === '/'
 							? 'text-black dark:text-white'
 							: $theme === 'dark'
 							? 'outlineDark'
@@ -189,8 +158,7 @@
 					<a
 						href={navigation.work}
 						class=" text-6xl font-medium md:text-7xl lg:text-8xl
-						{$page.url.pathname.includes('work') ||
-						$page.url.pathname.includes('projects')
+						{$page.url.pathname.includes('work') || $page.url.pathname.includes('projects')
 							? 'text-black dark:text-white'
 							: $theme === 'dark'
 							? 'outlineDark'
@@ -200,9 +168,7 @@
 					</a>
 					<a
 						href={navigation.about}
-						class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
-							'about'
-						)
+						class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes('about')
 							? 'text-black dark:text-white'
 							: $theme === 'dark'
 							? 'outlineDark'
@@ -212,9 +178,7 @@
 					</a>
 					<a
 						href={navigation.contact}
-						class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
-							'contact'
-						)
+						class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes('contact')
 							? 'text-black dark:text-white'
 							: $theme === 'dark'
 							? 'outlineDark'
@@ -222,11 +186,7 @@
 					>
 						Contact
 					</a>
-					<p
-						class="text-mono pt-16 text-black opacity-50 dark:text-white"
-					>
-						Get in touch
-					</p>
+					<p class="text-mono pt-16 text-black opacity-50 dark:text-white">Get in touch</p>
 					<LineUnderText
 						central
 						link
@@ -247,6 +207,7 @@
 	class="mx-auto hidden w-10/12 items-center justify-between py-6 font-aeonik text-black transition-colors delay-150 ease-in-out dark:text-white lg:flex"
 >
 	<a
+		aria-label="Go To Homepage"
 		on:mouseenter={hoveredOverNavItem}
 		on:mouseleave={notHovering}
 		href={navigation.home}
@@ -257,16 +218,8 @@
 			class="h-full fill-black transition-colors delay-150 ease-in-out dark:fill-white"
 			viewBox="0 0 396.79 238.118"
 		>
-			<g
-				id="Layer_1-2-2"
-				data-name="Layer 1-2-2"
-				transform="translate(-282.241 -2074.823)"
-			>
-				<g
-					id="Layer_1-2-2-2"
-					data-name="Layer 1-2-2-2"
-					transform="translate(282.241 2074.823)"
-				>
+			<g id="Layer_1-2-2" data-name="Layer 1-2-2" transform="translate(-282.241 -2074.823)">
+				<g id="Layer_1-2-2-2" data-name="Layer 1-2-2-2" transform="translate(282.241 2074.823)">
 					<path
 						id="Path_29"
 						data-name="Path 29"
@@ -283,9 +236,7 @@
 			on:mouseenter={hoveredOverNavItem}
 			on:mouseleave={notHovering}
 			href={navigation.work}
-			class=" text-sm opacity-50 active:opacity-100 {$page.url.pathname.includes(
-				'work'
-			)
+			class=" text-sm opacity-50 active:opacity-100 {$page.url.pathname.includes('work')
 				? 'opacity-100'
 				: 'hover:opacity-70'}">work</a
 		>
@@ -293,9 +244,7 @@
 			on:mouseenter={hoveredOverNavItem}
 			on:mouseleave={notHovering}
 			href={navigation.about}
-			class=" text-sm opacity-50  active:opacity-100 {$page.url.pathname.includes(
-				'about'
-			)
+			class=" text-sm opacity-50  active:opacity-100 {$page.url.pathname.includes('about')
 				? 'opacity-100'
 				: 'hover:opacity-70'}">about</a
 		>
@@ -303,9 +252,7 @@
 			on:mouseenter={hoveredOverNavItem}
 			on:mouseleave={notHovering}
 			href={navigation.contact}
-			class=" text-sm opacity-50  active:opacity-100 {$page.url.pathname.includes(
-				'contact'
-			)
+			class=" text-sm opacity-50  active:opacity-100 {$page.url.pathname.includes('contact')
 				? 'opacity-100'
 				: 'hover:opacity-70'}">contact</a
 		>

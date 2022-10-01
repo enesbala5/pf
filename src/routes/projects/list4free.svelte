@@ -58,20 +58,24 @@
 				<ImageCard
 					image="list4free/grid1/1.jpg"
 					description="List4Free Wordmark"
+					aspectGridItem
 				/>
 				<ImageCard
 					image="list4free/grid1/3.jpg"
-					description="Compact version of wordmark"
+					description="Compact version of wordmark. Compact version of wordmark. Compact version of wordmark. "
+					aspectGridItem
 				/>
 			</div>
 			<div slot="secondCol">
 				<ImageCard
 					image="list4free/grid1/2.jpg"
 					description="Business Card"
+					aspectGridItem
 				/>
 				<ImageCard
 					image="list4free/grid1/4.jpg"
 					description="Stylised representative icon"
+					aspectGridItem
 				/>
 			</div>
 		</FourImagesContainer>
@@ -97,20 +101,24 @@
 					<ImageCard
 						image="list4free/grid2/1.jpg"
 						description="Homepage Interface"
+						aspectGridItem
 					/>
 					<ImageCard
 						image="list4free/grid2/3.jpg"
 						description="Explore Screen - View properties near area"
+						aspectGridItem
 					/>
 				</div>
 				<div slot="secondCol">
 					<ImageCard
 						image="list4free/grid2/2.jpg"
 						description="List Your Property Screen"
+						aspectGridItem
 					/>
 					<ImageCard
 						image="list4free/grid2/4.jpg"
 						description="Property Page - View property details"
+						aspectGridItem
 					/>
 				</div>
 			</FourImagesContainer>
