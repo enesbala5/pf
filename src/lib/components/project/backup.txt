@@ -1,0 +1,5 @@
+style:transform={`translateY(calc(${
+						actualScrollValue * speed
+					}px - ${fullscreen ? '1.5%' : '5%'}))`}
+
+{fullscreen ? 'h-[101%]' : 'h-[110%] rounded-md '}
