@@ -1,6 +1,6 @@
 {
-	"short_name": "Enes Bala",
-	"name": "enes-bala",
+	"short_name": "enesbala",
+	"name": "enes-bala-pf",
 	"start_url": "/",
 	"icons": [
 		{
@@ -9,19 +9,25 @@
 			"sizes": "512x512"
 		},
     {
-      "src": "path/to/maskable_icon_192.png",
+      "src": "/icons/pwa/maskable_icon_x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "path/to/maskable_icon_512.png",
+      "src": "/icons/pwa/maskable_icon_x512.png",
       "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/pwa/maskable_icon.png",
+      "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
-	"background_color": "#000",
+	"background_color": "#fff",
 	"display": "standalone",
 	"scope": "/",
 	"theme_color": "#F5F5F5",
@@ -29,7 +35,7 @@
 		{
 			"name": "View Projects",
 			"short_name": "Projects",
-			"description": "View the project and filter by category",
+			"description": "View the projects and filter by category",
 			"url": "/work",
 			"icons": [{ "src": "/icons/pwa/work.png", "sizes": "192x192" }]
 		}
