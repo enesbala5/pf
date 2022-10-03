@@ -62,7 +62,7 @@
 				/>
 				<ImageCard
 					image="list4free/grid1/3.jpg"
-					description="Compact version of wordmark. Compact version of wordmark. Compact version of wordmark. "
+					description="Compact version of wordmark."
 					aspectGridItem
 				/>
 			</div>

@@ -86,7 +86,6 @@
 	let intersecting: any;
 	let intersectingHero: any;
 
-	$: intersectingHero, console.log(intersectingHero);
 	$: intersecting, (hovering = intersecting);
 
 	let innerWidth: number;

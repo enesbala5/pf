@@ -117,11 +117,12 @@
 			ready = false;
 			quickAnimation = true;
 			setTimeout(() => (ready = true), 1000);
-			console.log($page.url.pathname);
 		}
 		$selectedTags = [];
 	});
 	let quickAnimation = false;
+	$: $preloadImageUrls, console.log($preloadImageUrls);
+	
 </script>
 
 <svelte:window

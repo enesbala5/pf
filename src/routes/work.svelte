@@ -60,17 +60,14 @@
 				}
 			}
 			if (count == 0) {
-				console.log(count);
 				errorMessage = true;
 				return;
 			}
-			console.log(count);
 		}
 		errorMessage = false;
 	};
 
 	$: $selectedTags, checkIfNoMatch();
-	$: errorMessage, console.log(errorMessage);
 </script>
 
 <title>Work - Enes Bala</title>
