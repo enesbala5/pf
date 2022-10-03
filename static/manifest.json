@@ -1,12 +1,16 @@
 {
-	"short_name": "enesbala",
 	"name": "enes-bala-pf",
-	"start_url": "/",
+	"short_name": "enesbala",
+		"theme_color": "#F5F5F5",
+  "background_color": "#3E82F7",
+	"display": "standalone",
+  "start_url": "/",
 	"icons": [
 		{
 			"src": "/icons/pwa/pwa_icon.png",
+			"sizes": "512x512",
 			"type": "image/png",
-			"sizes": "512x512"
+      "purpose": "any"
 		},
     {
       "src": "/icons/pwa/maskable_icon_x192.png",
@@ -27,18 +31,7 @@
       "purpose": "maskable"
     }
   ],
-	"background_color": "#fff",
-	"display": "standalone",
 	"scope": "/",
-	"theme_color": "#F5F5F5",
-	"shortcuts": [
-		{
-			"name": "View Projects",
-			"short_name": "Projects",
-			"description": "View the projects and filter by category",
-			"url": "/work",
-			"icons": [{ "src": "/icons/pwa/work.png", "sizes": "192x192" }]
-		}
-	],
+	
 	"description": "Front-End Development & Graphic Design"
 }

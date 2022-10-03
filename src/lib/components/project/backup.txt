@@ -3,3 +3,47 @@ style:transform={`translateY(calc(${
 					}px - ${fullscreen ? '1.5%' : '5%'}))`}
 
 {fullscreen ? 'h-[101%]' : 'h-[110%] rounded-md '}
+
+
+
+"shortcuts": [
+		{
+			"name": "View Projects",
+			"short_name": "Projects",
+			"description": "View the projects and filter by category",
+			"url": "/work",
+			"icons": [{ "src": "/icons/pwa/work.png", "sizes": "192x192" }]
+		}
+	],
+
+	"icons": [
+		{
+			"src": "/icons/pwa/pwa_icon.png",
+			"sizes": "512x512",
+			"type": "image/png",
+      "purpose": "any"
+		},
+    {
+      "src": "/icons/pwa/maskable_icon_x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/pwa/maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/pwa/maskable_icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+
+}
+
+
+	"description": "Front-End Development & Graphic Design"
