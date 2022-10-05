@@ -121,8 +121,6 @@
 		$selectedTags = [];
 	});
 	let quickAnimation = false;
-	$: $preloadImageUrls, console.log($preloadImageUrls);
-	
 </script>
 
 <svelte:window

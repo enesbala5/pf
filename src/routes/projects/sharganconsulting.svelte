@@ -9,9 +9,8 @@
 	import Text from '$lib/components/project/Text.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import NextCase from '$lib/sections/NextCase.svelte';
-	import FourImagesContainer from '$lib/components/project/containers/Images/FourImagesContainer.svelte';
+	import ImageContainer from '$lib/components/project/containers/Images/ImageContainer.svelte';
 	import ProjectTitle from '$lib/components/project/ProjectTitle.svelte';
-	import TwoImagesContainer from '$lib/components/project/containers/Images/TwoImagesContainer.svelte';
 </script>
 
 <title>Shargan Consulting - Enes Bala</title>
@@ -25,48 +24,67 @@
 		</span>
 	</ProjectTitle>
 
-	<ImageCard fullscreen topMargin image="sharganconsulting/heroImage.svg" description="View of all List4Free screens" />
+	<ImageCard
+		fullscreen
+		topMargin
+		image="sharganconsulting/heroImage_1.svg"
+		description="View of all List4Free screens"
+	/>
 	<ProjectContainer>
 		<Introduction>
-			Building an identity for a company seeking to enter an industry as consolidated and static as Real Estate, is
-			known to be challenging. <br />
-			However, List4Free takes a different approach from typical Real Estate market players, as it seeks to connect buyers
-			to sellers, in a modern, innovative way. <br /><br /> The brand has to convey the image of trust-worthiness and solidity,
-			but not fail to acknowledge the modern, innovative approach the company is brining to the market.
+			Shargan Consulting, is a consultancy firm, whose philosophy is to focus on the future while keeping in touch with
+			the history behind the name, and the heritage that ensues.
+			<br /><br />
+			My focus was to create a brand that best represented the client's vision for the company, while building a symbol and
+			wordmark, which is simple and minimal, therefore legible from all sizes and memorable and built to stand the test of
+			time.
 		</Introduction>
 	</ProjectContainer>
-	<ImageCard fullscreen image="sharganconsulting/heroImage2.svg" description="View of all List4Free screens" />
+	<ImageCard fullscreen image="sharganconsulting/heroImage_2.svg" description="View of all List4Free screens" />
 
 	<SmallProjectContainer topOnly>
 		<Callout
-			title="The wordmark"
-			text={`Through the use of Negative Space, the number 4 in "List4Free", was incorporated in the wordmark, while preserving legibility.`}
+			title="Branding Elements"
+			text={`To create the contrast of 'past' and 'future', a modern symbol was used, minimal enough to be paired with a 'vintage' serif wordmark.`}
 		/>
-		<FourImagesContainer>
+		<ImageContainer>
 			<div slot="firstCol">
-				<ImageCard image="sharganconsulting/grid1/1.jpg" description="List4Free Wordmark" aspectGridItem />
-				<ImageCard image="sharganconsulting/grid1/3.jpg" description="Compact version of wordmark" aspectGridItem />
+				<ImageCard image="sharganconsulting/grid1/1.jpg" description="'S' Wordmark" aspectGridItem />
+				<ImageCard image="sharganconsulting/grid1/3.jpg" description="Shargan Consulting Wordmark" aspectGridItem />
 			</div>
 			<div slot="secondCol">
-				<ImageCard image="sharganconsulting/grid1/2.jpg" description="Business Card" aspectGridItem />
-				<ImageCard image="sharganconsulting/grid1/4.jpg" description="Stylised representative icon" aspectGridItem />
+				<ImageCard image="sharganconsulting/grid1/2.jpg" description="Stylised Logo Usage" aspectGridItem />
+				<ImageCard image="sharganconsulting/grid1/4.jpg" aspectGridItem />
 			</div>
-		</FourImagesContainer>
+		</ImageContainer>
 	</SmallProjectContainer>
 	<ProjectContainer topOnly>
 		<ProjectContainer noMargin noPadding>
-			<Headline>Creating a intuitive website experience</Headline>
-			<Text
-				>List4Free provides users the opportunity of direct and safe trade till they reach to a deal. The User
-				Experience was designed around this deeply-rooted idea.
-			</Text>
+			<Headline>Identity and <br class="hidden lg:block">alternate usage</Headline>
 		</ProjectContainer>
-		<ProjectContainer customMargin="mt-24 lg:mt-48">
-			<TwoImagesContainer>
-				<ImageCard image="sharganconsulting/grid2/1.jpg" aspectGridItem />
-				<ImageCard image="sharganconsulting/grid2/2.jpg" aspectGridItem />
-			</TwoImagesContainer>
+		<ProjectContainer customMargin="mt-24 lg:mt-48" noPadding>
+			<ImageContainer noMargin>
+				<div slot="firstCol">
+					<ImageCard image="sharganconsulting/grid2/1.jpg" aspectGridItem />
+				</div>
+				<div slot="secondCol">
+					<ImageCard image="sharganconsulting/grid2/2.jpg" aspectGridItem />
+				</div>
+			</ImageContainer>
 			<ImageCard customAttribute="mt-8" aspectVideo image="sharganconsulting/heroImage3.jpg" />
+			<div class="w-full overflow-hidden rounded-md mt-8">
+				<picture>
+					<source media="(min-width:1024px)" srcset="/images/projects/sharganconsulting/stylised.svg" />
+					<img src="/images/projects/sharganconsulting/stylisedMobile.svg" alt="Shargan Consulting Branding Assets" class=" h-full w-full rounded-md object-cover dark:hidden" />
+				</picture>
+				<picture>
+					<source media="(min-width:1024px)" srcset="/images/projects/sharganconsulting/stylisedDark.svg" />
+					<img src="/images/projects/sharganconsulting/stylisedDarkMobile.svg" alt="Shargan Consulting Branding Assets" class=" hidden h-full w-full rounded-md object-cover dark:block" />
+				</picture>
+
+			</div>
+
+			<!-- <ImageCard customAttribute="mt-8" image="sharganconsulting/stylised.svg" /> -->
 		</ProjectContainer>
 	</ProjectContainer>
 	<SmallProjectContainer topOnly={true}>

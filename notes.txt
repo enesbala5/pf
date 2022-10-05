@@ -3,9 +3,23 @@ TO FIX:
 -> Footer Mobile - Revamp
 -> Shto projektet
 
+-> Shargan Consulting:
+	-> Change Logo and palette to better version of design for Desktop
+
 -----------------------------------------------------------------------------------
 
 READY:
+
+- 05/10 -
+
+Projects:
+	-> List4Free Ready
+	-> Shargan Consulting Ready
+	-> WIP: Click Properties
+
+Navbar:
+	-> (Mobile) Removed 'Return Home' link
+
 
 - 01/10 -
 

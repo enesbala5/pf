@@ -9,7 +9,7 @@
 	import Text from '$lib/components/project/Text.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import NextCase from '$lib/sections/NextCase.svelte';
-	import FourImagesContainer from '$lib/components/project/containers/Images/FourImagesContainer.svelte';
+	import ImageContainer from '$lib/components/project/containers/Images/ImageContainer.svelte';
 	import ProjectTitle from '$lib/components/project/ProjectTitle.svelte';
 </script>
 
@@ -26,7 +26,7 @@
 	<ImageCard
 		fullscreen
 		topMargin
-		image="list4free/heroImage.jpg"
+		image="list4free/heroImage_1.svg"
 		description="View of all List4Free screens"
 	/>
 	<ProjectContainer>
@@ -44,7 +44,7 @@
 	</ProjectContainer>
 	<ImageCard
 		fullscreen
-		image="list4free/guideline.jpg"
+		image="list4free/heroImage_2.jpg"
 		description="View of all List4Free screens"
 	/>
 
@@ -53,7 +53,7 @@
 			title="The wordmark"
 			text={`Through the use of Negative Space, the number 4 in "List4Free", was incorporated in the wordmark, while preserving legibility.`}
 		/>
-		<FourImagesContainer>
+		<ImageContainer>
 			<div slot="firstCol">
 				<ImageCard
 					image="list4free/grid1/1.jpg"
@@ -78,7 +78,7 @@
 					aspectGridItem
 				/>
 			</div>
-		</FourImagesContainer>
+		</ImageContainer>
 	</SmallProjectContainer>
 	<ProjectContainer topOnly>
 		<ProjectContainer noMargin noPadding>
@@ -96,7 +96,7 @@
 			image="list4free/wireframe2.jpg"
 		/>
 		<ProjectContainer topOnly>
-			<FourImagesContainer>
+			<ImageContainer>
 				<div slot="firstCol">
 					<ImageCard
 						image="list4free/grid2/1.jpg"
@@ -121,7 +121,7 @@
 						aspectGridItem
 					/>
 				</div>
-			</FourImagesContainer>
+			</ImageContainer>
 		</ProjectContainer>
 	</ProjectContainer>
 	<!-- <SmallProjectContainer topOnly={true}>

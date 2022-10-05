@@ -27,7 +27,7 @@
 		{thisProject?.projectName}
 	</p>
 
-	<p class="projectHeadline mt-4">
+	<p class="projectHeadline break-words mt-4">
 		{#if $$slots.description}
 			<slot name="description" />
 		{:else}

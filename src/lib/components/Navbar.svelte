@@ -94,7 +94,6 @@
 				</g>
 			</g>
 		</svg>
-		<p class="hidden group-focus-within:block group-focus:block">Go to Home Page</p>
 	</a>
 	<div class="noSelect z-[999] flex space-x-3">
 		<div

@@ -1,3 +1,7 @@
+<script lang="ts">
+	export let noMargin: boolean = false;
+</script>
+
 <div class="grid lg:grid-cols-2 grid-cols-1 grid-rows-1 gap-4 lg:gap-8">
 	<div
 		class="flex flex-row space-y-4 lg:flex-col lg:space-y-8"
@@ -5,7 +9,7 @@
 		<slot name="firstCol" />
 	</div>
 	<div
-		class="flex flex-row space-y-4 lg:flex-col  lg:space-y-8 lg:mt-[25%]"
+		class="flex flex-row space-y-4 lg:flex-col  lg:space-y-8 {noMargin? '' : 'lg:mt-[25%]'}"
 	>
 		<slot name="secondCol" />
 	</div>
