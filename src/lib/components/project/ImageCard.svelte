@@ -91,7 +91,7 @@
 			</div>
 		</div>
 		{#if !fullscreen && description !== undefined}
-			<p class="projectH3 mx-auto w-full py-8 text-center">
+			<p class="projectH3 mx-auto {aspectVideo? 'lg:w-1/2 xl:w-1/3 w-5/6' : 'w-5/6'} py-8 text-center">
 				{description}
 			</p>
 		{/if}

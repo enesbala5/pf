@@ -10,6 +10,13 @@ TO FIX:
 
 READY:
 
+- 08/10 -
+
+Projects:
+	-> Click Properties - Universi Center - Venustre Clothing ->> READY
+	-> List4Free + Shargan Consulting ->> TO FIX
+	-> Softoptech ->> TO GET READY
+
 - 05/10 -
 
 Projects:
@@ -19,6 +26,17 @@ Projects:
 
 Navbar:
 	-> (Mobile) Removed 'Return Home' link
+
+ImageContainer:
+	-> Changed to one component
+		-> Renamed FourImagesContainer ->> ImageContainer
+		-> Deleted TwoImagesContainer
+
+Layout:
+	-> Removed console.log() message
+
+ProjectTitle:
+	-> Added break-words so that long works can be split to multiple rows
 
 
 - 01/10 -

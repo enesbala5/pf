@@ -4,6 +4,8 @@
 	export let topOnly: boolean = false;
 	export let bottomOnly: boolean = false;
 	export let noMargin: boolean = false;
+
+	export let halfMargin: boolean = false;
 </script>
 
 <ProjectContainer
@@ -11,6 +13,7 @@
 	{topOnly}
 	{bottomOnly}
 	{noMargin}
+	{halfMargin}
 >
 	<ProjectContainer noMargin={true} noPadding={true}>
 		<slot />

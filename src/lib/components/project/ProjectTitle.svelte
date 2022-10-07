@@ -1,16 +1,11 @@
 <script lang="ts">
 	import { projects } from '$lib/projects/projects';
-	import {
-		hoverOverLink,
-		hoverOverText,
-	} from '$lib/state/hoverOver';
+	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
 	import SmallProjectContainer from './containers/SmallProjectContainer.svelte';
 
 	export let projectName: string;
 
-	let thisProject = projects.find(
-		(project) => project.projectName == projectName
-	);
+	let thisProject = projects.find((project) => project.projectName == projectName);
 
 	function hoveredOverText() {
 		hoverOverText.set(true);
@@ -27,14 +22,14 @@
 		{thisProject?.projectName}
 	</p>
 
-	<p class="projectHeadline break-words mt-4">
+	<p class="projectHeadline mt-4 break-words">
 		{#if $$slots.description}
 			<slot name="description" />
 		{:else}
 			{thisProject?.projectDescription}
 		{/if}
 	</p>
-	<div class="mt-16 space-x-2 lg:space-x-4 grid grid-flow-col py-2 overflow-x-scroll noScroll place-content-start">
+	<div class="noScroll mt-16 grid grid-flow-col place-content-start space-x-2 overflow-x-scroll py-2 lg:space-x-4">
 		{#if thisProject && thisProject.tags.length > 0}
 			{#each thisProject.tags as tag, i}
 				<button
@@ -44,6 +39,9 @@
 				>
 					{#if tag === 'branding'}
 						Branding
+					{/if}
+					{#if tag === 'identity'}
+						Identity
 					{/if}
 					{#if tag === 'smmm'}
 						Social Media Management

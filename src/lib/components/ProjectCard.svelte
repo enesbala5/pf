@@ -99,6 +99,9 @@
 						{#if tag === 'branding'}
 							Branding
 						{/if}
+						{#if tag === 'identity'}
+							Identity
+						{/if}
 						{#if tag === 'smmm'}
 							Social Media Management
 						{/if}
