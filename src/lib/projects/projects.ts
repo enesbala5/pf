@@ -16,8 +16,7 @@ export const selectedTags = writable<Tag[]>([]);
 export const projects: Project[] = [
 	{
 		projectName: 'Click Properties',
-		projectDescription:
-			'Branding for an emerging, novel Real Estate company.',
+		projectDescription: 'Branding for an emerging, novel Real Estate company.',
 		date: 'January 2022',
 		thumbnail: 'click.svg',
 
@@ -26,8 +25,7 @@ export const projects: Project[] = [
 	},
 	{
 		projectName: 'Universi Language Center',
-		projectDescription:
-			'Social Media Management with a focus on improving Brand Recognition.',
+		projectDescription: 'Social Media Management with a focus on improving Brand Recognition.',
 		date: 'January 2022',
 		thumbnail: 'universi.svg',
 
@@ -36,8 +34,7 @@ export const projects: Project[] = [
 	},
 	{
 		projectName: 'Venustre Clothing',
-		projectDescription:
-			'Apparel Design and Branding, for an eco-friendly clothing company.',
+		projectDescription: 'Apparel Design and Branding, for an eco-friendly clothing company.',
 		date: 'January 2022',
 		thumbnail: 'venustre.svg',
 
@@ -45,13 +42,13 @@ export const projects: Project[] = [
 		tags: ['branding', 'smmm', 'tshirt'],
 	},
 	{
-		projectName: 'List4Free',
-		projectDescription:
-			'Brand creation and identity design for an up-and-coming Real Estate company.',
-		date: 'October 2021',
-		thumbnail: 'list4free.svg',
-		id: 'list4free',
-		tags: ['branding', 'ui-ux', 'website', 'identity'],
+		projectName: 'Softoptech',
+		projectDescription: 'Branding for an established Albanian Tech company.',
+		date: 'January 2022',
+		thumbnail: 'softoptech.svg',
+
+		id: 'softoptech',
+		tags: ['branding'],
 	},
 	{
 		projectName: 'Shargan Consulting',
@@ -64,13 +61,11 @@ export const projects: Project[] = [
 		tags: ['branding', 'identity'],
 	},
 	{
-		projectName: 'Softoptech',
-		projectDescription:
-			'Branding for an established Albanian Tech company.',
-		date: 'January 2022',
-		thumbnail: 'softoptech.svg',
-
-		id: 'softoptech',
-		tags: ['branding'],
+		projectName: 'List4Free',
+		projectDescription: 'Brand creation and identity design for an up-and-coming Real Estate company.',
+		date: 'October 2021',
+		thumbnail: 'list4free.svg',
+		id: 'list4free',
+		tags: ['branding', 'ui-ux', 'website', 'identity'],
 	},
 ];
