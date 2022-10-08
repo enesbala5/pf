@@ -56,7 +56,7 @@
 	<SmallProjectContainer>
 		<Callout
 			title="Infinite opportunities, infinite choice"
-			text="When creating content for Social Media and designing apparel in general, I wanted to showcase some of the designs which were possible and guide the audience into potentially ordering for themselves."
+			text="When creating content for Social Media and designing apparel in general, I wanted to showcase some of the apparel we could make and guide the audience into potentially ordering a custom piece for themselves."
 		/>
 	</SmallProjectContainer>
 	<ProjectContainer halfMargin>

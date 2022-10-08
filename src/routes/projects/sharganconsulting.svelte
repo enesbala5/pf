@@ -87,7 +87,7 @@
 			<!-- <ImageCard customAttribute="mt-8" image="sharganconsulting/stylised.svg" /> -->
 		</ProjectContainer>
 	</ProjectContainer>
-	<SmallProjectContainer topOnly={true}>
+	<!-- <SmallProjectContainer topOnly={true}>
 		<Quote person="Klodjan Shaqiri">
 			We’d like to express our sincere gratitude to Cuberto for their contribution to the development of our product.
 			<br /><br />
@@ -95,7 +95,7 @@
 			of work, starting with logo & brand identity for two DSX products, and moving forward with a complete website development,
 			two native mobile applications development for iOS / Android and the design of our internal platform.
 		</Quote>
-	</SmallProjectContainer>
+	</SmallProjectContainer> -->
 </div>
 <NextCase />
 
