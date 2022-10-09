@@ -83,7 +83,7 @@
 	<SmallProjectContainer topOnly>
 		<Headline>Usage and application</Headline>
 		<Text>
-			Softoptech was also provided with a Brand Guideline, which highlights detailed explanations of right and wrong applications of the logo, for it's internal and external application.
+			Softoptech was also provided with a Brand Guideline, which provides detailed explanations of right and wrong applications of the logo, for it's internal and external application.
 		</Text>
 	</SmallProjectContainer>
 	<ImageCard
