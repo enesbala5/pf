@@ -12,7 +12,7 @@
 	import Text from '$lib/components/project/Text.svelte';
 </script>
 
-<title>Venustre - Enes Bala</title>
+<title>Softoptech - Enes Bala</title>
 
 <div class="mt-24  w-full font-aeonik lg:mt-24">
 	<!-- make template -->

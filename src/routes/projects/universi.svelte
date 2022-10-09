@@ -22,12 +22,12 @@
 	<ImageCard fullscreen topMargin image="universi/heroImage_1.svg" description="View of all List4Free screens" />
 	<ProjectContainer>
 		<Introduction>
-			Click Properties is a Real Estate company based in Tirana, Albania. It seeks to find properties for their clients,
-			which will 'CLICK' the moment they lay eyes on them.
+			Universi Language Center is a market-leader in private Language Education and Courses - with 27 years of
+			experience and over 30,000 students tutored, they offer courses for children as young as 5 years old and also more
+			advanced classes for adults up to 60 years old.
 			<br /><br />
-			Click Properties maintains a modern and professional profile, and being that it is a new entry on an already established
-			industry, the challenge faced while building their identity, was creating a mark which would remain engrained on all
-			who happened to observe it, and as to the client's liking, also tied to the concept of 'Property'.
+			We partnered on Social Media Management, mainly focusing on increasing engagement and pushing new clients to their
+			4 different locations.
 		</Introduction>
 	</ProjectContainer>
 	<ProjectContainer>
@@ -40,7 +40,7 @@
 		/>
 	</SmallProjectContainer>
 	<ProjectContainer>
-		<ImageCard aspectVideo image="universi/heroImage_3.jpg" description="Initial Instagram Grid Design"/>
+		<ImageCard aspectVideo image="universi/heroImage_3.jpg" description="Initial Instagram Grid Design" />
 	</ProjectContainer>
 	<SmallProjectContainer>
 		<ImageContainer>
@@ -87,15 +87,15 @@
 	<SmallProjectContainer>
 		<ImageContainer noMargin>
 			<div slot="firstCol">
-				<ImageCard aspectGridItem image="universi/ECL/1.jpg"></ImageCard>
+				<ImageCard aspectGridItem image="universi/ECL/1.jpg" />
 			</div>
 			<div slot="secondCol">
-				<ImageCard aspectGridItem image="universi/ECL/2.jpg"></ImageCard>
+				<ImageCard aspectGridItem image="universi/ECL/2.jpg" />
 			</div>
 		</ImageContainer>
 	</SmallProjectContainer>
 	<ProjectContainer halfMargin topOnly>
-		<ImageCard aspectVideo image="universi/ECL/stories.jpg" description="Stories designed for the ECL Campaign"></ImageCard>
+		<ImageCard aspectVideo image="universi/ECL/stories.jpg" description="Stories designed for the ECL Campaign" />
 	</ProjectContainer>
 </div>
 <NextCase />
