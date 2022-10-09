@@ -338,7 +338,7 @@
 <!-- end contact -->
 
 <!-- footer -->
-<div class="mx-auto my-24 lg:my-32 font-aeonik ">
+<div class="mx-auto mt-24 lg:mt-32 font-aeonik ">
 	<Footer />
 </div>
 
