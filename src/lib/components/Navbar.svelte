@@ -33,6 +33,7 @@
 		open = !open;
 		scrollable = !scrollable;
 	};
+
 	const wheel = (node: any, options: any) => {
 		let { scrollable } = options;
 
@@ -56,10 +57,17 @@
 		};
 	};
 
+	let urlBuffer = $page.url.pathname;
+
 	afterNavigate(() => {
-		setTimeout(() => {
+		if (urlBuffer === '/') {
+			setTimeout(() => {
+				open = false;
+			}, 200);
+		} else {
 			open = false;
-		}, 100);
+		}
+		urlBuffer = $page.url.pathname;
 	});
 
 	$: nextTheme = ($theme === 'dark' ? 'light' : 'dark') as Theme;
@@ -97,8 +105,6 @@
 	</a>
 	<div class="noSelect z-[999] flex space-x-3">
 		<div
-			on:mouseenter={hoveredOverText}
-			on:mouseleave={notHovering}
 			on:click={handleThemeIconClick}
 			label="toggle theme from {$theme} to {nextTheme}"
 			aria-live="polite"

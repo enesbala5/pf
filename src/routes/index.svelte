@@ -1,18 +1,16 @@
 <script lang="ts">
-	import ProjectCard from '$lib/components/ProjectCard.svelte';
-	import { projects } from '$lib/projects/projects';
-	import { navigation } from '$lib/info/nav';
-	import Footer from '$lib/components/Footer.svelte';
-	let uiuxHover: boolean = false;
-	import { sineInOut, sineIn } from 'svelte/easing';
-	import { create_in_transition } from 'svelte/internal';
-	import SkillSection from '$lib/sections/SkillSection.svelte';
-	import IntersectionObserver from 'svelte-intersection-observer';
-
 	import {
 		Motion,
 		AnimateSharedLayout,
 	} from 'svelte-motion';
+	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import { projects } from '$lib/projects/projects';
+	import { navigation } from '$lib/info/nav';
+	import Footer from '$lib/components/Footer.svelte';
+	import { sineInOut, sineIn } from 'svelte/easing';
+	import { create_in_transition } from 'svelte/internal';
+	import SkillSection from '$lib/sections/SkillSection.svelte';
+	import IntersectionObserver from 'svelte-intersection-observer';
 	import { browser } from '$app/env';
 	import {
 		hoverOverLink,
@@ -80,15 +78,15 @@
 		frontendHover = true;
 	}
 
+	let uiuxHover: boolean = false;
 	let heroItemsHovered: boolean = false;
 	let element: any;
 	let hero: any;
 	let intersecting: any;
 	let intersectingHero: any;
+	let innerWidth: number;
 
 	$: intersecting, (hovering = intersecting);
-
-	let innerWidth: number;
 </script>
 
 <title>Enes Bala - Work Portfolio</title>
