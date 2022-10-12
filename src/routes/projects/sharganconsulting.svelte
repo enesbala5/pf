@@ -49,7 +49,7 @@
 		/>
 		<ImageContainer>
 			<div slot="firstCol">
-				<ImageCard image="sharganconsulting/grid1/1.jpg" description="'S' Wordmark" aspectGridItem />
+				<ImageCard image="sharganconsulting/grid1/1.jpg" description="'S' Logomark" aspectGridItem />
 				<ImageCard image="sharganconsulting/grid1/3.jpg" description="Shargan Consulting Wordmark" aspectGridItem />
 			</div>
 			<div slot="secondCol">
