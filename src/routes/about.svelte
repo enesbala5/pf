@@ -86,7 +86,7 @@
 		<div
 			class="col-span-4 row-start-4 mt-16 overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray lg:col-span-8 lg:mt-32 lg:h-[65vh]"
 		>
-			<ImageCard image="images/me.jpg" alternativeImage aspectVideo />
+			<ImageCard image="images/summary.webp" customAttribute="bg-white dark:bg-black" alternativeImage aspectVideo />
 			<!-- <img
 				src="images/me.jpg"
 				alt=""
