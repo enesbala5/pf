@@ -119,7 +119,7 @@
 	{#each $preloadImageUrls as image}
 		<link rel="preload" as="image" href={image} />
 	{/each}
-	<meta name="theme-color" content={$darkMode ? '#000' : '#fff'} />
+	<meta name="theme-color" content={$darkMode ? '#000' : '#fafafa'} />
 </svelte:head>
 
 {#key ready}
