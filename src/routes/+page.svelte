@@ -8,7 +8,7 @@
 	import { create_in_transition } from 'svelte/internal';
 	import SkillSection from '$lib/sections/SkillSection.svelte';
 	import IntersectionObserver from 'svelte-intersection-observer';
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
 	import { fade } from 'svelte/transition';
 	import ImageCard from '$lib/components/project/ImageCard.svelte';
@@ -84,7 +84,6 @@
 		frontendHover = true;
 	}
 
-
 	$: intersecting, (hovering = intersecting);
 </script>
 
@@ -96,7 +95,7 @@
 	<div class=" mx-auto grid h-16 grid-rows-1 gap-2 px-4 text-xs md:grid-cols-10 lg:w-10/12 lg:px-0">
 		<div class="col-span-2 flex items-center opacity-70">Personal Portfolio Project</div>
 		<div class="col-span-2 hidden items-center opacity-70 md:flex">Enes Bala</div>
-		<div class="col-start-9 col-end-11 flex items-center justify-end opacity-70">2022©</div>
+		<div class="col-start-9 col-end-11 flex items-center justify-end opacity-70">2023©</div>
 	</div>
 </div>
 
@@ -170,6 +169,7 @@
 					</h2>
 				</div>
 				<!-- chevron bottom - navigate down -->
+				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 				<div
 					on:keydown={() => {
 						if (browser) {

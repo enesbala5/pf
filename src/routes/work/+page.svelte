@@ -62,7 +62,9 @@
 <div class="mx-auto mt-24 w-full font-aeonik lg:w-10/12">
 	<h1 class="headline mx-4 lg:mx-0">Work</h1>
 	<div class="relative mx-auto mt-24 text-xl lg:grid lg:grid-cols-10">
-		<div class="mx-4 flex items-center justify-between lg:col-span-10 lg:mx-0 lg:mb-0 2xl:col-span-9 2xl:col-start-2">
+		<div
+			class="mx-4 flex items-center justify-between lg:col-span-10 lg:mx-0 lg:mb-0 2xl:col-span-9 2xl:col-start-2"
+		>
 			<!-- titlebar -->
 			<div class="col-span-2 col-start-2">
 				<p class="font-medium">All categories</p>
@@ -71,8 +73,9 @@
 				<div
 					class="flex cursor-pointer items-center space-x-4 opacity-70 lg:cursor-none"
 					on:mouseenter={hoveredOverText}
-					on:click={() => (filtering = !filtering)}
 					on:mouseleave={notHovering}
+					on:click={() => (filtering = !filtering)}
+					on:keydown={() => (filtering = !filtering)}
 				>
 					<p class="text-base">Filter</p>
 					<svg
@@ -104,6 +107,9 @@
 							on:click={() => {
 								$selectedTags = $selectedTags.filter((item) => item !== tag);
 							}}
+							on:keydown={() => {
+								$selectedTags = $selectedTags.filter((item) => item !== tag);
+							}}
 							on:mouseenter={hoveredOverText}
 							on:mouseleave={notHovering}
 						>
@@ -133,6 +139,9 @@
 					{#if $selectedTags.includes(tag) === false && tag !== 'tshirt'}
 						<div
 							on:click={() => {
+								$selectedTags = [tag, ...$selectedTags];
+							}}
+							on:keydown={() => {
 								$selectedTags = [tag, ...$selectedTags];
 							}}
 							on:mouseenter={hoveredOverText}
@@ -221,13 +230,18 @@
 				>
 					<div class="h-full items-center justify-center sm:flex sm:justify-start">
 						<Surprise classNames="sm:h-full h-36 max-h-36 sm:pr-12 p-2 sm:p-0" />
-						<p class="hidden sm:inline-block">Sorry, there are no projects matching your filters.</p>
+						<p class="hidden sm:inline-block">
+							Sorry, there are no projects matching your filters.
+						</p>
 					</div>
 					<div class="my-2 mt-8 sm:my-0 sm:mt-0">
 						<p class="sm:hidden ">Sorry, there are no projects matching your filters.</p>
 						<button
 							class="buttonSecondary mt-6 sm:mt-0"
 							on:click={() => {
+								selectedTags.set([]);
+							}}
+							on:keydown={() => {
 								selectedTags.set([]);
 							}}>Clear Filters</button
 						>

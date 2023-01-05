@@ -17,7 +17,7 @@ export const projects: Project[] = [
 	{
 		projectName: 'Click Properties',
 		projectDescription: 'Branding for an emerging, novel Real Estate company.',
-		date: 'January 2022',
+		date: 'December 2020',
 		thumbnail: 'click.svg',
 
 		id: 'clickproperties',
@@ -26,7 +26,7 @@ export const projects: Project[] = [
 	{
 		projectName: 'Universi Language Center',
 		projectDescription: 'Social Media Management with a focus on improving Brand Recognition.',
-		date: 'January 2022',
+		date: 'March 2022 - ongoing',
 		thumbnail: 'universi.svg',
 
 		id: 'universi',
@@ -35,7 +35,7 @@ export const projects: Project[] = [
 	{
 		projectName: 'Venustre Clothing',
 		projectDescription: 'Apparel Design and Branding, for an eco-friendly clothing company.',
-		date: 'January 2022',
+		date: 'October 2020',
 		thumbnail: 'venustre.svg',
 
 		id: 'venustre',
@@ -44,7 +44,7 @@ export const projects: Project[] = [
 	{
 		projectName: 'Softoptech',
 		projectDescription: 'Branding for an established Albanian Tech company.',
-		date: 'January 2022',
+		date: 'January 2021',
 		thumbnail: 'softoptech.svg',
 
 		id: 'softoptech',

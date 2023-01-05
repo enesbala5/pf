@@ -1,12 +1,8 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
 	import Select from 'svelte-select';
-	import {
-		hoverOverLink,
-		hoverOverText,
-	} from '$lib/state/hoverOver';
+	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
 	import { darkMode } from '$lib/info/darkMode';
-	import { theme } from '$lib/state/theme';
 
 	let items = [
 		{ value: 'designUIUX', label: 'Design - UI / UX' },
@@ -43,21 +39,13 @@
 	on:mouseenter={notHovering}
 >
 	<h1 class="headline">Contact</h1>
-	<div
-		class="relative mx-auto mt-20 mb-8 text-lg lg:grid lg:grid-cols-10 lg:gap-2"
-	>
-		<div
-			class="col-span-8 col-start-2 flex items-center justify-between"
-		>
+	<div class="relative mx-auto mt-20 mb-8 text-lg lg:grid lg:grid-cols-10 lg:gap-2">
+		<div class="col-span-8 col-start-2 flex items-center justify-between">
 			<p class="text-justify">
 				Love to hear from you,<br />
 				Get in touch!
 			</p>
-			<div
-				class="h-20"
-				on:mouseenter={hoveredOverText}
-				on:mouseleave={notHovering}
-			>
+			<div class="h-20" on:mouseenter={hoveredOverText} on:mouseleave={notHovering}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					class="h-full fill-black object-cover transition-colors ease-in-out dark:fill-white"
@@ -83,26 +71,16 @@
 			class="col-span-8 col-start-2 mt-8 rounded-md bg-neutral-100 p-4 text-base transition-colors ease-in-out dark:bg-darkgray lg:p-6"
 		>
 			<!-- formsubmit redirect etc -->
-			<input
-				type="hidden"
-				name="_next"
-				value="https://www.enesbala.com/thankyou"
-			/>
+			<input type="hidden" name="_next" value="https://www.enesbala.com/thankyou" />
 			<input type="hidden" name="_captcha" value="false" />
 			<input type="hidden" name="_template" value="table" />
-			<input
-				type="hidden"
-				name="Interest"
-				value={interest?.label}
-			/>
+			<input type="hidden" name="Interest" value={interest?.label} />
 
 			<!-- row -->
 			<div
 				class="mb-6 mt-3 flex flex-col items-center space-y-6 sm:flex-row sm:space-x-6 lg:mt-0 lg:space-y-0 "
 			>
-				<div
-					class="flex w-full flex-col space-y-4 sm:w-1/2"
-				>
+				<div class="flex w-full flex-col space-y-4 sm:w-1/2">
 					<p>Your Name</p>
 					<input
 						on:mouseenter={hoveredOverText}
@@ -114,9 +92,7 @@
 						required
 					/>
 				</div>
-				<div
-					class="flex w-full flex-col space-y-4 sm:w-1/2"
-				>
+				<div class="flex w-full flex-col space-y-4 sm:w-1/2">
 					<p>Your Address</p>
 					<input
 						on:mouseenter={hoveredOverText}
@@ -130,14 +106,8 @@
 				</div>
 			</div>
 			<!-- row -->
-			<div
-				class="my-6 flex items-center space-x-6 space-y-4"
-			>
-				<div
-					class="{$theme === 'dark'
-						? 'selectStylingDark'
-						: 'selectStyling'} flex w-full flex-col"
-				>
+			<div class="my-6 flex items-center space-x-6 space-y-4">
+				<div class="{$darkMode ? 'selectStylingDark' : 'selectStyling'} flex w-full flex-col">
 					<p class="mb-3">What are you interested in</p>
 					<div
 						class="w-full font-aeonik"
@@ -149,9 +119,7 @@
 				</div>
 			</div>
 			<!-- row -->
-			<div
-				class="my-6 flex items-center space-x-6 space-y-4"
-			>
+			<div class="my-6 flex items-center space-x-6 space-y-4">
 				<div class="flex w-full flex-col space-y-3">
 					<p>Message</p>
 					<textarea
@@ -179,9 +147,7 @@
 		</form>
 		<!-- end form -->
 		<!-- map -->
-		<div
-			class="col-span-8 col-start-2 mt-8 space-y-4 text-base"
-		>
+		<div class="col-span-8 col-start-2 mt-8 space-y-4 text-base">
 			<p class="opacity-70">Where I'm Located</p>
 			<div
 				class="flex h-36 w-full items-center justify-center overflow-hidden rounded-md bg-neutral-100 dark:bg-darkgray lg:h-56"
@@ -200,12 +166,8 @@
 		</div>
 		<!-- end map -->
 		<!-- additional contact -->
-		<div
-			class="col-span-8 col-start-2 mt-8 space-y-4 text-base"
-		>
-			<p class="opacity-70">
-				You can also contact me through:
-			</p>
+		<div class="col-span-8 col-start-2 mt-8 space-y-4 text-base">
+			<p class="opacity-70">You can also contact me through:</p>
 			<div
 				class="flex w-full flex-col items-center justify-between space-y-3 lg:flex-row lg:space-x-4 lg:space-y-0"
 			>
@@ -216,19 +178,13 @@
 					on:mouseenter={hoveredOverLink}
 					on:mouseleave={notHovering}
 				>
-					<div
-						class="flex items-center justify-center rounded-full "
-					>
+					<div class="flex items-center justify-center rounded-full ">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							class="h-10 w-10 fill-neutral-700 group-hover:fill-neutral-800 group-active:fill-neutral-700 dark:fill-lightgray dark:group-active:fill-darkgray"
 							viewBox="0 0 512 512"
 						>
-							<g
-								id="Group_16"
-								data-name="Group 16"
-								transform="translate(-5411 -1960)"
-							>
+							<g id="Group_16" data-name="Group 16" transform="translate(-5411 -1960)">
 								<path
 									id="Path_51"
 									data-name="Path 51"
@@ -257,19 +213,13 @@
 					rel="noopener noreferrer"
 					class="group flex w-full items-center justify-between rounded-full bg-neutral-100 p-1 text-neutral-800 hover:bg-neutral-200 active:bg-opacity-80 dark:bg-darkgray dark:text-white dark:hover:bg-lightgray dark:active:bg-opacity-80"
 				>
-					<div
-						class="flex items-center justify-center rounded-full "
-					>
+					<div class="flex items-center justify-center rounded-full ">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							class="h-10 w-10 fill-neutral-700 group-hover:fill-neutral-800 group-active:fill-neutral-700 dark:fill-lightgray dark:group-active:fill-darkgray"
 							viewBox="0 0 512 512"
 						>
-							<g
-								id="Group_17"
-								data-name="Group 17"
-								transform="translate(-6050 -1960)"
-							>
+							<g id="Group_17" data-name="Group 17" transform="translate(-6050 -1960)">
 								<path
 									id="Path_52"
 									data-name="Path 52"
@@ -298,19 +248,13 @@
 					rel="noopener noreferrer"
 					class="group flex w-full items-center justify-between rounded-full bg-neutral-100 p-1 text-neutral-800 hover:bg-neutral-200 active:bg-opacity-80 dark:bg-darkgray dark:text-white dark:hover:bg-lightgray dark:active:bg-opacity-80"
 				>
-					<div
-						class="flex items-center justify-center rounded-full"
-					>
+					<div class="flex items-center justify-center rounded-full">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							class="h-10 w-10 fill-neutral-700 group-hover:fill-neutral-800 group-active:fill-neutral-700 dark:fill-lightgray dark:group-active:fill-darkgray"
 							viewBox="0 0 512 512"
 						>
-							<g
-								id="Group_18"
-								data-name="Group 18"
-								transform="translate(-6850 -1960)"
-							>
+							<g id="Group_18" data-name="Group 18" transform="translate(-6850 -1960)">
 								<path
 									id="Path_49"
 									data-name="Path 49"
@@ -338,7 +282,7 @@
 <!-- end contact -->
 
 <!-- footer -->
-<div class="mx-auto mt-24 lg:mt-32 font-aeonik ">
+<div class="mx-auto mt-24 font-aeonik lg:mt-32 ">
 	<Footer />
 </div>
 

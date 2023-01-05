@@ -1,14 +1,7 @@
 <script lang="ts">
 	import IntersectionObserver from 'svelte-intersection-observer';
-	import {
-		frontendSkills,
-		designSkills,
-		otherSkills,
-	} from '$lib/info/skills';
-	import {
-		hoverOverLink,
-		hoverOverText,
-	} from '$lib/state/hoverOver';
+	import { frontendSkills, designSkills, otherSkills } from '$lib/info/skills';
+	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
 
 	function hoveredOverText() {
 		hoverOverText.set(true);
@@ -21,20 +14,14 @@
 	let hoveredIcon = '';
 	let hoveredDescription = '';
 
-	const hoverSkill = (
-		icon: string,
-		description: string = ''
-	) => {
+	const hoverSkill = (icon: string, description: string = '') => {
 		hoveredIcon = `icons/skills/${icon}`;
 		hoveredDescription = description;
 		showingSkill = false;
 	};
 
-	import {
-		preloadImageUrls,
-		selectedCategoryMobile,
-	} from '$lib/state/preloadImageUrls';
-	import { browser } from '$app/env';
+	import { preloadImageUrls, selectedCategoryMobile } from '$lib/state/preloadImageUrls';
+	import { browser } from '$app/environment';
 	import SkillLogoSlider from '$lib/components/SkillLogoSlider.svelte';
 
 	let element: any;
@@ -43,9 +30,7 @@
 
 	$: showSkillIfIntersecting(intersecting);
 
-	const showSkillIfIntersecting = (
-		intersect: boolean | undefined
-	) => {
+	const showSkillIfIntersecting = (intersect: boolean | undefined) => {
 		if (intersect === true) {
 			if (intersecting && hoveredIcon === '') {
 				setTimeout(() => {
@@ -57,9 +42,7 @@
 							setTimeout(() => {
 								showingSkill = true;
 							}, 100);
-							document
-								.getElementById('skillDisplay')
-								?.focus();
+							document.getElementById('skillDisplay')?.focus();
 						}
 					}
 				}, 750);
@@ -68,8 +51,7 @@
 	};
 
 	$: if (!showingSkill) {
-		if (browser)
-			document.getElementById('skillDisplay')?.blur();
+		if (browser) document.getElementById('skillDisplay')?.blur();
 	}
 
 	// ? mobile Logic
@@ -79,11 +61,7 @@
 <svelte:window bind:innerWidth />
 
 {#if innerWidth >= 1024}
-	<IntersectionObserver
-		{element}
-		bind:intersecting
-		threshold={0.7}
-	>
+	<IntersectionObserver {element} bind:intersecting threshold={0.7}>
 		<div
 			bind:this={element}
 			id="skills"
@@ -107,14 +85,8 @@
 
 			<!-- Development -->
 			<div class="col-start-1 lg:col-span-2 lg:col-start-3">
-				<div
-					class="w-fit"
-					on:mouseenter={hoveredOverText}
-					on:mouseleave={notHovering}
-				>
-					<h3
-						class="peer text-lg opacity-70 transition-all delay-75 hover:opacity-100 lg:text-xl"
-					>
+				<div class="w-fit" on:mouseenter={hoveredOverText} on:mouseleave={notHovering}>
+					<h3 class="peer text-lg opacity-70 transition-all delay-75 hover:opacity-100 lg:text-xl">
 						Development
 					</h3>
 					<div
@@ -131,24 +103,14 @@
 				{#each frontendSkills as frontendSkill}
 					<div
 						class="group flex w-full items-center justify-between "
-						on:mouseenter={() =>
-							hoverSkill(
-								frontendSkill.icon,
-								frontendSkill.description
-							)}
+						on:mouseenter={() => hoverSkill(frontendSkill.icon, frontendSkill.description)}
 					>
-						<div
-							class="invisible h-[1px] w-full bg-lightgray lg:visible"
-						/>
+						<div class="invisible h-[1px] w-full bg-lightgray lg:visible" />
 						{#if frontendSkill.name === 'Supabase'}
 							<p
 								class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
 							>
-								Supabase<span
-									class="hidden 2xl:inline-block"
-								>
-									/ Postgres Database</span
-								>
+								Supabase<span class="hidden 2xl:inline-block"> / Postgres Database</span>
 							</p>
 						{/if}
 						{#if frontendSkill.name === 'Sveltekit'}
@@ -180,9 +142,7 @@
 					on:mouseenter={hoveredOverText}
 					on:mouseleave={notHovering}
 				>
-					<h3
-						class="peer text-lg opacity-70 transition-all delay-75 hover:opacity-100 lg:text-xl"
-					>
+					<h3 class="peer text-lg opacity-70 transition-all delay-75 hover:opacity-100 lg:text-xl">
 						UI/UX Design
 					</h3>
 					<div
@@ -199,15 +159,9 @@
 				{#each designSkills as designSkill}
 					<div
 						class="group flex w-full items-center justify-between"
-						on:mouseenter={() =>
-							hoverSkill(
-								designSkill.icon,
-								designSkill.description
-							)}
+						on:mouseenter={() => hoverSkill(designSkill.icon, designSkill.description)}
 					>
-						<div
-							class="invisible h-[1px] w-full bg-lightgray lg:visible"
-						/>
+						<div class="invisible h-[1px] w-full bg-lightgray lg:visible" />
 						<p
 							class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
 						>
@@ -220,16 +174,9 @@
 
 			<!-- 3D Design & Sound -->
 			<div class="col-span-2 col-start-1 lg:col-start-3">
-				<div
-					class="w-fit"
-					on:mouseenter={hoveredOverText}
-					on:mouseleave={notHovering}
-				>
-					<h3
-						class="peer text-lg opacity-70 transition-all delay-75 hover:opacity-100 lg:text-xl"
-					>
-						3D Design & <br class="block 2xl:hidden" />Sound
-						Design
+				<div class="w-fit" on:mouseenter={hoveredOverText} on:mouseleave={notHovering}>
+					<h3 class="peer text-lg opacity-70 transition-all delay-75 hover:opacity-100 lg:text-xl">
+						3D Design & <br class="block 2xl:hidden" />Sound Design
 					</h3>
 					<div
 						class="peer mt-0.5 h-0.5 w-1 bg-black opacity-0 transition-all delay-75 peer-hover:w-full peer-hover:opacity-100 dark:bg-white"
@@ -245,15 +192,9 @@
 				{#each otherSkills as otherSkill}
 					<div
 						class="group flex w-full items-center justify-between"
-						on:mouseenter={() =>
-							hoverSkill(
-								otherSkill.icon,
-								otherSkill.description
-							)}
+						on:mouseenter={() => hoverSkill(otherSkill.icon, otherSkill.description)}
 					>
-						<div
-							class="invisible h-[1px] w-full bg-lightgray lg:visible"
-						/>
+						<div class="invisible h-[1px] w-full bg-lightgray lg:visible" />
 						<p
 							class="ml-5  whitespace-nowrap text-right text-sm opacity-70 group-hover:opacity-100"
 						>
@@ -277,15 +218,8 @@
 								? 'flex'
 								: 'hidden'}"
 						>
-							<div
-								class="container h-14"
-								style="max-width: 70%"
-							>
-								<img
-									src={image}
-									class="img"
-									alt={hoveredIcon}
-								/>
+							<div class="container h-14" style="max-width: 70%">
+								<img src={image} class="img" alt={hoveredIcon} />
 							</div>
 						</div>
 					{/each}
@@ -293,21 +227,12 @@
 					<div
 						class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-md bg-black dark:bg-darkgray"
 					>
-						<div
-							class="container h-14"
-							style="max-width: 70%"
-						>
-							<img
-								src={hoveredIcon}
-								class="img"
-								alt={hoveredIcon}
-							/>
+						<div class="container h-14" style="max-width: 70%">
+							<img src={hoveredIcon} class="img" alt={hoveredIcon} />
 						</div>
 					</div>
 				{/if}
-				<p
-					class="mt-4 font-mono text-xs leading-5 opacity-70"
-				>
+				<p class="mt-4 font-mono text-xs leading-5 opacity-70">
 					{hoveredDescription}
 				</p>
 			</div>
@@ -317,21 +242,18 @@
 
 {#if innerWidth < 1024}
 	<div class="mt-48 mb-12">
-		<div
-			class="relative mx-auto mb-4 scroll-m-24 px-4 text-xl "
-			id="skills"
-		>
+		<div class="relative mx-auto mb-4 scroll-m-24 px-4 text-xl " id="skills">
 			<p class="font-medium">Skills</p>
 		</div>
-		<div
-			class="flex flex-col space-y-4 bg-neutral-100 py-8 px-4 dark:bg-darkgray"
-		>
+		<div class="flex flex-col space-y-4 bg-neutral-100 py-8 px-4 dark:bg-darkgray">
 			<div
-				class="text-5xl font-medium {$selectedCategoryMobile ===
-				'dev'
+				class="text-5xl font-medium {$selectedCategoryMobile === 'dev'
 					? 'opacity-100'
 					: 'opacity-10'}"
 				on:click={() => {
+					$selectedCategoryMobile = 'dev';
+				}}
+				on:keydown={() => {
 					$selectedCategoryMobile = 'dev';
 				}}
 			>
@@ -339,11 +261,13 @@
 			</div>
 
 			<div
-				class="text-5xl font-medium {$selectedCategoryMobile ===
-				'uiux'
+				class="text-5xl font-medium {$selectedCategoryMobile === 'uiux'
 					? 'opacity-100'
 					: 'opacity-10'}"
 				on:click={() => {
+					$selectedCategoryMobile = 'uiux';
+				}}
+				on:keydown={() => {
 					$selectedCategoryMobile = 'uiux';
 				}}
 			>
@@ -351,11 +275,13 @@
 			</div>
 
 			<div
-				class="text-5xl font-medium {$selectedCategoryMobile ===
-				'other'
+				class="text-5xl font-medium {$selectedCategoryMobile === 'other'
 					? 'opacity-100'
 					: 'opacity-10'}"
 				on:click={() => {
+					$selectedCategoryMobile = 'other';
+				}}
+				on:keydown={() => {
 					$selectedCategoryMobile = 'other';
 				}}
 			>
@@ -369,9 +295,7 @@
 		>
 			<SkillLogoSlider />
 		</div>
-		<div
-			class="mx-4 mt-6 flex space-x-2 items-center text-xs opacity-50"
-		>
+		<div class="mx-4 mt-6 flex items-center space-x-2 text-xs opacity-50">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
@@ -387,10 +311,7 @@
 				/>
 			</svg>
 
-			<p>
-				For a more detailed view, please review desktop
-				website.
-			</p>
+			<p>For a more detailed view, please review desktop website.</p>
 		</div>
 	</div>
 {/if}

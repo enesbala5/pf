@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { theme } from '$lib/state/theme';
+	import { darkMode } from '$lib/info/darkMode';
 
 	export let classNames: string = 'w-full h-full';
 	export let red: boolean = false;
@@ -7,19 +7,11 @@
 	let background: string = '';
 	let colored: string = '';
 	$: colored = red ? '#d71f2b' : '#1F1F1F';
-	$: background = $theme !== 'dark' ? '#fff' : '#000';
+	$: background = !$darkMode ? '#fff' : '#000';
 </script>
 
-<svg
-	xmlns="http://www.w3.org/2000/svg"
-	class={classNames}
-	viewBox="0 0 629.508 675.006"
->
-	<g
-		id="Group_71"
-		data-name="Group 71"
-		transform="translate(-1019.496 -219.799)"
-	>
+<svg xmlns="http://www.w3.org/2000/svg" class={classNames} viewBox="0 0 629.508 675.006">
+	<g id="Group_71" data-name="Group 71" transform="translate(-1019.496 -219.799)">
 		<g id="Group_69" data-name="Group 69">
 			<path
 				id="Path_187"

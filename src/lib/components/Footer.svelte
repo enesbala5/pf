@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
+	import { darkMode } from '$lib/info/darkMode';
 	import { cityName } from '$lib/info/info';
 	import { navigation } from '$lib/info/nav';
 
 	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
-	import { theme } from '$lib/state/theme';
 	import Stars from '$lib/svgs/Stars.svelte';
 	import LineUnderText from './LineUnderText.svelte';
 	import ProjectContainer from './project/containers/ProjectContainer.svelte';
@@ -34,7 +34,7 @@
 {#if innerWidth > 1024}
 	<div
 		class="bg-black dark:bg-darkgray"
-		style="--textColor:{$theme === 'dark' ? 'white' : 'black'};--backgroundColor:{$theme === 'dark'
+		style="--textColor:{$darkMode ? 'white' : 'black'};--backgroundColor:{$darkMode
 			? 'white'
 			: 'black'}"
 	>
@@ -187,7 +187,7 @@
 							>
 						</div>
 						<div class="col-start-9 col-end-11 flex items-center justify-end opacity-70">
-							2022&trade;
+							2023&trade;
 						</div>
 					</div>
 				</div>
@@ -198,14 +198,11 @@
 
 {#if innerWidth < 1024}
 	<div
-		style="--textColor:{$theme === 'dark' ? 'white' : 'black'};--backgroundColor:{$theme === 'dark'
+		style="--textColor:{$darkMode ? 'white' : 'black'};--backgroundColor:{$darkMode
 			? 'white'
 			: 'black'}"
 	>
-		<ProjectContainer
-			widthNotDefined
-			customMargin="bg-black dark:bg-darkgray h-full text-white py-24"
-		>
+		<div class="relative h-full bg-black pt-24 text-white dark:bg-darkgray">
 			<div class="flex h-2/3 w-full flex-col">
 				<div class="flex flex-col items-center">
 					<h2 class="text-3xl leading-normal ">Have an idea?</h2>
@@ -229,7 +226,12 @@
 					/>
 				</div>
 				<div class="flex items-center space-x-4">
-					<div class="group flex items-center justify-center">
+					<!-- Phone Icon -->
+					<a
+						href="tel:+355682415881"
+						class="group flex items-center justify-center"
+						aria-details="Phone Number"
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							class="h-10 w-10 fill-lightgray group-hover:fill-black"
@@ -252,8 +254,13 @@
 								/>
 							</g>
 						</svg>
-					</div>
-					<div class="group flex items-center justify-center">
+					</a>
+					<!-- WhatsApp Icon -->
+					<a
+						href="https://api.whatsapp.com/send?phone=355682415881"
+						class="group flex items-center justify-center"
+						aria-details="Whatsapp"
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							class="h-10 w-10 fill-lightgray group-hover:fill-black"
@@ -276,8 +283,13 @@
 								/>
 							</g>
 						</svg>
-					</div>
-					<div class="group flex items-center justify-center">
+					</a>
+					<!-- Linkedin Icon -->
+					<a
+						href="https://www.linkedin.com/in/enesbala/"
+						aria-details="Linkedin"
+						class="group flex items-center justify-center"
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							class="h-10 w-10 fill-lightgray group-hover:fill-black"
@@ -300,10 +312,41 @@
 								/>
 							</g>
 						</svg>
+					</a>
+				</div>
+			</div>
+			<div
+				class="mt-16 min-h-fit rounded-t-3xl bg-darkgray py-4 text-white dark:bg-lightgray dark:text-white"
+			>
+				<div class="mx-auto flex h-full flex-col items-center px-4 text-sm">
+					<div class=" flex items-center py-4 opacity-70">
+						<FooterLogo classNames="h-4 fill-white dark:fill-white" />
+					</div>
+					<div
+						class="  mt-4 flex w-full items-center justify-center rounded-full bg-black bg-opacity-20 p-2 opacity-70"
+					>
+						<p class="opacity-70">Iconography by</p>
+						<a
+							on:mouseenter={hoveredOverLink}
+							on:mouseleave={notHovering}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="mx-1"
+							href="https://thenounproject.com/sean.maldjian/">Sean Maldjian</a
+						>
+						<p class="opacity-70">on</p>
+						<a
+							on:mouseenter={hoveredOverLink}
+							on:mouseleave={notHovering}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="mx-1"
+							href="https://thenounproject.com/">Noun Project</a
+						>
 					</div>
 				</div>
 			</div>
-		</ProjectContainer>
+		</div>
 	</div>
 {/if}
 

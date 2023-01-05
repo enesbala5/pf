@@ -1,15 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { fade } from 'svelte/transition';
-	import { expoInOut, quadIn, quadInOut, sineOut } from 'svelte/easing';
-	import { quadOut } from 'svelte/easing';
+	import { quadInOut } from 'svelte/easing';
+	import { disableDarkMode, enableDarkMode } from '$lib/fetching/themeChange';
+
 	import { afterNavigate } from '$app/navigation';
 	import { darkMode } from '$lib/info/darkMode';
 	import DarkModeToggle from './DarkModeToggle.svelte';
-	import type { Theme } from 'src/types';
 	import { navigation } from '$lib/info/nav';
 	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
-	import { setTheme, theme } from '$lib/state/theme';
 	import LineUnderText from './LineUnderText.svelte';
 	import { emailAddress } from '$lib/info/info';
 
@@ -70,14 +69,19 @@
 		urlBuffer = $page.url.pathname;
 	});
 
-	$: nextTheme = ($theme === 'dark' ? 'light' : 'dark') as Theme;
-	const handleThemeIconClick = () => {
-		setTheme(nextTheme);
+	const handleThemeIconClick: any = () => {
+		if ($darkMode) {
+			disableDarkMode();
+		} else {
+			enableDarkMode();
+		}
 	};
 </script>
 
 <!-- mobile -->
-<nav class="bg-mainbg flex w-full items-center justify-between p-4 transition-colors ease-in-out lg:hidden">
+<nav
+	class="bg-mainbg flex w-full items-center justify-between p-4 transition-colors ease-in-out lg:hidden"
+>
 	<a
 		aria-label="Go to Home Page"
 		on:mouseenter={hoveredOverNavItem}
@@ -106,15 +110,22 @@
 	<div class="noSelect z-[999] flex space-x-3">
 		<div
 			on:click={handleThemeIconClick}
-			label="toggle theme from {$theme} to {nextTheme}"
+			on:keydown={handleThemeIconClick}
+			label="toggle darkMode from {$darkMode} to {!$darkMode}"
 			aria-live="polite"
 			class="h-5 w-5  active:opacity-100"
 		>
 			<DarkModeToggle />
 		</div>
-		<div on:click={manageMenu} class="z-30 flex h-5 items-center justify-center">
+		<div
+			on:click={manageMenu}
+			on:keydown={manageMenu}
+			class="z-30 flex h-5 items-center justify-center"
+		>
 			<button class="z-60 relative h-full w-5 focus:outline-none">
-				<div class="absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/2 transform">
+				<div
+					class="absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/2 transform"
+				>
 					<span
 						aria-hidden="true"
 						class="{!open
@@ -154,7 +165,7 @@
 						href={navigation.home}
 						class="text-6xl font-medium md:text-7xl  lg:text-8xl  {$page.url.pathname === '/'
 							? 'text-black dark:text-white'
-							: $theme === 'dark'
+							: $darkMode
 							? 'outlineDark'
 							: 'outline'}"
 					>
@@ -165,7 +176,7 @@
 						class=" text-6xl font-medium md:text-7xl lg:text-8xl
 						{$page.url.pathname.includes('work') || $page.url.pathname.includes('projects')
 							? 'text-black dark:text-white'
-							: $theme === 'dark'
+							: $darkMode
 							? 'outlineDark'
 							: 'outline'} "
 					>
@@ -173,9 +184,11 @@
 					</a>
 					<a
 						href={navigation.about}
-						class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes('about')
+						class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
+							'about'
+						)
 							? 'text-black dark:text-white'
-							: $theme === 'dark'
+							: $darkMode
 							? 'outlineDark'
 							: 'outline'} "
 					>
@@ -183,9 +196,11 @@
 					</a>
 					<a
 						href={navigation.contact}
-						class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes('contact')
+						class=" text-6xl font-medium md:text-7xl lg:text-8xl {$page.url.pathname.includes(
+							'contact'
+						)
 							? 'text-black dark:text-white'
-							: $theme === 'dark'
+							: $darkMode
 							? 'outlineDark'
 							: 'outline'} "
 					>
@@ -265,7 +280,8 @@
 			on:mouseenter={hoveredOverText}
 			on:mouseleave={notHovering}
 			on:click={handleThemeIconClick}
-			label="toggle theme from {$theme} to {nextTheme}"
+			on:keydown={handleThemeIconClick}
+			label="toggle theme from {$darkMode} to {!$darkMode}"
 			aria-live="polite"
 			class="h-5 w-5 opacity-50 active:opacity-100"
 		>

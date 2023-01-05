@@ -1,25 +1,32 @@
 <script lang="ts">
-	import LoadingScreen from '$lib/components/LoadingScreen.svelte';
 	import '../app.css';
-	import { Svrollbar } from 'svrollbar';
-	import Navbar from '$lib/components/Navbar.svelte';
-	import { spring } from 'svelte/motion';
-	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
-	import { fade } from 'svelte/transition';
-	import { quadIn, quadOut } from 'svelte/easing';
-	import { designSkills, frontendSkills, otherSkills } from '$lib/info/skills';
-	import { browser } from '$app/env';
-	import { page } from '$app/stores';
-	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
+	// Sveltekit Functions
 	import { onMount } from 'svelte';
-	import { theme } from '$lib/state/theme';
 	import { afterNavigate } from '$app/navigation';
+	// Data
+	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
 	import { selectedTags } from '$lib/projects/projects';
+	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
+	import { designSkills, frontendSkills, otherSkills } from '$lib/info/skills';
+	// Sveltekit Data
+	import { browser } from '$app/environment';
+	import { page } from '$app/stores';
+	// UI Components
+	import Navbar from '$lib/components/Navbar.svelte';
+	import LoadingScreen from '$lib/components/LoadingScreen.svelte';
+	import { Svrollbar } from 'svrollbar';
+	// Animation
+	import { fade } from 'svelte/transition';
+	import { spring } from 'svelte/motion';
+	import { quadIn, quadOut } from 'svelte/easing';
+	import { darkMode } from '$lib/info/darkMode';
 
 	let size = spring(7);
 	let clicked: boolean = false;
 
 	$: ($hoverOverLink, clicked, $hoverOverText, scrollY), updateSize();
+
+	// $: (pageX, pageY), console.log(pageX, pageY);
 
 	function updateSize() {
 		if (clicked) {
@@ -112,8 +119,8 @@
 
 {#key ready}
 	<div
-		class={$theme}
-		style="--textColor:{$theme === 'dark' ? 'black' : 'white'};--backgroundColor:{$theme === 'dark'
+		class={$darkMode ? 'dark' : ''}
+		style="--textColor:{$darkMode ? 'black' : 'white'};--backgroundColor:{$darkMode === 'dark'
 			? 'black'
 			: 'white'}"
 	>
@@ -137,9 +144,12 @@
 					duration: 500,
 					easing: quadIn,
 				}}
-				class="relative min-h-screen font-aeonik {pageX !== -1 && scrollY !== -1
-					? 'lg:cursor-none'
-					: ''} {$theme} {ready ? '' : 'hidden'}"
+				class="
+				relative min-h-screen font-aeonik 
+				{$darkMode ? 'dark' : ''} 
+				{pageX !== -1 && scrollY !== -1 ? 'lg:cursor-none' : ''} 
+				{ready ? '' : 'hidden'}
+					"
 				on:mousedown={() => (clicked = true)}
 				on:mouseup={() => (clicked = false)}
 			>
@@ -158,7 +168,7 @@
 		</div>
 	</div>
 {/key}
-<div id={$theme === 'dark' ? 'scrollbarDark' : 'scrollbar'} class="z-50 hidden lg:block">
+<div id={$darkMode ? 'scrollbarDark' : 'scrollbar'} class="z-50 hidden lg:block">
 	<Svrollbar />
 </div>
 

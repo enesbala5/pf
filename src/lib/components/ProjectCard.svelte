@@ -7,10 +7,7 @@
 	export let thumbnail: string;
 	export let tags: Tag[];
 	export let date: string;
-	import {
-		hoverOverLink,
-		hoverOverText,
-	} from '$lib/state/hoverOver';
+	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
 	import type { Tag } from 'src/types';
 
 	function hoveredOverLink() {
@@ -31,21 +28,13 @@
 	class="group relative mb-10 flex h-full w-full flex-col-reverse lg:mb-0 lg:flex-row"
 	style="hyphens: none;"
 >
-	<div
-		class="mt-4 flex h-full w-full flex-col lg:mt-0 lg:w-1/2 lg:justify-center"
-	>
-		<a
-			href={`/projects/${projectId}`}
-			on:mouseenter={hoveredOverLink}
-			on:mouseleave={notHovering}
-		>
-			<h4
-				class="text-lg font-medium opacity-70 group-hover:opacity-100 lg:text-xl"
-			>
+	<div class="mt-4 flex h-full w-full flex-col lg:mt-0 lg:w-1/2 lg:justify-center">
+		<a href={`/projects/${projectId}`} on:mouseenter={hoveredOverLink} on:mouseleave={notHovering}>
+			<h4 class="text-lg font-medium opacity-70 group-hover:opacity-100 lg:text-xl">
 				{projectName}
 			</h4>
 			<p
-				class="mt-1 w-full text-base leading-relaxed lg:leading-snug opacity-70 group-hover:opacity-100 peer-hover:opacity-100 lg:w-2/3"
+				class="mt-1 w-full text-base leading-relaxed opacity-70 group-hover:opacity-100 peer-hover:opacity-100 lg:w-2/3 lg:leading-snug"
 			>
 				{projectDescription}
 			</p>
@@ -121,7 +110,7 @@
 				{/each}
 			{/if}
 			<p
-				class="w-full pl-4 font-mono text-xs opacity-70 lg:border-none"
+				class="w-full whitespace-nowrap pl-4 font-mono text-xs opacity-70 lg:border-none"
 				on:mouseenter={hoveredOverText}
 				on:mouseleave={notHovering}
 			>
@@ -132,15 +121,12 @@
 	<!-- svelte-ignore a11y-missing-content -->
 	<div
 		on:click={() => goto(`/projects/${projectId}`)}
+		on:keydown={() => goto(`/projects/${projectId}`)}
 		on:mouseenter={hoveredOverLink}
 		on:mouseleave={notHovering}
 		class="peer relative h-40 overflow-hidden rounded-md bg-neutral-200 dark:bg-darkgray dark:group-hover:bg-lightgray dark:peer-hover:bg-lightgray lg:h-48 lg:w-1/2"
 	>
-		<img
-			src={`/images/thumbnails/${thumbnail}`}
-			alt=""
-			class="h-full w-full object-cover"
-		/>
+		<img src={`/images/thumbnails/${thumbnail}`} alt="" class="h-full w-full object-cover" />
 		<div
 			class="absolute top-0 left-0 h-full w-full bg-black opacity-0 transition-opacity group-hover:opacity-5 group-active:opacity-20"
 		/>
