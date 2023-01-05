@@ -1,37 +1,37 @@
 {
-	"name": "enes-bala-pf",
+	"name": "Enes Bala",
 	"short_name": "enesbala",
-		"theme_color": "#F5F5F5",
-  "background_color": "#3E82F7",
+	"theme_color": "#F5F5F5",
+	"background_color": "#FFF",
 	"display": "standalone",
-  "start_url": "/",
+	"start_url": "/",
 	"icons": [
 		{
 			"src": "/icons/pwa/pwa_icon.png",
 			"sizes": "512x512",
 			"type": "image/png",
-      "purpose": "any"
+			"purpose": "any"
 		},
-    {
-      "src": "/icons/pwa/maskable_icon_x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icons/pwa/maskable_icon_x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icons/pwa/maskable_icon.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ],
+		{
+			"src": "/icons/pwa/maskable_icon_x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/icons/pwa/maskable_icon_x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/icons/pwa/maskable_icon.png",
+			"sizes": "1024x1024",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	],
 	"scope": "/",
-	
+
 	"description": "Front-End Development & Graphic Design"
 }
