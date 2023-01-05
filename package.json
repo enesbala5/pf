@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@vercel/analytics": "^0.1.6",
 		"svelte-intersection-observer": "^0.10.0",
 		"svelte-select": "^4.4.7",
 		"svrollbar": "^0.12.0",

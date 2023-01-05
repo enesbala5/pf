@@ -101,6 +101,10 @@
 		$selectedTags = [];
 	});
 	let quickAnimation = false;
+
+	// Vercel Analytics
+	import { inject } from '@vercel/analytics';
+	inject();
 </script>
 
 <svelte:window
