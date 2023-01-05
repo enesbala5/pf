@@ -218,7 +218,7 @@
 				<div class="my-4">
 					<LineUnderText
 						central
-						lineColor="black"
+						lineColor="white"
 						link
 						text="contact@enesbala.com"
 						centralOpacity="opacity-20 dark:opacity-10"
