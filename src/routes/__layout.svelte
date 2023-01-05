@@ -4,17 +4,10 @@
 	import { Svrollbar } from 'svrollbar';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import { spring } from 'svelte/motion';
-	import {
-		hoverOverLink,
-		hoverOverText,
-	} from '$lib/state/hoverOver';
+	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
 	import { fade } from 'svelte/transition';
 	import { quadIn, quadOut } from 'svelte/easing';
-	import {
-		designSkills,
-		frontendSkills,
-		otherSkills,
-	} from '$lib/info/skills';
+	import { designSkills, frontendSkills, otherSkills } from '$lib/info/skills';
 	import { browser } from '$app/env';
 	import { page } from '$app/stores';
 	import { preloadImageUrls } from '$lib/state/preloadImageUrls';
@@ -26,21 +19,18 @@
 	let size = spring(7);
 	let clicked: boolean = false;
 
-	$: ($hoverOverLink, clicked, $hoverOverText, scrollY),
-		updateSize();
+	$: ($hoverOverLink, clicked, $hoverOverText, scrollY), updateSize();
 
 	function updateSize() {
 		if (clicked) {
 			if ($hoverOverLink) {
 				size.set(15);
-				pointerClasses =
-					'dark:fill-white fill-black dark:opacity-50 opacity-20';
+				pointerClasses = 'dark:fill-white fill-black dark:opacity-50 opacity-20';
 				return;
 			}
 			if ($hoverOverText) {
 				size.set(7);
-				pointerClasses =
-					'dark:fill-white fill-black dark:opacity-50 opacity-20';
+				pointerClasses = 'dark:fill-white fill-black dark:opacity-50 opacity-20';
 				return;
 			} else {
 				size.set(15);
@@ -49,14 +39,12 @@
 		}
 		if ($hoverOverLink) {
 			size.set(25);
-			pointerClasses =
-				'dark:fill-white fill-black dark:opacity-20 opacity-10';
+			pointerClasses = 'dark:fill-white fill-black dark:opacity-20 opacity-10';
 			return;
 		}
 		if ($hoverOverText) {
 			size.set(15);
-			pointerClasses =
-				'dark:fill-white fill-black dark:opacity-20 opacity-10';
+			pointerClasses = 'dark:fill-white fill-black dark:opacity-20 opacity-10';
 			return;
 		} else {
 			size.set(7);
@@ -71,34 +59,19 @@
 
 	function getImagesToPreload() {
 		if (browser) {
-			if (
-				$page.url.pathname === '/' ||
-				$page.url.pathname === ''
-			) {
+			if ($page.url.pathname === '/' || $page.url.pathname === '') {
 				for (let skill of designSkills) {
-					$preloadImageUrls = [
-						...$preloadImageUrls,
-						`icons/skills/${skill.icon}`,
-					];
+					$preloadImageUrls = [...$preloadImageUrls, `icons/skills/${skill.icon}`];
 				}
 				for (let skill of otherSkills) {
-					$preloadImageUrls = [
-						...$preloadImageUrls,
-						`icons/skills/${skill.icon}`,
-					];
+					$preloadImageUrls = [...$preloadImageUrls, `icons/skills/${skill.icon}`];
 				}
 				for (let skill of frontendSkills) {
-					$preloadImageUrls = [
-						...$preloadImageUrls,
-						`icons/skills/${skill.icon}`,
-					];
+					$preloadImageUrls = [...$preloadImageUrls, `icons/skills/${skill.icon}`];
 				}
 			}
 		}
-		$preloadImageUrls = [
-			...$preloadImageUrls,
-			'/images/tirana.webp',
-		];
+		$preloadImageUrls = [...$preloadImageUrls, '/images/tirana.webp'];
 	}
 
 	function goTop() {
@@ -140,9 +113,7 @@
 {#key ready}
 	<div
 		class={$theme}
-		style="--textColor:{$theme === 'dark'
-			? 'black'
-			: 'white'};--backgroundColor:{$theme === 'dark'
+		style="--textColor:{$theme === 'dark' ? 'black' : 'white'};--backgroundColor:{$theme === 'dark'
 			? 'black'
 			: 'white'}"
 	>
@@ -166,23 +137,15 @@
 					duration: 500,
 					easing: quadIn,
 				}}
-				class="relative min-h-screen font-aeonik {pageX !==
-					-1 && scrollY !== -1
+				class="relative min-h-screen font-aeonik {pageX !== -1 && scrollY !== -1
 					? 'lg:cursor-none'
 					: ''} {$theme} {ready ? '' : 'hidden'}"
 				on:mousedown={() => (clicked = true)}
 				on:mouseup={() => (clicked = false)}
 			>
 				{#key $size}
-					<svg
-						class="pointer-events-none absolute z-[999] hidden h-full w-full lg:block"
-					>
-						<circle
-							class={pointerClasses}
-							cx={pageX}
-							cy={pageY + scrollY}
-							r={$size}
-						/>
+					<svg class="pointer-events-none absolute z-[999] hidden h-full w-full lg:block">
+						<circle class={pointerClasses} cx={pageX} cy={pageY + scrollY} r={$size} />
 					</svg>
 				{/key}
 				<div
@@ -195,10 +158,7 @@
 		</div>
 	</div>
 {/key}
-<div
-	id={$theme === 'dark' ? 'scrollbarDark' : 'scrollbar'}
-	class="z-50 hidden lg:block"
->
+<div id={$theme === 'dark' ? 'scrollbarDark' : 'scrollbar'} class="z-50 hidden lg:block">
 	<Svrollbar />
 </div>
 

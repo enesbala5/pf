@@ -1,12 +1,9 @@
 <script lang="ts">
-  import { browser } from '$app/env';
+	import { browser } from '$app/env';
 	import { cityName } from '$lib/info/info';
 	import { navigation } from '$lib/info/nav';
 
-	import {
-		hoverOverLink,
-		hoverOverText,
-	} from '$lib/state/hoverOver';
+	import { hoverOverLink, hoverOverText } from '$lib/state/hoverOver';
 	import { theme } from '$lib/state/theme';
 	import Stars from '$lib/svgs/Stars.svelte';
 	import LineUnderText from './LineUnderText.svelte';
@@ -37,9 +34,7 @@
 {#if innerWidth > 1024}
 	<div
 		class="bg-black dark:bg-darkgray"
-		style="--textColor:{$theme === 'dark'
-			? 'white'
-			: 'black'};--backgroundColor:{$theme === 'dark'
+		style="--textColor:{$theme === 'dark' ? 'white' : 'black'};--backgroundColor:{$theme === 'dark'
 			? 'white'
 			: 'black'}"
 	>
@@ -70,9 +65,7 @@
 									</a>
 								</LineUnderText>
 							</div>
-							<div
-								class=" hidden h-full w-1/2 items-center justify-end 2xl:flex "
-							>
+							<div class=" hidden h-full w-1/2 items-center justify-end 2xl:flex ">
 								<Stars
 									classNames={`mt-12 w-2/3 h-full fill-transparent stroke-lightgray stroke-2 ${
 										hovering ? '' : ''
@@ -84,13 +77,9 @@
 						<!-- <div>
 							<p>{cityName}, Albania</p>
 						</div> -->
-						<div
-							class="grid w-full grid-cols-10 grid-rows-1 gap-2 py-8 2xl:h-[16%]"
-						>
+						<div class="grid w-full grid-cols-10 grid-rows-1 gap-2 py-8 2xl:h-[16%]">
 							<div class="col-span-3  2xl:col-span-2">
-								<p class="mb-2 text-sm opacity-50">
-									Contact through Email:
-								</p>
+								<p class="mb-2 text-sm opacity-50">Contact through Email:</p>
 								<LineUnderText
 									noHover
 									lineColor="white"
@@ -101,9 +90,7 @@
 								/>
 							</div>
 							<div class="col-span-6 ">
-								<p class="mb-2 text-sm opacity-50">
-									Where you can find me:
-								</p>
+								<p class="mb-2 text-sm opacity-50">Where you can find me:</p>
 								<div class="flex items-center space-x-12">
 									<LineUnderText
 										noHover
@@ -131,27 +118,23 @@
 									/>
 								</div>
 							</div>
-							<div
-								class="col-span-1 col-start-10 col-end-11 flex h-14 items-center justify-end "
-							>
+							<div class="col-span-1 col-start-10 col-end-11 flex h-14 items-center justify-end ">
 								<div
-									class="rounded-full bg-brand group hover:-translate-y-0.5 transition-colors ease-linear p-4"
+									class="group rounded-full bg-brand p-4 transition-colors ease-linear hover:-translate-y-0.5"
 									on:mouseenter={hoveredOverLink}
 									on:mouseleave={notHovering}
 									on:keydown={() => {
 										if (browser) {
-											document
-												.querySelector('#skills')
-												?.scrollIntoView({
-													behavior: 'smooth',
-												});
+											document.querySelector('#skills')?.scrollIntoView({
+												behavior: 'smooth',
+											});
 										}
 									}}
 									on:click={() => {
 										if (browser) {
-												document.querySelector('body')?.scrollIntoView({
-													behavior: 'smooth',
-												})
+											document.querySelector('body')?.scrollIntoView({
+												behavior: 'smooth',
+											});
 										}
 									}}
 								>
@@ -179,19 +162,11 @@
 					class="h-[8%] rounded-t-full bg-darkgray text-white dark:bg-lightgray dark:text-white"
 					id="wrapper"
 				>
-					<div
-						class=" mx-auto grid h-full w-10/12 grid-cols-10 grid-rows-1 gap-2 px-0 text-sm"
-					>
-						<div
-							class="col-span-3 flex items-center opacity-70 2xl:col-span-2"
-						>
-							<FooterLogo
-								classNames="h-4 fill-white dark:fill-white"
-							/>
+					<div class=" mx-auto grid h-full w-10/12 grid-cols-10 grid-rows-1 gap-2 px-0 text-sm">
+						<div class="col-span-3 flex items-center opacity-70 2xl:col-span-2">
+							<FooterLogo classNames="h-4 fill-white dark:fill-white" />
 						</div>
-						<div
-							class="col-span-5 flex items-center opacity-70"
-						>
+						<div class="col-span-5 flex items-center opacity-70">
 							<p class="opacity-70">Iconography by</p>
 							<a
 								on:mouseenter={hoveredOverLink}
@@ -199,8 +174,7 @@
 								target="_blank"
 								rel="noopener noreferrer"
 								class="mx-1"
-								href="https://thenounproject.com/sean.maldjian/"
-								>Sean Maldjian</a
+								href="https://thenounproject.com/sean.maldjian/">Sean Maldjian</a
 							>
 							<p class="opacity-70">on</p>
 							<a
@@ -209,13 +183,10 @@
 								target="_blank"
 								rel="noopener noreferrer"
 								class="mx-1"
-								href="https://thenounproject.com/"
-								>Noun Project</a
+								href="https://thenounproject.com/">Noun Project</a
 							>
 						</div>
-						<div
-							class="col-start-9 col-end-11 flex items-center justify-end opacity-70"
-						>
+						<div class="col-start-9 col-end-11 flex items-center justify-end opacity-70">
 							2022&trade;
 						</div>
 					</div>
@@ -227,9 +198,7 @@
 
 {#if innerWidth < 1024}
 	<div
-		style="--textColor:{$theme === 'dark'
-			? 'white'
-			: 'black'};--backgroundColor:{$theme === 'dark'
+		style="--textColor:{$theme === 'dark' ? 'white' : 'black'};--backgroundColor:{$theme === 'dark'
 			? 'white'
 			: 'black'}"
 	>
@@ -239,23 +208,16 @@
 		>
 			<div class="flex h-2/3 w-full flex-col">
 				<div class="flex flex-col items-center">
-					<h2 class="text-3xl leading-normal ">
-						Have an idea?
-					</h2>
+					<h2 class="text-3xl leading-normal ">Have an idea?</h2>
 					<LineUnderText custom lineColor={'white'} central>
-						<a
-							href={navigation.contact}
-							class="text-5xl font-light leading-normal"
-						>
+						<a href={navigation.contact} class="text-5xl font-light leading-normal">
 							Get in touch
 						</a>
 					</LineUnderText>
 				</div>
 			</div>
 
-			<div
-				class="mt-12 flex h-1/3 w-full flex-col items-center"
-			>
+			<div class="mt-12 flex h-1/3 w-full flex-col items-center">
 				<div class="my-4">
 					<LineUnderText
 						central
@@ -267,19 +229,13 @@
 					/>
 				</div>
 				<div class="flex items-center space-x-4">
-					<div
-						class="group flex items-center justify-center"
-					>
+					<div class="group flex items-center justify-center">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							class="h-10 w-10 fill-lightgray group-hover:fill-black"
 							viewBox="0 0 512 512"
 						>
-							<g
-								id="Group_16"
-								data-name="Group 16"
-								transform="translate(-5411 -1960)"
-							>
+							<g id="Group_16" data-name="Group 16" transform="translate(-5411 -1960)">
 								<path
 									id="Path_51"
 									data-name="Path 51"
@@ -297,19 +253,13 @@
 							</g>
 						</svg>
 					</div>
-					<div
-						class="group flex items-center justify-center"
-					>
+					<div class="group flex items-center justify-center">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							class="h-10 w-10 fill-lightgray group-hover:fill-black"
 							viewBox="0 0 512 512"
 						>
-							<g
-								id="Group_17"
-								data-name="Group 17"
-								transform="translate(-6050 -1960)"
-							>
+							<g id="Group_17" data-name="Group 17" transform="translate(-6050 -1960)">
 								<path
 									id="Path_52"
 									data-name="Path 52"
@@ -327,19 +277,13 @@
 							</g>
 						</svg>
 					</div>
-					<div
-						class="group flex items-center justify-center"
-					>
+					<div class="group flex items-center justify-center">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							class="h-10 w-10 fill-lightgray group-hover:fill-black"
 							viewBox="0 0 512 512"
 						>
-							<g
-								id="Group_18"
-								data-name="Group 18"
-								transform="translate(-6850 -1960)"
-							>
+							<g id="Group_18" data-name="Group 18" transform="translate(-6850 -1960)">
 								<path
 									id="Path_49"
 									data-name="Path 49"
