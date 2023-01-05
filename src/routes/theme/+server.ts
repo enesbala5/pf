@@ -1,28 +1,26 @@
-import type { RequestHandler } from '@sveltejs/kit';
-import { isTheme } from '../types';
+import type { RequestHandler } from './$types';
+import { isTheme } from 'src/types';
 
 // PUT /theme
-export const PUT: RequestHandler = async ({ request }) => {
+export const PUT: RequestHandler = async ({ request }: any) => {
 	const theme = await request.text();
 
 	if (!isTheme(theme)) {
-		return {
-			status: 400,
-			body: `not a valid theme value: ${theme}`,
-		};
+		return new Response(`not a valid theme value: ${theme}`, { status: 400 });
 	}
 
-	return {
+	return new Response(JSON.stringify(`Theme set: ${theme}`), {
 		headers: {
-			'Set-Cookie': `theme=${theme}; SameSite=Strict; HttpOnly; Path=/`,
+			'set-cookie': `theme=${theme}; SameSite=Strict; HttpOnly; Path=/`,
 		},
-	};
+	});
 };
 
-// DELETE /theme
-export const DELETE: RequestHandler = async () => ({
-	status: 204,
-	headers: {
-		'Set-Cookie': `theme= ; Max-Age=0; SameSite=Strict; HttpOnly; Path=/`,
-	},
-});
+export const DELETE: RequestHandler = async () => {
+	return new Response(JSON.stringify(`Theme deleted.`), {
+		status: 204,
+		headers: {
+			'set-cookie': `theme= ; Max-Age=0; SameSite=Strict; HttpOnly; Path=/`,
+		},
+	});
+};
